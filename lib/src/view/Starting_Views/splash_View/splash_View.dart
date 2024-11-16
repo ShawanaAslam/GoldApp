@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-import 'package:goldapp/src/view/Home_Views/home_view.dart';
+import 'package:goldapp/src/view/Home_Views/gold-home-view.dart';
 
 import 'package:get/get_core/src/get_main.dart';
+import 'package:goldapp/src/view/selection_screen/selection_screen.dart';
 
 
 
@@ -21,13 +22,17 @@ class _SplashViewState extends State<SplashView> {
     super.initState();
     Future.delayed(
         Duration(
-          seconds: 500,
+          seconds: 5,
         ), () {
           //page routing----
-      Get.to(() => GoldShop());
+      Get.to(() => SelectionScreen());
     });
   }
+  // one time login credentials
 
+  // already login==> goldshop
+
+  //user did not login--> selection screen
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -39,7 +44,7 @@ class _SplashViewState extends State<SplashView> {
               decoration: BoxDecoration(
                   image: DecorationImage(
                       image:
-                      AssetImage('goldring.jpeg')),
+                      AssetImage('assets/goldring.jpeg',)),
             ),),
             // SizedBox(
             //   height: 20,

@@ -35,9 +35,32 @@ class _GoldShopState extends State<GoldShop> {
     return Scaffold(
       backgroundColor: Colors.black,
       appBar: AppBar(
+        actions: [
+          IconButton(onPressed: (){
+            // navigate to history screen
+
+          }, icon: Icon(Icons.history_toggle_off))
+        ],
         backgroundColor: Colors.amber,
-        title: MyText(txt: '"Project of Gold Shop..!"',decclr: Colors.black,font: 24,),
+        title: MyText(txt: '"Project of Gold Shop..!"',decclr: Colors.black,font: 18,),
         centerTitle: true,
+      ),
+      drawer: Drawer(
+        // flow chart
+        // flow diagram
+        // sketching of an application
+        // in drawer header
+        // picture
+        // user name
+        // user email
+
+        //--------> flow chart---
+        //1st: home
+        // 2nd history screen
+        // 3rd about app screen
+        // 4th about developers screen---> developer intro , image, contacts: whatsapp , email
+        // 5rd signout
+        // 6th: login
       ),
       body: SingleChildScrollView(
         child: Column(
