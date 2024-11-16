@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:goldapp/src/view/Home_Views/home_view.dart';
 
 class SplashView extends StatefulWidget {
   const SplashView({super.key});
@@ -14,8 +16,9 @@ class _SplashViewState extends State<SplashView> {
     super.initState();
     Future.delayed(
         Duration(
-          seconds: 5,
+          seconds: 500,
         ), () {
+          //page routing----
       Get.to(() => GoldShop());
     });
   }
