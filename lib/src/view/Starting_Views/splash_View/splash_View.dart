@@ -1,4 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:get/get_core/src/get_main.dart';
+
+import '../../Home_Views/home_view.dart';
 
 class SplashView extends StatefulWidget {
   const SplashView({super.key});
@@ -23,26 +27,23 @@ class _SplashViewState extends State<SplashView> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          crossAxisAlignment: CrossAxisAlignment.center,
-          children: [
+      body:
+
             Container(
-              height: 200,
-              width: 200,
+              height:  double.infinity,
+              width: double.infinity,
               decoration: BoxDecoration(
                   image: DecorationImage(
                       image:
-                      AssetImage('lib/scr/utills/assets/to-do-list.png'))),
-            ),
-            SizedBox(
-              height: 20,
-            ),
-            CircularProgressIndicator()
-          ],
-        ),
-      ),
+                      AssetImage('goldring.jpeg')),
+            ),),
+            // SizedBox(
+            //   height: 20,
+            // ),
+            // CircularProgressIndicator()
+
+
+
     );
   }
 }
