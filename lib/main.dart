@@ -1,5 +1,9 @@
 import 'package:flutter/material.dart';
+
 import 'package:get/get.dart';
+
+import 'package:goldapp/src/view/Home_Views/home_view.dart';
+
 import 'package:goldapp/src/view/Starting_Views/splash_View/splash_View.dart';
 
 void main() {
@@ -12,6 +16,7 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
+
     return GetMaterialApp(
       title: 'Flutter Demo',
       theme: ThemeData(
@@ -33,7 +38,9 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
+
       home: SplashView()//const MyHomePage(title: 'Flutter Demo Home Page'),
+
     );
   }
 }
