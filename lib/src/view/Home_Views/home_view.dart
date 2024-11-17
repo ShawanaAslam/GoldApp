@@ -4,9 +4,9 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-import '../../common_widgets/widgets/reusable_container.dart';
-import '../../common_widgets/widgets/reusable_mytxtformcon.dart';
-import '../../common_widgets/widgets/reusable_text.dart';
+import '../../common_widgets/reusable_container.dart';
+import '../../common_widgets/reusable_mytxtformcon.dart';
+import '../../common_widgets/reusable_text.dart';
 import 'home_ViewController.dart';
 
 

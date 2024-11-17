@@ -3,8 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
 
-import '../../common_widgets/widgets/reusable_container.dart';
-import '../../common_widgets/widgets/reusable_simpletext.dart';
+import '../../common_widgets/reusable_container.dart';
+import '../../common_widgets/reusable_simpletext.dart';
 
 
 
