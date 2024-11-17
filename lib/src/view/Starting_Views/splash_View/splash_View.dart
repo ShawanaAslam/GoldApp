@@ -1,8 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:get/get_core/src/get_main.dart';
 
-import '../../Home_Views/home_view.dart';
+import 'package:goldapp/src/view/Home_Views/gold-home-view.dart';
+
+import 'package:get/get_core/src/get_main.dart';
+import 'package:goldapp/src/view/selection_screen/selection_screen.dart';
+
+
 
 class SplashView extends StatefulWidget {
   const SplashView({super.key});
@@ -20,10 +24,15 @@ class _SplashViewState extends State<SplashView> {
         Duration(
           seconds: 5,
         ), () {
-      Get.to(() => GoldShop());
+          //page routing----
+      Get.to(() => SelectionScreen());
     });
   }
+  // one time login credentials
 
+  // already login==> goldshop
+
+  //user did not login--> selection screen
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -35,7 +44,7 @@ class _SplashViewState extends State<SplashView> {
               decoration: BoxDecoration(
                   image: DecorationImage(
                       image:
-                      AssetImage('goldring.jpeg')),
+                      AssetImage('assets/goldring.jpeg',)),
             ),),
             // SizedBox(
             //   height: 20,
