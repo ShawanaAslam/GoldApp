@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';
 
-import 'package:goldapp/src/view/Home_Views/gold-home-view.dart';
+import 'package:goldapp/src/view/Home_Views/gold-HomeView.dart';
 
 import 'package:goldapp/src/view/Starting_Views/splash_View/splash_View.dart';
 
@@ -18,6 +18,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
 
     return GetMaterialApp(
+      debugShowCheckedModeBanner: false,
       title: 'Flutter Demo',
       theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
@@ -25,8 +26,8 @@ class MyApp extends StatelessWidget {
       ),
 
       home:
-      GoldShop()
-      //SplashView()//const MyHomePage(title: 'Flutter Demo Home Page'),
+      //GoldShop()
+      SplashView()//const MyHomePage(title: 'Flutter Demo Home Page'),
 
     );
   }

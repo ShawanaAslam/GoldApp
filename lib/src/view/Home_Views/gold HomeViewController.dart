@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
 
-import '../../common_widgets/reusable_container.dart';
+import '../../common_widgets/MyButton.dart';
 import '../../common_widgets/reusable_simpletext.dart';
 
 
@@ -33,18 +33,20 @@ class GoldShopController extends GetxController {
         titleStyle: TextStyle(color: Colors.black),
         content: SimpleText(txt: '$total', font: 20, fntwt: FontWeight.w800),
         actions: [
-          InkWell(onTap: () {
-            refresh();
-            Get.back();
-          },
-            child: MyContainer(txt: 'Back',
+
+            MyButton(
+              ontap: (){
+                refresh();
+                Get.back();
+              },
+              txt: 'Back',
               w: 70,
               h: 40,
               bacclr: Colors.amber,
               clr: Colors.black,
               font: 15,),
 
-          )
+
         ]
     );
 

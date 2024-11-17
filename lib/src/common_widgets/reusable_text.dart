@@ -4,10 +4,11 @@ import 'package:flutter/material.dart';
 class MyText extends StatelessWidget {
   String txt;
   Color txtclr;
-  Color decclr;
+  Color? decclr;
   double font;
+  TextDecoration? decoration;
    MyText({super.key,required this.txt, this.txtclr
-   =Colors.black,this.decclr=Colors.amber,this.font=16});
+   =Colors.black,this.decclr,this.font=16,this.decoration});
 
   @override
   Widget build(BuildContext context) {
@@ -16,8 +17,8 @@ class MyText extends StatelessWidget {
         color: txtclr,
         fontSize: font,
         fontWeight: FontWeight.w800,
-        decoration: TextDecoration.underline,
-        decorationColor: decclr,
+        decoration: decoration??null,
+        decorationColor: decclr??null,
         //    decorationStyle: TextDecorationStyle.double,
         decorationThickness: 2,
       ),
