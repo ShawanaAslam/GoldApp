@@ -27,13 +27,13 @@ class _OnBoardingViewState extends State<OnBoardingView> {
 
               if(details.primaryVelocity!>0)
                 {
-                obj.previousPage(duration:(Duration(milliseconds: 500)),
+                 obj._pageCotroller.previousPage(duration:(Duration(milliseconds: 500)),
                       curve: Curves.ease);
                 }
 
               else if(details.primaryVelocity!<0)
               {
-              obj.nextPage(duration:(Duration(milliseconds: 500)),
+                _pageCotroller.nextPage(duration:(Duration(milliseconds: 500)),
               curve: Curves.linear);
               }
 
