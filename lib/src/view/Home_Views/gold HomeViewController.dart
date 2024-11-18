@@ -54,9 +54,9 @@ class GoldShopController extends GetxController {
 
   }
   void nullCheck() {
-    if (n1.text == '') {
-      n1.text = '0';
-    }
+    // if (n1.text == '') {
+    //   n1.text = '0';
+    // }
     if (n2.text == '') {
       n2.text = '0';
     }

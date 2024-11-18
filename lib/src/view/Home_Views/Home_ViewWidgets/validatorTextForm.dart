@@ -2,13 +2,13 @@
 
 import 'package:flutter/material.dart';
 
-class MyTextFormCon extends StatelessWidget {
+class MyTextFormConVali extends StatelessWidget {
 
   TextEditingController controller;
   String hinttxt;
   String lbltxt;
 
-  MyTextFormCon({super.key,required this .hinttxt,required this.controller
+  MyTextFormConVali({super.key,required this .hinttxt,required this.controller
     , required this.lbltxt});
 
 
