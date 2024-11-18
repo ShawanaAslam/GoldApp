@@ -11,8 +11,6 @@ import 'package:google_fonts/google_fonts.dart';
 
 import '../../selection_View/selection_View.dart';
 
-
-
 class SplashView extends StatefulWidget {
   const SplashView({super.key});
 
@@ -27,9 +25,9 @@ class _SplashViewState extends State<SplashView> {
     super.initState();
     Future.delayed(
         Duration(
-          seconds: 10,
+          seconds: 3,
         ), () {
-          //page routing----
+      //page routing----
       Get.to(() => OnBoardingView());
     });
   }
@@ -41,7 +39,6 @@ class _SplashViewState extends State<SplashView> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-
       body: Stack(
         children: [
           Center(
@@ -59,7 +56,8 @@ class _SplashViewState extends State<SplashView> {
                   'Welcome to Gold App', // Replace with your text
                   textAlign: TextAlign.center,
                   style: const TextStyle(
-                    color: Colors.white, // Text color will be visible over black
+                    color:
+                        Colors.black, // Text color will be visible over black
                     fontSize: 18,
                     fontWeight: FontWeight.bold,
                   ),
@@ -67,69 +65,71 @@ class _SplashViewState extends State<SplashView> {
               ],
             ),
           ),
+
           // Black Overlay
           Container(
-                    width: double.infinity,
-                    height: double.infinity,
-                    decoration: BoxDecoration(
-                      gradient: LinearGradient(
-                        begin: Alignment.topCenter,
-                        end: Alignment.bottomCenter,
-                        colors: [
-                          Colors.black.withOpacity(0), // Adjust opacity as needed
-                          Colors.black, // Adjust as needed
-                        ],
-                      ),
-                    ),
-                  ),
+            width: double.infinity,
+            height: double.infinity,
+            decoration: BoxDecoration(
+              gradient: LinearGradient(
+                begin: Alignment.topCenter,
+                end: Alignment.bottomCenter,
+                colors: [
+                  Colors.black.withOpacity(0), // Adjust opacity as needed
+                  Colors.black, // Adjust as needed
+                ],
+              ),
+            ),
+          ),
+
           // Container(
           //   color: Colors.black.withOpacity(0.5), // Full screen black overlay
           // ),
         ],
       ),
 
-          // Stack(children: [
-          //    Column(
-          //     children: [
-          //       Container(
-          //               height: 400,//double.infinity,
-          //               //width: double.infinity,
-          //               decoration:BoxDecoration(
-          //       image:DecorationImage(
-          //         image: AssetImage('assets/goldring.jpeg'),
-          //        // Cover the entire screen
-          //       ),
-          //               ),
-          //
-          //             ),
-          //
-          //        Padding(
-          //          padding: const EdgeInsets.only(bottom: 100),
-          //          child: Text( 'Gold App',style:GoogleFonts.roboto(fontSize: 30,color: Colors.black,fontWeight: FontWeight.w800)),
-          //        ),
-          //
-          //
-          //
-          //   // Stack(children: [
-          //         Container(
-          //           width: double.infinity,
-          //           height: double.infinity,
-          //           decoration: BoxDecoration(
-          //             gradient: LinearGradient(
-          //               begin: Alignment.topCenter,
-          //               end: Alignment.bottomCenter,
-          //               colors: [
-          //                 Colors.black.withOpacity(0), // Adjust opacity as needed
-          //                 Colors.black, // Adjust as needed
-          //               ],
-          //             ),
-          //           ),
-          //         ),
-          //   //     ])
-          //
-          //   ]),
-          //   ]
-    //)
+      // Stack(children: [
+      //    Column(
+      //     children: [
+      //       Container(
+      //               height: 400,//double.infinity,
+      //               //width: double.infinity,
+      //               decoration:BoxDecoration(
+      //       image:DecorationImage(
+      //         image: AssetImage('assets/goldring.jpeg'),
+      //        // Cover the entire screen
+      //       ),
+      //               ),
+      //
+      //             ),
+      //
+      //        Padding(
+      //          padding: const EdgeInsets.only(bottom: 100),
+      //          child: Text( 'Gold App',style:GoogleFonts.roboto(fontSize: 30,color: Colors.black,fontWeight: FontWeight.w800)),
+      //        ),
+      //
+      //
+      //
+      //   // Stack(children: [
+      //         Container(
+      //           width: double.infinity,
+      //           height: double.infinity,
+      //           decoration: BoxDecoration(
+      //             gradient: LinearGradient(
+      //               begin: Alignment.topCenter,
+      //               end: Alignment.bottomCenter,
+      //               colors: [
+      //                 Colors.black.withOpacity(0), // Adjust opacity as needed
+      //                 Colors.black, // Adjust as needed
+      //               ],
+      //             ),
+      //           ),
+      //         ),
+      //   //     ])
+      //
+      //   ]),
+      //   ]
+      //)
     );
   }
 }
