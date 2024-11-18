@@ -5,6 +5,7 @@ import 'package:goldapp/src/common_widgets/reusable_text.dart';
 import 'package:goldapp/src/view/Home_Views/gold-HomeView.dart';
 
 import 'package:get/get_core/src/get_main.dart';
+import 'package:goldapp/src/view/Starting_Views/onBording_View/onBoarding_View.dart';
 
 import 'package:google_fonts/google_fonts.dart';
 
@@ -26,10 +27,10 @@ class _SplashViewState extends State<SplashView> {
     super.initState();
     Future.delayed(
         Duration(
-          seconds: 1,
+          seconds: 10,
         ), () {
           //page routing----
-      Get.to(() => SelectionView());
+      Get.to(() => OnBoardingView());
     });
   }
   // one time login credentials
@@ -41,33 +42,33 @@ class _SplashViewState extends State<SplashView> {
   Widget build(BuildContext context) {
     return Scaffold(
 
-      body:
-
-
-          Stack(children: [
-             Column(
+      body: Stack(
+        children: [
+          Center(
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                Container(
-                        height: 400,//double.infinity,
-                        //width: double.infinity,
-                        decoration:BoxDecoration(
-                image:DecorationImage(
-                  image: AssetImage('assets/goldring.jpeg'),
-                 // Cover the entire screen
+                Image.asset(
+                  'assets/goldring.jpeg', // Replace with your logo path
+                  width: 250,
+                  height: 150,
                 ),
-                        ),
-
-                      ),
-
-                 Padding(
-                   padding: const EdgeInsets.only(bottom: 100),
-                   child: Text( 'Gold App',style:GoogleFonts.roboto(fontSize: 30,color: Colors.black,fontWeight: FontWeight.w800)),
-                 ),
-
-
-
-            // Stack(children: [
-                  Container(
+                const SizedBox(height: 20),
+                // Below Image Text
+                Text(
+                  'Welcome to Gold App', // Replace with your text
+                  textAlign: TextAlign.center,
+                  style: const TextStyle(
+                    color: Colors.white, // Text color will be visible over black
+                    fontSize: 18,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+              ],
+            ),
+          ),
+          // Black Overlay
+          Container(
                     width: double.infinity,
                     height: double.infinity,
                     decoration: BoxDecoration(
@@ -81,11 +82,54 @@ class _SplashViewState extends State<SplashView> {
                       ),
                     ),
                   ),
-            //     ])
+          // Container(
+          //   color: Colors.black.withOpacity(0.5), // Full screen black overlay
+          // ),
+        ],
+      ),
 
-            ]),
-            ]
-          )
+          // Stack(children: [
+          //    Column(
+          //     children: [
+          //       Container(
+          //               height: 400,//double.infinity,
+          //               //width: double.infinity,
+          //               decoration:BoxDecoration(
+          //       image:DecorationImage(
+          //         image: AssetImage('assets/goldring.jpeg'),
+          //        // Cover the entire screen
+          //       ),
+          //               ),
+          //
+          //             ),
+          //
+          //        Padding(
+          //          padding: const EdgeInsets.only(bottom: 100),
+          //          child: Text( 'Gold App',style:GoogleFonts.roboto(fontSize: 30,color: Colors.black,fontWeight: FontWeight.w800)),
+          //        ),
+          //
+          //
+          //
+          //   // Stack(children: [
+          //         Container(
+          //           width: double.infinity,
+          //           height: double.infinity,
+          //           decoration: BoxDecoration(
+          //             gradient: LinearGradient(
+          //               begin: Alignment.topCenter,
+          //               end: Alignment.bottomCenter,
+          //               colors: [
+          //                 Colors.black.withOpacity(0), // Adjust opacity as needed
+          //                 Colors.black, // Adjust as needed
+          //               ],
+          //             ),
+          //           ),
+          //         ),
+          //   //     ])
+          //
+          //   ]),
+          //   ]
+    //)
     );
   }
 }
