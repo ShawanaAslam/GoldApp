@@ -19,14 +19,7 @@ class GoldShop extends StatefulWidget {
 
 class _GoldShopState extends State<GoldShop> {
 
-  // TextEditingController n1=TextEditingController();
-  // TextEditingController n2=TextEditingController();
-  // TextEditingController n3=TextEditingController();
-  // TextEditingController n4=TextEditingController();
-  // TextEditingController n5=TextEditingController();
-
-  // double total=0;
-
+  final key = GlobalKey<FormState>();
   @override
   Widget build(BuildContext context) {
 
@@ -69,8 +62,11 @@ class _GoldShopState extends State<GoldShop> {
             SizedBox(height: 60,),
             Padding(
               padding: const EdgeInsets.only(right: 200),
-              child: MyTextFormCon(
-                  controller:obj.n1 ,hinttxt:"Enter gold Price" ,lbltxt:"Gold Price",),
+              child: Form(
+                key:key,
+                child: MyTextFormCon(
+                    controller:obj.n1 ,hinttxt:"Enter gold Price" ,lbltxt:"Gold Price",),
+              ),
 
             ),
 
@@ -108,7 +104,13 @@ class _GoldShopState extends State<GoldShop> {
 
              MyButton(
                   ontap:(){
-                    obj.onfuction();
+                    if (key.currentState!
+                        .validate()) // true --- false
+                      //(_formKey.currentState!.validate())
+                        {
+                      obj.onfuction();
+                    }
+
                   },
                   txt: 'Enter', w: 180, h: 40, bacclr: Colors.black, clr: Colors.amber,
                   font: 20,fntwt: FontWeight.w800),

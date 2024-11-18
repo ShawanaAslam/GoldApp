@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:get/get_core/src/get_main.dart';
+import 'package:goldapp/src/view/Starting_Views/onBording_View/onBoarding_Controller.dart';
 import 'package:goldapp/src/view/Starting_Views/onBording_View/onBoarding_widgets/onBoarding_page.dart';
 
 class OnBoardingView extends StatefulWidget {
@@ -10,11 +13,11 @@ class OnBoardingView extends StatefulWidget {
 
 class _OnBoardingViewState extends State<OnBoardingView> {
 
-   PageController _pageCotroller= PageController();
-  int currentpage=0;
 
   @override
   Widget build(BuildContext context) {
+    OnBoardingController obj = Get.put(OnBoardingController());
+
     return Scaffold(
       backgroundColor: Colors.black,
       body:OrientationBuilder(
@@ -24,13 +27,13 @@ class _OnBoardingViewState extends State<OnBoardingView> {
 
               if(details.primaryVelocity!>0)
                 {
-                  _pageCotroller.previousPage(duration:(Duration(milliseconds: 500)),
+                obj.previousPage(duration:(Duration(milliseconds: 500)),
                       curve: Curves.ease);
                 }
 
               else if(details.primaryVelocity!<0)
               {
-              _pageCotroller.nextPage(duration:(Duration(milliseconds: 500)),
+              obj.nextPage(duration:(Duration(milliseconds: 500)),
               curve: Curves.linear);
               }
 
@@ -39,9 +42,9 @@ class _OnBoardingViewState extends State<OnBoardingView> {
               controller: _pageCotroller,
               onPageChanged: (int page)
               {
-              setState(() {
-                currentpage=page;
-              });
+              // setState(() {
+              //   currentpage=page;
+              // });
 
               },
               children: [

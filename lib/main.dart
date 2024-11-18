@@ -26,8 +26,9 @@ class MyApp extends StatelessWidget {
       ),
 
       home:
-      //GoldShop()
-      SplashView()//const MyHomePage(title: 'Flutter Demo Home Page'),
+      GoldShop()
+
+      //SplashView()//const MyHomePage(title: 'Flutter Demo Home Page'),
 
     );
   }
