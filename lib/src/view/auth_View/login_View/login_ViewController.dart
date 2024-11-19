@@ -5,6 +5,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:get/get.dart';
 import 'package:get/get_state_manager/src/simple/get_controllers.dart';
 
+import '../../../utills/toast_ Notifications/toast_Notification.dart';
 import '../../Home_Views/gold-HomeView.dart';
 
 class LoginController extends GetxController {
@@ -27,7 +28,7 @@ class LoginController extends GetxController {
       //  if (result != null)
       if (result == 'You are successfully logged in') {
         // Show success toast
-       // confirmToastMessage(context, result!);
+       confirmToastMessage(context, result!);
 
 
         // Navigate to BottomBar screen after login
@@ -39,7 +40,7 @@ class LoginController extends GetxController {
       // }
     } catch (error) {
       // In case of any error, show the error message
-      //errorToastMessage(context,'Error: ${error.toString()}' );
+      errorToastMessage(context,'Error: ${error.toString()}' );
 
     } finally {
       isLoading.value = false; // Hide loading in both success and error cases

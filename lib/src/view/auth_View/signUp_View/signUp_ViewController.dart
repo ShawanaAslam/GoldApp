@@ -138,13 +138,13 @@ class SignupController extends GetxController {
       // if (result != null)
       if (result == 'You are registered successfully') {
         // Handle success (like navigating to another screen or showing a message)
-       // confirmToastMessage(context, result!);
+        confirmToastMessage(context, result!);
         Get.to(() => LoginView());
       }
     } catch (error) {
       isLoading.value = false;
       // Handle error
-     // errorToastMessage(context, error.toString());
+      errorToastMessage(context, error.toString());
     } finally {
       isLoading.value = false;
     }
