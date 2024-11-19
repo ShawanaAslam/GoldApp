@@ -109,6 +109,7 @@
 //
 
 ///----------------------------
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -135,18 +136,30 @@ class SignupController extends GetxController {
         //userNameController.text.trim(),fatherNameController.text.trim()
           emailController.text.trim(),
           passwordController.text.trim());
+      // error occured during signup
+     // addData();
       // if (result != null)
       if (result == 'You are registered successfully') {
+        addData();
         // Handle success (like navigating to another screen or showing a message)
         confirmToastMessage(context, result!);
         Get.to(() => LoginView());
       }
+      else
+        {
+          errorToastMessage(context, result!);
+        }
     } catch (error) {
       isLoading.value = false;
       // Handle error
       errorToastMessage(context, error.toString());
     } finally {
       isLoading.value = false;
+      print('--------------------6');
+      userNameController.clear();
+      fatherNameController.clear();
+      emailController.clear();
+      passwordController.clear();
     }
   }
 
@@ -161,6 +174,9 @@ class SignupController extends GetxController {
       print('-------------------------4');
       await FirebaseAuth.instance
           .createUserWithEmailAndPassword(email: email, password: password);
+     // addData();
+
+      //
 
       return 'You are registered successfully'; // Success message
     } on FirebaseAuthException catch (exception) {
@@ -175,16 +191,33 @@ class SignupController extends GetxController {
       } else {
         return 'Something went wrong: ${exception.message}';
       }
-    } catch (error) {
+    }
+    catch (error) {
       // Handling other exceptions
+      print('Error:$error');
       print('-----------------------5');
       return 'Error occurred: $error';
-    } finally {
-      print('--------------------6');
-      userNameController.clear();
-      fatherNameController.clear();
-      emailController.clear();
-      passwordController.clear();
     }
+   }
+
+  Future<void>addData()async{
+    try
+        {
+          //TODO app
+          String docId=DateTime.now().microsecondsSinceEpoch.toString();
+          await FirebaseFirestore.instance.collection('UserData').doc(docId).set({
+            'name': userNameController.text,
+            'fathername':fatherNameController.text,
+            'docId':docId,
+            'email':emailController.text,
+          });
+        }
+       catch (e)
+       {
+         // exception for firebase authentications
+         //CRUD
+         // home work: exceptions for data inserting in firebase firestore
+         print('Error:$e');
+       }
   }
 }

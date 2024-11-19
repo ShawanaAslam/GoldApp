@@ -1,3 +1,5 @@
+import 'package:firebase_auth/firebase_auth.dart';
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';
@@ -7,7 +9,10 @@ import 'package:goldapp/src/view/Home_Views/gold-HomeView.dart';
 import 'package:goldapp/src/view/Starting_Views/splash_View/splash_View.dart';
 import 'package:goldapp/src/view/auth_View/signUp_View/signUp_View.dart';
 
-void main() {
+void main() async{
+
+  WidgetsFlutterBinding.ensureInitialized();
+await Firebase.initializeApp();
   runApp(const MyApp());
 }
 

@@ -30,6 +30,7 @@ class _PaswordTextFormState extends State<PaswordTextForm> {
           () => Padding(
         padding: const EdgeInsets.only(right: 30, left: 30),
         child: TextFormField(
+          controller: widget.controller,
           style: TextStyle(color: Colors.white),
           validator: (value) {
             if (value == null || value.isEmpty) {
