@@ -63,23 +63,23 @@ class _PaswordTextFormState extends State<PaswordTextForm> {
           },
           obscureText: obj.isChecked.value,
           decoration: InputDecoration(
-              prefixIcon: Icon(Icons.lock),
+              prefixIcon: Icon(Icons.lock,color: Colors.amber,),
               suffixIcon: IconButton(
                   onPressed: () {
                     obj.onPressed();
                   },
                   icon: obj.isChecked.value
-                      ? Icon(Icons.remove_red_eye)
-                      : Icon(Icons.remove_red_eye_outlined)),
-              fillColor: Colors.white,
+                      ? Icon(Icons.remove_red_eye,color: Colors.amber,)
+                      : Icon(Icons.remove_red_eye_outlined,color: Colors.amber,)),
+              fillColor: Colors.black,
               filled: true,
               hintText: 'Enter Pasword',
               hintStyle: TextStyle(color: Colors.amber, fontSize: 14),
               border: OutlineInputBorder(
-                borderRadius: BorderRadius.circular(15),
+                borderRadius: BorderRadius.circular(10),
               ),
               errorBorder: OutlineInputBorder(
-                borderRadius: BorderRadius.circular(15),
+                borderRadius: BorderRadius.circular(10),
               )),
         ),
       ),

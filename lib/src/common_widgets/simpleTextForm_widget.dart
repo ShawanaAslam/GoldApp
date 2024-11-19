@@ -56,15 +56,15 @@ class SimpleText extends StatelessWidget {
         decoration: InputDecoration(
             prefixIcon: prefixicn ?? null,
             suffixIcon: pstfixicn ?? null,
-            fillColor: clr,
+            fillColor: Colors.black,
             filled: true,
             hintText: hnttxt,
             hintStyle: TextStyle(color: Colors.amber, fontSize: 14),
             border: OutlineInputBorder(
-              borderRadius: BorderRadius.circular(15),
+              borderRadius: BorderRadius.circular(10),
             ),
             errorBorder: OutlineInputBorder(
-              borderRadius: BorderRadius.circular(15),
+              borderRadius: BorderRadius.circular(10),
             )),
       ),
     );

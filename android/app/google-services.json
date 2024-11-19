@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "495317353925",
+    "project_id": "goldapp-df4bc",
+    "storage_bucket": "goldapp-df4bc.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:495317353925:android:cb5843d08185a7f80077ac",
+        "android_client_info": {
+          "package_name": "com.example.goldapp"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAVkLwvkfmOcicoGJbTROVQMUblPpMUf1Q"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

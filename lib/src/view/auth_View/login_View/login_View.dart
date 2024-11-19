@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 import '../../../common_widgets/simpleTextForm_widget.dart';
 import '../signUp_View/signUp_View.dart';
@@ -35,21 +36,21 @@ class _LoginViewState extends State<LoginView> {
                       height: 100,
                     ),
                     SimpleText(
-                        prefixicn: Icon(Icons.person),
+                        prefixicn: Icon(Icons.person,color: Colors.amber,),
                         controller: loginController.userNameController,
                         hnttxt: "User Name"),
                     SizedBox(
                       height: 20,
                     ),
                     SimpleText(
-                        prefixicn: Icon(Icons.person),
+                        prefixicn: Icon(Icons.person,color: Colors.amber,),
                         controller: loginController.fatherNameController,
                         hnttxt: "Father Name"),
                     SizedBox(
                       height: 20,
                     ),
                     SimpleText(
-                        prefixicn: Icon(Icons.email),
+                        prefixicn: Icon(Icons.email,color: Colors.amber,),
                         controller: loginController.emailController,
                         hnttxt: "Enter Email"),
                     SizedBox(
@@ -57,7 +58,7 @@ class _LoginViewState extends State<LoginView> {
                     ),
 
                     PaswordTextForm(
-                        prefixicn: Icon(Icons.lock),
+                        prefixicn: Icon(Icons.lock,),
                         controller: loginController.passwordController,
                         hnttxt: "Enter Pasword"),
 
@@ -79,7 +80,7 @@ class _LoginViewState extends State<LoginView> {
                               padding: const EdgeInsets.only(right: 30),
                               child: Text(
                                 'Forget Pasword?',
-                                style: TextStyle(color: Color(0xffD8605B)),
+                                style: TextStyle(color: Colors.white),
                               ),
                             ))
                       ],
@@ -121,7 +122,7 @@ class _LoginViewState extends State<LoginView> {
                       height: 5,
                     ),
                     Row(mainAxisAlignment: MainAxisAlignment.center, children: [
-                      Text("Don't have an account ?"),
+                      Text("Don't have an account ?",style: GoogleFonts.roboto(color: Colors.amber),),
                       SizedBox(width: 10),
                       InkWell(
                           onTap: () {
@@ -129,7 +130,7 @@ class _LoginViewState extends State<LoginView> {
                           },
                           child: Text(
                             'Sign Up',
-                            style: TextStyle(color: Color(0xffD8605B)),
+                            style: TextStyle(color: Colors.white),
                           ))
                     ])
                   ],

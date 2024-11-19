@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 import 'package:goldapp/src/view/auth_View/signUp_View/signUp_Widgets/paswordTextForm_WidgetView.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 import '../../../common_widgets/simpleTextForm_widget.dart';
 import 'signUp_ViewController.dart';
@@ -37,21 +38,21 @@ class _SignupViewState extends State<SignupView> {
                       height: 100,
                     ),
                     SimpleText(
-                        prefixicn: Icon(Icons.person),
+                        prefixicn: Icon(Icons.person,color: Colors.amber),
                         controller: signupController.userNameController,
                         hnttxt: "User Name"),
                     SizedBox(
                       height: 20,
                     ),
                     SimpleText(
-                        prefixicn: Icon(Icons.person),
+                        prefixicn: Icon(Icons.person,color: Colors.amber),
                         controller: signupController.fatherNameController,
                         hnttxt: "Father Name"),
                     SizedBox(
                       height: 20,
                     ),
                     SimpleText(
-                        prefixicn: Icon(Icons.email),
+                        prefixicn: Icon(Icons.email,color: Colors.amber,),
                         controller: signupController.emailController,
                         hnttxt: "Enter Email"),
                     SizedBox(
@@ -105,7 +106,7 @@ class _SignupViewState extends State<SignupView> {
                       height: 5,
                     ),
                     Row(mainAxisAlignment: MainAxisAlignment.center, children: [
-                      Text('Already have an account ?'),
+                      Text('Already have an account ?',style: GoogleFonts.roboto(color: Colors.amber),),
                       SizedBox(width: 10),
                       InkWell(
                           onTap: () {
@@ -113,7 +114,7 @@ class _SignupViewState extends State<SignupView> {
                           },
                           child: Text(
                             'Login',
-                            style: TextStyle(color: Color(0xffD8605B)),
+                            style: TextStyle(color: Colors.white),
                           ))
                     ])
                   ],
