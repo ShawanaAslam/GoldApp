@@ -32,9 +32,10 @@ class MyApp extends StatelessWidget {
       ),
 
       home:
-//      GoldShop()
-SignupView()
-    //  SplashView()//const MyHomePage(title: 'Flutter Demo Home Page'),
+   GoldShop()
+//SignupView()
+        //
+     // SplashView()//const MyHomePage(title: 'Flutter Demo Home Page'),
 
     );
   }

@@ -1,13 +1,12 @@
+import 'package:firebase_auth/firebase_auth.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:goldapp/src/common_widgets/reusable_text.dart';
 
 import 'package:goldapp/src/view/Home_Views/gold-HomeView.dart';
 
 import 'package:get/get_core/src/get_main.dart';
 import 'package:goldapp/src/view/Starting_Views/onBording_View/onBoarding_View.dart';
-
-import 'package:google_fonts/google_fonts.dart';
 
 import '../../selection_View/selection_View.dart';
 
@@ -32,10 +31,20 @@ class _SplashViewState extends State<SplashView> {
     });
   }
   // one time login credentials
-
-  // already login==> goldshop
-
-  //user did not login--> selection screen
+isUserLogin()
+{
+  User? user=FirebaseAuth.instance.currentUser;
+  if(user == null)
+    {
+      //user did not login--> selection screen
+      Navigator.push(context,CupertinoPageRoute(builder:(context)=>SelectionView()));
+    }
+  else
+    {
+      // already login==> goldshop
+      Navigator.push(context,CupertinoPageRoute(builder:(context)=>GoldShop()));
+    }
+}
   @override
   Widget build(BuildContext context) {
 
