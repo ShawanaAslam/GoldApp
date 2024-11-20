@@ -3,11 +3,14 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:goldapp/src/Home_Views/AboutDevelopers_View/aboutDeveloper_View.dart';
 import 'package:goldapp/src/view/auth_View/signUp_View/signUp_View.dart';
 
 import '../../common_widgets/MyButton.dart';
 import '../../common_widgets/reusable_mytxtformcon.dart';
 import '../../common_widgets/reusable_text.dart';
+import '../AboutApp_View/aboutApp_View.dart';
+import '../History_View/history_View.dart';
 import 'Home_ViewWidgets/validatorTextForm.dart';
 import 'gold HomeViewController.dart';
 
@@ -85,7 +88,7 @@ userName=userdocs.docs.first[userName];
               decoration: BoxDecoration(
                 color: Colors.blue
               ),
-                accountName:Text('user Id:$userId'),
+                accountName:Text('user Id:$userName'),
                 accountEmail: Text('user Email:$userEmail')),
 
             ListTile(
@@ -100,7 +103,7 @@ userName=userdocs.docs.first[userName];
             ListTile(
               onTap: ()async
               {
-               // Navigator.push(context,CupertinoPageRoute(builder:(context)=>HistoryView()));
+                Navigator.push(context,CupertinoPageRoute(builder:(context)=>HistoryView()));
               },
               leading: Icon(Icons.history_toggle_off),
               title: Text('History'),
@@ -108,7 +111,7 @@ userName=userdocs.docs.first[userName];
             ListTile(
               onTap: ()async
               {
-              //  Navigator.push(context,CupertinoPageRoute(builder:(context)=>AboutAppView()));
+                Navigator.push(context,CupertinoPageRoute(builder:(context)=>AboutAppView()));
               },
              // leading: Icon(Icons.),
               title: Text('About App Screen'),
@@ -116,7 +119,7 @@ userName=userdocs.docs.first[userName];
             ListTile(
               onTap: ()async
               {
-               // Navigator.push(context,CupertinoPageRoute(builder:(context)=>DevelopersView()));
+               Navigator.push(context,CupertinoPageRoute(builder:(context)=>Aboutdeveloper()));
               },
              // leading: Icon(Icons.login_outlined),
               title: Text('About Developors Screen'),
