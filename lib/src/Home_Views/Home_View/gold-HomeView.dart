@@ -26,7 +26,7 @@ class _GoldShopState extends State<GoldShop> {
   late String userId;
   late String userEmail;
   String userName='';
-  late String userdocs;
+
 
   @override
   void initState() {
