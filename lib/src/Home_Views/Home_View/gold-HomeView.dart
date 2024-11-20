@@ -22,11 +22,9 @@ class GoldShop extends StatefulWidget {
 }
 
 class _GoldShopState extends State<GoldShop> {
-
   late String userId;
   late String userEmail;
-  String userName='';
-
+  String userName = '';
 
   @override
   void initState() {
@@ -34,27 +32,25 @@ class _GoldShopState extends State<GoldShop> {
     super.initState();
     FetchuserData();
   }
+
   FetchuserData() async {
-    User? user =await FirebaseAuth.instance.currentUser;
-    userEmail = user!.email??'';
-    userId = user.uid??'';
+    User? user = await FirebaseAuth.instance.currentUser;
+    userEmail = user!.email ?? '';
+    userId = user.uid ?? '';
 
-    if( userEmail!=null )
-    {
-    final userdocs = await FirebaseFirestore.instance.collection('user Data').
-    where('userEmail',isEqualTo: userEmail).get();
-    }
-
-
-    if(userdocs.docs.isNotEmpty)
-      {
+    if (userEmail != null) {
+      final userdocs = await FirebaseFirestore.instance
+          .collection('user Data')
+          .where('userEmail', isEqualTo: userEmail)
+          .get();
+      if (userdocs.docs.isEmpty) {
         setState(() {
-userName=userdocs.docs.first[userName];
+          userName = userdocs.docs.first['userName'];
         });
       }
-
-
+    }
   }
+
   final key = GlobalKey<FormState>();
   @override
   Widget build(BuildContext context) {
@@ -85,81 +81,76 @@ userName=userdocs.docs.first[userName];
         child: ListView(
           children: [
             UserAccountsDrawerHeader(
-              decoration: BoxDecoration(
-                color: Colors.blue
-              ),
-                accountName:Text('user Id:$userName'),
+                decoration: BoxDecoration(color: Colors.blue),
+                accountName: Text('user Id:$userName'),
                 accountEmail: Text('user Email:$userEmail')),
-
             ListTile(
-              onTap: ()async
-              {
-
-                Navigator.pop(context,CupertinoPageRoute(builder:(context)=>GoldShop()));
+              onTap: () async {
+                Navigator.pop(context,
+                    CupertinoPageRoute(builder: (context) => GoldShop()));
               },
               leading: Icon(Icons.home),
               title: Text('Home'),
             ),
             ListTile(
-              onTap: ()async
-              {
-                Navigator.push(context,CupertinoPageRoute(builder:(context)=>HistoryView()));
+              onTap: () async {
+                Navigator.push(context,
+                    CupertinoPageRoute(builder: (context) => HistoryView()));
               },
               leading: Icon(Icons.history_toggle_off),
               title: Text('History'),
             ),
             ListTile(
-              onTap: ()async
-              {
-                Navigator.push(context,CupertinoPageRoute(builder:(context)=>AboutAppView()));
+              onTap: () async {
+                Navigator.push(context,
+                    CupertinoPageRoute(builder: (context) => AboutAppView()));
               },
-             // leading: Icon(Icons.),
+              // leading: Icon(Icons.),
               title: Text('About App Screen'),
             ),
             ListTile(
-              onTap: ()async
-              {
-               Navigator.push(context,CupertinoPageRoute(builder:(context)=>Aboutdeveloper()));
+              onTap: () async {
+                Navigator.push(context,
+                    CupertinoPageRoute(builder: (context) => Aboutdeveloper()));
               },
-             // leading: Icon(Icons.login_outlined),
+              // leading: Icon(Icons.login_outlined),
               title: Text('About Developors Screen'),
             ),
             ListTile(
-              onTap: ()async
-              {
+              onTap: () async {
                 await FirebaseAuth.instance.signOut();
-                Navigator.push(context,CupertinoPageRoute(builder:(context)=>SignupView()));
+                Navigator.push(context,
+                    CupertinoPageRoute(builder: (context) => SignupView()));
               },
               leading: Icon(Icons.login_outlined),
               title: Text('logOut'),
             ),
             ListTile(
-              onTap: ()async
-              {
-                Navigator.push(context,CupertinoPageRoute(builder:(context)=>SignupView()));
+              onTap: () async {
+                Navigator.push(context,
+                    CupertinoPageRoute(builder: (context) => SignupView()));
               },
-           //   leading: Icon(Icons.login_outlined),
+              //   leading: Icon(Icons.login_outlined),
               title: Text('SignUp Screen'),
             ),
-
           ],
         ),
-          // flow chart
-          // flow diagram
-          // sketching of an application
-          // in drawer header
-          // picture
-          // user name
-          // user email
+        // flow chart
+        // flow diagram
+        // sketching of an application
+        // in drawer header
+        // picture
+        // user name
+        // user email
 
-          //--------> flow chart---
-          //1st: home
-          // 2nd history screen
-          // 3rd about app screen
-          // 4th about developers screen---> developer intro , image, contacts: whatsapp , email
-          // 5rd signout
-          // 6th: login
-          ),
+        //--------> flow chart---
+        //1st: home
+        // 2nd history screen
+        // 3rd about app screen
+        // 4th about developers screen---> developer intro , image, contacts: whatsapp , email
+        // 5rd signout
+        // 6th: login
+      ),
       body: SingleChildScrollView(
         child: Column(
           //  mainAxisAlignment: MainAxisAlignment.start,
