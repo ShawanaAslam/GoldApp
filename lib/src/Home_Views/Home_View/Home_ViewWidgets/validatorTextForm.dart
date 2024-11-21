@@ -16,8 +16,8 @@ class MyTextFormConVali extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 40,
-      width: 150,
+     // height: 40,
+     // width: 150,
       child: TextFormField(
         controller: controller,
         validator: (value) {

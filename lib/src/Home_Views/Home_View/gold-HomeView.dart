@@ -4,6 +4,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:goldapp/src/Home_Views/AboutDevelopers_View/aboutDeveloper_View.dart';
+import 'package:goldapp/src/Home_Views/Home_View/Home_ViewWidgets/fetchdata-controller.dart';
 import 'package:goldapp/src/view/auth_View/signUp_View/signUp_View.dart';
 
 import '../../common_widgets/MyButton.dart';
@@ -22,53 +23,52 @@ class GoldShop extends StatefulWidget {
 }
 
 class _GoldShopState extends State<GoldShop> {
-  late String userId;
-  late String userEmail;
-  // best approach: late
-  String userName = '';
+  // late String userId;
+  // late String userEmail;
+  // // best approach: late
+  // String userName = '';
 
   @override
   void initState() {
     // TODO: implement initState
     super.initState();
-    FetchuserData();
+    //FetchuserData();
   }
-
-  FetchuserData() async {
-    User? user = await FirebaseAuth.instance.currentUser;
-    if(user!=null)// false
-      {
-        userEmail = user!.email ?? '';
-        userId = user.uid ?? '';
-        if (userEmail != null) {
-          final userdocs = await FirebaseFirestore.instance
-              .collection('user Data')
-              .where('userEmail', isEqualTo: userEmail)
-              .get();
-          if (userdocs.docs.isNotEmpty) {
-            setState(() {
-              userName = userdocs.docs.first['userName'];
-            });
-          }
-        }
-      }
-    else
-      {
-        userEmail='gold shop name';
-        userName='please login';
-        userId='';
-        setState(() {
-
-        });
-      }
-
-  }
+  // FetchuserData() async {
+  //   User? user = await FirebaseAuth.instance.currentUser;
+  //   if(user!=null)// false
+  //     {
+  //       userEmail = user!.email ?? '';
+  //       userId = user.uid ?? '';
+  //       if (userEmail != null) {
+  //         final userdocs = await FirebaseFirestore.instance
+  //             .collection('user Data')
+  //             .where('userEmail', isEqualTo: userEmail)
+  //             .get();
+  //         if (userdocs.docs.isNotEmpty) {
+  //           setState(() {
+  //             userName = userdocs.docs.first['userName'];
+  //           });
+  //         }
+  //       }
+  //     }
+  //   else
+  //     {
+  //       userEmail='gold shop name';
+  //       userName='please login';
+  //       userId='';
+  //       setState(() {
+  //
+  //       });
+  //     }
+  //
+  // }
 
   final key = GlobalKey<FormState>();
   @override
   Widget build(BuildContext context) {
     GoldShopController obj = Get.put(GoldShopController());
-
+    HomeFetchDataController ref=Get.put(HomeFetchDataController());
     return Scaffold(
       backgroundColor: Colors.black,
       appBar: AppBar(
@@ -98,12 +98,12 @@ class _GoldShopState extends State<GoldShop> {
       drawer: Drawer(
         child: Container(
           //color: Colors.black,
-          child: ListView(
+          child: Obx(()=>ListView(
             children: [
               UserAccountsDrawerHeader(
                   decoration: BoxDecoration(color: Colors.blue),
-                  accountName: Text('user Name:$userName'),
-                  accountEmail: Text('user Email:$userEmail')),
+                  accountName: Text('user Name:${ref.userName}'),
+                  accountEmail: Text('user Email:${ref.userEmail}')),
               ListTile(
                 onTap: () async {
                   Navigator.pop(context,
@@ -137,7 +137,7 @@ class _GoldShopState extends State<GoldShop> {
                 title: Text('About Developors Screen'),
               ),
               //
-              userId!=''?
+              ref.userId!=''?
               ListTile(
                 onTap: () async {
                   await FirebaseAuth.instance.signOut();
@@ -156,7 +156,7 @@ class _GoldShopState extends State<GoldShop> {
                 title: Text('Login Screen'),
               ),
             ],
-          ),
+          ),)
         ),
         // flow chart
         // flow diagram
