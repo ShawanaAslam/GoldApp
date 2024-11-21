@@ -3,9 +3,9 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-import 'package:goldapp/src/view/Home_Views/gold-HomeView.dart';
 
 import 'package:get/get_core/src/get_main.dart';
+import 'package:goldapp/src/Home_Views/Home_View/gold-HomeView.dart';
 import 'package:goldapp/src/view/Starting_Views/onBording_View/onBoarding_View.dart';
 
 import '../../selection_View/selection_View.dart';
