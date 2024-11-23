@@ -4,6 +4,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:goldapp/src/Home_Views/AboutDevelopers_View/aboutDeveloper_View.dart';
+import 'package:goldapp/src/Home_Views/Home_View/Home_ViewWidgets/fetchdata-controller.dart';
 import 'package:goldapp/src/view/auth_View/signUp_View/signUp_View.dart';
 
 import '../../common_widgets/MyButton.dart';
@@ -22,40 +23,52 @@ class GoldShop extends StatefulWidget {
 }
 
 class _GoldShopState extends State<GoldShop> {
-  late String userId;
-  late String userEmail;
-  String userName = '';
+  // late String userId;
+  // late String userEmail;
+  // // best approach: late
+  // String userName = '';
 
   @override
   void initState() {
     // TODO: implement initState
     super.initState();
-    FetchuserData();
+    //FetchuserData();
   }
-
-  FetchuserData() async {
-    User? user = await FirebaseAuth.instance.currentUser;
-    userEmail = user!.email ?? '';
-    userId = user.uid ?? '';
-
-    if (userEmail != null) {
-      final userdocs = await FirebaseFirestore.instance
-          .collection('user Data')
-          .where('userEmail', isEqualTo: userEmail)
-          .get();
-      if (userdocs.docs.isEmpty) {
-        setState(() {
-          userName = userdocs.docs.first['userName'];
-        });
-      }
-    }
-  }
+  // FetchuserData() async {
+  //   User? user = await FirebaseAuth.instance.currentUser;
+  //   if(user!=null)// false
+  //     {
+  //       userEmail = user!.email ?? '';
+  //       userId = user.uid ?? '';
+  //       if (userEmail != null) {
+  //         final userdocs = await FirebaseFirestore.instance
+  //             .collection('user Data')
+  //             .where('userEmail', isEqualTo: userEmail)
+  //             .get();
+  //         if (userdocs.docs.isNotEmpty) {
+  //           setState(() {
+  //             userName = userdocs.docs.first['userName'];
+  //           });
+  //         }
+  //       }
+  //     }
+  //   else
+  //     {
+  //       userEmail='gold shop name';
+  //       userName='please login';
+  //       userId='';
+  //       setState(() {
+  //
+  //       });
+  //     }
+  //
+  // }
 
   final key = GlobalKey<FormState>();
   @override
   Widget build(BuildContext context) {
     GoldShopController obj = Get.put(GoldShopController());
-
+    HomeFetchDataController ref=Get.put(HomeFetchDataController());
     return Scaffold(
       backgroundColor: Colors.black,
       appBar: AppBar(
@@ -77,63 +90,73 @@ class _GoldShopState extends State<GoldShop> {
         ),
         centerTitle: true,
       ),
+      // logout button:
+      // logedin user
+
+      // login button:
+      // did not logedin
       drawer: Drawer(
-        child: ListView(
-          children: [
-            UserAccountsDrawerHeader(
-                decoration: BoxDecoration(color: Colors.blue),
-                accountName: Text('user Id:$userName'),
-                accountEmail: Text('user Email:$userEmail')),
-            ListTile(
-              onTap: () async {
-                Navigator.pop(context,
-                    CupertinoPageRoute(builder: (context) => GoldShop()));
-              },
-              leading: Icon(Icons.home),
-              title: Text('Home'),
-            ),
-            ListTile(
-              onTap: () async {
-                Navigator.push(context,
-                    CupertinoPageRoute(builder: (context) => HistoryView()));
-              },
-              leading: Icon(Icons.history_toggle_off),
-              title: Text('History'),
-            ),
-            ListTile(
-              onTap: () async {
-                Navigator.push(context,
-                    CupertinoPageRoute(builder: (context) => AboutAppView()));
-              },
-              // leading: Icon(Icons.),
-              title: Text('About App Screen'),
-            ),
-            ListTile(
-              onTap: () async {
-                Navigator.push(context,
-                    CupertinoPageRoute(builder: (context) => Aboutdeveloper()));
-              },
-              // leading: Icon(Icons.login_outlined),
-              title: Text('About Developors Screen'),
-            ),
-            ListTile(
-              onTap: () async {
-                await FirebaseAuth.instance.signOut();
-                Navigator.push(context,
-                    CupertinoPageRoute(builder: (context) => SignupView()));
-              },
-              leading: Icon(Icons.login_outlined),
-              title: Text('logOut'),
-            ),
-            ListTile(
-              onTap: () async {
-                Navigator.push(context,
-                    CupertinoPageRoute(builder: (context) => SignupView()));
-              },
-              //   leading: Icon(Icons.login_outlined),
-              title: Text('SignUp Screen'),
-            ),
-          ],
+        child: Container(
+          //color: Colors.black,
+          child: Obx(()=>ListView(
+            children: [
+              UserAccountsDrawerHeader(
+                  decoration: BoxDecoration(color: Colors.blue),
+                  accountName: Text('user Name:${ref.userName}'),
+                  accountEmail: Text('user Email:${ref.userEmail}')),
+              ListTile(
+                onTap: () async {
+                  Navigator.pop(context,
+                      CupertinoPageRoute(builder: (context) => GoldShop()));
+                },
+                leading: Icon(Icons.home),
+                title: Text('Home'),
+              ),
+              ListTile(
+                onTap: () async {
+                  Navigator.push(context,
+                      CupertinoPageRoute(builder: (context) => HistoryView()));
+                },
+                leading: Icon(Icons.history_toggle_off),
+                title: Text('History'),
+              ),
+              ListTile(
+                onTap: () async {
+                  Navigator.push(context,
+                      CupertinoPageRoute(builder: (context) => AboutAppView()));
+                },
+                // leading: Icon(Icons.),
+                title: Text('About App Screen'),
+              ),
+              ListTile(
+                onTap: () async {
+                  Navigator.push(context,
+                      CupertinoPageRoute(builder: (context) => Aboutdeveloper()));
+                },
+                // leading: Icon(Icons.login_outlined),
+                title: Text('About Developors Screen'),
+              ),
+              //
+              ref.userId!=''?
+              ListTile(
+                onTap: () async {
+                  await FirebaseAuth.instance.signOut();
+                  Navigator.push(context,
+                      CupertinoPageRoute(builder: (context) => SignupView()));
+                },
+                leading: Icon(Icons.login_outlined),
+                title: Text('logOut'),
+              ):
+              ListTile(
+                onTap: () async {
+                  Navigator.push(context,
+                      CupertinoPageRoute(builder: (context) => SignupView()));
+                },
+                //   leading: Icon(Icons.login_outlined),
+                title: Text('Login Screen'),
+              ),
+            ],
+          ),)
         ),
         // flow chart
         // flow diagram
