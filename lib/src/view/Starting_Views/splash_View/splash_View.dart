@@ -3,7 +3,6 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-
 import 'package:get/get_core/src/get_main.dart';
 import 'package:goldapp/src/Home_Views/Home_View/gold-HomeView.dart';
 import 'package:goldapp/src/view/Starting_Views/onBording_View/onBoarding_View.dart';
@@ -24,31 +23,29 @@ class _SplashViewState extends State<SplashView> {
     super.initState();
     Future.delayed(
         Duration(
-          seconds: 3,
+          seconds: 5,
         ), () {
       //page routing----
       Get.to(() => OnBoardingView());
     });
   }
+
   // one time login credentials
-isUserLogin()
-{
-  User? user=FirebaseAuth.instance.currentUser;
-  if(user == null)
-    {
+  isUserLogin() {
+    User? user = FirebaseAuth.instance.currentUser;
+    if (user == null) {
       //user did not login--> selection screen
-      Navigator.push(context,CupertinoPageRoute(builder:(context)=>SelectionView()));
-    }
-  else
-    {
+      Navigator.push(
+          context, CupertinoPageRoute(builder: (context) => SelectionView()));
+    } else {
       // already login==> goldshop
-      Navigator.push(context,CupertinoPageRoute(builder:(context)=>GoldShop()));
+      Navigator.push(
+          context, CupertinoPageRoute(builder: (context) => GoldShop()));
     }
-}
+  }
+
   @override
   Widget build(BuildContext context) {
-
-
     return Scaffold(
       backgroundColor: Colors.black,
       body: Center(
@@ -56,29 +53,44 @@ isUserLogin()
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Image.asset(
-              'assets/bars.png',
-              width: 250,
-              height: 150,
-            ),
-            SizedBox(height: 80),
-            // Below Image Text
-            Text(
-              ' Gold App',
-              textAlign: TextAlign.center,
-              style: const TextStyle(
-                color:
-                    Colors.amber,
-                fontSize: 18,
-                fontWeight: FontWeight.bold,
-              ),
+              'assets/gabon.png',
+              width: 300,
+              height: 250,
             ),
             SizedBox(height: 20),
-            CircularProgressIndicator(color: Colors.amber,)
+            //  Below Image Text
+            // Row(
+            //   mainAxisAlignment: MainAxisAlignment.center,
+            //   children: [
+            //     Text(
+            //       'GA',
+            //       textAlign: TextAlign.center,
+            //       style: const TextStyle(
+            //         color: Colors.amber,
+            //         fontSize: 108,
+            //         fontWeight: FontWeight.bold,
+            //       ),
+            // ),
+            // Padding(
+            //   padding: const EdgeInsets.only(top:30),
+            //   child: Text(
+            //     ' A',
+            //     textAlign: TextAlign.center,
+            //     style: const TextStyle(
+            //       color:
+            //       Colors.amber,
+            //       fontSize: 50,
+            //       fontWeight: FontWeight.w800,
+            //     ),
+            //   ),
+            // ),
+            CircularProgressIndicator(
+              color: Colors.amber,
+            )
           ],
         ),
       ),
-
-
     );
+    // );
   }
 }

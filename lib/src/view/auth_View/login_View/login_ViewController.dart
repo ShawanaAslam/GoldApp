@@ -8,10 +8,8 @@ import 'package:goldapp/src/Home_Views/Home_View/gold-HomeView.dart';
 
 import '../../../Home_Views/Home_View/gold-HomeView.dart';
 import '../../../utills/toast_ Notifications/toast_Notification.dart';
-<<<<<<< HEAD
+
 //import '../../Home_Views/gold-HomeView.dart';
-=======
->>>>>>> 004b58f031f862fe40aec27466000602a3d04024
 
 class LoginController extends GetxController {
   TextEditingController emailController = TextEditingController();

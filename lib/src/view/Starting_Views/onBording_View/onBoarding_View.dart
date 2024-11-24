@@ -4,6 +4,7 @@ import 'package:get/get_core/src/get_main.dart';
 import 'package:goldapp/src/view/Starting_Views/onBording_View/onBoarding_Controller.dart';
 import 'package:goldapp/src/view/Starting_Views/onBording_View/onBoarding_widgets/onBoarding_page.dart';
 import 'package:goldapp/src/view/auth_View/signUp_View/signUp_View.dart';
+import 'package:goldapp/src/view/selection_View/selection_View.dart';
 
 class OnBoardingView extends StatefulWidget {
   const OnBoardingView({super.key});
@@ -82,7 +83,7 @@ class _OnBoardingViewState extends State<OnBoardingView> {
                               )
                             : InkWell(
                                 onTap: () {
-                                  Get.to(()=>SignupView());
+                                  Get.to(() => SelectionView());
                                 },
                                 child: Container(
                                   decoration: BoxDecoration(

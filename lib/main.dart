@@ -5,16 +5,17 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:goldapp/src/Home_Views/Home_View/gold-HomeView.dart';
 
-
-
-
 import 'package:goldapp/src/view/Starting_Views/splash_View/splash_View.dart';
 import 'package:goldapp/src/view/auth_View/signUp_View/signUp_View.dart';
 
-void main() async{
-
+void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-await Firebase.initializeApp();
+  await Firebase.initializeApp(
+      options: FirebaseOptions(
+          apiKey: "AIzaSyBtZTIGR-wo3YwJIOuWpj_mB5P0p1StLIw",
+          appId: "1:836795650404:web:062bf4183884eee3ac2a71",
+          messagingSenderId: "836795650404",
+          projectId: "projectmanagement-e7efa"));
   runApp(const MyApp());
 }
 
@@ -24,22 +25,20 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-
     return GetMaterialApp(
-      debugShowCheckedModeBanner: false,
-      title: 'Flutter Demo',
-      theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
-        useMaterial3: true,
-      ),
-
-      home:
-   GoldShop()
+        debugShowCheckedModeBanner: false,
+        title: 'Gold App',
+        theme: ThemeData(
+          colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
+          useMaterial3: true,
+        ),
+        home:
+            //GoldShop()
 //SignupView()
-        //
-     // SplashView()//const MyHomePage(title: 'Flutter Demo Home Page'),
+            //
+            SplashView() //const MyHomePage(title: 'Flutter Demo Home Page'),
 
-    );
+        );
   }
 }
 

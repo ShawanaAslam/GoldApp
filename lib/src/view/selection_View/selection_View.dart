@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:goldapp/src/Home_Views/Home_View/gold-HomeView.dart';
+import 'package:goldapp/src/view/auth_View/login_View/login_View.dart';
+import 'package:goldapp/src/view/auth_View/signUp_View/signUp_View.dart';
 
 import '../../common_widgets/MyButton.dart';
 import '../../common_widgets/reusable_text.dart';
@@ -19,26 +21,45 @@ class _SelectionViewState extends State<SelectionView> {
       backgroundColor: Colors.black,
       appBar: AppBar(
         backgroundColor: Colors.amber,
-        title: MyText(txt:'Selection Screen',font: 22,),
+        title: MyText(
+          txt: 'Selection Screen',
+          font: 22,
+        ),
       ),
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
+            //SizedBox(height: 40,),
+            MyButton(
+              ontap: () {
+                Get.to(() => GoldShop());
+              },
+              txt: 'Continue without Login',
+              h: 40,
+              w: 300,
+              bacclr: Colors.black,
+              clr: Colors.amber,
+              font: 20,
+              fntwt: FontWeight.w600,
+            ),
+            SizedBox(
+              height: 20,
+            ),
 
-          //SizedBox(height: 40,),
-          MyButton(ontap: (){
-            Get.to(()=>GoldShop());
-          },  txt:'Continue without Login',h: 40,w:300 ,
-            bacclr: Colors.black,clr: Colors.amber,font:20,fntwt: FontWeight.w600, ),
-          SizedBox(height: 20,),
-
-          MyButton(ontap: (){
-            Get.to(()=>GoldShop());
-          },  txt:'Continue with Login',h: 40,w:200 ,
-            bacclr: Colors.black,clr: Colors.amber,font: 20,fntwt: FontWeight.w600),
-
-        ],),
+            MyButton(
+                ontap: () {
+                  Get.to(() => LoginView());
+                },
+                txt: 'Continue with Login',
+                h: 40,
+                w: 200,
+                bacclr: Colors.black,
+                clr: Colors.amber,
+                font: 20,
+                fntwt: FontWeight.w600),
+          ],
+        ),
       ),
     );
   }
