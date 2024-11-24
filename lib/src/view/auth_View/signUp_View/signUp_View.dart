@@ -34,30 +34,33 @@ class _SignupViewState extends State<SignupView> {
                   mainAxisAlignment: MainAxisAlignment.center,
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
-                     Image.asset(
-              'assets/signup.png',
-              width: 300,
-              height: 250,
-            ),
+                    Image.asset(
+                      'assets/signup.png',
+                      width: 150,
+                      height: 150,
+                    ),
                     // SizedBox(
                     //   height: 100,
                     // ),
                     SimpleText(
-                        prefixicn: Icon(Icons.person,color: Colors.amber),
+                        prefixicn: Icon(Icons.person, color: Colors.amber),
                         controller: signupController.userNameController,
                         hnttxt: "User Name"),
                     SizedBox(
                       height: 20,
                     ),
                     SimpleText(
-                        prefixicn: Icon(Icons.person,color: Colors.amber),
+                        prefixicn: Icon(Icons.person, color: Colors.amber),
                         controller: signupController.fatherNameController,
                         hnttxt: "Father Name"),
                     SizedBox(
                       height: 20,
                     ),
                     SimpleText(
-                        prefixicn: Icon(Icons.email,color: Colors.amber,),
+                        prefixicn: Icon(
+                          Icons.email,
+                          color: Colors.amber,
+                        ),
                         controller: signupController.emailController,
                         hnttxt: "Enter Email"),
                     SizedBox(
@@ -79,39 +82,42 @@ class _SignupViewState extends State<SignupView> {
                       return signupController.isLoading.value
                           ? CircularProgressIndicator()
                           : InkWell(
-                        onTap: () {
-                          print('-----------------------1');
-                          // difference b/w validation and exception
-                          // validator--> handle in front end(design side)
-                          //exceptions--> handle in backend (in data base)
+                              onTap: () {
+                                print('-----------------------1');
+                                // difference b/w validation and exception
+                                // validator--> handle in front end(design side)
+                                //exceptions--> handle in backend (in data base)
 
-                          if (key.currentState!
-                              .validate()) // true --- false
-                            //(_formKey.currentState!.validate())
-                              {
-                            print('--------------------------2');
-                            signupController.onSignup(context);
-                          }
-                        },
-                        child: Container(
-                          decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(10),
-                              color: Colors.amber),
-                          height: 40,
-                          width: 250,
-                          child: Center(
-                              child: Text(
-                                'Sign Up',
-                                style: TextStyle(color: Colors.black),
-                              )),
-                        ),
-                      );
+                                if (key.currentState!
+                                    .validate()) // true --- false
+                                //(_formKey.currentState!.validate())
+                                {
+                                  print('--------------------------2');
+                                  signupController.onSignup(context);
+                                }
+                              },
+                              child: Container(
+                                decoration: BoxDecoration(
+                                    borderRadius: BorderRadius.circular(10),
+                                    color: Colors.amber),
+                                height: 40,
+                                width: 250,
+                                child: Center(
+                                    child: Text(
+                                  'Sign Up',
+                                  style: TextStyle(color: Colors.black),
+                                )),
+                              ),
+                            );
                     }),
                     SizedBox(
                       height: 5,
                     ),
                     Row(mainAxisAlignment: MainAxisAlignment.center, children: [
-                      Text('Already have an account ?',style: GoogleFonts.roboto(color: Colors.amber),),
+                      Text(
+                        'Already have an account ?',
+                        style: GoogleFonts.roboto(color: Colors.amber),
+                      ),
                       SizedBox(width: 10),
                       InkWell(
                           onTap: () {
