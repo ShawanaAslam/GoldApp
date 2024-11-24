@@ -34,9 +34,14 @@ class _SignupViewState extends State<SignupView> {
                   mainAxisAlignment: MainAxisAlignment.center,
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
-                    SizedBox(
-                      height: 100,
-                    ),
+                     Image.asset(
+              'assets/signup.png',
+              width: 300,
+              height: 250,
+            ),
+                    // SizedBox(
+                    //   height: 100,
+                    // ),
                     SimpleText(
                         prefixicn: Icon(Icons.person,color: Colors.amber),
                         controller: signupController.userNameController,

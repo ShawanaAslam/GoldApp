@@ -74,6 +74,8 @@ flutter:
     - assets/gold.png
     - assets/bars.png
     - assets/gabon.png
+    - assets/ib.png
+    - assets/signup.png
   #   - images/a_dot_burr.jpeg
   #   - images/a_dot_ham.jpeg
 
