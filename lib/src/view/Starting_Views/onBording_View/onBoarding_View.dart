@@ -50,6 +50,7 @@ class _OnBoardingViewState extends State<OnBoardingView> {
                   ],
                 ),
               ),
+             ///TODO:- button--- for next and get started
               Center(
                 child: Padding(
                   padding: const EdgeInsets.only(bottom: 18),

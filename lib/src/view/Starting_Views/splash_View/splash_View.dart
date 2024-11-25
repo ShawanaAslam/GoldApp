@@ -26,7 +26,8 @@ class _SplashViewState extends State<SplashView> {
           seconds: 5,
         ), () {
       //page routing----
-      Get.to(() => OnBoardingView());
+     // Get.to(() => OnBoardingView());
+      isUserLogin();
     });
   }
 
@@ -36,7 +37,7 @@ class _SplashViewState extends State<SplashView> {
     if (user == null) {
       //user did not login--> selection screen
       Navigator.push(
-          context, CupertinoPageRoute(builder: (context) => SelectionView()));
+          context, CupertinoPageRoute(builder: (context) => OnBoardingView()));
     } else {
       // already login==> goldshop
       Navigator.push(

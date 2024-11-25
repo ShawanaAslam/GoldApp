@@ -21,29 +21,57 @@ class OnBoardingPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Center(
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        crossAxisAlignment: CrossAxisAlignment.center,
-        children: [
-          Image.asset(
-            image,
-            height: 130,
-          ),
-          // CircleAvatar(radius:100,backgroundImage: (AssetImage(image)),),
-          SizedBox(
-            height: 10,
-          ),
-          Text(
-            text,
-            style: GoogleFonts.roboto(color: Colors.amber),
-          ),
+    return Column(children: [
 
-          isLastpage
-              ? ElevatedButton(onPressed: () {}, child: Text('last page'))
-              : Container(),
-        ],
-      ),
-    );
+    ],);
+    //   Center(
+    //   child: Column(
+    //     mainAxisAlignment: MainAxisAlignment.center,
+    //     crossAxisAlignment: CrossAxisAlignment.center,
+    //     children: [
+    //       Image.asset(
+    //         image,
+    //         height: 130,
+    //       ),
+    //       // CircleAvatar(radius:100,backgroundImage: (AssetImage(image)),),
+    //       SizedBox(
+    //         height: 10,
+    //       ),
+    //       Text(
+    //         text,
+    //         style: GoogleFonts.roboto(color: Colors.amber),
+    //       ),
+    //
+    //       isLastpage
+    //           ? ElevatedButton(onPressed: () {}, child: Text('last page'))
+    //           : Container(),
+    //     ],
+    //   ),
+    // );
   }
 }
+
+// Center(
+// child: Column(
+// mainAxisAlignment: MainAxisAlignment.center,
+// crossAxisAlignment: CrossAxisAlignment.center,
+// children: [
+// Image.asset(
+// image,
+// height: 130,
+// ),
+// // CircleAvatar(radius:100,backgroundImage: (AssetImage(image)),),
+// SizedBox(
+// height: 10,
+// ),
+// Text(
+// text,
+// style: GoogleFonts.roboto(color: Colors.amber),
+// ),
+//
+// isLastpage
+// ? ElevatedButton(onPressed: () {}, child: Text('last page'))
+//     : Container(),
+// ],
+// ),
+// );
