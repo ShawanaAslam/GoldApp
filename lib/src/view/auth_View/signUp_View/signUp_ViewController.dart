@@ -207,7 +207,7 @@ class SignupController extends GetxController {
           String docId=DateTime.now().microsecondsSinceEpoch.toString();
           await FirebaseFirestore.instance.collection('UserData').doc(docId).set({
             'name': userNameController.text,
-            'fathername':fatherNameController.text,
+           // 'fathername':fatherNameController.text,
             'docId':docId,
             'email':emailController.text,
           });

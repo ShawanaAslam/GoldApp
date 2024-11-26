@@ -86,7 +86,8 @@ class _SplashViewState extends State<SplashView> {
             //     ),
             //   ),
             // ),
-            SpinKitCircle(
+            SpinKitCircle
+              (
               color: Colors.amber,
             ),
             // CircularProgressIndicator(

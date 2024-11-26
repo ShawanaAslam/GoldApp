@@ -44,16 +44,16 @@ class _OnBoardingViewState extends State<OnBoardingView> {
                     //});
                   },
                   children: [
-                    OnBoardingPage(text: 'Simplify Gold Pricing',text1: 'Quickly calculate the total cost of gold with ease.\n Enter the price, quantity, and get instant results!', image: 'assets/bars.png'),
-                    OnBoardingPage(text: 'Offline or Online?',text1: ' Your Choice Offline for quick access.\n Online to track your history. \n  It’s all about what works best for you.', image: 'assets/gold.png'),
-                    OnBoardingPage(text:'Start Your Journey Today',text1: 'Your trusted companion for gold pricing.\n Accurate, reliable, and easy to use.', image: 'assets/goldstack.png')
+                    OnBoardingPage(text: 'Simplify Gold Pricing',text1: 'Quickly calculate the total cost of gold with ease.\nEnter the price, quantity, and get instant results!', image: 'assets/bars.png'),
+                    OnBoardingPage(text: 'Offline or Online?',text1: 'Your Choice Offline for quick access.\nOnline to track your history. \nIt’s all about what works best for you.', image: 'assets/gold.png'),
+                    OnBoardingPage(text:'Start Your Journey Today',text1: 'Your trusted companion for gold pricing.\nAccurate, reliable, and easy to use.', image: 'assets/goldstack.png')
                   ],
                 ),
               ),
              ///TODO:- button--- for next and get started
               Center(
                 child: Padding(
-                  padding: const EdgeInsets.only(bottom: 18),
+                  padding: const EdgeInsets.only(bottom: 18,right: 20,left: 20),
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.end,
                     crossAxisAlignment: CrossAxisAlignment.center,
@@ -71,15 +71,19 @@ class _OnBoardingViewState extends State<OnBoardingView> {
                                       color: Colors.black,
                                       borderRadius: BorderRadius.circular(5)),
                                   height: 40,
-                                  width: 300,
+                                  width: double.infinity,
                                   child: Center(
-                                      child: Text(
-                                    'Next',
-                                    style: TextStyle(
-                                        color: Colors.amber,
-                                        fontSize: 20,
-                                        fontWeight: FontWeight.w800),
-                                  )),
+                                      child: Row(
+                                        children: [
+                                          Text(
+                                                                              'Next',
+                                                                              style: TextStyle(
+                                            color: Colors.amber,
+                                            fontSize: 20,
+                                            fontWeight: FontWeight.w800),
+                                                                            ),
+                                        ],
+                                      )),
                                 ),
                               )
                             : InkWell(

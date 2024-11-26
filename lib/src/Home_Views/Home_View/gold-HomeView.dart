@@ -104,7 +104,7 @@ class _GoldShopState extends State<GoldShop> {
                   UserAccountsDrawerHeader(
                       decoration: BoxDecoration(color: Colors.amber),
                       accountName: Text(
-                        'User Name : ${ref.userName},',
+                        'User Name : ${ref.userName}',
                         style: TextStyle(color: Colors.black),
                       ),
                       accountEmail: Text('User Email : ${ref.userEmail}',

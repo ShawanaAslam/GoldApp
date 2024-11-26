@@ -42,13 +42,13 @@ class _SignupViewState extends State<SignupView> {
                         prefixicn: Icon(Icons.person, color: Colors.amber),
                         controller: signupController.userNameController,
                         hnttxt: "User Name"),
-                    SizedBox(
-                      height: 20,
-                    ),
-                    SimpleText(
-                        prefixicn: Icon(Icons.person, color: Colors.amber),
-                        controller: signupController.fatherNameController,
-                        hnttxt: "Father Name"),
+                    // SizedBox(
+                    //   height: 20,
+                    // ),
+                    // SimpleText(
+                    //     prefixicn: Icon(Icons.person, color: Colors.amber),
+                    //     controller: signupController.fatherNameController,
+                    //     hnttxt: "Father Name"),
                     SizedBox(
                       height: 20,
                     ),
