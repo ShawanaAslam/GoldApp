@@ -1,6 +1,7 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:get/get.dart';
 
 import 'package:get/get_core/src/get_main.dart';
@@ -85,9 +86,12 @@ class _SplashViewState extends State<SplashView> {
             //     ),
             //   ),
             // ),
-            CircularProgressIndicator(
+            SpinKitCircle(
               color: Colors.amber,
-            )
+            ),
+            // CircularProgressIndicator(
+            //   color: Colors.amber,
+            // )
           ],
         ),
       ),

@@ -136,8 +136,8 @@ class _GoldShopState extends State<GoldShop> {
                           CupertinoPageRoute(
                               builder: (context) => AboutAppView()));
                     },
-                     leading:ImageIcon(AssetImage('assets/ib.png'),) ,
-                    title: Text('About App Screen',
+                     leading:ImageIcon(AssetImage('assets/ib.png'),color: Colors.amber,) ,
+                    title: Text('About App',
                         style: TextStyle(color: Colors.amber)),
                   ),
                   ListTile(
@@ -148,7 +148,7 @@ class _GoldShopState extends State<GoldShop> {
                               builder: (context) => Aboutdeveloper()));
                     },
                     //leading: Icon(Icons.login),
-                    title: Text('About Developors Screen',
+                    title: Text('About Developors',
                         style: TextStyle(color: Colors.amber)),
                   ),
                   //

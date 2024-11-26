@@ -3,6 +3,7 @@ import 'package:get/get.dart';
 import 'package:goldapp/src/Home_Views/Home_View/gold-HomeView.dart';
 import 'package:goldapp/src/view/auth_View/login_View/login_View.dart';
 import 'package:goldapp/src/view/auth_View/signUp_View/signUp_View.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 import '../../common_widgets/MyButton.dart';
 import '../../common_widgets/reusable_text.dart';
@@ -21,6 +22,7 @@ class _SelectionViewState extends State<SelectionView> {
       backgroundColor: Colors.black,
       appBar: AppBar(
         backgroundColor: Colors.amber,
+        leading: IconButton(onPressed: (){},icon:Icon(Icons.arrow_back),),
         title: MyText(
           txt: 'Selection Screen',
           font: 22,
@@ -30,34 +32,56 @@ class _SelectionViewState extends State<SelectionView> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            //SizedBox(height: 40,),
+
+
+          Container(
+          height: 60,
+          width: 300,
+          decoration: BoxDecoration(
+              color: Colors.amber,
+              borderRadius: BorderRadius.circular(5)),
+          child: Center(child: Text('Continue...',style:GoogleFonts.roboto(
+            fontWeight: FontWeight.w800,fontSize: 20
+          ),)),
+        ),
+
+            SizedBox(height: 40,),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+                crossAxisAlignment: CrossAxisAlignment.center,
+
+children: [
+
+                  MyButton(
+                      ontap: () {
+                        Get.to(() => LoginView());
+                      },
+                      txt: 'with Login',
+                      h: 150,
+                      w: 180,
+                      bacclr: Colors.black,
+                      clr: Colors.amber,
+                      font: 20,
+                      fntwt: FontWeight.w600),
+                  SizedBox(
+                    width: 20,
+                  ),
+
             MyButton(
+
               ontap: () {
                 Get.to(() => GoldShop());
               },
-              txt: 'Continue without Login',
-              h: 40,
-              w: 300,
+              txt: 'without Login',
+              h: 150,
+              w: 180,
               bacclr: Colors.black,
               clr: Colors.amber,
               font: 20,
               fntwt: FontWeight.w600,
             ),
-            SizedBox(
-              height: 20,
-            ),
 
-            MyButton(
-                ontap: () {
-                  Get.to(() => LoginView());
-                },
-                txt: 'Continue with Login',
-                h: 40,
-                w: 200,
-                bacclr: Colors.black,
-                clr: Colors.amber,
-                font: 20,
-                fntwt: FontWeight.w600),
+      ])
           ],
         ),
       ),

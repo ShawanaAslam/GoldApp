@@ -44,9 +44,9 @@ class _OnBoardingViewState extends State<OnBoardingView> {
                     //});
                   },
                   children: [
-                    OnBoardingPage(text: 'Abc', image: 'assets/bars.png'),
-                    OnBoardingPage(text: 'def', image: 'assets/gold.png'),
-                    OnBoardingPage(text: 'ghi', image: 'assets/goldstack.png')
+                    OnBoardingPage(text: 'Simplify Gold Pricing',text1: 'Quickly calculate the total cost of gold with ease.\n Enter the price, quantity, and get instant results!', image: 'assets/bars.png'),
+                    OnBoardingPage(text: 'Offline or Online?',text1: ' Your Choice Offline for quick access.\n Online to track your history. \n  It’s all about what works best for you.', image: 'assets/gold.png'),
+                    OnBoardingPage(text:'Start Your Journey Today',text1: 'Your trusted companion for gold pricing.\n Accurate, reliable, and easy to use.', image: 'assets/goldstack.png')
                   ],
                 ),
               ),
@@ -68,7 +68,7 @@ class _OnBoardingViewState extends State<OnBoardingView> {
                                 },
                                 child: Container(
                                   decoration: BoxDecoration(
-                                      color: Colors.amber,
+                                      color: Colors.black,
                                       borderRadius: BorderRadius.circular(5)),
                                   height: 40,
                                   width: 300,
@@ -76,7 +76,7 @@ class _OnBoardingViewState extends State<OnBoardingView> {
                                       child: Text(
                                     'Next',
                                     style: TextStyle(
-                                        color: Colors.black,
+                                        color: Colors.amber,
                                         fontSize: 20,
                                         fontWeight: FontWeight.w800),
                                   )),
@@ -88,7 +88,7 @@ class _OnBoardingViewState extends State<OnBoardingView> {
                                 },
                                 child: Container(
                                   decoration: BoxDecoration(
-                                      color: Colors.amber,
+                                      color: Colors.black,
                                       borderRadius: BorderRadius.circular(5)),
                                   height: 40,
                                   width: 300,
@@ -96,7 +96,7 @@ class _OnBoardingViewState extends State<OnBoardingView> {
                                       child: Text(
                                     'Get Started',
                                     style: TextStyle(
-                                        color: Colors.black,
+                                        color: Colors.amber,
                                         fontSize: 20,
                                         fontWeight: FontWeight.w800),
                                   )),
