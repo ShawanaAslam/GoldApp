@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:goldapp/src/utills/Loading_Effect/app_Loading.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 import '../../../common_widgets/simpleTextForm_widget.dart';
@@ -78,7 +79,7 @@ class _LoginViewState extends State<LoginView> {
                     ),
                     Obx(() {
                       return loginController.isLoading.value
-                          ? CircularProgressIndicator()
+                          ? AppLoading()
                           : InkWell(
                               onTap: () {
                                 // difference b/w validation and exception

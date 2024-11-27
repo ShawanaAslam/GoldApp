@@ -6,6 +6,7 @@ import 'package:get/get.dart';
 
 import 'package:get/get_core/src/get_main.dart';
 import 'package:goldapp/src/Home_Views/Home_View/gold-HomeView.dart';
+import 'package:goldapp/src/utills/Loading_Effect/app_Loading.dart';
 import 'package:goldapp/src/view/Starting_Views/onBording_View/onBoarding_View.dart';
 
 import '../../selection_View/selection_View.dart';
@@ -60,38 +61,9 @@ class _SplashViewState extends State<SplashView> {
               height: 250,
             ),
             SizedBox(height: 20),
-            //  Below Image Text
-            // Row(
-            //   mainAxisAlignment: MainAxisAlignment.center,
-            //   children: [
-            //     Text(
-            //       'GA',
-            //       textAlign: TextAlign.center,
-            //       style: const TextStyle(
-            //         color: Colors.amber,
-            //         fontSize: 108,
-            //         fontWeight: FontWeight.bold,
-            //       ),
-            // ),
-            // Padding(
-            //   padding: const EdgeInsets.only(top:30),
-            //   child: Text(
-            //     ' A',
-            //     textAlign: TextAlign.center,
-            //     style: const TextStyle(
-            //       color:
-            //       Colors.amber,
-            //       fontSize: 50,
-            //       fontWeight: FontWeight.w800,
-            //     ),
-            //   ),
-            // ),
-            SpinKitCircle(
-              color: Colors.amber,
-            ),
-            // CircularProgressIndicator(
-            //   color: Colors.amber,
-            // )
+
+           AppLoading()
+
           ],
         ),
       ),

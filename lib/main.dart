@@ -1,6 +1,7 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import 'package:get/get.dart';
 import 'package:goldapp/src/Home_Views/Home_View/gold-HomeView.dart';
@@ -27,20 +28,27 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return GetMaterialApp(
-        debugShowCheckedModeBanner: false,
-        title: 'Gold App',
-        theme: ThemeData(
-          colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
-          useMaterial3: true,
-        ),
-        home:
-            //GoldShop()
-      // SignupView()
-     // SelectionView()
-            SplashView() //const MyHomePage(title: 'Flutter Demo Home Page'),
+   return ScreenUtilInit(
+      designSize: Size(390,844),
+      builder: (context,child)
+        {
+          return GetMaterialApp(
+              debugShowCheckedModeBanner: false,
+              title: 'Gold App',
+              theme: ThemeData(
+                colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
+                useMaterial3: true,
+              ),
+              home:
+              //GoldShop()
+              // SignupView()
+              // SelectionView()
+              SplashView() //const MyHomePage(title: 'Flutter Demo Home Page'),
 
-        );
+          );
+        }
+    );
+
   }
 }
 

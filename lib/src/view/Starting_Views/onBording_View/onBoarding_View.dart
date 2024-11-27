@@ -73,13 +73,21 @@ class _OnBoardingViewState extends State<OnBoardingView> {
                                   height: 40,
                                   width: 300,
                                   child: Center(
-                                      child: Text(
-                                    'Next',
-                                    style: TextStyle(
-                                        color: Colors.amber,
-                                        fontSize: 20,
-                                        fontWeight: FontWeight.w800),
-                                  )),
+                                      child: Row(
+                                        mainAxisAlignment: MainAxisAlignment.center,
+                                        crossAxisAlignment: CrossAxisAlignment.center,
+                                        children: [
+                                          Text(
+                                                                              'Next',
+                                                                              style: TextStyle(
+                                            color: Colors.amber,
+                                            fontSize: 20,
+                                            fontWeight: FontWeight.w800),
+                                                                            ),
+                                          SizedBox(width: 15,),
+                                          Icon(Icons.arrow_forward,color: Colors.amber,),
+                                        ],
+                                      )),
                                 ),
                               )
                             : InkWell(

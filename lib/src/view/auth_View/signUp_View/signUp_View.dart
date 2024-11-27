@@ -5,6 +5,7 @@ import 'package:goldapp/src/view/auth_View/signUp_View/signUp_Widgets/paswordTex
 import 'package:google_fonts/google_fonts.dart';
 
 import '../../../common_widgets/simpleTextForm_widget.dart';
+import '../../../utills/Loading_Effect/app_Loading.dart';
 import 'signUp_ViewController.dart';
 
 import '../login_view/login_view.dart';
@@ -76,7 +77,7 @@ class _SignupViewState extends State<SignupView> {
                     ),
                     Obx(() {
                       return signupController.isLoading.value
-                          ? CircularProgressIndicator()
+                          ? AppLoading()
                           : InkWell(
                               onTap: () {
                                 print('-----------------------1');
