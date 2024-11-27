@@ -1,4 +1,5 @@
 
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
@@ -90,6 +91,18 @@ class GoldShopController extends GetxController {
 
   }
 Future<void> insertData()async{
+  //   try
+  //   {
+  //     await FirebaseFirestore.instance.collection('Data').add(
+  //       //   'goldgram' : n3.text,
+  //       // 'goldRati' : n4.text,
+  //       // 'goldpoint' : n5.text
+  //
+  //    // );
+  //   }
+  //   catch(error)
+  // {}
+
 
 }
   void refresh(){

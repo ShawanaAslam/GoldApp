@@ -5,6 +5,7 @@ import 'package:goldapp/src/utills/Loading_Effect/app_Loading.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 import '../../../common_widgets/simpleTextForm_widget.dart';
+import '../Forget_View/forget_View.dart';
 import '../signUp_View/signUp_View.dart';
 import '../signUp_View/signUp_Widgets/paswordTextForm_WidgetView.dart';
 
@@ -60,10 +61,10 @@ class _LoginViewState extends State<LoginView> {
                       children: [
                         InkWell(
                             onTap: () {
-                              // Navigator.push(
-                              //  context,
-                              //  CupertinoPageRoute(
-                              // builder: (context) => ForgetPasword()));
+                              Navigator.push(
+                               context,
+                               CupertinoPageRoute(
+                              builder: (context) => ForgetPasword()));
                             },
                             child: Padding(
                               padding: const EdgeInsets.only(right: 30),
