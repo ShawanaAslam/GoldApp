@@ -61,45 +61,12 @@ class _SplashViewState extends State<SplashView> {
               height: 250,
             ),
             SizedBox(height: 20),
-<<<<<<< HEAD
+
 
            AppLoading()
 
-=======
-            //  Below Image Text
-            // Row(
-            //   mainAxisAlignment: MainAxisAlignment.center,
-            //   children: [
-            //     Text(
-            //       'GA',
-            //       textAlign: TextAlign.center,
-            //       style: const TextStyle(
-            //         color: Colors.amber,
-            //         fontSize: 108,
-            //         fontWeight: FontWeight.bold,
-            //       ),
-            // ),
-            // Padding(
-            //   padding: const EdgeInsets.only(top:30),
-            //   child: Text(
-            //     ' A',
-            //     textAlign: TextAlign.center,
-            //     style: const TextStyle(
-            //       color:
-            //       Colors.amber,
-            //       fontSize: 50,
-            //       fontWeight: FontWeight.w800,
-            //     ),
-            //   ),
-            // ),
-            SpinKitCircle
-              (
-              color: Colors.amber,
-            ),
-            // CircularProgressIndicator(
-            //   color: Colors.amber,
-            // )
->>>>>>> 8b631ed4f847dd29c8c2c38c5e0790b5a8f0af6d
+
+
           ],
         ),
       ),

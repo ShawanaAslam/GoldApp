@@ -74,11 +74,10 @@ class _OnBoardingViewState extends State<OnBoardingView> {
                                   width: double.infinity,
                                   child: Center(
                                       child: Row(
-<<<<<<< HEAD
+
                                         mainAxisAlignment: MainAxisAlignment.center,
                                         crossAxisAlignment: CrossAxisAlignment.center,
-=======
->>>>>>> 8b631ed4f847dd29c8c2c38c5e0790b5a8f0af6d
+
                                         children: [
                                           Text(
                                                                               'Next',
@@ -87,11 +86,10 @@ class _OnBoardingViewState extends State<OnBoardingView> {
                                             fontSize: 20,
                                             fontWeight: FontWeight.w800),
                                                                             ),
-<<<<<<< HEAD
+
                                           SizedBox(width: 15,),
                                           Icon(Icons.arrow_forward,color: Colors.amber,),
-=======
->>>>>>> 8b631ed4f847dd29c8c2c38c5e0790b5a8f0af6d
+
                                         ],
                                       )),
                                 ),
