@@ -30,7 +30,7 @@ class _PaswordTextFormState extends State<PaswordTextForm> {
           () => Padding(
         padding: const EdgeInsets.only(right: 30, left: 30),
         child: TextFormField(
-          controller: obj.controller,
+          controller: widget.controller,
           style: TextStyle(color: Colors.white),
           validator: (value) {
             if (value == null || value.isEmpty) {
@@ -82,7 +82,7 @@ class _PaswordTextFormState extends State<PaswordTextForm> {
                       : Icon(Icons.remove_red_eye_outlined,color: Colors.amber,)),
               fillColor: Colors.black,
               filled: true,
-              hintText: 'Enter Pasword',
+              hintText: widget.hnttxt,
               hintStyle: TextStyle(color: Colors.amber, fontSize: 14),
               border: OutlineInputBorder(
                 borderRadius: BorderRadius.circular(10),

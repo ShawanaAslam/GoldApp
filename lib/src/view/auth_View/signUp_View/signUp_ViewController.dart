@@ -204,6 +204,7 @@ class SignupController extends GetxController {
         {
           //TODO app
           String docId=DateTime.now().microsecondsSinceEpoch.toString();
+
           await FirebaseFirestore.instance.collection('UserData').doc(docId).set({
             'name': userNameController.text,
            // 'fathername':fatherNameController.text,
