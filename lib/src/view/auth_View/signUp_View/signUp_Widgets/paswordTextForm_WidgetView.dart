@@ -4,7 +4,7 @@ import 'package:get/get.dart';
 import 'paswordTextForm_WidgetController.dart';
 
 class PaswordTextForm extends StatefulWidget {
-  TextEditingController controller;
+   TextEditingController controller;
   String hnttxt;
   Color clr;
   Widget? prefixicn;
@@ -30,7 +30,7 @@ class _PaswordTextFormState extends State<PaswordTextForm> {
           () => Padding(
         padding: const EdgeInsets.only(right: 30, left: 30),
         child: TextFormField(
-          controller: widget.controller,
+          controller: obj.controller,
           style: TextStyle(color: Colors.white),
           validator: (value) {
             if (value == null || value.isEmpty) {
@@ -55,11 +55,19 @@ class _PaswordTextFormState extends State<PaswordTextForm> {
                     .hasMatch(value)) {
               return 'Password must contain letters, numbers, and special characters';
             }
+           //  if (
+           // // value == null
+           //    widget.hnttxt =='Confirm Pasword'  || value.isEmpty) {
+           //    return 'Please confirm your password';
+           //  }
+           //  if (value != obj.controller.text) {
+           //    return 'Passwords do not match';
+           //  }
+            if (widget.hnttxt == 'Confirm Password' &&
+                value != obj.confirmController.text) {
+              return 'Passwords do not match';
+            }
 
-            // if(hnttxt == 'Enter Pasword' && !RegExp(r'^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$').hasMatch(value))
-            // {
-            //   return 'Pasword must contain letters,numbers, and special characters';
-            // }
             return null;
           },
           obscureText: obj.isChecked.value,

@@ -120,10 +120,9 @@ import '../login_View/login_View.dart';
 // Backend Code
 class SignupController extends GetxController {
   TextEditingController emailController = TextEditingController();
-  TextEditingController passwordController =
-  TextEditingController(); // Fixed spelling
+  TextEditingController passwordController = TextEditingController(); // Fixed spelling
   TextEditingController userNameController = TextEditingController();
-  TextEditingController fatherNameController = TextEditingController();
+  TextEditingController confirmController = TextEditingController();
   var isLoading = false.obs; // Fixed capitalization
 
   // Function for signup
@@ -157,7 +156,7 @@ class SignupController extends GetxController {
       isLoading.value = false;
       print('--------------------6');
       userNameController.clear();
-      fatherNameController.clear();
+      confirmController.clear();
       emailController.clear();
       passwordController.clear();
     }

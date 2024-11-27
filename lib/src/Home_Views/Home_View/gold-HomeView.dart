@@ -101,6 +101,9 @@ class _GoldShopState extends State<GoldShop> {
             child: Obx(
               () => ListView(
                 children: [
+                  // CircleAvatar(
+                  //   child: Image.asset('assests/gabon.png'),
+                  // ),
                   UserAccountsDrawerHeader(
                       decoration: BoxDecoration(color: Colors.amber),
                       accountName: Text(
