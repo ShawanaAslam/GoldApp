@@ -85,9 +85,13 @@ class GoldShopController extends GetxController {
 
     total.value = (double.parse(n1.text) * double.parse(n2.text)) +
         (goldgram + goldRati + goldpoints);
+    // function calling:-
+    // insertData();
 
   }
+Future<void> insertData()async{
 
+}
   void refresh(){
 
     //Future.delayed(Duration(seconds: 3), () {

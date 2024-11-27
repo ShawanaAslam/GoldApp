@@ -63,7 +63,9 @@ class SimpleText extends StatelessWidget {
             border: OutlineInputBorder(
               borderRadius: BorderRadius.circular(10),
             ),
+
             errorBorder: OutlineInputBorder(
+
               borderRadius: BorderRadius.circular(10),
             )),
       ),

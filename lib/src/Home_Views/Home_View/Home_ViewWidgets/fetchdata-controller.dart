@@ -18,29 +18,37 @@ class HomeFetchDataController extends GetxController
     fetchUserData();
   }
   Future<void>fetchUserData()async{
-    User? user=await FirebaseAuth.instance.currentUser;
-    if(user!=null)// false
+  try
+      {
+        User? user=await FirebaseAuth.instance.currentUser;
+        if(user!=null)// false
+            {
+          userEmail.value =await user!.email ?? '';
+          userId.value = user.uid ?? '';
+          if (userEmail != null) {
+            final userdocs = await FirebaseFirestore.instance
+                .collection('user Data')
+                .where('email', isEqualTo: userEmail.value)
+                .get();
+            if (userdocs.docs.isNotEmpty) {
+              //setState(() {
+              userName.value = userdocs.docs.first['name'];
+              //  });
+            }
+          }
+        }
+        else
         {
-      userEmail.value = user!.email ?? '';
-      userId.value = user.uid ?? '';
-      if (userEmail != null) {
-        final userdocs = await FirebaseFirestore.instance
-            .collection('user Data')
-            .where('userEmail', isEqualTo: userEmail)
-            .get();
-        if (userdocs.docs.isNotEmpty) {
-          //setState(() {
-            userName.value = userdocs.docs.first['userName'];
-        //  });
+          userEmail.value='gold shop name';
+          userName.value='please login';
+          userId.value='';
+
         }
       }
-    }
-    else
+      catch (error)
     {
-      userEmail.value='gold shop name';
-      userName.value='please login';
-      userId.value='';
-
+      print('Error:$error');
+      Get.snackbar('Error', 'Error:$error');
     }
   }
 }
