@@ -3,6 +3,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
+import 'package:goldapp/src/Home_Views/Home_View/Home_ViewWidgets/fetchdata-controller.dart';
 
 import '../../common_widgets/MyButton.dart';
 import '../../common_widgets/reusable_simpletext.dart';
@@ -16,6 +17,7 @@ class GoldShopController extends GetxController {
   TextEditingController n3 = TextEditingController();
   TextEditingController n4 = TextEditingController();
   TextEditingController n5 = TextEditingController();
+  HomeFetchDataController controller=Get.put(HomeFetchDataController());
 
   //double
   var total = 0.0.obs;
@@ -83,25 +85,44 @@ class GoldShopController extends GetxController {
     //total=total + goldRati;
     double points = double.parse(n4.text) / 12;
     double goldpoints = points * double.parse(n5.text);
+    double tolaPrice=double.parse(n1.text) * double.parse(n2.text);
 
-    total.value = (double.parse(n1.text) * double.parse(n2.text)) +
-        (goldgram + goldRati + goldpoints);
+    total.value = tolaPrice + goldgram + goldRati + goldpoints;
     // function calling:-
-    // insertData();
+    if(controller.userId.value!='')// false
+      {
+      insertData();
+      }
+    // else
+    //   {
+    //     insertData();
+    //   }
+
+
 
   }
 Future<void> insertData()async{
-  //   try
-  //   {
-  //     await FirebaseFirestore.instance.collection('Data').add(
-  //       //   'goldgram' : n3.text,
-  //       // 'goldRati' : n4.text,
-  //       // 'goldpoint' : n5.text
-  //
-  //    // );
-  //   }
-  //   catch(error)
-  // {}
+    try
+    {
+
+
+      await FirebaseFirestore.instance.collection('Data').add(
+      {
+        'goldgramQuantity' : n3.text,
+        'goldRatiQuantity' : n4.text,
+        'goldpointQuantity' : n5.text,
+        'tolaQuantity':n2.text,
+        'totalPrice':total.value,
+        'tolaPrice':n1.text,
+        'userid':controller.userId.value
+      }
+
+      );
+    }
+    catch(error)
+  {
+    print('Error:$error');
+  }
 
 
 }
