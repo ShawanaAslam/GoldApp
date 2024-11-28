@@ -72,11 +72,11 @@ class _SignupViewState extends State<SignupView> {
                       height: 20,
                     ),
 
-                    PaswordTextForm(
-                        prefixicn: Icon(Icons.lock),
-                        controller: signupController.confirmController,
-
-                        hnttxt: "Confirm Pasword"),
+                    // PaswordTextForm(
+                    //     prefixicn: Icon(Icons.lock),
+                    //     controller: signupController.confirmController,
+                    //
+                    //     hnttxt: "Confirm Pasword"),
                     SizedBox(
                       height: 50,
                     ),

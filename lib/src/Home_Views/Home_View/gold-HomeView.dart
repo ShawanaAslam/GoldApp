@@ -10,6 +10,7 @@ import 'package:goldapp/src/view/auth_View/signUp_View/signUp_View.dart';
 import '../../common_widgets/MyButton.dart';
 import '../../common_widgets/reusable_mytxtformcon.dart';
 import '../../common_widgets/reusable_text.dart';
+import '../../view/auth_View/login_View/login_View.dart';
 import '../AboutApp_View/aboutApp_View.dart';
 import '../History_View/history_View.dart';
 import 'Home_ViewWidgets/validatorTextForm.dart';
@@ -73,15 +74,20 @@ class _GoldShopState extends State<GoldShop> {
       backgroundColor: Colors.black,
       appBar: AppBar(
         actions: [
-          IconButton(
+          //ref.userId != ''?
+             // Container():
+      //    if (ref.userId.isNotEmpty)
+            IconButton(
             onPressed: () {
               // navigate to history screen
+              Get.to(()=>HistoryView());
             },
             icon: Icon(
               Icons.history_toggle_off,
               size: 30,
             ),
           )
+             // :Container()
         ],
         backgroundColor: Colors.amber,
         title: MyText(
@@ -90,11 +96,7 @@ class _GoldShopState extends State<GoldShop> {
         ),
         centerTitle: true,
       ),
-      // logout button:
-      // logedin user
 
-      // login button:
-      // did not logedin
       drawer: Drawer(
         child: Container(
             color: Colors.black,
@@ -157,7 +159,12 @@ class _GoldShopState extends State<GoldShop> {
                     title: Text('About Developors',
                         style: TextStyle(color: Colors.amber)),
                   ),
-                  //
+
+                  // logout button:
+                  // logedin user
+
+                  // login button:
+                  // did not logedin
                   ref.userId != ''
                       ? ListTile(
                           onTap: () async {
@@ -165,7 +172,7 @@ class _GoldShopState extends State<GoldShop> {
                             Navigator.push(
                                 context,
                                 CupertinoPageRoute(
-                                    builder: (context) => SignupView()));
+                                    builder: (context) => LoginView()));
                           },
                           leading:
                               Icon(Icons.login_outlined, color: Colors.amber),
@@ -177,7 +184,7 @@ class _GoldShopState extends State<GoldShop> {
                             Navigator.push(
                                 context,
                                 CupertinoPageRoute(
-                                    builder: (context) => SignupView()));
+                                    builder: (context) => LoginView()));
                           },
                           leading: Icon(Icons.login, color: Colors.amber),
                           title: Text('Login Screen',

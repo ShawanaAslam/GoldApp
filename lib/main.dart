@@ -13,22 +13,15 @@ import 'package:goldapp/src/view/selection_View/selection_View.dart';
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp(
-<<<<<<< HEAD
-   //    options: FirebaseOptions(
-   //        apiKey: "AIzaSyBtZTIGR-wo3YwJIOuWpj_mB5P0p1StLIw",
-   //        appId: "1:836795650404:web:062bf4183884eee3ac2a71",
-   //        messagingSenderId: "836795650404",
-   //        projectId: "projectmanagement-e7efa")
-    );
-=======
-      // options: FirebaseOptions
-      //   (
-      //     apiKey: "AIzaSyBtZTIGR-wo3YwJIOuWpj_mB5P0p1StLIw",
-      //     appId: "1:836795650404:web:062bf4183884eee3ac2a71",
-      //     messagingSenderId: "836795650404",
-      //     projectId: "projectmanagement-e7efa")
+
+      options: FirebaseOptions
+        (
+          apiKey: "AIzaSyBtZTIGR-wo3YwJIOuWpj_mB5P0p1StLIw",
+          appId: "1:836795650404:web:062bf4183884eee3ac2a71",
+          messagingSenderId: "836795650404",
+          projectId: "projectmanagement-e7efa")
    );
->>>>>>> 3cf4be0094d85688e68808f370c3ade772ba52d6
+
   runApp(const MyApp());
 }
 
