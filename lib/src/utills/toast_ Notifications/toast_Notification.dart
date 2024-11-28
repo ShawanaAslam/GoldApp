@@ -18,7 +18,9 @@ void confirmToastMessage(BuildContext context,String message)
 void errorToastMessage(BuildContext context,String message)
 {
   Fluttertoast.showToast(
+
       msg: message,
+
       toastLength: Toast.LENGTH_LONG,
       gravity: ToastGravity.CENTER,
       backgroundColor: Colors.white,

@@ -74,9 +74,8 @@ class _GoldShopState extends State<GoldShop> {
       backgroundColor: Colors.black,
       appBar: AppBar(
         actions: [
-          //ref.userId != ''?
-             // Container():
-      //    if (ref.userId.isNotEmpty)
+          ref.userId.value  != ''?
+
             IconButton(
             onPressed: () {
               // navigate to history screen
@@ -87,7 +86,7 @@ class _GoldShopState extends State<GoldShop> {
               size: 30,
             ),
           )
-             // :Container()
+              :Container()
         ],
         backgroundColor: Colors.amber,
         title: MyText(
