@@ -76,19 +76,53 @@ class GoldShopController extends GetxController {
   //   }
   // }
 
-
- nullCheck();
-
-    goldCalculation();
-
-
-    Get.defaultDialog(
-
-        backgroundColor: Colors.amber,
-        title: 'Total Rs :',
-        titleStyle: TextStyle(color: Colors.black),
-        content: SimpleText(txt: '$total', font: 20, fntwt: FontWeight.w800),
+  if(
+  // n2.text==null
+  //     && n3.text==null&&
+  //     n3.text==null &&n4.text==null  &&n5.text==null
+  n2.text==''
+      && n3.text==''&&
+      n3.text=='' &&n4.text==''  &&n5.text==''
+  )
+    {
+      Get.defaultDialog(
+        backgroundColor: Colors.red,
+        title: 'Warning!',
+        titleStyle: TextStyle(color: Colors.white),
+        content: SimpleText(
+          txt: 'Please enter a value in at least one field (Tola, Gram, Rati, or Points).',
+          font: 18,
+          fntwt: FontWeight.w800,
+        ),
         actions: [
+          MyButton(
+            ontap: () {
+              Get.back();
+            },
+            txt: 'OK',
+            w: 70,
+            h: 40,
+            bacclr: Colors.white,
+            clr: Colors.red,
+            font: 15,
+          ),
+        ],
+      );
+    }
+  else
+    {
+      nullCheck();
+
+      goldCalculation();
+
+
+      Get.defaultDialog(
+
+          backgroundColor: Colors.amber,
+          title: 'Total Rs :',
+          titleStyle: TextStyle(color: Colors.black),
+          content: SimpleText(txt: '$total', font: 20, fntwt: FontWeight.w800),
+          actions: [
 
             MyButton(
               ontap: (){
@@ -103,8 +137,11 @@ class GoldShopController extends GetxController {
               font: 15,),
 
 
-        ]
-   );
+          ]
+      );
+    }
+
+
 
     //refresh();
 
