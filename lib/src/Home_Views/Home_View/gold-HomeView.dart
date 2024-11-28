@@ -74,19 +74,21 @@ class _GoldShopState extends State<GoldShop> {
       backgroundColor: Colors.black,
       appBar: AppBar(
         actions: [
-          ref.userId.value  != ''?
-
+          Obx((){
+            return
+            ref.userId.value  != ''?
             IconButton(
-            onPressed: () {
-              // navigate to history screen
-              Get.to(()=>HistoryView());
-            },
-            icon: Icon(
-              Icons.history_toggle_off,
-              size: 30,
-            ),
-          )
-              :Container()
+              onPressed: () {
+                // navigate to history screen
+                Get.to(()=>HistoryView());
+              },
+              icon: Icon(
+                Icons.history_toggle_off,
+                size: 30,
+              ),
+            )
+                :Container();
+          })
         ],
         backgroundColor: Colors.amber,
         title: MyText(

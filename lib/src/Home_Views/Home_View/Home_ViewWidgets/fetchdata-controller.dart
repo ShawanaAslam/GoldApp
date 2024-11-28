@@ -27,7 +27,7 @@ class HomeFetchDataController extends GetxController
           userId.value = user.uid ?? '';
           if (userEmail != null) {
             final userdocs = await FirebaseFirestore.instance
-                .collection('user Data')
+                .collection('UserData')
                 .where('email', isEqualTo: userEmail.value)
                 .get();
             if (userdocs.docs.isNotEmpty) {
