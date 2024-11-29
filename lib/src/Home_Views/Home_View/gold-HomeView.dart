@@ -156,8 +156,8 @@ class _GoldShopState extends State<GoldShop> {
                           CupertinoPageRoute(
                               builder: (context) => Aboutdeveloper()));
                     },
-                    
-                    leading:ImageIcon(AssetImage('assets/developr.png'),color: Colors.amber,) ,
+
+                    leading:ImageIcon(AssetImage('assets/laptop.png'),color: Colors.amber,) ,
                     title: Text('About Developors',
                         style: TextStyle(color: Colors.amber)),
                   ),
