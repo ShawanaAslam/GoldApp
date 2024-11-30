@@ -297,7 +297,7 @@ class _HistoryViewState extends State<HistoryView> {
               final goldRatiQuantity = doc['goldRatiQuantity'].toString();
               final goldpointQuantity = doc['goldpointQuantity'].toString();
               final totalPrice = doc['totalPrice'].toString();
-
+              String docId=data.docs[index]['doc'].toString()??"";
               return ListTile(
                 title: Text(
                   'Gold Price: $goldprice',
@@ -327,10 +327,11 @@ class _HistoryViewState extends State<HistoryView> {
                           h: 40.h,
                           bacclr: Colors.amber,
                           clr: Colors.black,
-                          ontap: () {
-                            FirebaseFirestore.instance
+                          ontap: () async{
+                            await  FirebaseFirestore.instance
                                 .collection(homeController.userId.value)
-                                .doc(doc.id)
+                               // .doc(data.docs[index].id)
+                                .doc(docId)
                                 .delete();
                             Get.back();
                           },
