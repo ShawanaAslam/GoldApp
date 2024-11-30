@@ -250,8 +250,10 @@
 
 
 
+
 ///-----------------------------
 ///
+
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -398,6 +400,7 @@ class GoldShopController extends GetxController {
     try
     {
 
+
 String docid=DateTime.now().millisecondsSinceEpoch.toString();
       await FirebaseFirestore.instance.collection(controller.userId.value).doc(docid).set(
           {
@@ -410,6 +413,7 @@ String docid=DateTime.now().millisecondsSinceEpoch.toString();
             'userid':controller.userId.value,
             'doc':docid
           }
+
 
       );
     }

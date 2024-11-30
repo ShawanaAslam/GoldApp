@@ -126,18 +126,23 @@ class _GoldShopState extends State<GoldShop> {
                     leading: Icon(Icons.home, color: Colors.amber),
                     title: Text('Home', style: TextStyle(color: Colors.amber)),
                   ),
-                  ListTile(
-                    onTap: () async {
-                      Navigator.push(
-                          context,
-                          CupertinoPageRoute(
-                              builder: (context) => HistoryView()));
-                    },
-                    leading:
-                        Icon(Icons.history_toggle_off, color: Colors.amber),
-                    title:
-                        Text('History', style: TextStyle(color: Colors.amber)),
-                  ),
+          Obx(() {
+            return
+              ref.userId.value != '' ?
+              ListTile(
+                onTap: () async {
+                  Navigator.push(
+                      context,
+                      CupertinoPageRoute(
+                          builder: (context) => HistoryView()));
+                },
+                leading:
+                Icon(Icons.history_toggle_off, color: Colors.amber),
+                title:
+                Text('History', style: TextStyle(color: Colors.amber)
+            ))
+                      :Container();
+          }),
                   ListTile(
                     onTap: () async {
                       Navigator.push(
@@ -157,7 +162,7 @@ class _GoldShopState extends State<GoldShop> {
                               builder: (context) => Aboutdeveloper()));
                     },
 
-                    leading:ImageIcon(AssetImage('assets/laptop.png'),color: Colors.amber,) ,
+                    leading:ImageIcon(AssetImage('assets/coding.png'),color: Colors.amber,) ,
                     title: Text('About Developors',
                         style: TextStyle(color: Colors.amber)),
                   ),
