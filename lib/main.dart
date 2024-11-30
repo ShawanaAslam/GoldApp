@@ -14,13 +14,13 @@ void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp(
 
-
-      options: FirebaseOptions
-        (
-          apiKey: "AIzaSyBtZTIGR-wo3YwJIOuWpj_mB5P0p1StLIw",
-          appId: "1:836795650404:web:062bf4183884eee3ac2a71",
-          messagingSenderId: "836795650404",
-          projectId: "projectmanagement-e7efa")
+      //
+      // options: FirebaseOptions
+      //   (
+      //     apiKey: "AIzaSyBtZTIGR-wo3YwJIOuWpj_mB5P0p1StLIw",
+      //     appId: "1:836795650404:web:062bf4183884eee3ac2a71",
+      //     messagingSenderId: "836795650404",
+      //     projectId: "projectmanagement-e7efa")
    );
 runApp(const MyApp());
 }
