@@ -1,4 +1,6 @@
 
+import 'dart:ffi';
+
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -21,6 +23,7 @@ class GoldShopController extends GetxController {
 
   //double
   var total = 0.0.obs;
+  var userId=''.obs;
 
   void onfuction() {
 
@@ -145,7 +148,7 @@ Future<void> insertData()async{
     {
 
 
-      await FirebaseFirestore.instance.collection('Data').add(
+      await FirebaseFirestore.instance.collection(userId.value).add(
       {
         'goldgramQuantity' : n3.text,
         'goldRatiQuantity' : n4.text,
