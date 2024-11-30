@@ -32,6 +32,7 @@ class _PaswordTextFormState extends State<PaswordTextForm> {
         child: TextFormField(
           controller: widget.controller,
           style: TextStyle(color: Colors.white),
+          cursorColor: Colors.amber,
           validator: (value) {
             if (value == null || value.isEmpty) {
               return 'Please enter your ${widget.hnttxt}';
@@ -84,12 +85,19 @@ class _PaswordTextFormState extends State<PaswordTextForm> {
               filled: true,
               hintText: widget.hnttxt,
               hintStyle: TextStyle(color: Colors.amber, fontSize: 14),
-              border: OutlineInputBorder(
+              enabledBorder: OutlineInputBorder(
+                borderSide: BorderSide(color: Colors.amber, ),
                 borderRadius: BorderRadius.circular(10),
               ),
+              focusedBorder: OutlineInputBorder(
+                borderSide: BorderSide(color: Colors.amber, ),
+                borderRadius: BorderRadius.circular(10),// Border when focused
+              ),
               errorBorder: OutlineInputBorder(
+                borderSide: BorderSide(color: Colors.amber, ),
                 borderRadius: BorderRadius.circular(10),
-              )),
+              )
+          ),
         ),
       ),
     );

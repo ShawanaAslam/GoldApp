@@ -24,14 +24,25 @@ class MyTextFormConVali extends StatelessWidget {
           return null;
         },
         style: TextStyle(color: Colors.white),
+        cursorColor: Colors.amber,
         decoration: InputDecoration(
             hintText: hinttxt,
             hintStyle: TextStyle(color: Colors.amber),
             labelText: lbltxt,
             labelStyle: TextStyle(color: Colors.amber),
-            border: OutlineInputBorder(
-              borderSide: BorderSide(color: Colors.amber),
-            )),
+
+          enabledBorder: OutlineInputBorder(
+
+            borderSide: BorderSide(color: Colors.amber, ), // Default border
+          ),
+          focusedBorder: OutlineInputBorder(
+            borderSide: BorderSide(color: Colors.amber, ), // Border when focused
+          ),
+          errorBorder: OutlineInputBorder(
+            borderSide: BorderSide(color: Colors.amber, ), // Border on error
+          ),
+
+        ),
       ),
     );
   }

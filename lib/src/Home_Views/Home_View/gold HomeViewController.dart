@@ -23,74 +23,23 @@ class GoldShopController extends GetxController {
   var total = 0.0.obs;
 
   void onfuction() {
-  //   if (_isInputValid()) {
-  //     // Proceed if at least one field is filled
-  //     nullCheck();
-  //     goldCalculation();
-  //
-  //     Get.defaultDialog(
-  //       backgroundColor: Colors.amber,
-  //       title: 'Total Rs :',
-  //       titleStyle: TextStyle(color: Colors.black),
-  //       content: SimpleText(txt: '$total', font: 20, fntwt: FontWeight.w800),
-  //       actions: [
-  //         MyButton(
-  //           ontap: () {
-  //             refresh();
-  //             Get.back();
-  //           },
-  //           txt: 'Back',
-  //           w: 70,
-  //           h: 40,
-  //           bacclr: Colors.amber,
-  //           clr: Colors.black,
-  //           font: 15,
-  //         ),
-  //       ],
-  //     );
-  //   } else {
-  //     // Show a warning dialog if all fields are empty
-  //     Get.defaultDialog(
-  //       backgroundColor: Colors.red,
-  //       title: 'Warning!',
-  //       titleStyle: TextStyle(color: Colors.white),
-  //       content: SimpleText(
-  //         txt: 'Please enter a value in at least one field (Tola, Gram, Rati, or Points).',
-  //         font: 18,
-  //          fntwt: FontWeight.w800,
-  //       ),
-  //       actions: [
-  //         MyButton(
-  //           ontap: () {
-  //             Get.back();
-  //           },
-  //           txt: 'OK',
-  //           w: 70,
-  //           h: 40,
-  //           bacclr: Colors.white,
-  //           clr: Colors.red,
-  //           font: 15,
-  //         ),
-  //       ],
-  //     );
-  //   }
-  // }
+
 
   if(
   // n2.text==null
   //     && n3.text==null&&
   //     n3.text==null &&n4.text==null  &&n5.text==null
   n2.text==''
-      && n3.text==''&&
-      n3.text=='' &&n4.text==''  &&n5.text==''
+      && n3.text==''
+       &&n4.text==''  &&n5.text==''
   )
     {
       Get.defaultDialog(
-        backgroundColor: Colors.red,
+        backgroundColor: Colors.amber,
         title: 'Warning!',
-        titleStyle: TextStyle(color: Colors.white),
+        titleStyle: TextStyle(color: Colors.black),
         content: SimpleText(
-          txt: 'Please enter a value in at least one field (Tola, Gram, Rati, or Points).',
+          txt: 'Please enter a value in at least one field \n(Tola, Gram, Rati, or Points).',
           font: 18,
           fntwt: FontWeight.w800,
         ),
@@ -102,8 +51,8 @@ class GoldShopController extends GetxController {
             txt: 'OK',
             w: 70,
             h: 40,
-            bacclr: Colors.white,
-            clr: Colors.red,
+            bacclr: Colors.amber,
+            clr: Colors.black,
             font: 15,
           ),
         ],

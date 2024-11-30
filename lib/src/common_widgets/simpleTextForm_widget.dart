@@ -22,6 +22,7 @@ class SimpleText extends StatelessWidget {
       child: TextFormField(
         controller: controller,
         style:  TextStyle(color: Colors.white),
+        cursorColor: Colors.amber,
         // true / false
         validator: (value) {
           if (value == null || value.isEmpty) {
@@ -60,14 +61,19 @@ class SimpleText extends StatelessWidget {
             filled: true,
             hintText: hnttxt,
             hintStyle: TextStyle(color: Colors.amber, fontSize: 14),
-            border: OutlineInputBorder(
+            enabledBorder: OutlineInputBorder(
+              borderSide: BorderSide(color: Colors.amber, ),
               borderRadius: BorderRadius.circular(10),
             ),
-
+            focusedBorder: OutlineInputBorder(
+              borderSide: BorderSide(color: Colors.amber, ),
+              borderRadius: BorderRadius.circular(10),// Border when focused
+            ),
             errorBorder: OutlineInputBorder(
-
+              borderSide: BorderSide(color: Colors.amber, ),
               borderRadius: BorderRadius.circular(10),
-            )),
+            )
+        ),
       ),
     );
   }

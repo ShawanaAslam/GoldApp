@@ -8,17 +8,23 @@ import 'package:goldapp/src/Home_Views/Home_View/gold-HomeView.dart';
 import 'package:goldapp/src/common_widgets/MyButton.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-  class HistoryView extends StatefulWidget {
-    const HistoryView({super.key});
+import 'history_Controller.dart';
 
-    @override
-    State<HistoryView> createState() => _HistoryViewState();
-  }
+class HistoryView extends StatefulWidget {
+  const HistoryView({super.key});
 
-  class _HistoryViewState extends State<HistoryView> {
-    @override
-    Widget build(BuildContext context) {
-      return Scaffold(
+  @override
+  State<HistoryView> createState() => _HistoryViewState();
+}
+
+class _HistoryViewState extends State<HistoryView> {
+  String userId='';
+  @override
+  Widget build(BuildContext context) {
+    // HistoryController controller = Get.put(HistoryController());
+
+    return SingleChildScrollView(
+      child: Scaffold(
         appBar: AppBar(
           backgroundColor: Colors.amber,
           leading: IconButton(onPressed: (){
@@ -26,101 +32,94 @@ import 'package:google_fonts/google_fonts.dart';
           },icon: Icon(Icons.arrow_back),),
         ),
         backgroundColor: Colors.black,
-        body: StreamBuilder<QuerySnapshot>(
-          stream: FirebaseFirestore.instance.collection('Data').snapshots(),
-          builder: (context,snapshots)
-          {
-            final data=snapshots.requireData;
+        body:
+        // Column(
+        //   children: [
+        // Obx(()=>
+        //
+        //     TextFormField(
+        //       controller: controller.searchController,
+        //       onChanged: (String value) {
+        //
+        //         controller.searchText.value = value;
+        //
+        //       },
+        //       decoration: InputDecoration(
+        //         border: OutlineInputBorder(
+        //           borderRadius: BorderRadius.circular(15),
+        //         ),
+        //         hintText: "Search",
+        //         prefixIcon: Icon(Icons.search),
+        //       ),
+        //     ),),
+        StreamBuilder<QuerySnapshot>(
+            stream: FirebaseFirestore.instance.collection(userId).snapshots(),
+            builder: (context,snapshots)
+            {
+              final data=snapshots.requireData;
 
-            return ListView.builder(
-                itemCount: data.size,
-                itemBuilder: (context,index)
-          {
-          String goldprice=data.docs[index]['tolaPrice'].toString();
-          String tolaQuantity=data.docs[index]['tolaQuantity'].toString();
-          String goldgramQuantity=data.docs[index]['goldgramQuantity'].toString();
-          String goldRatiQuantity=data.docs[index]['goldRatiQuantity'].toString();
-          String goldpointQuantity =data.docs[index]['goldpointQuantity'].toString();
-          String totalPrice=data.docs[index]['totalPrice'].toString();
+              return ListView.builder(
+                  itemCount: data.size,
+                  itemBuilder: (context,index)
+                  {
+                    String goldprice=data.docs[index]['tolaPrice'].toString();
+                    String tolaQuantity=data.docs[index]['tolaQuantity'].toString();
+                    String goldgramQuantity=data.docs[index]['goldgramQuantity'].toString();
+                    String goldRatiQuantity=data.docs[index]['goldRatiQuantity'].toString();
+                    String goldpointQuantity =data.docs[index]['goldpointQuantity'].toString();
+                    String totalPrice=data.docs[index]['totalPrice'].toString();
 
-          return ListTile(
-            title: TextWidget(txt:'goldprice: $goldprice',clr: Colors.amber,),
-            subtitle: Column(
-              mainAxisAlignment: MainAxisAlignment.start,
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                TextWidget(txt:'tolaQuantity: $tolaQuantity',clr: Colors.amber,),
-                TextWidget(txt:'goldgramQuantity: $goldgramQuantity',clr: Colors.amber,),
-                TextWidget(txt:'goldRatiQuantity: $goldRatiQuantity',clr: Colors.amber,),
-                TextWidget(txt:'goldpointQuantity: $goldpointQuantity',clr: Colors.amber,),
-                TextWidget(txt:'totalPrice: $totalPrice',clr: Colors.amber,),
-              ],
-            ),
-   trailing: PopupMenuButton(
-     iconColor: Colors.amber,
-     color: Colors.amber,
-              onSelected: (String value) {
-            if (value == 'edit') {
-              // Get.to(() => UpdateData(
-              //     id: data.docs[index].id,
-              //     projectStartingDate: projectStartingDate,
-              //     projectEndingDate: projectEndingDate,
-              //     projectName: projectname,
-              //     totalPriceOfProject: totalPriceOfProject));
-            } else if (value == 'delete') {
-              Get.defaultDialog(
-                backgroundColor: Colors.amber,
-                title: 'Message',
-                content: Text('Do you want to Delete this Data?'),
-                actions: [
-                  MyButton(txt: 'Yes',font: 16, w: 50.w, h:40.h , bacclr: Colors.amber, clr: Colors.black, ontap: (){
-                    // FirebaseFirestore.instance
-                    //     .collection(userEmail)
-                    //     .doc(data.docs[index].id)
-                    //     .delete();
-                    Get.back();
-                  }),
-                  MyButton(txt: 'No',font: 16, w: 50.w, h:40.h , bacclr: Colors.amber, clr: Colors.black, ontap: (){
+                    return ListTile(
+                        title: TextWidget(txt:'goldprice: $goldprice',clr: Colors.amber,),
+                        subtitle: Column(
+                          mainAxisAlignment: MainAxisAlignment.start,
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            TextWidget(txt:'tolaQuantity: $tolaQuantity',clr: Colors.amber,),
+                            TextWidget(txt:'goldgramQuantity: $goldgramQuantity',clr: Colors.amber,),
+                            TextWidget(txt:'goldRatiQuantity: $goldRatiQuantity',clr: Colors.amber,),
+                            TextWidget(txt:'goldpointQuantity: $goldpointQuantity',clr: Colors.amber,),
+                            TextWidget(txt:'totalPrice: $totalPrice',clr: Colors.amber,),
+                          ],
+                        ),
+                        trailing:
+                        IconButton(onPressed: (){
 
-                    Get.back();
-                  }),
+                          Get.defaultDialog(
+                            backgroundColor: Colors.amber,
+                            title: 'Message',
+                            content: Text('Do you want to Delete this Data?'),
+                            actions: [
+                              MyButton(txt: 'Yes',font: 16, w: 50.w, h:40.h , bacclr: Colors.amber, clr: Colors.black, ontap: (){
+                                // FirebaseFirestore.instance
+                                //     .collection(userEmail)
+                                //     .doc(data.docs[index].id)
+                                //     .delete();
+                                Get.back();
+                              }),
+                              MyButton(txt: 'No',font: 16, w: 50.w, h:40.h , bacclr: Colors.amber, clr: Colors.black, ontap: (){
 
-                ],
-              );
-            }
-          },
-            itemBuilder: (BuildContext context) {
-          return [
-          PopupMenuItem(
-          value: 'edit',
-          child: ListTile(
-          leading: TextWidget(txt: 'Edit',fntsz: 30,clr: Colors.black,),
-          trailing: Icon(Icons.edit),
-          ),
-          ),
-          PopupMenuItem(
-          value: 'delete',
-          child: ListTile(
-          leading: TextWidget(txt: 'Delete',fntsz: 30,clr: Colors.black),
-          trailing: Icon(Icons.delete),
-          ),
-          ),
-          ];
-          },
-            ),
+                                Get.back();
+                              }),
 
-          );
+                            ],
+                          );
 
-          }
+                        },icon: Icon(Icons.delete),color: Colors.amber,)
+
+                    );
+
+                  }
               );
 
             }
-            )
+        ),
+        //  ],
+        //)
 
 
 
-      );
-    }
+      ),
+    );
   }
-
-
+}

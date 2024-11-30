@@ -20,15 +20,20 @@ class MyTextFormCon extends StatelessWidget {
       width: 150,
       child: TextFormField(
         controller: controller,
+        cursorColor: Colors.amber,
         style: TextStyle(color: Colors.white),
         decoration: InputDecoration(
             hintText: hinttxt,
             hintStyle: TextStyle(color:Colors.amber),
             labelText: lbltxt,
             labelStyle: TextStyle(color: Colors.amber),
-            border: OutlineInputBorder(
-              borderSide: BorderSide(color: Colors.white),
-            )
+
+          enabledBorder: OutlineInputBorder(
+              borderSide: BorderSide(color: Colors.amber),
+            ),
+            focusedBorder: OutlineInputBorder(
+        borderSide: BorderSide(color: Colors.amber), // Border when focused
+      ),
         ),
       ),
     );
