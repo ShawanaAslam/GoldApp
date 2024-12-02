@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:goldapp/src/common_widgets/reusable_text.dart';
 import 'package:goldapp/src/utills/Loading_Effect/app_Loading.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -33,9 +34,10 @@ class _LoginViewState extends State<LoginView> {
               child: Center(
                 child: Column(
                   children: [
-                    SizedBox(
-                      height: 250,
-                    ),
+                    // SizedBox(
+                    //   height: 250,
+                    // ),
+MyText(txt: 'Continue withOut Login'),
                     SimpleText(
                         prefixicn: Icon(
                           Icons.email,
