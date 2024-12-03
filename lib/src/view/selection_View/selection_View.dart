@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
-import 'package:goldapp/src/Home_Views/Home_View/gold-HomeView.dart';
+import 'package:goldapp/src/view/Home_View/home_View/gold-HomeView.dart';
 import 'package:goldapp/src/view/auth_View/login_View/login_View.dart';
 import 'package:goldapp/src/view/auth_View/signUp_View/signUp_View.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -22,7 +23,7 @@ class _SelectionViewState extends State<SelectionView> {
       backgroundColor: Colors.black,
       appBar: AppBar(
         backgroundColor: Colors.amber,
-        leading: IconButton(onPressed: (){},icon:Icon(Icons.arrow_back),),
+        leading: IconButton(onPressed: (){},icon:Icon(Icons.arrow_back_ios),),
         title: MyText(
           txt: 'Selection Screen',
           font: 22,
@@ -35,8 +36,8 @@ class _SelectionViewState extends State<SelectionView> {
 
 
           Container(
-          height: 60,
-          width: 300,
+          height: 60.h,
+          width: 300.w,
           decoration: BoxDecoration(
               color: Colors.amber,
               borderRadius: BorderRadius.circular(5)),
@@ -57,8 +58,8 @@ children: [
                         Get.to(() => LoginView());
                       },
                       txt: 'with Login',
-                      h: 150,
-                      w: 180,
+                      h: 150.h,
+                      w: 180.w,
                       bacclr: Colors.black,
                       clr: Colors.amber,
                       font: 20,
@@ -73,8 +74,8 @@ children: [
                 Get.to(() => GoldShop());
               },
               txt: 'without Login',
-              h: 150,
-              w: 180,
+              h: 150.h,
+              w: 180.w,
               bacclr: Colors.black,
               clr: Colors.amber,
               font: 20,

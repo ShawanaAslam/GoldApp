@@ -258,10 +258,10 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
-import 'package:goldapp/src/Home_Views/Home_View/Home_ViewWidgets/fetchdata-controller.dart';
+import 'package:goldapp/src/view/Home_View/home_View/home_ViewWidgets/fetchdata-controller.dart';
 
-import '../../common_widgets/MyButton.dart';
-import '../../common_widgets/reusable_simpletext.dart';
+import '../../../common_widgets/MyButton.dart';
+import '../../../common_widgets/reusable_simpletext.dart';
 
 
 
@@ -273,7 +273,7 @@ class GoldShopController extends GetxController {
   TextEditingController n4 = TextEditingController();
   TextEditingController n5 = TextEditingController();
   HomeFetchDataController controller=Get.put(HomeFetchDataController());
-
+  var isLoading = false.obs;
   //double
   var total = 0.0.obs;
   var userId=''.obs;
@@ -400,7 +400,7 @@ class GoldShopController extends GetxController {
     try
     {
 
-
+      isLoading.value = true;
 String docid=DateTime.now().millisecondsSinceEpoch.toString();
       await FirebaseFirestore.instance.collection(controller.userId.value).doc(docid).set(
           {
@@ -419,6 +419,7 @@ String docid=DateTime.now().millisecondsSinceEpoch.toString();
     }
     catch(error)
     {
+      isLoading.value = false;
       print('Error:$error');
     }
 

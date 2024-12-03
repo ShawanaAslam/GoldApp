@@ -5,10 +5,12 @@ import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:get/get.dart';
 
 import 'package:get/get_core/src/get_main.dart';
-import 'package:goldapp/src/Home_Views/Home_View/gold-HomeView.dart';
+import 'package:goldapp/src/view/Home_View/History_View/History_Widgets/txt_Widget.dart';
+import 'package:goldapp/src/view/Home_View/home_View/gold-HomeView.dart';
 import 'package:goldapp/src/utills/Loading_Effect/app_Loading.dart';
 import 'package:goldapp/src/view/Starting_Views/onBording_View/onBoarding_View.dart';
 
+import '../../../common_widgets/reusable_text.dart';
 import '../../selection_View/selection_View.dart';
 
 class SplashView extends StatefulWidget {
@@ -55,11 +57,13 @@ class _SplashViewState extends State<SplashView> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Image.asset(
-              'assets/gabon.png',
-              width: 300,
-              height: 250,
-            ),
+
+            MyText(txt: "G",font: 150,txtclr: Colors.amber,),
+            // Image.asset(
+            //   'assets/gabon.png',
+            //   width: 300,
+            //   height: 250,
+            // ),
             SizedBox(height: 20),
 
 

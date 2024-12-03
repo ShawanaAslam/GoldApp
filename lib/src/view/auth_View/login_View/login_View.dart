@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:goldapp/src/view/Home_View/home_View/gold-HomeView.dart';
 import 'package:goldapp/src/common_widgets/reusable_text.dart';
 import 'package:goldapp/src/utills/Loading_Effect/app_Loading.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -34,10 +35,19 @@ class _LoginViewState extends State<LoginView> {
               child: Center(
                 child: Column(
                   children: [
-                    // SizedBox(
-                    //   height: 250,
-                    // ),
-MyText(txt: 'Continue withOut Login'),
+                    SizedBox(
+                      height: 20,
+                    ),
+InkWell(onTap: (){
+  Get.to(()=>GoldShop());
+},
+    child: Padding(
+      padding: EdgeInsets.only(left: 120),
+      child: MyText(font: 20,txt: 'Continue withOut Login',txtclr: Colors.amber,),
+    )),
+                    SizedBox(
+                      height: 200,
+                    ),
                     SimpleText(
                         prefixicn: Icon(
                           Icons.email,
@@ -105,7 +115,10 @@ MyText(txt: 'Continue withOut Login'),
                                   child: Center(
                                       child: Text(
                                     'Log in',
-                                    style: TextStyle(color: Colors.black),
+                                    style: TextStyle(
+                                        fontSize: 16,
+                                        fontWeight: FontWeight.w600,
+                                        color: Colors.black),
                                   ))),
                             );
                     }),

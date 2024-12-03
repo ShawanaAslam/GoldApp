@@ -127,39 +127,46 @@ class SignupController extends GetxController {
 
   // Function for signup
   void onSignup(BuildContext context) async {
-    try {
-      print('------------------------------3');
-      // jis variable ki data type TextEditingController na to us ky st (.value) use krty hn
-      isLoading.value = true;
-      String? result = await createAccount(
-        //userNameController.text.trim(),fatherNameController.text.trim()
-          emailController.text.trim(),
-          passwordController.text.trim());
-      // error occured during signup
-     // addData();
-      // if (result != null)
-      if (result == 'You are registered successfully') {
-        addData();
-        // Handle success (like navigating to another screen or showing a message)
-        confirmToastMessage(context, result!);
-        Get.to(() => LoginView());
-      }
-      else
-        {
-          errorToastMessage(context, result!);
-        }
-    } catch (error) {
-      isLoading.value = false;
-      // Handle error
-      errorToastMessage(context, error.toString());
-    } finally {
-      isLoading.value = false;
-      print('--------------------6');
-      userNameController.clear();
-      confirmController.clear();
-      emailController.clear();
-      passwordController.clear();
-    }
+   if(passwordController.text!=confirmController.text)
+   {
+     Get.snackbar('Error', "Pasword must be same");
+   }
+   else
+     {
+       try {
+         print('------------------------------3');
+         // jis variable ki data type TextEditingController na to us ky st (.value) use krty hn
+         isLoading.value = true;
+         String? result = await createAccount(
+           //userNameController.text.trim(),fatherNameController.text.trim()
+             emailController.text.trim(),
+             passwordController.text.trim());
+         // error occured during signup
+         // addData();
+         // if (result != null)
+         if (result == 'You are registered successfully') {
+           addData();
+           // Handle success (like navigating to another screen or showing a message)
+           confirmToastMessage(context, result!);
+           Get.to(() => LoginView());
+         }
+         else
+         {
+           errorToastMessage(context, result!);
+         }
+       } catch (error) {
+         isLoading.value = false;
+         // Handle error
+         errorToastMessage(context, error.toString());
+       } finally {
+         isLoading.value = false;
+         print('--------------------6');
+         userNameController.clear();
+         confirmController.clear();
+         emailController.clear();
+         passwordController.clear();
+       }
+     }
   }
 
   // Function to create account using FirebaseAuth

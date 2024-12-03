@@ -3,17 +3,17 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:goldapp/src/Home_Views/AboutDevelopers_View/aboutDeveloper_View.dart';
-import 'package:goldapp/src/Home_Views/Home_View/Home_ViewWidgets/fetchdata-controller.dart';
+import 'package:goldapp/src/view/Home_View/AboutDeveloper_View/aboutDeveloper_View.dart';
+import 'package:goldapp/src/view/Home_View/home_View/home_ViewWidgets/fetchdata-controller.dart';
 import 'package:goldapp/src/view/auth_View/signUp_View/signUp_View.dart';
 
-import '../../common_widgets/MyButton.dart';
-import '../../common_widgets/reusable_mytxtformcon.dart';
-import '../../common_widgets/reusable_text.dart';
-import '../../view/auth_View/login_View/login_View.dart';
+import '../../../common_widgets/MyButton.dart';
+import '../../../common_widgets/reusable_mytxtformcon.dart';
+import '../../../common_widgets/reusable_text.dart';
+import '../../auth_View/login_View/login_View.dart';
 import '../AboutApp_View/aboutApp_View.dart';
 import '../History_View/history_View.dart';
-import 'Home_ViewWidgets/validatorTextForm.dart';
+import 'home_ViewWidgets/validatorTextForm.dart';
 import 'gold HomeViewController.dart';
 
 class GoldShop extends StatefulWidget {
@@ -159,7 +159,7 @@ class _GoldShopState extends State<GoldShop> {
                       Navigator.push(
                           context,
                           CupertinoPageRoute(
-                              builder: (context) => Aboutdeveloper()));
+                              builder: (context) => AboutDeveloper()));
                     },
 
                     leading:ImageIcon(AssetImage('assets/coding.png'),color: Colors.amber,) ,
