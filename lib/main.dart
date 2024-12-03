@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import 'package:get/get.dart';
+import 'package:goldapp/firebase_options.dart';
 import 'package:goldapp/src/view/Home_View/home_View/gold-HomeView.dart';
 
 import 'package:goldapp/src/view/Starting_Views/splash_View/splash_View.dart';
@@ -16,7 +17,7 @@ void main() async {
   await Firebase.initializeApp(
 
 
-      // options: FirebaseOptions
+      // options: FirebaseOptions()
       //   (
       //     apiKey: "AIzaSyBtZTIGR-wo3YwJIOuWpj_mB5P0p1StLIw",
       //     appId: "1:836795650404:web:062bf4183884eee3ac2a71",
