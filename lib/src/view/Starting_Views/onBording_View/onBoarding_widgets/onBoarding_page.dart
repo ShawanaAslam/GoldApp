@@ -4,6 +4,8 @@ import 'package:flutter/material.dart';
 import 'package:goldapp/src/common_widgets/MyButton.dart';
 import 'package:google_fonts/google_fonts.dart';
 
+import '../../../../Constants/colors.dart';
+
 class OnBoardingPage extends StatelessWidget {
   String text;
   String text1;
@@ -22,7 +24,7 @@ class OnBoardingPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      color: Colors.black,
+      color: AppColors.primryColor,
       child: Column(children: [
         Expanded(
           flex: 60,
@@ -39,7 +41,7 @@ class OnBoardingPage extends StatelessWidget {
             child:   Container(
           decoration: BoxDecoration(
             borderRadius: BorderRadius.only(topLeft:Radius.circular(30),topRight:Radius.circular(30), )
-            ,color: Colors.amber,
+            ,color:AppColors.secondryColor,
           ),
           height: 330,
           width: double.infinity,

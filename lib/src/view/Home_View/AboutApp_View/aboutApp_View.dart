@@ -18,7 +18,7 @@ class _AboutAppViewState extends State<AboutAppView> {
         backgroundColor: Colors.amber,
 
         title: MyText(
-          txt: 'Welcome To GoldApp!',
+          txt: 'Welcome to GoldApp!',
           font: 22,
         ),
         centerTitle: true,

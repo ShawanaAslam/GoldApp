@@ -7,6 +7,7 @@ import 'package:goldapp/src/view/Home_View/AboutDeveloper_View/aboutDeveloper_Vi
 import 'package:goldapp/src/view/Home_View/home_View/home_ViewWidgets/fetchdata-controller.dart';
 import 'package:goldapp/src/view/auth_View/signUp_View/signUp_View.dart';
 
+import '../../../Constants/images.dart';
 import '../../../common_widgets/MyButton.dart';
 import '../../../common_widgets/reusable_mytxtformcon.dart';
 import '../../../common_widgets/reusable_text.dart';
@@ -150,7 +151,7 @@ class _GoldShopState extends State<GoldShop> {
                           CupertinoPageRoute(
                               builder: (context) => AboutAppView()));
                     },
-                     leading:ImageIcon(AssetImage('assets/ib.png'),color: Colors.amber,) ,
+                     leading:ImageIcon(AssetImage(Images.aboutApp),color: Colors.amber,) ,
                     title: Text('About App',
                         style: TextStyle(color: Colors.amber)),
                   ),
@@ -162,8 +163,8 @@ class _GoldShopState extends State<GoldShop> {
                               builder: (context) => AboutDeveloper()));
                     },
 
-                    leading:ImageIcon(AssetImage('assets/coding.png'),color: Colors.amber,) ,
-                    title: Text('About Developors',
+                    leading:ImageIcon(AssetImage(Images.aboutDeveloper),color: Colors.amber,) ,
+                    title: Text('About Developor',
                         style: TextStyle(color: Colors.amber)),
                   ),
 

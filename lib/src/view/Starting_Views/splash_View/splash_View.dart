@@ -10,6 +10,7 @@ import 'package:goldapp/src/view/Home_View/home_View/gold-HomeView.dart';
 import 'package:goldapp/src/utills/Loading_Effect/app_Loading.dart';
 import 'package:goldapp/src/view/Starting_Views/onBording_View/onBoarding_View.dart';
 
+import '../../../Constants/images.dart';
 import '../../../common_widgets/reusable_text.dart';
 import '../../selection_View/selection_View.dart';
 
@@ -60,7 +61,7 @@ class _SplashViewState extends State<SplashView> {
 
             MyText(txt: "G",font: 150,txtclr: Colors.amber,),
             // Image.asset(
-            //   'assets/gabon.png',
+            // Images.splash,
             //   width: 300,
             //   height: 250,
             // ),

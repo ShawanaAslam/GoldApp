@@ -7,6 +7,9 @@ import 'package:goldapp/src/view/Starting_Views/onBording_View/onBoarding_widget
 import 'package:goldapp/src/view/auth_View/signUp_View/signUp_View.dart';
 import 'package:goldapp/src/view/selection_View/selection_View.dart';
 
+import '../../../Constants/colors.dart';
+import '../../../Constants/images.dart';
+
 class OnBoardingView extends StatefulWidget {
   const OnBoardingView({super.key});
 
@@ -20,7 +23,7 @@ class _OnBoardingViewState extends State<OnBoardingView> {
     OnBoardingController obj = Get.put(OnBoardingController());
 
     return Scaffold(
-      backgroundColor: Colors.black,
+      backgroundColor: AppColors.primryColor,
       body: OrientationBuilder(
         builder: (context, orientation) {
           return Stack(
@@ -45,9 +48,9 @@ class _OnBoardingViewState extends State<OnBoardingView> {
                     //});
                   },
                   children: [
-                    OnBoardingPage(text: 'Simplify Gold Pricing',text1: 'Quickly calculate the total cost of gold with ease.\nEnter the price, quantity, and get instant results!', image: 'assets/bars.png'),
-                    OnBoardingPage(text: 'Offline or Online?',text1: 'Your Choice Offline for quick access.\nOnline to track your history. \nIt’s all about what works best for you.', image: 'assets/gold.png'),
-                    OnBoardingPage(text:'Start Your Journey Today',text1: 'Your trusted companion for gold pricing.\nAccurate, reliable, and easy to use.', image: 'assets/goldstack.png')
+                    OnBoardingPage(text: 'Simplify Gold Pricing',text1: 'Quickly calculate the total cost of gold with ease.\nEnter the price, quantity, and get instant results!', image: Images.frstPage),
+                    OnBoardingPage(text: 'Offline or Online?',text1: 'Your Choice Offline for quick access.\nOnline to track your history. \nIt’s all about what works best for you.', image: Images.scndPage),
+                    OnBoardingPage(text:'Start Your Journey Today',text1: 'Your trusted companion for gold pricing.\nAccurate, reliable, and easy to use.', image: Images.thirdPage)
                   ],
                 ),
               ),
@@ -69,7 +72,7 @@ class _OnBoardingViewState extends State<OnBoardingView> {
                                 },
                                 child: Container(
                                   decoration: BoxDecoration(
-                                      color: Colors.black,
+                                      color: AppColors.primryColor,
                                       borderRadius: BorderRadius.circular(5)),
                                   height: 40,
                                   width: double.infinity,
@@ -83,13 +86,13 @@ class _OnBoardingViewState extends State<OnBoardingView> {
                                           Text(
                                                                               'Next',
                                                                               style: TextStyle(
-                                            color: Colors.amber,
+                                            color: AppColors.secondryColor,
                                             fontSize: 20,
                                             fontWeight: FontWeight.w800),
                                                                             ),
 
                                           SizedBox(width: 15,),
-                                          Icon(Icons.arrow_forward,color: Colors.amber,),
+                                          Icon(Icons.arrow_forward,color: AppColors.secondryColor,),
 
                                         ],
                                       )),
@@ -101,7 +104,7 @@ class _OnBoardingViewState extends State<OnBoardingView> {
                                 },
                                 child: Container(
                                   decoration: BoxDecoration(
-                                      color: Colors.black,
+                                      color: AppColors.primryColor,
                                       borderRadius: BorderRadius.circular(5)),
                                   height: 40,
                                   width: 300,
@@ -109,7 +112,7 @@ class _OnBoardingViewState extends State<OnBoardingView> {
                                       child: Text(
                                     'Get Started',
                                     style: TextStyle(
-                                        color: Colors.amber,
+                                        color: AppColors.secondryColor,
                                         fontSize: 20,
                                         fontWeight: FontWeight.w800),
                                   )),
