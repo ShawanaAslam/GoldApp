@@ -43,7 +43,13 @@ InkWell(onTap: (){
 },
     child: Padding(
       padding: EdgeInsets.only(left: 120),
-      child: MyText(font: 20,txt: 'Continue withOut Login',txtclr: Colors.amber,),
+      child:  MyText(
+        txt: 'Continue Without Login',
+        decoration: TextDecoration.underline,
+        decclr: Colors.amber,
+        txtclr: Colors.amber,
+        font: 20,
+      ),
     )),
                     SizedBox(
                       height: 200,

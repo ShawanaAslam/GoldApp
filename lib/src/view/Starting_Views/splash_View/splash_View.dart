@@ -59,12 +59,12 @@ class _SplashViewState extends State<SplashView> {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
 
-            MyText(txt: "G",font: 150,txtclr: Colors.amber,),
-            // Image.asset(
-            // Images.splash,
-            //   width: 300,
-            //   height: 250,
-            // ),
+            //MyText(txt: "G",font: 150,txtclr: Colors.amber,),
+            Image.asset(
+            Images.splash,
+              width: 300,
+              height: 250,
+            ),
             SizedBox(height: 20),
 
 

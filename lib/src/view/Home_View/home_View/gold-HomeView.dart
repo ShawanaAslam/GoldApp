@@ -128,15 +128,7 @@ class _GoldShopState extends State<GoldShop> {
                         Get.back();
                       },
                       txt: 'Home', icon: Icons.home),
-                  // ListTile(
-                  //   onTap: () async {
-                  //     Get.back();
-                  //     // Navigator.pop(context,
-                  //     //     CupertinoPageRoute(builder: (context) => GoldShop()));
-                  //   },
-                  //   leading: Icon(Icons.home, color: Colors.amber),
-                  //   title: Text('Home', style: TextStyle(color: Colors.amber)),
-                  // ),
+
           Obx(() {
             return
               ref.userId.value != '' ?

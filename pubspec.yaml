@@ -82,6 +82,11 @@ flutter:
     - assets/developr.png
     - assets/laptop.png
     - assets/coding.png
+    - assets/whatsapp.png
+    - assets/linkedin.png
+    - assets/instagram.png
+    - assets/gmail.png
+    - assets/github.png
   #   - images/a_dot_burr.jpeg
   #   - images/a_dot_ham.jpeg
 
