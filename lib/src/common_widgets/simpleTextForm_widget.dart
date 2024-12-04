@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:goldapp/src/Constants/colors.dart';
 
 class SimpleText extends StatelessWidget {
   TextEditingController controller;
@@ -60,6 +61,8 @@ class SimpleText extends StatelessWidget {
             fillColor: Colors.black,
             filled: true,
             hintText: hnttxt,
+
+            errorStyle: TextStyle(color: AppColors.secondryColor),
             hintStyle: TextStyle(color: Colors.amber, fontSize: 14),
             enabledBorder: OutlineInputBorder(
               borderSide: BorderSide(color: Colors.amber, ),
@@ -72,7 +75,11 @@ class SimpleText extends StatelessWidget {
             errorBorder: OutlineInputBorder(
               borderSide: BorderSide(color: Colors.amber, ),
               borderRadius: BorderRadius.circular(10),
-            )
+            ),
+          focusedErrorBorder: OutlineInputBorder(
+            borderSide: BorderSide(color: Colors.white),
+            borderRadius: BorderRadius.circular(10),
+          )
         ),
       ),
     );
