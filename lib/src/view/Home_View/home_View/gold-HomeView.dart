@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:goldapp/src/view/Home_View/AboutDeveloper_View/aboutDeveloper_View.dart';
 import 'package:goldapp/src/view/Home_View/home_View/home_ViewWidgets/fetchdata-controller.dart';
+import 'package:goldapp/src/view/Home_View/home_View/home_ViewWidgets/listTile_Widget.dart';
 import 'package:goldapp/src/view/auth_View/signUp_View/signUp_View.dart';
 
 import '../../../Constants/images.dart';
@@ -121,33 +122,40 @@ class _GoldShopState extends State<GoldShop> {
                       ),
                       accountEmail: Text('User Email : ${ref.userEmail}',
                           style: TextStyle(color: Colors.black))),
-                  ListTile(
-                    onTap: () async {
-                      Navigator.pop(context,
-                          CupertinoPageRoute(builder: (context) => GoldShop()));
-                    },
-                    leading: Icon(Icons.home, color: Colors.amber),
-                    title: Text('Home', style: TextStyle(color: Colors.amber)),
-                  ),
+
+                  ListTileWidget(
+                      ontap:  ()  {
+                        Get.back();
+                      },
+                      txt: 'Home', icon: Icons.home),
+                  // ListTile(
+                  //   onTap: () async {
+                  //     Get.back();
+                  //     // Navigator.pop(context,
+                  //     //     CupertinoPageRoute(builder: (context) => GoldShop()));
+                  //   },
+                  //   leading: Icon(Icons.home, color: Colors.amber),
+                  //   title: Text('Home', style: TextStyle(color: Colors.amber)),
+                  // ),
           Obx(() {
             return
               ref.userId.value != '' ?
-              ListTile(
-                onTap: () async {
+              ListTileWidget(
+                ontap: ()  {
+                  Get.back();
                   Navigator.push(
                       context,
                       CupertinoPageRoute(
                           builder: (context) => HistoryView()));
                 },
-                leading:
-                Icon(Icons.history_toggle_off, color: Colors.amber),
-                title:
-                Text('History', style: TextStyle(color: Colors.amber)
-            ))
+                txt:'History',
+                icon: Icons.history_toggle_off
+            )
                       :Container();
           }),
                   ListTile(
-                    onTap: () async {
+                    onTap: () {
+                      Get.back();
                       Navigator.push(
                           context,
                           CupertinoPageRoute(
@@ -158,7 +166,8 @@ class _GoldShopState extends State<GoldShop> {
                         style: TextStyle(color: Colors.amber)),
                   ),
                   ListTile(
-                    onTap: () async {
+                    onTap: () {
+                      Get.back();
                       Navigator.push(
                           context,
                           CupertinoPageRoute(
@@ -176,29 +185,27 @@ class _GoldShopState extends State<GoldShop> {
                   // login button:
                   // did not logedin
                   ref.userId != ''
-                      ? ListTile(
-                          onTap: () async {
+                      ? ListTileWidget(
+                          ontap: () async{
                             await FirebaseAuth.instance.signOut();
-                            Navigator.push(
+                            Navigator.pushReplacement(
                                 context,
                                 CupertinoPageRoute(
                                     builder: (context) => LoginView()));
                           },
-                          leading:
-                              Icon(Icons.login_outlined, color: Colors.amber),
-                          title: Text('logOut',
-                              style: TextStyle(color: Colors.amber)),
+                    txt: 'logOut',
+                    icon:Icons.login_outlined,
                         )
-                      : ListTile(
-                          onTap: () async {
+                      : ListTileWidget(
+                          ontap: ()  {
+                            Get.back();
                             Navigator.push(
                                 context,
                                 CupertinoPageRoute(
                                     builder: (context) => LoginView()));
                           },
-                          leading: Icon(Icons.login, color: Colors.amber),
-                          title: Text('Login Screen',
-                              style: TextStyle(color: Colors.amber)),
+                    txt: 'Login Screen',
+                    icon:Icons.login ,
                         ),
                 ],
               ),
