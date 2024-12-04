@@ -235,6 +235,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
+import 'package:goldapp/src/utills/Loading_Effect/app_Loading.dart';
 import 'package:goldapp/src/view/Home_View/History_View/history_Controller.dart';
 import 'package:goldapp/src/view/Home_View/home_View/home_ViewWidgets/fetchdata-controller.dart';
 import 'package:goldapp/src/view/Home_View/home_View/gold-HomeView.dart';
@@ -271,7 +272,7 @@ class _HistoryViewState extends State<HistoryView> {
             .snapshots(),
         builder: (context, snapshots) {
           if (snapshots.connectionState == ConnectionState.waiting) {
-            return const Center(child: CircularProgressIndicator());
+            return const Center(child: AppLoading());
           }
           if (snapshots.hasError) {
             return Center(child: Text('Error: ${snapshots.error}'));
