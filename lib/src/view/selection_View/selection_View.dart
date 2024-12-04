@@ -23,7 +23,9 @@ class _SelectionViewState extends State<SelectionView> {
       backgroundColor: Colors.black,
       appBar: AppBar(
         backgroundColor: Colors.amber,
-        leading: IconButton(onPressed: (){},icon:Icon(Icons.arrow_back_ios),),
+        leading: IconButton(onPressed: (){
+          Get.back();
+        },icon:Icon(Icons.arrow_back_ios),),
         title: MyText(
           txt: 'Selection Screen',
           font: 22,

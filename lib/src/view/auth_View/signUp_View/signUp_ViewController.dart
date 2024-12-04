@@ -114,6 +114,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
+import '../../../Constants/colors.dart';
 import '../../../utills/toast_ Notifications/toast_Notification.dart';
 import '../login_View/login_View.dart';
 
@@ -129,7 +130,9 @@ class SignupController extends GetxController {
   void onSignup(BuildContext context) async {
    if(passwordController.text!=confirmController.text)
    {
-     Get.snackbar('Error', "Pasword must be same");
+     Get.snackbar(
+       backgroundColor: AppColors.secondryColor,
+         'Error', "Pasword must be same",colorText: AppColors.primryColor);
    }
    else
      {

@@ -40,8 +40,8 @@ class _AboutDeveloperState extends State<AboutDeveloper> {
                 final whatsappUrl=Uri.parse("https://wa.me/+923346985327");
                 await launchUrl(whatsappUrl);
               },
-        path:Images.whatsapp,
-        txt:'Contact On WhatsApp'),
+                    path:Images.whatsapp,
+                    txt:'Contact On WhatsApp'),
 
             //   child:  Row(
             //     mainAxisAlignment: MainAxisAlignment.center,
@@ -66,38 +66,47 @@ class _AboutDeveloperState extends State<AboutDeveloper> {
 
             SizedBox(height: 20,),
 
-            InkWellRow(
-              ontap: ()async{
-                // Link create for github
-                final githubUrl=Uri.parse('https://github.com/dashboard');
-                await launchUrl(githubUrl);
-              },
-              path: Images.github,
-              txt: 'GitHub Account',
+            Padding(
+              padding: const EdgeInsets.only(right: 50),
+              child: InkWellRow(
+                ontap: ()async{
+                  // Link create for github
+                  final githubUrl=Uri.parse('https://github.com/dashboard');
+                  await launchUrl(githubUrl);
+                },
+                path: Images.github,
+                txt: 'GitHub Account',
+              ),
             ),
 
             SizedBox(height: 20,),
 
-            InkWellRow(
-              ontap: ()async{
-                // Link create for Linkedin
-                final liknedinUrl=Uri.parse("www.linkedin.com/in/shawana-aslam-0628842a9");
-                await launchUrl(liknedinUrl);
-              },
-              path: Images.linkedin,
-              txt:  'Linkedin Account',
+            Padding(
+              padding: const EdgeInsets.only(right: 30),
+              child: InkWellRow(
+                ontap: ()async{
+                  // Link create for Linkedin
+                  final liknedinUrl=Uri.parse("www.linkedin.com/in/shawana-aslam-0628842a9");
+                  await launchUrl(liknedinUrl);
+                },
+                path: Images.linkedin,
+                txt:  'Linkedin Account',
+              ),
             ),
 
             SizedBox(height: 20,),
 
-            InkWellRow(
-              ontap: ()async{
-                // Link create for Linkedin
-                final EmailUrl=Uri.parse("ShawanaAslam412@gmail.com");
-                await launchUrl(EmailUrl);
-              },
-              path:Images.gmail,
-              txt:'Gmail Account' ,
+            Padding(
+              padding: const EdgeInsets.only(right: 50),
+              child: InkWellRow(
+                ontap: ()async{
+                  // Link create for Linkedin
+                  final EmailUrl=Uri.parse("ShawanaAslam412@gmail.com");
+                  await launchUrl(EmailUrl);
+                },
+                path:Images.gmail,
+                txt:'Gmail Account' ,
+              ),
             ),
 
           ],
