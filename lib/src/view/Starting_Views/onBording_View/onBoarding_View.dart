@@ -107,7 +107,7 @@ class _OnBoardingViewState extends State<OnBoardingView> {
                                       color: AppColors.primryColor,
                                       borderRadius: BorderRadius.circular(5)),
                                   height: 40,
-                                  width: 300,
+                                  width: double.infinity,
                                   child: Center(
                                       child: Text(
                                     'Get Started',
