@@ -9,6 +9,7 @@ import 'forget_Controller.dart';
 
 
 class ForgetPasword extends StatelessWidget {
+ final key = GlobalKey<FormState>();
   @override
   Widget build(BuildContext context) {
     ForgetController obj = Get.put(ForgetController());
@@ -16,28 +17,33 @@ class ForgetPasword extends StatelessWidget {
     return Scaffold(
       backgroundColor: Colors.black,
       body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          crossAxisAlignment: CrossAxisAlignment.center,
-          children: [
-            EmailTextformfield(clr: Colors.black,
-              controller: obj.paswordController,
-              lbltxt: 'Enter Email For Password Reset',
+        child: Form(
+          key: key,
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              EmailTextformfield(clr: Colors.black,
+                controller: obj.paswordController,
+                lbltxt: 'Enter Email For Password Reset',
 
-            ),
-            SizedBox(height: 40),
-            Obx(() {
-              return obj.isloading.value
-                  ? AppLoading()
-                  : InkwellWidget(
-                txt: 'Reset Password',
-                clr: Colors.amber,
-                ontap: () {
-                  obj.forget(context);
-                },
-              );
-            })
-          ],
+              ),
+              SizedBox(height: 40),
+              Obx(() {
+                return obj.isloading.value
+                    ? AppLoading()
+                    : InkwellWidget(
+                  txt: 'Reset Password',
+                  clr: Colors.amber,
+                  ontap: () {
+                  //  if (key.currentState!.validate()) {
+                      obj.forget(context);
+                  //  }
+                  },
+                );
+              })
+            ],
+          ),
         ),
       ),
     );

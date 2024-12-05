@@ -90,8 +90,7 @@ class _SignupViewState extends State<SignupView> {
                                 // validator--> handle in front end(design side)
                                 //exceptions--> handle in backend (in data base)
 
-                                if (key.currentState!
-                                    .validate()) // true --- false
+                                if (key.currentState!.validate()) // true --- false
                                 //(_formKey.currentState!.validate())
                                 {
                                   print('--------------------------2');

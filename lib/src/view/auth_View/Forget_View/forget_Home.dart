@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
+import '../../../Constants/colors.dart';
 import '../login_View/login_View.dart';
 import 'Forget_Widgets/inkwell_Widget.dart';
 
@@ -13,7 +14,7 @@ class ForgetHome extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.black,
+      backgroundColor: AppColors.primryColor,
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,

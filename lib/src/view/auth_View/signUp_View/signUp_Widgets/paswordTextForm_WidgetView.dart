@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
+import '../../../../Constants/colors.dart';
 import 'paswordTextForm_WidgetController.dart';
 
 class PaswordTextForm extends StatefulWidget {
@@ -84,6 +85,7 @@ class _PaswordTextFormState extends State<PaswordTextForm> {
               fillColor: Colors.black,
               filled: true,
               hintText: widget.hnttxt,
+              errorStyle: TextStyle(color: AppColors.secondryColor),
               hintStyle: TextStyle(color: Colors.amber, fontSize: 14),
               enabledBorder: OutlineInputBorder(
                 borderSide: BorderSide(color: Colors.amber, ),
@@ -95,6 +97,10 @@ class _PaswordTextFormState extends State<PaswordTextForm> {
               ),
               errorBorder: OutlineInputBorder(
                 borderSide: BorderSide(color: Colors.amber, ),
+                borderRadius: BorderRadius.circular(10),
+              ),
+              focusedErrorBorder: OutlineInputBorder(
+                borderSide: BorderSide(color: Colors.white),
                 borderRadius: BorderRadius.circular(10),
               )
           ),
