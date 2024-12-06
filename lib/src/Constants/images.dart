@@ -13,6 +13,7 @@ class Images{
   static String instagram='assets/instagram.png';
   static String gmail='assets/gmail.png';
   static String github='assets/github.png';
-
+  static String Logo='assets/GA Logo.png';
+  static String img='assets/img.png';
 
 }
