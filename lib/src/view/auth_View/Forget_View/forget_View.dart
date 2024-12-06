@@ -9,7 +9,7 @@ import 'forget_Controller.dart';
 
 
 class ForgetPasword extends StatelessWidget {
- final key = GlobalKey<FormState>();
+ final _key = GlobalKey<FormState>();
   @override
   Widget build(BuildContext context) {
     ForgetController obj = Get.put(ForgetController());
@@ -18,7 +18,7 @@ class ForgetPasword extends StatelessWidget {
       backgroundColor: Colors.black,
       body: Center(
         child: Form(
-          key: key,
+          key: _key,
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             crossAxisAlignment: CrossAxisAlignment.center,
@@ -36,9 +36,9 @@ class ForgetPasword extends StatelessWidget {
                   txt: 'Reset Password',
                   clr: Colors.amber,
                   ontap: () {
-                  //  if (key.currentState!.validate()) {
+                   if (_key.currentState!.validate()) {
                       obj.forget(context);
-                  //  }
+                    }
                   },
                 );
               })
