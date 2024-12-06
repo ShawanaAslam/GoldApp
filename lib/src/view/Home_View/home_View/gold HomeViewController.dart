@@ -255,10 +255,13 @@
 ///
 
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_auth/firebase_auth.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
 import 'package:goldapp/src/view/Home_View/home_View/home_ViewWidgets/fetchdata-controller.dart';
+import 'package:goldapp/src/view/auth_View/login_View/login_View.dart';
 
 import '../../../common_widgets/MyButton.dart';
 import '../../../common_widgets/reusable_simpletext.dart';
@@ -437,6 +440,16 @@ String docid=DateTime.now().millisecondsSinceEpoch.toString();
     //});
 
     // });
+  }
+  Future<void>logout(BuildContext context)async{
+
+    await FirebaseAuth.instance.signOut();
+    Get.delete<GoldShopController>();
+    Navigator.pushReplacement(
+        context,
+        CupertinoPageRoute(
+            builder: (context) => LoginView()));
+
   }
 }
 

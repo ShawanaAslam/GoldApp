@@ -178,12 +178,9 @@ class _GoldShopState extends State<GoldShop> {
                   // did not logedin
                   ref.userId != ''
                       ? ListTileWidget(
-                          ontap: () async{
-                            await FirebaseAuth.instance.signOut();
-                            Navigator.pushReplacement(
-                                context,
-                                CupertinoPageRoute(
-                                    builder: (context) => LoginView()));
+                          ontap: () {
+                           // await FirebaseAuth.instance.signOut();
+                        obj.logout(context);
                           },
                     txt: 'logOut',
                     icon:Icons.login_outlined,
