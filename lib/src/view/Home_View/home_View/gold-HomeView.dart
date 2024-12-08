@@ -227,7 +227,7 @@ class _GoldShopState extends State<GoldShop> {
               child: Form(
                 key: key,
                 child: MyTextFormConVali(
-                  controller: obj.n1,
+                  controller: obj.goldPriceController,
                   hinttxt: "Enter gold Price",
                   lbltxt: "Gold Price",
                 ),
@@ -252,14 +252,14 @@ class _GoldShopState extends State<GoldShop> {
                 children: [
                   MyTextFormCon(
                       hinttxt: "Enter Tola",
-                      controller: obj.n2,
+                      controller: obj.tolaPricecontroller,
                       lbltxt: "Tola"),
                   SizedBox(
                     width: 50,
                   ),
                   MyTextFormCon(
                       hinttxt: "Enter Grams",
-                      controller: obj.n3,
+                      controller: obj.gramPricecontroller,
                       lbltxt: "Grams")
                 ],
               ),
@@ -273,14 +273,14 @@ class _GoldShopState extends State<GoldShop> {
                 children: [
                   MyTextFormCon(
                       hinttxt: "Enter Rati",
-                      controller: obj.n4,
+                      controller: obj.ratiPricecontroller,
                       lbltxt: "Rati"),
                   SizedBox(
                     width: 50,
                   ),
                   MyTextFormCon(
                       hinttxt: "Enter Points",
-                      controller: obj.n5,
+                      controller: obj.pointsPricecontroller,
                       lbltxt: "Points"),
                 ],
               ),

@@ -270,11 +270,11 @@ import '../../../common_widgets/reusable_simpletext.dart';
 
 
 class GoldShopController extends GetxController {
-  TextEditingController n1 = TextEditingController();
-  TextEditingController n2 = TextEditingController();
-  TextEditingController n3 = TextEditingController();
-  TextEditingController n4 = TextEditingController();
-  TextEditingController n5 = TextEditingController();
+  TextEditingController goldPriceController = TextEditingController();
+  TextEditingController tolaPricecontroller = TextEditingController();
+  TextEditingController gramPricecontroller = TextEditingController();
+  TextEditingController ratiPricecontroller = TextEditingController();
+  TextEditingController pointsPricecontroller = TextEditingController();
   HomeFetchDataController controller=Get.put(HomeFetchDataController());
   var isLoading = false.obs;
   //double
@@ -288,9 +288,9 @@ class GoldShopController extends GetxController {
     // n2.text==null
     //     && n3.text==null&&
     //     n3.text==null &&n4.text==null  &&n5.text==null
-    n2.text==''
-        && n3.text==''
-        &&n4.text==''  &&n5.text==''
+    tolaPricecontroller.text==''
+        && gramPricecontroller.text==''
+        && ratiPricecontroller.text==''  && pointsPricecontroller.text==''
     )
     {
       Get.defaultDialog(
@@ -358,32 +358,32 @@ class GoldShopController extends GetxController {
     // if (n1.text == '') {
     //   n1.text = '0';
     // }
-    if (n2.text == '') {
-      n2.text = '0';
+    if (tolaPricecontroller.text == '') {
+      tolaPricecontroller.text = '0';
     }
-    if (n3.text == '') {
-      n3.text = '0';
+    if (gramPricecontroller.text == '') {
+      gramPricecontroller.text = '0';
     }
-    if (n4.text == '') {
-      n4.text = '0';
+    if (ratiPricecontroller.text == '') {
+      ratiPricecontroller.text = '0';
     }
-    if (n5.text == '') {
-      n5.text = '0';
+    if (pointsPricecontroller.text == '') {
+      pointsPricecontroller.text = '0';
     }
 
   }
   void goldCalculation(){
 
     //first we find Rs of 1 gram
-    double Rspergram = double.parse(n1.text) / 12;
-    double goldgram = Rspergram * double.parse(n3.text);
+    double Rspergram = double.parse(goldPriceController.text) / 12;
+    double goldgram = Rspergram * double.parse(gramPricecontroller.text);
     //total=total + goldgram;
-    double RsperRati = double.parse(n1.text) / 96;
-    double goldRati = RsperRati * double.parse(n4.text);
+    double RsperRati = double.parse(goldPriceController.text) / 96;
+    double goldRati = RsperRati * double.parse(ratiPricecontroller.text);
     //total=total + goldRati;
-    double points = double.parse(n4.text) / 12;
-    double goldpoints = points * double.parse(n5.text);
-    double tolaPrice=double.parse(n1.text) * double.parse(n2.text);
+    double points = double.parse(ratiPricecontroller.text) / 100;
+    double goldpoints = points * double.parse(pointsPricecontroller.text);
+    double tolaPrice=double.parse(goldPriceController.text) * double.parse(tolaPricecontroller.text);
 
     total.value = tolaPrice + goldgram + goldRati + goldpoints;
     // function calling:-
@@ -407,12 +407,12 @@ class GoldShopController extends GetxController {
 String docid=DateTime.now().millisecondsSinceEpoch.toString();
       await FirebaseFirestore.instance.collection(controller.userId.value).doc(docid).set(
           {
-            'goldgramQuantity' : n3.text,
-            'goldRatiQuantity' : n4.text,
-            'goldpointQuantity' : n5.text,
-            'tolaQuantity':n2.text,
+            'goldgramQuantity' : gramPricecontroller.text,
+            'goldRatiQuantity' : ratiPricecontroller.text,
+            'goldpointQuantity' : pointsPricecontroller.text,
+            'tolaQuantity':tolaPricecontroller.text,
             'totalPrice':total.value,
-            'tolaPrice':n1.text,
+            'tolaPrice':goldPriceController.text,
             'userid':controller.userId.value,
             'doc':docid
           }
@@ -432,11 +432,11 @@ String docid=DateTime.now().millisecondsSinceEpoch.toString();
 
     //Future.delayed(Duration(seconds: 3), () {
     // setState((){
-    n1.clear();
-    n2.clear();
-    n3.clear();
-    n4.clear();
-    n5.clear();
+    goldPriceController.clear();
+    tolaPricecontroller.clear();
+    gramPricecontroller.clear();
+    ratiPricecontroller.clear();
+    pointsPricecontroller.clear();
     //});
 
     // });
