@@ -37,6 +37,7 @@ class _GoldShopState extends State<GoldShop> {
   void initState() {
     // TODO: implement initState
     super.initState();
+    ref.fetchUserData();
     //FetchuserData();
   }
   // FetchuserData() async {
@@ -68,12 +69,12 @@ class _GoldShopState extends State<GoldShop> {
   //     }
   //
   // }
-
+  HomeFetchDataController ref = Get.put(HomeFetchDataController());
   final key = GlobalKey<FormState>();
   @override
   Widget build(BuildContext context) {
     GoldShopController obj = Get.put(GoldShopController());
-    HomeFetchDataController ref = Get.put(HomeFetchDataController());
+
     return Scaffold(
       backgroundColor: Colors.black,
       appBar: AppBar(
