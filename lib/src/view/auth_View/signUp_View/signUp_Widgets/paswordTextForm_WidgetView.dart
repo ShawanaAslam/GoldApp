@@ -29,7 +29,7 @@ class _PaswordTextFormState extends State<PaswordTextForm> {
 
     return Obx(
           () => Padding(
-        padding: const EdgeInsets.only(right: 30, left: 30),
+        padding:  EdgeInsets.only(right: 30, left: 30),
         child: TextFormField(
           controller: widget.controller,
           style: TextStyle(color: Colors.white),
@@ -72,14 +72,22 @@ class _PaswordTextFormState extends State<PaswordTextForm> {
 
             return null;
           },
-          obscureText: obj.isChecked.value,
+          obscureText:// widget.hnttxt=='Enter Pasword'?
+          obj.isChecked.value,//:obj.confirmChecked.value,
           decoration: InputDecoration(
               prefixIcon: Icon(Icons.lock,color: Colors.amber,),
               suffixIcon: IconButton(
                   onPressed: () {
-                    obj.onPressed();
+                    if(widget.hnttxt=='Enter Pasword'){
+                      obj.onPressed();
+                    }
+                    else
+                      {
+                        obj.confirmChecked();
+                      }
+
                   },
-                  icon: obj.isChecked.value
+                  icon: obj.isChecked.value || obj.confirmChecked.value
                       ? Icon(Icons.remove_red_eye,color: Colors.amber,)
                       : Icon(Icons.remove_red_eye_outlined,color: Colors.amber,)),
               fillColor: Colors.black,
@@ -181,3 +189,5 @@ class _PaswordTextFormState extends State<PaswordTextForm> {
 //         )),
 //   ),
 // );
+
+
