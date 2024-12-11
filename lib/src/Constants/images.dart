@@ -11,9 +11,13 @@ class Images{
   static String whatsapp='assets/whatsapp.png';
   static String linkedin='assets/linkedin.png';
   static String instagram='assets/instagram.png';
-  static String gmail='assets/gmail.png';
-  static String github='assets/github.png';
+ // static String gmail='assets/gmail.png';
+//  static String github='assets/github.png';
   static String Logo='assets/GA Logo.png';
   static String img='assets/img.png';
+
+  static String gmail='assets/search.png';
+  static String github='github-sign.png';
+
 
 }

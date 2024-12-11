@@ -13,8 +13,8 @@ class InkWellRow extends StatelessWidget {
     return InkWell(
       onTap: ontap,
       child:  Row(
-        mainAxisAlignment: MainAxisAlignment.center,
-        crossAxisAlignment: CrossAxisAlignment.center,
+        mainAxisAlignment: MainAxisAlignment.start,
+        crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Image.asset(
             path,

@@ -115,7 +115,7 @@ class _GoldShopState extends State<GoldShop> {
                       currentAccountPicture:
                       CircleAvatar(
                         backgroundColor: Colors.black,
-                        child: Image.asset('assets/gabon.png'),
+                        child: Image.asset(Images.Logo),
                       ),
                       accountName: Text(
                         'User Name : ${ref.userName}',

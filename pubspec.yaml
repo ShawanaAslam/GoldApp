@@ -92,6 +92,8 @@ flutter:
     - assets/internet.png
     - assets/GA Logo.png
     - assets/img.png
+    - assets/search.png
+    - assets/github-sign.png
   #   - images/a_dot_burr.jpeg
   #   - images/a_dot_ham.jpeg
 

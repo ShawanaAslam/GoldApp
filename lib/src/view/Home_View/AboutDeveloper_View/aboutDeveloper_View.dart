@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:url_launcher/url_launcher.dart';
 
+import '../../../Constants/colors.dart';
 import '../../../Constants/images.dart';
 import '../../../common_widgets/reusable_text.dart';
 import 'AboutDeveloper_Widget/Inkwell_Row.dart';
@@ -30,90 +31,94 @@ class _AboutDeveloperState extends State<AboutDeveloper> {
         centerTitle: true,
       ),
       body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          crossAxisAlignment: CrossAxisAlignment.center,
-          children: [
-            InkWellRow(
-              ontap: ()async{
-                // Link create for whastapp
-                final whatsappUrl=Uri.parse("https://wa.me/+923346985327");
-                await launchUrl(whatsappUrl);
-              },
-                    path:Images.whatsapp,
-                    txt:'Contact On WhatsApp'),
-
-            //   child:  Row(
-            //     mainAxisAlignment: MainAxisAlignment.center,
-            //     crossAxisAlignment: CrossAxisAlignment.center,
-            //     children: [
-            //       Image.asset(
-            //         Images.whatsapp,
-            //         width: 35,
-            //         height: 35,
-            //       ),
-            //       SizedBox(width: 10,),
-            //       MyText(
-            //         txt: 'Contact On WhatsApp',
-            //         // decoration: TextDecoration.underline,
-            //         // decclr: Colors.amber,
-            //         txtclr: Colors.amber,
-            //         font: 18,
-            //       ),
-            //     ],
-            //   ),
-            // ),
-
-            SizedBox(height: 20,),
-
-            Padding(
-              padding: const EdgeInsets.only(right: 50),
-              child: InkWellRow(
-                ontap: ()async{
-                  // Link create for github
-                  final githubUrl=Uri.parse('https://github.com/ShawanaAslam');
-                  await launchUrl(githubUrl);
-                },
-                path: Images.github,
-                txt: 'GitHub Account',
-              ),
+        child: Padding(
+          padding: const EdgeInsets.only(top: 20,
+              right: 20,left: 20),
+          child: SingleChildScrollView(
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                MyText(txt:
+            '👩‍💻 Shawana Aslam\n'
+            '      Junior Flutter Developer\n'
+            '\n'
+            '💡 About Me:\n'
+            'I am a passionate mobile app developer \nspecializing in Flutter. I enjoy transforming ideas into functional, user-friendly mobile applications. With experience in using Firebase as a database, I focus on delivering innovative solutions tailored to user needs. My goal is to grow continuously and contribute to impactful projects.\n'
+            '\n'
+            '🌟 Skills:\n'
+            
+            'Flutter App Development\n'
+            'Firebase Integration\n'
+            'Responsive UI/UX Design',font: 16,txtclr: AppColors.secondryColor,),
+                SizedBox(height: 20,),
+                Row(mainAxisAlignment: MainAxisAlignment.start,
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    MyText(txt:'Contact Me'
+                                   ,font: 20,txtclr: AppColors.secondryColor,),
+                  ],
+                ),
+                SizedBox(height:10),
+                InkWellRow(
+                  ontap: ()async{
+                    // Link create for whastapp
+                    final whatsappUrl=Uri.parse("https://wa.me/+923346985327");
+                    await launchUrl(whatsappUrl);
+                  },
+                        path:Images.whatsapp,
+                        txt:'Contact On WhatsApp'),
+            
+                SizedBox(height: 10,),
+            
+                Padding(
+                  padding: const EdgeInsets.only(right: 50),
+                  child: InkWellRow(
+                    ontap: ()async{
+                      // Link create for github
+                      final githubUrl=Uri.parse('https://github.com/ShawanaAslam');
+                      await launchUrl(githubUrl);
+                    },
+                    path: Images.github,
+                    txt: 'GitHub Account',
+                  ),
+                ),
+            
+                SizedBox(height: 10,),
+            
+                Padding(
+                  padding: const EdgeInsets.only(right: 30),
+                  child: InkWellRow(
+                    ontap: ()async{
+                      // Link create for Linkedin
+                      final liknedinUrl=Uri.parse("www.linkedin.com/in/shawana-aslam-0628842a9");
+                      await launchUrl(liknedinUrl);
+                    },
+                    path: Images.linkedin,
+                    txt:  'Linkedin Account',
+                  ),
+                ),
+            
+                SizedBox(height: 10,),
+            
+                Padding(
+                  padding: const EdgeInsets.only(right: 50),
+                  child: InkWellRow(
+                    ontap: ()async{
+                      // Link create for Gmail
+            
+                      final EmailUrl=Uri.parse("mailto:shawanaaslam412@gmail.com");
+            
+                      await launchUrl(EmailUrl);
+                    },
+                    path:Images.gmail,
+                    txt:'Gmail Account' ,
+                  ),
+                ),
+            
+              ],
             ),
-
-            SizedBox(height: 20,),
-
-            Padding(
-              padding: const EdgeInsets.only(right: 30),
-              child: InkWellRow(
-                ontap: ()async{
-                  // Link create for Linkedin
-                  final liknedinUrl=Uri.parse("www.linkedin.com/in/shawana-aslam-0628842a9");
-                  await launchUrl(liknedinUrl);
-                },
-                path: Images.linkedin,
-                txt:  'Linkedin Account',
-              ),
-            ),
-
-            SizedBox(height: 20,),
-
-            Padding(
-              padding: const EdgeInsets.only(right: 50),
-              child: InkWellRow(
-                ontap: ()async{
-                  // Link create for Linkedin
-<<<<<<< HEAD
-                  final EmailUrl=Uri.parse("mailto:shawanaaslam412@gmail.com");
-=======
-                  final EmailUrl=Uri.parse("shawanaAslam412@gmail.com");
->>>>>>> eba9d105368dfefd77e0cc148b4a02ceeb8aea4b
-                  await launchUrl(EmailUrl);
-                },
-                path:Images.gmail,
-                txt:'Gmail Account' ,
-              ),
-            ),
-
-          ],
+          ),
         ),
       ),
     );
