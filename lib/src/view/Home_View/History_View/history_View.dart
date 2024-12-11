@@ -266,98 +266,107 @@ class _HistoryViewState extends State<HistoryView> {
         ),
       ),
       backgroundColor: Colors.black,
-      body: StreamBuilder<QuerySnapshot>(
-        stream: FirebaseFirestore.instance
-            .collection(homeController.userId.value)
-            .snapshots(),
-        builder: (context, snapshots) {
-          if (snapshots.connectionState == ConnectionState.waiting) {
-            return const Center(child: AppLoading());
-          }
-          if (snapshots.hasError) {
-            return Center(child: Text('Error: ${snapshots.error}'));
-          }
-          if (!snapshots.hasData || snapshots.data!.docs.isEmpty) {
-            return const Center(
-              child: Text(
-                'No data available',
-                style: TextStyle(color: Colors.amber),
-              ),
-            );
-          }
-
-          final data = snapshots.data!;
-
-          return ListView.builder(
-            itemCount: data.size,
-            itemBuilder: (context, index) {
-              final doc = data.docs[index];
-              final goldprice = doc['tolaPrice'].toString();
-              final tolaQuantity = doc['tolaQuantity'].toString();
-              final goldgramQuantity = doc['goldgramQuantity'].toString();
-              final goldRatiQuantity = doc['goldRatiQuantity'].toString();
-              final goldpointQuantity = doc['goldpointQuantity'].toString();
-              final totalPrice = doc['totalPrice'].toString();
-              String docId=data.docs[index]['doc'].toString()??"";
-              return ListTile(
-                title: Text(
-                  'Gold Price: $goldprice',
-                  style: const TextStyle(color: Colors.amber),
-                ),
-                subtitle: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Text('Tola Quantity: $tolaQuantity', style: const TextStyle(color: Colors.amber)),
-                    Text('Gold Gram Quantity: $goldgramQuantity', style: const TextStyle(color: Colors.amber)),
-                    Text('Gold Rati Quantity: $goldRatiQuantity', style: const TextStyle(color: Colors.amber)),
-                    Text('Gold Point Quantity: $goldpointQuantity', style: const TextStyle(color: Colors.amber)),
-                    Text('Total Price: $totalPrice', style: const TextStyle(color: Colors.amber)),
-                  ],
-                ),
-                trailing: IconButton(
-                  onPressed: () {
-                    Get.defaultDialog(
-                      backgroundColor: Colors.amber,
-                      title: 'Message',
-                      content: const Text('Do you want to delete this data?'),
-                      actions: [
-                        MyButton(
-                          txt: 'Yes',
-                          font: 16,
-                          w: 50.w,
-                          h: 40.h,
-                          bacclr: Colors.amber,
-                          clr: Colors.black,
-                          ontap: () async{
-                            await  FirebaseFirestore.instance
-                                .collection(homeController.userId.value)
-                               // .doc(data.docs[index].id)
-                                .doc(docId)
-                                .delete();
-                            Get.back();
-                          },
-                        ),
-                        MyButton(
-                          txt: 'No',
-                          font: 16,
-                          w: 50.w,
-                          h: 40.h,
-                          bacclr: Colors.amber,
-                          clr: Colors.black,
-                          ontap: () {
-                            Get.back();
-                          },
-                        ),
-                      ],
-                    );
-                  },
-                  icon: const Icon(Icons.delete, color: Colors.amber),
+      body: Column(children: [
+        Expanded(
+            flex: 2,
+            child: Container(
+              
+            )),
+        Expanded(
+          flex: 8,
+          child: StreamBuilder<QuerySnapshot>(
+          stream: FirebaseFirestore.instance
+              .collection(homeController.userId.value)
+              .snapshots(),
+          builder: (context, snapshots) {
+            if (snapshots.connectionState == ConnectionState.waiting) {
+              return const Center(child: AppLoading());
+            }
+            if (snapshots.hasError) {
+              return Center(child: Text('Error: ${snapshots.error}'));
+            }
+            if (!snapshots.hasData || snapshots.data!.docs.isEmpty) {
+              return const Center(
+                child: Text(
+                  'No data available',
+                  style: TextStyle(color: Colors.amber),
                 ),
               );
-            },
-          );
-        },
-      ),
+            }
+
+            final data = snapshots.data!;
+
+            return ListView.builder(
+              itemCount: data.size,
+              itemBuilder: (context, index) {
+                final doc = data.docs[index];
+                final goldprice = doc['tolaPrice'].toString();
+                final tolaQuantity = doc['tolaQuantity'].toString();
+                final goldgramQuantity = doc['goldgramQuantity'].toString();
+                final goldRatiQuantity = doc['goldRatiQuantity'].toString();
+                final goldpointQuantity = doc['goldpointQuantity'].toString();
+                final totalPrice = doc['totalPrice'].toString();
+                String docId=data.docs[index]['doc'].toString()??"";
+                return ListTile(
+                  title: Text(
+                    '($goldprice x $tolaQuantity)+gramPrice + rattiPrice +pointsPrice',
+                    style: const TextStyle(color: Colors.amber),
+                  ),
+                  subtitle: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      //  Text('Tola Quantity: $tolaQuantity', style: const TextStyle(color: Colors.amber)),
+                      // Text('Gold Gram Quantity: $goldgramQuantity', style: const TextStyle(color: Colors.amber)),
+                      //Text('Gold Rati Quantity: $goldRatiQuantity', style: const TextStyle(color: Colors.amber)),
+                      //Text('Gold Point Quantity: $goldpointQuantity', style: const TextStyle(color: Colors.amber)),
+                      Text('=$totalPrice', style: const TextStyle(color: Colors.amber)),
+                    ],
+                  ),
+                  trailing: IconButton(
+                    onPressed: () {
+                      Get.defaultDialog(
+                        backgroundColor: Colors.amber,
+                        title: 'Message',
+                        content: const Text('Do you want to delete this data?'),
+                        actions: [
+                          MyButton(
+                            txt: 'Yes',
+                            font: 16,
+                            w: 50.w,
+                            h: 40.h,
+                            bacclr: Colors.amber,
+                            clr: Colors.black,
+                            ontap: () async{
+                              await  FirebaseFirestore.instance
+                                  .collection(homeController.userId.value)
+                              // .doc(data.docs[index].id)
+                                  .doc(docId)
+                                  .delete();
+                              Get.back();
+                            },
+                          ),
+                          MyButton(
+                            txt: 'No',
+                            font: 16,
+                            w: 50.w,
+                            h: 40.h,
+                            bacclr: Colors.amber,
+                            clr: Colors.black,
+                            ontap: () {
+                              Get.back();
+                            },
+                          ),
+                        ],
+                      );
+                    },
+                    icon: const Icon(Icons.delete, color: Colors.amber),
+                  ),
+                );
+              },
+            );
+          },
+        ),)
+      ],)
     );
   }
 }

@@ -101,7 +101,11 @@ class _AboutDeveloperState extends State<AboutDeveloper> {
               child: InkWellRow(
                 ontap: ()async{
                   // Link create for Linkedin
+<<<<<<< HEAD
                   final EmailUrl=Uri.parse("mailto:shawanaaslam412@gmail.com");
+=======
+                  final EmailUrl=Uri.parse("shawanaAslam412@gmail.com");
+>>>>>>> eba9d105368dfefd77e0cc148b4a02ceeb8aea4b
                   await launchUrl(EmailUrl);
                 },
                 path:Images.gmail,
