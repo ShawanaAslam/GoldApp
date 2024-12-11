@@ -67,7 +67,7 @@ class _SplashViewState extends State<SplashView> {
               height: 200,
             ),
            // SizedBox(height: 10),
-             MyText(txt: "Gold App",font: 20,txtclr: Colors.amber,),
+             //MyText(txt: "Gold App",font: 20,txtclr: Colors.amber,),
             SizedBox(height: 20),
            AppLoading()
 

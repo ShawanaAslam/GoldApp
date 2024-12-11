@@ -5,6 +5,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import 'package:get/get.dart';
 import 'package:goldapp/firebase_options.dart';
+import 'package:goldapp/src/view/Home_View/History_View/history_View.dart';
 import 'package:goldapp/src/view/Home_View/home_View/gold-HomeView.dart';
 
 import 'package:goldapp/src/view/Starting_Views/splash_View/splash_View.dart';
@@ -45,6 +46,7 @@ class MyApp extends StatelessWidget {
                 useMaterial3: true,
               ),
               home:
+             // HistoryView(history: [],)
               //GoldShop()
               // SignupView()
               // SelectionView()
