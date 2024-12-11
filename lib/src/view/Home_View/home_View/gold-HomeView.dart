@@ -297,7 +297,7 @@ class _GoldShopState extends State<GoldShop> {
                     obj.onfuction();
                   }
                 },
-                txt: 'Enter',
+                txt: 'Calculate',
                 w: 180,
                 h: 40,
                 bacclr: Colors.black,
