@@ -260,12 +260,13 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
-import 'package:goldapp/src/view/Home_View/home_View/Billing-screen/billing-home-view.dart';
+//import 'package:goldapp/src/view/Home_View/home_View/Billing-screen/billing-home-view.dart';
 import 'package:goldapp/src/view/Home_View/home_View/home_ViewWidgets/fetchdata-controller.dart';
 import 'package:goldapp/src/view/auth_View/login_View/login_View.dart';
 
 import '../../../common_widgets/MyButton.dart';
 import '../../../common_widgets/reusable_simpletext.dart';
+import 'Billing_View/billing_homeView.dart';
 
 
 
@@ -353,9 +354,10 @@ class GoldShopController extends GetxController {
                 ontap: (){
               Get.to(()=>BillingHomeView(
                   goldPrice: goldPriceController.text,
-                  gramsQuantity: gramPricecontroller.text,
-                  poinysQuantity: pointsPricecontroller.text,
                   tolaQuantity: tolaPricecontroller.text,
+                  gramsQuantity: gramPricecontroller.text,
+                  ratiQuantity: ratiPricecontroller.text,
+                  pointsQuantity: pointsPricecontroller.text,
                   totalPrice: total.value
               ));
                 })

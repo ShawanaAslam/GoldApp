@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:goldapp/src/Constants/colors.dart';
 
-class SimpleText extends StatelessWidget {
+class SimpleTextFormField extends StatelessWidget {
   TextEditingController controller;
   String hnttxt;
   Color clr;
   Widget? prefixicn;
   Widget? pstfixicn;
 
-  SimpleText(
+  SimpleTextFormField(
       {super.key,
         required this.controller,
         required this.hnttxt,

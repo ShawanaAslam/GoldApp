@@ -40,6 +40,7 @@ class _GoldShopState extends State<GoldShop> {
     ref.fetchUserData();
     //FetchuserData();
   }
+
   // FetchuserData() async {
   //   User? user = await FirebaseAuth.instance.currentUser;
   //   if(user!=null)// false
@@ -79,20 +80,19 @@ class _GoldShopState extends State<GoldShop> {
       backgroundColor: Colors.black,
       appBar: AppBar(
         actions: [
-          Obx((){
-            return
-            ref.userId.value  != ''?
-            IconButton(
-              onPressed: () {
-                // navigate to history screen
-                Get.to(()=>HistoryView());
-              },
-              icon: Icon(
-                Icons.history_toggle_off,
-                size: 30,
-              ),
-            )
-                :Container();
+          Obx(() {
+            return ref.userId.value != ''
+                ? IconButton(
+                    onPressed: () {
+                      // navigate to history screen
+                      Get.to(() => HistoryView());
+                    },
+                    icon: Icon(
+                      Icons.history_toggle_off,
+                      size: 30,
+                    ),
+                  )
+                : Container();
           })
         ],
         backgroundColor: Colors.amber,
@@ -102,18 +102,16 @@ class _GoldShopState extends State<GoldShop> {
         ),
         centerTitle: true,
       ),
-
       drawer: Drawer(
         child: Container(
             color: Colors.black,
             child: Obx(
               () => ListView(
                 children: [
-
                   UserAccountsDrawerHeader(
                       decoration: BoxDecoration(color: Colors.amber),
-                      currentAccountPicture:
-                      CircleAvatar(
+                      currentAccountPicture: CircleAvatar(
+                        //  radius: 20,
                         backgroundColor: Colors.black,
                         child: Image.asset(Images.Logo),
                       ),
@@ -125,27 +123,26 @@ class _GoldShopState extends State<GoldShop> {
                           style: TextStyle(color: Colors.black))),
 
                   ListTileWidget(
-                      ontap:  ()  {
+                      ontap: () {
                         Get.back();
                       },
-                      txt: 'Home', icon: Icons.home),
+                      txt: 'Home',
+                      icon: Icons.home),
 
-          Obx(() {
-            return
-              ref.userId.value != '' ?
-              ListTileWidget(
-                ontap: ()  {
-                  Get.back();
-                  Navigator.push(
-                      context,
-                      CupertinoPageRoute(
-                          builder: (context) => HistoryView()));
-                },
-                txt:'History',
-                icon: Icons.history_toggle_off
-            )
-                      :Container();
-          }),
+                  Obx(() {
+                    return ref.userId.value != ''
+                        ? ListTileWidget(
+                            ontap: () {
+                              Get.back();
+                              Navigator.push(
+                                  context,
+                                  CupertinoPageRoute(
+                                      builder: (context) => HistoryView()));
+                            },
+                            txt: 'History',
+                            icon: Icons.history_toggle_off)
+                        : Container();
+                  }),
                   ListTile(
                     onTap: () {
                       Get.back();
@@ -154,7 +151,10 @@ class _GoldShopState extends State<GoldShop> {
                           CupertinoPageRoute(
                               builder: (context) => AboutAppView()));
                     },
-                     leading:ImageIcon(AssetImage(Images.aboutApp),color: Colors.amber,) ,
+                    leading: ImageIcon(
+                      AssetImage(Images.aboutApp),
+                      color: Colors.amber,
+                    ),
                     title: Text('About App',
                         style: TextStyle(color: Colors.amber)),
                   ),
@@ -166,8 +166,10 @@ class _GoldShopState extends State<GoldShop> {
                           CupertinoPageRoute(
                               builder: (context) => AboutDeveloper()));
                     },
-
-                    leading:ImageIcon(AssetImage(Images.aboutDeveloper),color: Colors.amber,) ,
+                    leading: ImageIcon(
+                      AssetImage(Images.aboutDeveloper),
+                      color: Colors.amber,
+                    ),
                     title: Text('About Developor',
                         style: TextStyle(color: Colors.amber)),
                   ),
@@ -180,22 +182,22 @@ class _GoldShopState extends State<GoldShop> {
                   ref.userId != ''
                       ? ListTileWidget(
                           ontap: () {
-                           // await FirebaseAuth.instance.signOut();
-                        obj.logout(context);
+                            // await FirebaseAuth.instance.signOut();
+                            obj.logout(context);
                           },
-                    txt: 'logOut',
-                    icon:Icons.login_outlined,
+                          txt: 'logOut',
+                          icon: Icons.login_outlined,
                         )
                       : ListTileWidget(
-                          ontap: ()  {
+                          ontap: () {
                             Get.back();
                             Navigator.push(
                                 context,
                                 CupertinoPageRoute(
                                     builder: (context) => LoginView()));
                           },
-                    txt: 'Login Screen',
-                    icon:Icons.login ,
+                          txt: 'Login Screen',
+                          icon: Icons.login,
                         ),
                 ],
               ),

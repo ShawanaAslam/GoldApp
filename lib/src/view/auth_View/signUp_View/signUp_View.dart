@@ -39,7 +39,7 @@ class _SignupViewState extends State<SignupView> {
                     SizedBox(
                       height: 150,
                     ),
-                    SimpleText(
+                    SimpleTextFormField(
                         prefixicn: Icon(Icons.person, color: Colors.amber),
                         controller: signupController.userNameController,
                         hnttxt: "User Name"),
@@ -53,7 +53,7 @@ class _SignupViewState extends State<SignupView> {
                     SizedBox(
                       height: 20,
                     ),
-                    SimpleText(
+                    SimpleTextFormField(
                         prefixicn: Icon(
                           Icons.email,
                           color: Colors.amber,
