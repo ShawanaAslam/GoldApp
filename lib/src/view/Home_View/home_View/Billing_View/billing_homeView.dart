@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:goldapp/src/view/Home_View/home_View/gold%20HomeViewController.dart';
 
 import '../../../../Constants/colors.dart';
 import '../../../../common_widgets/reusable_simpletext.dart';
@@ -22,11 +23,19 @@ class BillingHomeView extends StatefulWidget {
       required this.pointsQuantity,
       required this.totalPrice});
 
+
   @override
   State<BillingHomeView> createState() => _BillingHomeViewState();
 }
 
 class _BillingHomeViewState extends State<BillingHomeView> {
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    obj.refresh();
+  }
+  GoldShopController obj = Get.put(GoldShopController());
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -47,43 +56,34 @@ class _BillingHomeViewState extends State<BillingHomeView> {
         centerTitle: true,
       ),
       body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          crossAxisAlignment: CrossAxisAlignment.center,
-          children: [
-            // SimpleText(controller: ),
-            
+        child: Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 8.0),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              // SimpleText(controller: ),
 
-            MyText(
-              txt: 'Gold Price : ${widget.goldPrice}',
-              txtclr: AppColors.secondryColor,
-            ),
-            Padding(
-              padding: const EdgeInsets.only(right: 8),
-              child: MyText(
-                  txt: ' Tola Quantity : ${widget.tolaQuantity}',
+
+              MyText(
+                txt: 'Gold Price : ${widget.goldPrice}',
+                txtclr: AppColors.secondryColor,
+              ),
+              MyText(
+                  txt: 'Tola Quantity : ${widget.tolaQuantity}',
                   txtclr: AppColors.secondryColor),
-            ),
-            Padding(
-              padding: const EdgeInsets.only(left: 15),
-              child: MyText(
+              MyText(
                   txt: 'Grams Quantity : ${widget.gramsQuantity}',
                   txtclr: AppColors.secondryColor),
-            ),
-            Padding(
-              padding: const EdgeInsets.only(right: 8),
-              child: MyText(
+              MyText(
                   txt: 'Rati Quantity : ${widget.ratiQuantity}',
                   txtclr: AppColors.secondryColor),
-            ),
-            MyText(
-                txt: 'Tola Price : ${widget.goldPrice}',
-                txtclr: AppColors.secondryColor),
-            MyText(
-              txt: 'Tola Price:${widget.goldPrice}',
-              // txtclr: AppColors.secondryColor
-            )
-          ],
+              MyText(
+                  txt: 'Tola Price : ${widget.totalPrice}',
+                  txtclr: AppColors.secondryColor),
+
+            ],
+          ),
         ),
       ),
     );
