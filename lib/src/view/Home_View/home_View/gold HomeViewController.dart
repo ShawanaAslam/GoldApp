@@ -352,6 +352,8 @@ class GoldShopController extends GetxController {
                 clr: Colors.black,
                 font: 15,
                 ontap: (){
+              Get.back();
+
               Get.to(()=>BillingHomeView(
                   goldPrice: goldPriceController.text,
                   tolaQuantity: tolaPricecontroller.text,
@@ -360,6 +362,7 @@ class GoldShopController extends GetxController {
                   pointsQuantity: pointsPricecontroller.text,
                   totalPrice: total.value
               ));
+            //  refresh();
                 })
 
 
