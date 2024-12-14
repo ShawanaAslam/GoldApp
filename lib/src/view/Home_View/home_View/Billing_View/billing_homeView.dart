@@ -52,7 +52,8 @@ class _BillingHomeViewState extends State<BillingHomeView> {
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             // SimpleText(controller: ),
-            
+
+
 
             MyText(
               txt: 'Gold Price : ${widget.goldPrice}',
