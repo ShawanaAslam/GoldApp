@@ -41,10 +41,10 @@ class _AboutDeveloperState extends State<AboutDeveloper> {
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
                 MyText(
-                  txt: '👩‍💻 Shawana Aslam\n'
-                      '      Junior Flutter Developer\n'
+                  txt: ' Shawana Aslam\n'
+                      '      Flutter Developer\n'
                       '\n'
-                      '💡 About Me:\n'
+                      ' About Me:\n'
                       'I am a passionate mobile app developer \nspecializing in Flutter. I enjoy transforming ideas into functional, user-friendly mobile applications. With experience in using Firebase as a database, I focus on delivering innovative solutions tailored to user needs. My goal is to grow continuously and contribute to impactful projects.\n'
                       '\n'
                       '🌟 Skills:\n'

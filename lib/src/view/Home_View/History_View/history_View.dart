@@ -38,6 +38,9 @@ class _HistoryViewState extends State<HistoryView> {
             font: 22,
           ),
           centerTitle: true,
+          actions: [
+            // Icon(Icons.clear)
+          ],
         ),
         backgroundColor: Colors.black,
         body: Column(
