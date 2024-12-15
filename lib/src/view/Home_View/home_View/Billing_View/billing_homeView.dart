@@ -7,6 +7,8 @@ import '../../../../Constants/colors.dart';
 import '../../../../common_widgets/reusable_simpletext.dart';
 import '../../../../common_widgets/reusable_text.dart';
 import '../../../../common_widgets/simpleTextForm_widget.dart';
+import 'Billing_Widgets/DateTimePicker_TextFormField.dart';
+import 'Billing_Widgets/billing_TextFormField.dart';
 
 class BillingHomeView extends StatefulWidget {
   String goldPrice;
@@ -57,41 +59,72 @@ class _BillingHomeViewState extends State<BillingHomeView> {
         ),
         centerTitle: true,
       ),
-      body: Center(
-
-        child: Padding(
-          //padding: const EdgeInsets.only(bottom: 18,right: 20,left: 20),
-         padding: const EdgeInsets.symmetric(horizontal: 8.0),
+      body: Padding(
+        //padding: const EdgeInsets.only(bottom: 18,right: 20,left: 20),
+       padding: const EdgeInsets.symmetric(horizontal: 8.0),
+        child: SingleChildScrollView(
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
 
-              SimpleTextFormField(
+              Padding(
+                padding: const EdgeInsets.only(left: 130,),
+                child:
+          DatePickerTextformfield(
+                  controller: obj.DateController,
+                hnttxt: 'Enter Date',
+                clr: AppColors.primryColor,),
+              ),
+              SizedBox(height: 30,),
+              BillingTextFormField(
                   // prefixicn: Icon(
                   //   Icons.email,
                   //   color: Colors.amber,
                   // ),
-                  controller: obj.billController,
+                  controller: obj.clientController,
                   hnttxt: "Enter Client Name"),
 
+              SizedBox(height: 5,),
+              BillingTextFormField(
+                // prefixicn: Icon(
+                //   Icons.email,
+                //   color: Colors.amber,
+                // ),
+                  controller: obj.productController,
+                  hnttxt: "Enter Product Name"),
+
               SizedBox(height: 20,),
-              MyText(
-                txt: 'Gold Price : ${widget.goldPrice}',
-                txtclr: AppColors.secondryColor,
-              ),
-              MyText(
-                  txt: 'Tola Quantity : ${widget.tolaQuantity}',
-                  txtclr: AppColors.secondryColor),
-              MyText(
-                  txt: 'Grams Quantity : ${widget.gramsQuantity}',
-                  txtclr: AppColors.secondryColor),
-              MyText(
-                  txt: 'Rati Quantity : ${widget.ratiQuantity}',
-                  txtclr: AppColors.secondryColor),
-              MyText(
-                  txt: 'Tola Price : ${widget.totalPrice',
-                  txtclr: AppColors.secondryColor),
+              Padding(
+                padding: const EdgeInsets.only(left: 40),
+                child: Container(
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+
+                      MyText(
+                        txt: 'Gold Price : ${widget.goldPrice}',
+                        txtclr: AppColors.secondryColor,
+                      ),
+                      MyText(
+                          txt: 'Tola Quantity : ${widget.tolaQuantity}',
+                          txtclr: AppColors.secondryColor),
+                      MyText(
+                          txt: 'Grams Quantity : ${widget.gramsQuantity}',
+                          txtclr: AppColors.secondryColor),
+                      MyText(
+                          txt: 'Rati Quantity : ${widget.ratiQuantity}',
+                          txtclr: AppColors.secondryColor),
+                      MyText(
+                          txt: 'Tola Price : ${widget.totalPrice}',
+                          txtclr: AppColors.secondryColor),
+                    ],
+                  ),
+                ),
+              )
+
+
 
             ],
           ),
