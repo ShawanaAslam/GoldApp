@@ -43,7 +43,7 @@ class _SignupViewState extends State<SignupView> {
                     SimpleTextFormField(
                         prefixicn: Icon(Icons.person, color: Colors.amber),
                         controller: signupController.userNameController,
-                        hnttxt: "User Name"),
+                        hnttxt: "Enter Shop Name"),
                     // SizedBox(
                     //   height: 20,
                     // ),

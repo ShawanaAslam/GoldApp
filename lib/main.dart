@@ -9,6 +9,7 @@ import 'package:goldapp/src/view/Home_View/History_View/history_View.dart';
 import 'package:goldapp/src/view/Home_View/home_View/gold-HomeView.dart';
 
 import 'package:goldapp/src/view/Starting_Views/splash_View/splash_View.dart';
+import 'package:goldapp/src/view/auth_View/Shop_InformationView/shop_InformationView.dart';
 import 'package:goldapp/src/view/auth_View/signUp_View/signUp_View.dart';
 import 'package:goldapp/src/view/selection_View/selection_View.dart';
 import 'package:url_launcher/url_launcher.dart';
@@ -46,11 +47,12 @@ class MyApp extends StatelessWidget {
                 useMaterial3: true,
               ),
               home:
+              ShopInformationview()
              // HistoryView(history: [],)
               //GoldShop()
               // SignupView()
               // SelectionView()
-              SplashView() //const MyHomePage(title: 'Flutter Demo Home Page'),
+             // SplashView() //const MyHomePage(title: 'Flutter Demo Home Page'),
              // UrlScreen()
           );
         }

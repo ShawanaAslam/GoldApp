@@ -121,11 +121,13 @@ class _PaswordTextFormState extends State<PaswordTextForm> {
 
 class PaswordTextformfield extends StatefulWidget {
   TextEditingController controller;
+ // TextEditingController? confirmController;
   String hnttxt;
   Color clr;
   Widget? prefixicn;
 
   PaswordTextformfield({super.key,
+    //required this.confirmController,
     required this.controller,required this.hnttxt,
     this.clr=Colors.white,this.prefixicn});
 
@@ -165,7 +167,7 @@ class _PaswordTextformfieldState extends State<PaswordTextformfield> {
             if (widget.hnttxt == 'Enter Pasword' &&
                 !RegExp(r'^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$')
                     .hasMatch(value)) {
-              return 'Password must contain letters, numbers, and special characters';
+              return 'Password must contain letters, numbers, \nand special characters';
             }
 
             if (widget.hnttxt == 'Confirm Pasword' &&
