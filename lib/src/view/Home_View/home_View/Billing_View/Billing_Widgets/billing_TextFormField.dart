@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:goldapp/src/Constants/colors.dart';
 
-class SimpleTextFormField extends StatelessWidget {
+class BillingTextFormField extends StatelessWidget {
   TextEditingController controller;
   String hnttxt;
   Color clr;
   Widget? prefixicn;
   Widget? pstfixicn;
 
-  SimpleTextFormField(
+  BillingTextFormField(
       {super.key,
         required this.controller,
         required this.hnttxt,
@@ -65,21 +65,21 @@ class SimpleTextFormField extends StatelessWidget {
             errorStyle: TextStyle(color: AppColors.secondryColor),
             hintStyle: TextStyle(color: Colors.amber, fontSize: 14),
             enabledBorder: OutlineInputBorder(
-              borderSide: BorderSide(color: Colors.amber, ),
+              borderSide: BorderSide(color: AppColors.primryColor  ),
               borderRadius: BorderRadius.circular(10),
             ),
             focusedBorder: OutlineInputBorder(
-              borderSide: BorderSide(color: Colors.amber, ),
+              borderSide: BorderSide(color: AppColors.primryColor  ),
               borderRadius: BorderRadius.circular(10),// Border when focused
             ),
             errorBorder: OutlineInputBorder(
-              borderSide: BorderSide(color: Colors.amber, ),
+              borderSide: BorderSide(color: AppColors.primryColor ),
               borderRadius: BorderRadius.circular(10),
             ),
-          focusedErrorBorder: OutlineInputBorder(
-            borderSide: BorderSide(color: Colors.white),
-            borderRadius: BorderRadius.circular(10),
-          )
+            focusedErrorBorder: OutlineInputBorder(
+              borderSide: BorderSide(color: Colors.white),
+              borderRadius: BorderRadius.circular(10),
+            )
         ),
       ),
     );

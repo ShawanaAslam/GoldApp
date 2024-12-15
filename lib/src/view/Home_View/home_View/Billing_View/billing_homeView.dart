@@ -5,6 +5,12 @@ import 'package:goldapp/src/view/Home_View/home_View/gold%20HomeViewController.d
 import '../../../../Constants/colors.dart';
 import '../../../../common_widgets/reusable_simpletext.dart';
 import '../../../../common_widgets/reusable_text.dart';
+// <<<<<<< HEAD
+// =======
+// import '../../../../common_widgets/simpleTextForm_widget.dart';
+// import 'Billing_Widgets/DateTimePicker_TextFormField.dart';
+// import 'Billing_Widgets/billing_TextFormField.dart';
+// >>>>>>> f5ec36a119ecd176767180a06dfd522b0f7e2848
 
 class BillingHomeView extends StatefulWidget {
   String goldPrice;
@@ -55,32 +61,101 @@ class _BillingHomeViewState extends State<BillingHomeView> {
         ),
         centerTitle: true,
       ),
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          crossAxisAlignment: CrossAxisAlignment.center,
-          children: [
-            // SimpleText(controller: ),
+// <<<<<<< HEAD
+//       body: Center(
+//         child: Column(
+//           mainAxisAlignment: MainAxisAlignment.center,
+//           crossAxisAlignment: CrossAxisAlignment.center,
+//           children: [
+//             // SimpleText(controller: ),
 
 
 
 
-              MyText(
-                txt: 'Gold Price : ${widget.goldPrice}',
-                txtclr: AppColors.secondryColor,
+//               MyText(
+//                 txt: 'Gold Price : ${widget.goldPrice}',
+//                 txtclr: AppColors.secondryColor,
+//               ),
+//               MyText(
+//                   txt: 'Tola Quantity : ${widget.tolaQuantity}',
+//                   txtclr: AppColors.secondryColor),
+//               MyText(
+//                   txt: 'Grams Quantity : ${widget.gramsQuantity}',
+//                   txtclr: AppColors.secondryColor),
+//               MyText(
+//                   txt: 'Rati Quantity : ${widget.ratiQuantity}',
+//                   txtclr: AppColors.secondryColor),
+//               MyText(
+//                   txt: 'Tola Price : ${widget.totalPrice}',
+//                   txtclr: AppColors.secondryColor),
+// =======
+      body: Padding(
+        //padding: const EdgeInsets.only(bottom: 18,right: 20,left: 20),
+       padding: const EdgeInsets.symmetric(horizontal: 8.0),
+        child: SingleChildScrollView(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+
+              Padding(
+                padding: const EdgeInsets.only(left: 130,),
+                child:
+          DatePickerTextformfield(
+                  controller: obj.DateController,
+                hnttxt: 'Enter Date',
+                clr: AppColors.primryColor,),
               ),
-              MyText(
-                  txt: 'Tola Quantity : ${widget.tolaQuantity}',
-                  txtclr: AppColors.secondryColor),
-              MyText(
-                  txt: 'Grams Quantity : ${widget.gramsQuantity}',
-                  txtclr: AppColors.secondryColor),
-              MyText(
-                  txt: 'Rati Quantity : ${widget.ratiQuantity}',
-                  txtclr: AppColors.secondryColor),
-              MyText(
-                  txt: 'Tola Price : ${widget.totalPrice}',
-                  txtclr: AppColors.secondryColor),
+              SizedBox(height: 30,),
+              BillingTextFormField(
+                  // prefixicn: Icon(
+                  //   Icons.email,
+                  //   color: Colors.amber,
+                  // ),
+                  controller: obj.clientController,
+                  hnttxt: "Enter Client Name"),
+
+              SizedBox(height: 5,),
+              BillingTextFormField(
+                // prefixicn: Icon(
+                //   Icons.email,
+                //   color: Colors.amber,
+                // ),
+                  controller: obj.productController,
+                  hnttxt: "Enter Product Name"),
+
+              SizedBox(height: 20,),
+              Padding(
+                padding: const EdgeInsets.only(left: 40),
+                child: Container(
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+
+                      MyText(
+                        txt: 'Gold Price : ${widget.goldPrice}',
+                        txtclr: AppColors.secondryColor,
+                      ),
+                      MyText(
+                          txt: 'Tola Quantity : ${widget.tolaQuantity}',
+                          txtclr: AppColors.secondryColor),
+                      MyText(
+                          txt: 'Grams Quantity : ${widget.gramsQuantity}',
+                          txtclr: AppColors.secondryColor),
+                      MyText(
+                          txt: 'Rati Quantity : ${widget.ratiQuantity}',
+                          txtclr: AppColors.secondryColor),
+                      MyText(
+                          txt: 'Tola Price : ${widget.totalPrice}',
+                          txtclr: AppColors.secondryColor),
+                    ],
+                  ),
+                ),
+              )
+
+
+>>>>>>> f5ec36a119ecd176767180a06dfd522b0f7e2848
 
             ],
           ),
