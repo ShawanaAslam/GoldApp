@@ -66,12 +66,11 @@ InkWell(onTap: (){
                     SizedBox(
                       height: 20,
                     ),
-                    PaswordTextForm(
-                        prefixicn: Icon(
-                          Icons.lock,
-                        ),
+
+                    PaswordTextformfield(
                         controller: loginController.passwordController,
-                        hnttxt: "Enter Pasword"),
+                        hnttxt:"Enter Pasword" ),
+
                     SizedBox(
                       height: 5,
                     ),

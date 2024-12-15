@@ -27,7 +27,7 @@ class SimpleTextFormField extends StatelessWidget {
         // true / false
         validator: (value) {
           if (value == null || value.isEmpty) {
-            return 'Please enter your $hnttxt';
+            return 'Please $hnttxt';
           }
           if (hnttxt == 'User name' && !RegExp(r'^[a-zA-z]').hasMatch(value)) {
             return 'Username must start with a letter';

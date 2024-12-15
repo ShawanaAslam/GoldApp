@@ -2,6 +2,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
+import 'package:goldapp/src/Constants/colors.dart';
 import 'package:goldapp/src/common_widgets/reusable_text.dart';
 import 'package:goldapp/src/utills/Loading_Effect/app_Loading.dart';
 import 'package:goldapp/src/view/Home_View/History_View/history_Controller.dart';
@@ -37,11 +38,30 @@ class _HistoryViewState extends State<HistoryView> {
             font: 22,
           ),
           centerTitle: true,
+          actions: [
+            // Icon(Icons.clear)
+          ],
         ),
         backgroundColor: Colors.black,
         body: Column(
           children: [
-            Expanded(flex: 2, child: Container()),
+            Expanded(
+                flex: 2,
+                child: Container(
+                    child: TextButton(
+                        onPressed: () {
+                          Get.defaultDialog(
+                            backgroundColor: Colors.amber,
+                            title: 'Formula',
+                            content: const Text(
+                                '( goldPrice x tola ) + grams + ratti + points = totalPrice'),
+                          );
+                        },
+                        child: MyText(
+                          txt: 'See Formula',
+                          txtclr: AppColors.secondryColor,
+                          font: 20,
+                        )))),
             Expanded(
               flex: 8,
               child: StreamBuilder<QuerySnapshot>(

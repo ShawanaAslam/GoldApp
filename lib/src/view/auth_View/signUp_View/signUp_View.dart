@@ -4,6 +4,7 @@ import 'package:get/get.dart';
 import 'package:goldapp/src/view/auth_View/signUp_View/signUp_Widgets/paswordTextForm_WidgetView.dart';
 import 'package:google_fonts/google_fonts.dart';
 
+import '../../../Constants/colors.dart';
 import '../../../common_widgets/simpleTextForm_widget.dart';
 import '../../../utills/Loading_Effect/app_Loading.dart';
 import 'signUp_ViewController.dart';
@@ -63,20 +64,17 @@ class _SignupViewState extends State<SignupView> {
                     SizedBox(
                       height: 20,
                     ),
-
-                    PaswordTextForm(
-                        prefixicn: Icon(Icons.lock),
+                    PaswordTextformfield(
                         controller: signupController.passwordController,
-                        hnttxt: "Enter Pasword"),
+                        hnttxt:"Enter Pasword" ),
                     SizedBox(
                       height: 20,
                     ),
+                    PaswordTextformfield(
 
-                    PaswordTextForm(
-                        prefixicn: Icon(Icons.lock),
                         controller: signupController.confirmController,
+                        hnttxt:"Confirm Pasword" ),
 
-                        hnttxt: "Confirm Pasword"),
                     SizedBox(
                       height: 50,
                     ),
