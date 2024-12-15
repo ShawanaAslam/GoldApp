@@ -194,6 +194,8 @@ class _BillingHomeViewState extends State<BillingHomeView> {
         build: (pw.Context context) => pw.Column(
           crossAxisAlignment: pw.CrossAxisAlignment.start,
           children: [
+            pw.Row(children: []),
+            pw.Text('Singhar Jewlwers'),
             pw.Text('Billing Details',
                 style:
                     pw.TextStyle(fontSize: 22, fontWeight: pw.FontWeight.bold)),
