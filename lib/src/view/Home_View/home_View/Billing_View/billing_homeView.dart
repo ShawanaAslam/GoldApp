@@ -56,15 +56,6 @@ class _BillingHomeViewState extends State<BillingHomeView> {
         centerTitle: true,
       ),
       body: Center(
-<<<<<<< HEAD
-        child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 8.0),
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              // SimpleText(controller: ),
-=======
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.center,
@@ -72,7 +63,6 @@ class _BillingHomeViewState extends State<BillingHomeView> {
             // SimpleText(controller: ),
 
 
->>>>>>> 637de2abe5f72a07c6524502561a12d2c0f466bd
 
 
               MyText(
