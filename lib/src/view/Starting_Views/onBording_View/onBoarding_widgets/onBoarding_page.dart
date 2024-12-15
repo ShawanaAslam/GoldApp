@@ -1,6 +1,7 @@
 import 'dart:ui';
 
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:goldapp/src/common_widgets/MyButton.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -26,6 +27,22 @@ class OnBoardingPage extends StatelessWidget {
     return Container(
       color: AppColors.primryColor,
       child: Column(children: [
+        Row(
+          mainAxisAlignment: MainAxisAlignment.end,
+          crossAxisAlignment: CrossAxisAlignment.end,
+          children: [
+          MyButton(
+            txt: 'Yes',
+            font: 16,
+            w: 50.w,
+            h: 40.h,
+            bacclr: Colors.amber,
+            clr: Colors.black,
+            ontap: ()  {
+
+            },
+          ),
+        ],),
         Expanded(
           flex: 60,
           child:   Container(
