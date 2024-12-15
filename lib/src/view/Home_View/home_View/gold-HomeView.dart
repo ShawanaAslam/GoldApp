@@ -116,7 +116,7 @@ class _GoldShopState extends State<GoldShop> {
                         child: Image.asset(Images.Logo),
                       ),
                       accountName: Text(
-                        'User Name : ${ref.userName}',
+                        'Shop Name : ${ref.shopName}',
                         style: TextStyle(color: Colors.black),
                       ),
                       accountEmail: Text('User Email : ${ref.userEmail}',

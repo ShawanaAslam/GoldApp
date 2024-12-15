@@ -40,6 +40,7 @@ class _OnBoardingViewState extends State<OnBoardingView> {
                         curve: Curves.linear);
                   }
                 },
+
                 child: PageView(
                   controller: obj.pageCotroller,
                   onPageChanged: (int page) {

@@ -2,7 +2,9 @@ import 'dart:ui';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:get/get.dart';
 import 'package:goldapp/src/common_widgets/MyButton.dart';
+import 'package:goldapp/src/view/selection_View/selection_View.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 import '../../../../Constants/colors.dart';
@@ -27,19 +29,21 @@ class OnBoardingPage extends StatelessWidget {
     return Container(
       color: AppColors.primryColor,
       child: Column(children: [
+        SizedBox(height: 10,),
         Row(
           mainAxisAlignment: MainAxisAlignment.end,
           crossAxisAlignment: CrossAxisAlignment.end,
           children: [
-          MyButton(
-            txt: 'Yes',
-            font: 16,
-            w: 50.w,
-            h: 40.h,
-            bacclr: Colors.amber,
-            clr: Colors.black,
-            ontap: ()  {
 
+          MyButton(
+            txt: 'Skip',
+            font: 16,
+            w: 70.w,
+            h: 40.h,
+            bacclr: Colors.black,
+            clr: Colors.amber,
+            ontap: ()  {
+Get.to(()=>SelectionView());
             },
           ),
         ],),

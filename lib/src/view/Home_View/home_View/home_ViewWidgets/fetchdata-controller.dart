@@ -9,7 +9,7 @@ class HomeFetchDataController extends GetxController
   var userId=''.obs;
  var userEmail=''.obs;
   // best approach: late
-  var userName = ''.obs;
+  var shopName = ''.obs;
 
  @override
   void onInit() {
@@ -32,15 +32,15 @@ class HomeFetchDataController extends GetxController
                 .get();
             if (userdocs.docs.isNotEmpty) {
               //setState(() {
-              userName.value = userdocs.docs.first['name'];
+              shopName.value = userdocs.docs.first['name'];
               //  });
             }
           }
         }
         else
         {
-          userEmail.value='gold shop name';
-          userName.value='please login';
+          userEmail.value='please login';
+          shopName.value='gold shop name';
           userId.value='';
 
         }

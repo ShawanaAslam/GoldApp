@@ -66,24 +66,24 @@ class _DatePickerTextformfieldState extends State<DatePickerTextformfield> {
             hintStyle: TextStyle(color: Colors.amber, fontSize: 14),
             enabledBorder: OutlineInputBorder(
               borderSide: BorderSide(
-                color: AppColors.primryColor,
+                color: AppColors.secondryColor,
               ),
               borderRadius: BorderRadius.circular(10),
             ),
             focusedBorder: OutlineInputBorder(
               borderSide: BorderSide(
-                color: AppColors.primryColor,
+                color: AppColors.secondryColor,
               ),
               borderRadius: BorderRadius.circular(10), // Border when focused
             ),
             errorBorder: OutlineInputBorder(
               borderSide: BorderSide(
-                color: AppColors.primryColor,
+                color: AppColors.secondryColor,
               ),
               borderRadius: BorderRadius.circular(10),
             ),
             focusedErrorBorder: OutlineInputBorder(
-              borderSide: BorderSide(color: AppColors.primryColor),
+              borderSide: BorderSide(color: AppColors.secondryColor),
               borderRadius: BorderRadius.circular(10),
             )),
       ),
