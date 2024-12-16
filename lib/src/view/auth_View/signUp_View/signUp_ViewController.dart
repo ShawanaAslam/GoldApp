@@ -122,69 +122,67 @@ import '../login_View/login_View.dart';
 // Backend Code
 class SignupController extends GetxController {
   TextEditingController emailController = TextEditingController();
-  TextEditingController passwordController = TextEditingController(); // Fixed spelling
+  TextEditingController passwordController =
+      TextEditingController(); // Fixed spelling
   TextEditingController userNameController = TextEditingController();
   TextEditingController confirmController = TextEditingController();
   var isLoading = false.obs; // Fixed capitalization
 
   // Function for signup
   void onSignup(BuildContext context) async {
-   if(passwordController.text!=confirmController.text)
-   {
-     Get.snackbar(
-       backgroundColor: AppColors.secondryColor,
-         'Error', "Pasword must be same",colorText: AppColors.primryColor);
-   }
-   else
-     {
-       try {
-         print('------------------------------3');
-         // jis variable ki data type TextEditingController na to us ky st (.value) use krty hn
-         isLoading.value = true;
-         String? result = await createAccount(
-           //userNameController.text.trim(),fatherNameController.text.trim()
-             emailController.text.trim(),
-             passwordController.text.trim());
-         // error occured during signup
-         // addData();
-         // if (result != null)
-         if (result == 'You are registered successfully') {
-           addData();
-           // Handle success (like navigating to another screen or showing a message)
-           confirmToastMessage(context, result!);
-           Get.to(() => ShopInformationview());
-         }
-         else
-         {
-           errorToastMessage(context, result!);
-         }
-       } catch (error) {
-         isLoading.value = false;
-         // Handle error
-         errorToastMessage(context, error.toString());
-       } finally {
-         isLoading.value = false;
-         print('--------------------6');
-         userNameController.clear();
-         confirmController.clear();
-         emailController.clear();
-         passwordController.clear();
-       }
-     }
+    if (passwordController.text != confirmController.text) {
+      Get.snackbar(
+          backgroundColor: AppColors.secondryColor,
+          'Error',
+          "Pasword must be same",
+          colorText: AppColors.primryColor);
+    } else {
+      try {
+        print('------------------------------3');
+        // jis variable ki data type TextEditingController na to us ky st (.value) use krty hn
+        isLoading.value = true;
+        String? result = await createAccount(
+            //userNameController.text.trim(),fatherNameController.text.trim()
+            emailController.text.trim(),
+            passwordController.text.trim());
+        // error occured during signup
+        // addData();
+        // if (result != null)
+        if (result == 'You are registered successfully') {
+          addData();
+          // Handle success (like navigating to another screen or showing a message)
+          confirmToastMessage(context, result!);
+          Get.to(() => ShopInformationview());
+        } else {
+          errorToastMessage(context, result!);
+        }
+      } catch (error) {
+        isLoading.value = false;
+        // Handle error
+        errorToastMessage(context, error.toString());
+      } finally {
+        isLoading.value = false;
+        print('--------------------6');
+        userNameController.clear();
+        confirmController.clear();
+        emailController.clear();
+        passwordController.clear();
+      }
+    }
   }
 
   // Function to create account using FirebaseAuth
 // return type functions---
   Future<String?> createAccount(
-      String email,
-      String password,
-      //String userName, String fatherName // ye bi pata krna hai or navigation ka bi
-      ) async {
+    String email,
+    String password,
+    //String userName, String fatherName // ye bi pata krna hai or navigation ka bi
+  ) async {
     try {
       print('-------------------------4');
       await FirebaseAuth.instance
           .createUserWithEmailAndPassword(email: email, password: password);
-     // addData();
+      // addData();
 
       //
 
@@ -201,34 +199,33 @@ class SignupController extends GetxController {
       } else {
         return 'Something went wrong: ${exception.message}';
       }
-    }
-    catch (error) {
+    } catch (error) {
       // Handling other exceptions
       print('Error:$error');
       print('-----------------------5');
       return 'Error occurred: $error';
     }
-   }
+  }
 
-  Future<void>addData()async{
-    try
-        {
-          //TODO app
-          String docId=DateTime.now().microsecondsSinceEpoch.toString();
+  Future<void> addData() async {
+    try {
+      //TODO app
+      //-->
 
-          await FirebaseFirestore.instance.collection('UserData').doc(docId).set({
-            'name': userNameController.text,
-           // 'fathername':fatherNameController.text,
-            'docId':docId,
-            'email':emailController.text,
-          });
-        }
-       catch (e)
-       {
-         // exception for firebase authentications
-         //CRUD
-         // home work: exceptions for data inserting in firebase firestore
-         print('Error:$e');
-       }
+      String docId = await FirebaseAuth.instance.currentUser!
+          .uid; //DateTime.now().microsecondsSinceEpoch.toString();
+
+      await FirebaseFirestore.instance.collection('UserData').doc(docId).set({
+        'name': userNameController.text,
+        // 'fathername':fatherNameController.text,
+        'docId': docId,
+        'email': emailController.text,
+      });
+    } catch (e) {
+      // exception for firebase authentications
+      //CRUD
+      // home work: exceptions for data inserting in firebase firestore
+      print('Error:$e');
+    }
   }
 }
