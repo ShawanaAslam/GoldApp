@@ -127,8 +127,6 @@ class _PaswordTextFormState extends State<PaswordTextForm> {
 //////-----------------------------------------------------------------
 
 // PaswordTextFormFeild withOut Getx
-
-<<<<<<< HEAD
 // class PaswordTextformfield extends StatefulWidget {
 //   TextEditingController controller;
 //  // TextEditingController? confirmController;
@@ -237,7 +235,7 @@ class _PaswordTextFormState extends State<PaswordTextForm> {
 // }
 
 //----------------------------------------------------------
-=======
+
 class PaswordTextformfield extends StatefulWidget {
   TextEditingController controller;
   // TextEditingController? confirmController;
@@ -473,4 +471,3 @@ class _PaswordTextformfieldState extends State<PaswordTextformfield> {
 //   }
 // }
 
->>>>>>> e288293ec7683f44718b6191734e4ffe3db70d75
