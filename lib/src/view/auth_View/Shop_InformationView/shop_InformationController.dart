@@ -15,50 +15,42 @@ class ShopInfoController extends GetxController {
   TextEditingController ptclController = TextEditingController();
   var isLoading = false.obs;
 
-  void onSaveInfo(BuildContext context){
-
-    try{
-  isLoading.value = true;
-  Get.to(()=>GoldShop());
-  confirmToastMessage(context, 'You are registered successfully');
+  void onSaveInfo(BuildContext context) {
+    try {
+      isLoading.value = true;
+      shopInfo();
+      Get.to(() => GoldShop());
+      confirmToastMessage(context, 'You are registered successfully');
+    } catch (error) {
+      isLoading.value = false;
+      // Handle error
+      errorToastMessage(context, error.toString());
+    } finally {
+      isLoading.value = false;
+      shopnameController.clear();
+      shopaddressController.clear();
+      shopemailController.clear();
+      mblController.clear();
+      mblnoController.clear();
+      ptclController.clear();
+    }
   }
-  catch (error) {
-  isLoading.value = false;
-  // Handle error
-  errorToastMessage(context, error.toString());
-}
-finally{
-  isLoading.value = false;
-  shopnameController.clear();
-  shopaddressController.clear();
-  shopemailController.clear();
-  mblController.clear();
-  mblnoController.clear();
-  ptclController.clear();
-}
-}
-  Future<void>ShopInfo()async{
-    try
-    {
 
-      String docId=DateTime.now().microsecondsSinceEpoch.toString();
+  Future<void> shopInfo() async {
+    try {
+      String docId = DateTime.now().microsecondsSinceEpoch.toString();
 
       await FirebaseFirestore.instance.collection('ShopInfo').doc(docId).set({
-
-        'docId':docId,
+        'docId': docId,
         'shopName': shopnameController.text,
-        'shopEmail':shopemailController.text,
-        'shopAddress':shopaddressController.text,
-        'mbl':mblController.text,
-        'mblNo':mblnoController.text,
-        'ptclNo':ptclController.text
+        'shopEmail': shopemailController.text,
+        'shopAddress': shopaddressController.text,
+        'mblNo1': mblController.text,
+        'mblNo2': mblnoController.text,
+        'ptclNo': ptclController.text
       });
-    }
-    catch (e)
-    {
-
-     print('Error:$e');
+    } catch (e) {
+      print('Error:$e');
     }
   }
 }
-

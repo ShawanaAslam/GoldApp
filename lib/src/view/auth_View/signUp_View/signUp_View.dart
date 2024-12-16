@@ -36,7 +36,6 @@ class _SignupViewState extends State<SignupView> {
                   mainAxisAlignment: MainAxisAlignment.center,
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
-
                     SizedBox(
                       height: 150,
                     ),
@@ -66,14 +65,13 @@ class _SignupViewState extends State<SignupView> {
                     ),
                     PaswordTextformfield(
                         controller: signupController.passwordController,
-                        hnttxt:"Enter Pasword" ),
+                        hnttxt: "Enter Pasword"),
                     SizedBox(
                       height: 20,
                     ),
-                    // PaswordTextformfield(
-                    //
-                    //     controller: signupController.confirmController,
-                    //     hnttxt:"Confirm Pasword" ),
+                    PaswordTextformfield(
+                        controller: signupController.confirmController,
+                        hnttxt: "Confirm Pasword"),
 
                     SizedBox(
                       height: 50,
@@ -88,7 +86,8 @@ class _SignupViewState extends State<SignupView> {
                                 // validator--> handle in front end(design side)
                                 //exceptions--> handle in backend (in data base)
 
-                                if (key.currentState!.validate()) // true --- false
+                                if (key.currentState!
+                                    .validate()) // true --- false
                                 //(_formKey.currentState!.validate())
                                 {
                                   print('--------------------------2');
