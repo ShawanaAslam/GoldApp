@@ -250,6 +250,9 @@ class _BillingHomeViewState extends State<BillingHomeView> {
           txtclr: AppColors.primryColor,
         ),
         centerTitle: true,
+        actions: [
+         // Icon(Icons.re)
+        ],
       ),
       floatingActionButton: Padding(
         padding: const EdgeInsets.symmetric(vertical: 16.0, horizontal: 32.0),

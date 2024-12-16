@@ -113,6 +113,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:goldapp/src/view/auth_View/Shop_InformationView/shop_InformationView.dart';
 
 import '../../../Constants/colors.dart';
 import '../../../utills/toast_ Notifications/toast_Notification.dart';
@@ -151,7 +152,7 @@ class SignupController extends GetxController {
            addData();
            // Handle success (like navigating to another screen or showing a message)
            confirmToastMessage(context, result!);
-           Get.to(() => LoginView());
+           Get.to(() => ShopInformationview());
          }
          else
          {

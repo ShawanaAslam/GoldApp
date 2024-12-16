@@ -2,6 +2,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:get/get.dart';
 import 'package:get/get_state_manager/src/simple/get_controllers.dart';
+import 'package:goldapp/src/view/Home_View/home_View/gold-HomeView.dart';
 
 import '../../../utills/toast_ Notifications/toast_Notification.dart';
 
@@ -14,16 +15,17 @@ class ShopInfoController extends GetxController {
   TextEditingController ptclController = TextEditingController();
   var isLoading = false.obs;
 
-  void onSaveInfo(){
+  void onSaveInfo(BuildContext context){
 
     try{
   isLoading.value = true;
-  ///confirmToastMessage(BuildContext context, 'You are registered successfully');
+  Get.to(()=>GoldShop());
+  confirmToastMessage(context, 'You are registered successfully');
   }
   catch (error) {
   isLoading.value = false;
   // Handle error
- // errorToastMessage(context, error.toString());
+  errorToastMessage(context, error.toString());
 }
 finally{
   isLoading.value = false;

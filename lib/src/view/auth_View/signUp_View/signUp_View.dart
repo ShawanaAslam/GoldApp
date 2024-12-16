@@ -70,10 +70,10 @@ class _SignupViewState extends State<SignupView> {
                     SizedBox(
                       height: 20,
                     ),
-                    PaswordTextformfield(
-
-                        controller: signupController.confirmController,
-                        hnttxt:"Confirm Pasword" ),
+                    // PaswordTextformfield(
+                    //
+                    //     controller: signupController.confirmController,
+                    //     hnttxt:"Confirm Pasword" ),
 
                     SizedBox(
                       height: 50,

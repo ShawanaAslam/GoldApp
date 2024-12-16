@@ -106,7 +106,7 @@ class _ShopInformationviewState extends State<ShopInformationview> {
                   .validate()) // true --- false
                 //(_formKey.currentState!.validate())
                   {
-               obj.onSaveInfo();
+               obj.onSaveInfo(context);
               }
             },
             child: Container(
