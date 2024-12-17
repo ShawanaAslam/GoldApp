@@ -59,7 +59,7 @@ class _SplashViewState extends State<SplashView> {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
 
-            // MyText(txt: "G",font: 150,txtclr: Colors.amber,),
+           
 
             Image.asset(
             Images.Logo,
