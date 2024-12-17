@@ -1,14 +1,7 @@
-import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:get/get.dart';
-import 'package:goldapp/src/Constants/colors.dart';
+
+
 import 'package:goldapp/src/common_widgets/reusable_text.dart';
-import 'package:goldapp/src/utills/Loading_Effect/app_Loading.dart';
-import 'package:goldapp/src/view/Home_View/History_View/history_Controller.dart';
-import 'package:goldapp/src/view/Home_View/home_View/home_ViewWidgets/fetchdata-controller.dart';
-import 'package:goldapp/src/view/Home_View/home_View/gold-HomeView.dart';
-import 'package:goldapp/src/common_widgets/MyButton.dart';
+import 'package:goldapp/src/utills/linker.dart';
 
 class HistoryView extends StatefulWidget {
   const HistoryView({Key? key}) : super(key: key);
@@ -77,8 +70,8 @@ class _HistoryViewState extends State<HistoryView> {
                           Get.defaultDialog(
                             backgroundColor: Colors.amber,
                             title: 'Formula',
-                            content: const Text(
-                                '( goldPrice x tola ) + grams + ratti + points = totalPrice'),
+                            content:  MyText(
+                               txt:  '( goldPrice x tola ) + grams + ratti + points = totalPrice'),
                           );
                         },
                         child: MyText(
@@ -102,9 +95,10 @@ class _HistoryViewState extends State<HistoryView> {
                   if (!snapshots.hasData || snapshots.data!.docs.isEmpty) {
                     return const Center(
                       child: Text(
-                        'No data available',
+                         'No data available',
                         style: TextStyle(color: Colors.amber),
                       ),
+
                     );
                   }
 
@@ -125,19 +119,19 @@ class _HistoryViewState extends State<HistoryView> {
                       final totalPrice = doc['totalPrice'].toString();
                       String docId = data.docs[index]['doc'].toString() ?? "";
                       return ListTile(
-                        title: Text(
+                        title: MyText(txt:
                           '($goldprice x $tolaQuantity)+($goldprice/12 x $goldgramQuantity) + ($goldprice/96 X $goldRatiQuantity) +($goldprice/100 x $goldpointQuantity)',
-                          style: const TextStyle(color: Colors.amber),
+                          txtclr: AppColors.secondryColor,
+
                         ),
                         subtitle: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                            //  Text('Tola Quantity: $tolaQuantity', style: const TextStyle(color: Colors.amber)),
-                            // Text('Gold Gram Quantity: $goldgramQuantity', style: const TextStyle(color: Colors.amber)),
-                            //Text('Gold Rati Quantity: $goldRatiQuantity', style: const TextStyle(color: Colors.amber)),
-                            //Text('Gold Point Quantity: $goldpointQuantity', style: const TextStyle(color: Colors.amber)),
-                            Text('=$totalPrice',
-                                style: const TextStyle(color: Colors.amber)),
+
+                            MyText(txt: '=$totalPrice',
+                                txtclr: AppColors.secondryColor,
+
+                            ),
                           ],
                         ),
                         trailing: IconButton(

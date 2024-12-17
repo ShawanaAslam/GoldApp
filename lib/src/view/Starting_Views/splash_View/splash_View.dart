@@ -1,18 +1,10 @@
-import 'package:firebase_auth/firebase_auth.dart';
-import 'package:flutter/cupertino.dart';
-import 'package:flutter/material.dart';
-import 'package:flutter_spinkit/flutter_spinkit.dart';
-import 'package:get/get.dart';
 
-import 'package:get/get_core/src/get_main.dart';
-import 'package:goldapp/src/view/Home_View/History_View/History_Widgets/txt_Widget.dart';
-import 'package:goldapp/src/view/Home_View/home_View/gold-HomeView.dart';
-import 'package:goldapp/src/utills/Loading_Effect/app_Loading.dart';
-import 'package:goldapp/src/view/Starting_Views/onBording_View/onBoarding_View.dart';
+
+
+import 'package:flutter/cupertino.dart';
 
 import '../../../Constants/images.dart';
-import '../../../common_widgets/reusable_text.dart';
-import '../../selection_View/selection_View.dart';
+import '../../../utills/linker.dart';
 
 class SplashView extends StatefulWidget {
   const SplashView({super.key});

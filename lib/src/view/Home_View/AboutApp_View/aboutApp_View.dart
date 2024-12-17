@@ -1,9 +1,6 @@
-import 'package:flutter/material.dart';
-import 'package:get/get.dart';
-import 'package:goldapp/src/Constants/colors.dart';
-import 'package:goldapp/src/view/Home_View/History_View/History_Widgets/txt_Widget.dart';
 
-import '../../../common_widgets/reusable_text.dart';
+
+import '../../../utills/linker.dart';
 
 class AboutAppView extends StatefulWidget {
   const AboutAppView({super.key});

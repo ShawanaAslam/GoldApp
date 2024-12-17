@@ -1,10 +1,9 @@
-import 'package:flutter/material.dart';
-import 'package:get/get.dart';
+
+
 import 'package:url_launcher/url_launcher.dart';
 
-import '../../../Constants/colors.dart';
 import '../../../Constants/images.dart';
-import '../../../common_widgets/reusable_text.dart';
+import '../../../utills/linker.dart';
 import 'AboutDeveloper_Widget/Inkwell_Row.dart';
 
 class AboutDeveloper extends StatefulWidget {

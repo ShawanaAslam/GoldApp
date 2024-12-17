@@ -30,6 +30,18 @@ class _DatePickerTextformfieldState extends State<DatePickerTextformfield> {
         firstDate: DateTime(2000),
         lastDate: DateTime(2028),
         initialDate: DateTime.now());
+    Theme(
+      data: ThemeData.light().copyWith(
+        // Calendar background color
+        colorScheme: ColorScheme.light(
+          primary: Colors.deepPurple, // Header and selection color
+          onPrimary: Colors.white, // Text color on the header
+          onSurface: Colors.red, // Text color on the calendar days
+        ),
+        dialogBackgroundColor: Colors.white, // Background color of the dialog
+      ),
+      child: Text(''),
+    );
     if (picked != null && picked != selectedDate) {
       setState(() {
         selectedDate = picked;

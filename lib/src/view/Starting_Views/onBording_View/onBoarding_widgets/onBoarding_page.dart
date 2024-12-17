@@ -1,25 +1,16 @@
-import 'dart:ui';
 
-import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:get/get.dart';
-import 'package:goldapp/src/common_widgets/MyButton.dart';
-import 'package:goldapp/src/common_widgets/reusable_text.dart';
-import 'package:goldapp/src/view/selection_View/selection_View.dart';
-import 'package:google_fonts/google_fonts.dart';
 
 import '../../../../Constants/colors.dart';
+import '../../../../utills/linker.dart';
 
-class OnBoardingPage extends StatelessWidget {
+class OnBoardingPageWidget extends StatelessWidget {
   String text;
   String text1;
   String image;
-  //VoidCallback ontap;
   bool isLastpage;
 
-  OnBoardingPage(
+  OnBoardingPageWidget(
       {super.key,
-      //required this.ontap,
       required this.text1,
       required this.text,
       required this.image,
@@ -35,21 +26,12 @@ class OnBoardingPage extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.end,
           crossAxisAlignment: CrossAxisAlignment.end,
           children: [
+
 TextButton(onPressed: (){
   Get.to(()=>SelectionView());
-}, child: MyText(txt: 'Skip',))
+}, child: MyText(txt: 'Skip',
+  txtclr: AppColors.secondryColor,font: 20,))
 
-//           MyButton(
-//             txt: 'Skip',
-//             font: 16,
-//             w: 70.w,
-//             h: 40.h,
-//             bacclr: Colors.black,
-//             clr: Colors.amber,
-//             ontap: ()  {
-// Get.to(()=>SelectionView());
-//             },
-//           ),
         ],),
         Expanded(
           flex: 60,
@@ -68,7 +50,7 @@ TextButton(onPressed: (){
             borderRadius: BorderRadius.only(topLeft:Radius.circular(30),topRight:Radius.circular(30), )
             ,color:AppColors.secondryColor,
           ),
-          height: 330,
+          height: 330.h,
           width: double.infinity,
           child: Center(child: Padding(
             padding: const EdgeInsets.symmetric(horizontal: 20.0),
@@ -76,10 +58,11 @@ TextButton(onPressed: (){
                mainAxisAlignment: MainAxisAlignment.start,
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                SizedBox(height: 80,),
+                SizedBox(height: 60,),
                 Text(text,style: GoogleFonts.roboto(fontSize: 25,fontWeight: FontWeight.w800),),
                 SizedBox(height: 10,),
-                Text(text1,style: GoogleFonts.roboto(fontSize: 15,fontWeight: FontWeight.w800))
+                Text(text1,style: GoogleFonts.roboto(fontSize: 15,fontWeight: FontWeight.w800)),
+
               ],
             ),
           )),
@@ -119,27 +102,4 @@ TextButton(onPressed: (){
   }
 }
 
-// Center(
-// child: Column(
-// mainAxisAlignment: MainAxisAlignment.center,
-// crossAxisAlignment: CrossAxisAlignment.center,
-// children: [
-// Image.asset(
-// image,
-// height: 130,
-// ),
-// // CircleAvatar(radius:100,backgroundImage: (AssetImage(image)),),
-// SizedBox(
-// height: 10,
-// ),
-// Text(
-// text,
-// style: GoogleFonts.roboto(color: Colors.amber),
-// ),
-//
-// isLastpage
-// ? ElevatedButton(onPressed: () {}, child: Text('last page'))
-//     : Container(),
-// ],
-// ),
-// );
+
