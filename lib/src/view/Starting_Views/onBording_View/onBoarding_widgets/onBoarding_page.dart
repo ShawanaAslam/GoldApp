@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:goldapp/src/common_widgets/MyButton.dart';
+import 'package:goldapp/src/common_widgets/reusable_text.dart';
 import 'package:goldapp/src/view/selection_View/selection_View.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -34,18 +35,21 @@ class OnBoardingPage extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.end,
           crossAxisAlignment: CrossAxisAlignment.end,
           children: [
+TextButton(onPressed: (){
+  Get.to(()=>SelectionView());
+}, child: MyText(txt: 'Skip',))
 
-          MyButton(
-            txt: 'Skip',
-            font: 16,
-            w: 70.w,
-            h: 40.h,
-            bacclr: Colors.black,
-            clr: Colors.amber,
-            ontap: ()  {
-Get.to(()=>SelectionView());
-            },
-          ),
+//           MyButton(
+//             txt: 'Skip',
+//             font: 16,
+//             w: 70.w,
+//             h: 40.h,
+//             bacclr: Colors.black,
+//             clr: Colors.amber,
+//             ontap: ()  {
+// Get.to(()=>SelectionView());
+//             },
+//           ),
         ],),
         Expanded(
           flex: 60,

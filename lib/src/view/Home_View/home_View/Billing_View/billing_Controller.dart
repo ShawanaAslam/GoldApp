@@ -5,4 +5,6 @@ class BillingController extends GetxController {
   TextEditingController clientController = TextEditingController();
   TextEditingController productController = TextEditingController();
   TextEditingController DateController = TextEditingController();
+
+  // fetch shop data according to current uerr logedin;
 }

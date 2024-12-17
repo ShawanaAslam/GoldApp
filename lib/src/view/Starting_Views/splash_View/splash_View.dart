@@ -50,6 +50,7 @@ class _SplashViewState extends State<SplashView> {
     }
   }
 
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -58,16 +59,12 @@ class _SplashViewState extends State<SplashView> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-
-           
-
             Image.asset(
             Images.Logo,
              // width: 200,
               height: 200,
             ),
-           // SizedBox(height: 10),
-             //MyText(txt: "Gold App",font: 20,txtclr: Colors.amber,),
+
             SizedBox(height: 20),
            AppLoading()
 

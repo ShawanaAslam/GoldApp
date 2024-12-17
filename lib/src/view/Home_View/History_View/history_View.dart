@@ -18,11 +18,28 @@ class HistoryView extends StatefulWidget {
 }
 
 class _HistoryViewState extends State<HistoryView> {
+  Future<void> deleteCollection() async {
+    try {
+      String collectionName = homeController.userId.value;
+      final collectionRef =
+          await FirebaseFirestore.instance.collection(collectionName);
+      final snapshot = await collectionRef.get();
+      // 4th for each
+      //for(int i=1;i<=10;i++){}
+
+      for (var doc in snapshot.docs) {
+        await doc.reference.delete();
+      }
+    } catch (e) {
+      print('error clearing history');
+    }
+  }
+
+  final homeController = Get.put(HomeFetchDataController());
   @override
   Widget build(BuildContext context) {
     // Controllers
     final historyController = Get.put(HistoryController());
-    final homeController = Get.put(HomeFetchDataController());
 
     return Scaffold(
         appBar: AppBar(
@@ -39,7 +56,14 @@ class _HistoryViewState extends State<HistoryView> {
           ),
           centerTitle: true,
           actions: [
-            // Icon(Icons.clear)
+            IconButton(
+              icon: Icon(Icons.clear),
+              onPressed: () {
+//confirmation dialog
+
+                deleteCollection();
+              },
+            )
           ],
         ),
         backgroundColor: Colors.black,

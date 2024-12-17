@@ -194,7 +194,7 @@ class _BillingHomeViewState extends State<BillingHomeView> {
         build: (pw.Context context) => pw.Column(
           crossAxisAlignment: pw.CrossAxisAlignment.start,
           children: [
-            pw.Row(children: [ ]),
+            pw.Row(children: []),
             pw.Text('Singhar Jewlwers'),
             pw.Text('Billing Details',
                 style:
@@ -250,9 +250,7 @@ class _BillingHomeViewState extends State<BillingHomeView> {
           txtclr: AppColors.primryColor,
         ),
         centerTitle: true,
-        actions: [
-         // Icon(Icons.re)
-        ],
+        actions: [IconButton(onPressed: () {}, icon: Icon(Icons.remove))],
       ),
       floatingActionButton: Padding(
         padding: const EdgeInsets.symmetric(vertical: 16.0, horizontal: 32.0),
@@ -270,7 +268,9 @@ class _BillingHomeViewState extends State<BillingHomeView> {
             mainAxisAlignment: MainAxisAlignment.center,
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              SizedBox(height: 20,),
+              SizedBox(
+                height: 20,
+              ),
               Padding(
                 padding: const EdgeInsets.only(left: 130),
                 child: DatePickerTextformfield(

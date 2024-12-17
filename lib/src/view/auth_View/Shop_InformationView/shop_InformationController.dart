@@ -1,4 +1,5 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:get/get.dart';
 import 'package:get/get_state_manager/src/simple/get_controllers.dart';
@@ -38,7 +39,10 @@ class ShopInfoController extends GetxController {
 
   Future<void> shopInfo() async {
     try {
-      String docId = DateTime.now().microsecondsSinceEpoch.toString();
+      //--> docid--> current user logedin
+      // String docId = DateTime.now().microsecondsSinceEpoch.toString();
+      String docId = await FirebaseAuth.instance.currentUser!
+          .uid; //DateTime.now().microsecondsSinceEpoch.toString();
 
       await FirebaseFirestore.instance.collection('ShopInfo').doc(docId).set({
         'docId': docId,
