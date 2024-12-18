@@ -14,19 +14,20 @@ import 'package:goldapp/src/view/auth_View/signUp_View/signUp_View.dart';
 import 'package:goldapp/src/view/selection_View/selection_View.dart';
 import 'package:url_launcher/url_launcher.dart';
 
+import 'src/view/Home_View/home_View/Billing_View/billing_homeView.dart';
+
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp(
 
-
-    //  options: FirebaseOptions
+      //  options: FirebaseOptions
       //  (
-       //   apiKey: "AIzaSyBtZTIGR-wo3YwJIOuWpj_mB5P0p1StLIw",
-         // appId: "1:836795650404:web:062bf4183884eee3ac2a71",
-          //messagingSenderId: "836795650404",
-          //projectId: "projectmanagement-e7efa")
-   );
-runApp(const MyApp());
+      //   apiKey: "AIzaSyBtZTIGR-wo3YwJIOuWpj_mB5P0p1StLIw",
+      // appId: "1:836795650404:web:062bf4183884eee3ac2a71",
+      //messagingSenderId: "836795650404",
+      //projectId: "projectmanagement-e7efa")
+      );
+  runApp(const MyApp());
 }
 
 class MyApp extends StatelessWidget {
@@ -35,10 +36,9 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-   return ScreenUtilInit(
-      designSize: Size(390,844),
-      builder: (context,child)
-        {
+    return ScreenUtilInit(
+        designSize: Size(390, 844),
+        builder: (context, child) {
           return GetMaterialApp(
               debugShowCheckedModeBanner: false,
               title: 'Gold App',
@@ -47,17 +47,22 @@ class MyApp extends StatelessWidget {
                 useMaterial3: true,
               ),
               home:
-              //ShopInformationview()
-             // HistoryView(history: [],)
-              //GoldShop()
+                  //ShopInformationview()
+                  // HistoryView(history: [],)
+                  GoldShop()
               // SignupView()
               // SelectionView()
-             SplashView() //const MyHomePage(title: 'Flutter Demo Home Page'),
-             // UrlScreen()
-          );
-        }
-    );
-
+              //  SplashView() //const MyHomePage(title: 'Flutter Demo Home Page'),
+              // BillingHomeView()
+              // BillingHomeView(
+              //     goldPrice: '0',
+              //     tolaQuantity: '90',
+              //     gramsQuantity: '90',
+              //     ratiQuantity: '90',
+              //     pointsQuantity: '90',
+              //     totalPrice: 5)
+              // UrlScreen()
+              );
+        });
   }
 }
-

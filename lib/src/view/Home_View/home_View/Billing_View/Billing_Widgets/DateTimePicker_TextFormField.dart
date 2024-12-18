@@ -33,12 +33,12 @@ class _DatePickerTextformfieldState extends State<DatePickerTextformfield> {
     Theme(
       data: ThemeData.light().copyWith(
         // Calendar background color
-        colorScheme: ColorScheme.light(
-          primary: Colors.deepPurple, // Header and selection color
+        colorScheme: ColorScheme.dark(
+          primary: Colors.orange, // Header and selection color
           onPrimary: Colors.white, // Text color on the header
           onSurface: Colors.red, // Text color on the calendar days
         ),
-        dialogBackgroundColor: Colors.white, // Background color of the dialog
+        dialogBackgroundColor: Colors.black, // Background color of the dialog
       ),
       child: Text(''),
     );

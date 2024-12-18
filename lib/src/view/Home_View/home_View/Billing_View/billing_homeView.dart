@@ -195,7 +195,10 @@ class _BillingHomeViewState extends State<BillingHomeView> {
           crossAxisAlignment: pw.CrossAxisAlignment.start,
           children: [
             pw.Row(children: []),
-            pw.Text('Singhar Jewlwers'),
+            pw.Text(obj.shopeName.value),
+            pw.Text(obj.shoplandLine.value),
+            pw.Text(obj.shopPhone1.value),
+            pw.Text(obj.shopPhone2.value),
             pw.Text('Billing Details',
                 style:
                     pw.TextStyle(fontSize: 22, fontWeight: pw.FontWeight.bold)),
@@ -250,7 +253,6 @@ class _BillingHomeViewState extends State<BillingHomeView> {
           txtclr: AppColors.primryColor,
         ),
         centerTitle: true,
-       
       ),
       floatingActionButton: Padding(
         padding: const EdgeInsets.symmetric(vertical: 16.0, horizontal: 32.0),
@@ -315,7 +317,6 @@ class _BillingHomeViewState extends State<BillingHomeView> {
                       txt: 'Tola Price : ${widget.totalPrice}',
                       txtclr: AppColors.secondryColor,
                     ),
-
                   ],
                 ),
               )
