@@ -39,43 +39,67 @@ class _SignupViewState extends State<SignupView> {
                     SizedBox(
                       height: 150,
                     ),
-                    SimpleTextFormField(
-                        prefixicn: Icon(Icons.person, color: Colors.amber),
-                        controller: signupController.userNameController,
-                        hnttxt: "Enter Shop Name"),
-                    // SizedBox(
-                    //   height: 20,
-                    // ),
-                    // SimpleText(
-                    //     prefixicn: Icon(Icons.person, color: Colors.amber),
-                    //     controller: signupController.fatherNameController,
-                    //     hnttxt: "Father Name"),
-                    SizedBox(
-                      height: 20,
-                    ),
-                    SimpleTextFormField(
-                        prefixicn: Icon(
-                          Icons.email,
-                          color: Colors.amber,
-                        ),
-                        controller: signupController.emailController,
-                        hnttxt: "Enter Email"),
-                    SizedBox(
-                      height: 20,
-                    ),
-                    PaswordTextformfield(
-                        controller: signupController.passwordController,
-                        hnttxt: "Enter Pasword"),
-                    SizedBox(
-                      height: 20,
-                    ),
-                    PaswordTextformfield(
-                        controller: signupController.confirmController,
-                        hnttxt: "Confirm Pasword"),
+                   // SimpleTextFormField(
+                   //      prefixicn: Icon(Icons.person, color: Colors.amber),
+                   //      controller: signupController.userNameController,
+                   //      hnttxt: "Enter User Name"),
+                   //
+                   //  SizedBox(
+                   //    height: 20,
+                   //  ),
+                   //  SimpleTextFormField(
+                   //      prefixicn: Icon(
+                   //        Icons.email,
+                   //        color: Colors.amber,
+                   //      ),
+                   //      controller: signupController.userEmailController,
+                   //      hnttxt: "Enter User Email"),
+                   //  SizedBox(
+                   //    height: 20,
+                   //  ),
+                   //  PaswordTextformfield(
+                   //      controller: signupController.passwordController,
+                   //      hnttxt: "Enter Pasword"),
+                   //  SizedBox(
+                   //    height: 20,
+                   //  ),
+                    // PaswordTextformfield(
+                    //     controller: signupController.confirmController,
+                    //     hnttxt: "Confirm Pasword"),
 
-                    SizedBox(
-                      height: 50,
+                    // SizedBox(
+                    //   height: 50,
+                    // ),
+                    TextFormField(
+                      style: TextStyle(color: Colors.white),
+decoration: InputDecoration(
+  labelText: "Enter Text",
+  labelStyle: TextStyle(color: Colors.white),
+  hintText: 'Enter Text',
+  hintStyle: TextStyle(color: Colors.white)
+),
                     ),
+                    SizedBox(height: 15,),
+                TextFormField(
+                  style: TextStyle(color: Colors.white),
+                  decoration: InputDecoration(
+                      labelText: "Enter Text",
+                      labelStyle: TextStyle(color: Colors.white),
+                      hintText: 'Enter Text',
+                      hintStyle: TextStyle(color: Colors.white)
+                  ),),
+
+                    SizedBox(height: 15,),
+                TextFormField(
+                  style: TextStyle(color: Colors.white),
+                  decoration: InputDecoration(
+                      labelText: "Enter Text",
+                      labelStyle: TextStyle(color: Colors.white),
+                      hintText: 'Enter Text',
+                      hintStyle: TextStyle(color: Colors.white)
+                  ),),
+
+
                     Obx(() {
                       return signupController.isLoading.value
                           ? AppLoading()

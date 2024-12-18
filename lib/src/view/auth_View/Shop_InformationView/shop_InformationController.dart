@@ -11,8 +11,8 @@ class ShopInfoController extends GetxController {
   TextEditingController shopnameController = TextEditingController();
   TextEditingController shopemailController = TextEditingController();
   TextEditingController shopaddressController = TextEditingController();
-  TextEditingController mblController = TextEditingController();
-  TextEditingController mblnoController = TextEditingController();
+  TextEditingController mblno1Controller = TextEditingController();
+  TextEditingController mblno2Controller = TextEditingController();
   TextEditingController ptclController = TextEditingController();
   var isLoading = false.obs;
 
@@ -31,8 +31,8 @@ class ShopInfoController extends GetxController {
       shopnameController.clear();
       shopaddressController.clear();
       shopemailController.clear();
-      mblController.clear();
-      mblnoController.clear();
+      mblno1Controller.clear();
+      mblno2Controller.clear();
       ptclController.clear();
     }
   }
@@ -49,8 +49,8 @@ class ShopInfoController extends GetxController {
         'shopName': shopnameController.text,
         'shopEmail': shopemailController.text,
         'shopAddress': shopaddressController.text,
-        'mblNo1': mblController.text,
-        'mblNo2': mblnoController.text,
+        'mblNo1': mblno1Controller.text,
+        'mblNo2': mblno2Controller.text,
         'ptclNo': ptclController.text
       });
     } catch (e) {

@@ -6,7 +6,9 @@ import 'package:goldapp/src/view/Home_View/home_View/gold%20HomeViewController.d
 import '../../../../Constants/colors.dart';
 import '../../../../common_widgets/reusable_simpletext.dart';
 import '../../../../common_widgets/reusable_text.dart';
+import '../../../../common_widgets/reusable_text.dart';
 import '../../../../common_widgets/simpleTextForm_widget.dart';
+import '../../../auth_View/Shop_InformationView/shop_InformationController.dart';
 import 'Billing_Widgets/DateTimePicker_TextFormField.dart';
 import 'Billing_Widgets/billing_TextFormField.dart';
 
@@ -173,6 +175,8 @@ class BillingHomeView extends StatefulWidget {
 
 class _BillingHomeViewState extends State<BillingHomeView> {
   BillingController obj = Get.put(BillingController());
+  ShopInfoController  shopInfo =Get.put(ShopInfoController());
+
   bool isLoading = false; // To manage loading spinner
 
   @override
@@ -194,20 +198,44 @@ class _BillingHomeViewState extends State<BillingHomeView> {
         build: (pw.Context context) => pw.Column(
           crossAxisAlignment: pw.CrossAxisAlignment.start,
           children: [
-            pw.Row(children: []),
-            pw.Text('Singhar Jewlwers'),
-            pw.Text('Billing Details',
-                style:
-                    pw.TextStyle(fontSize: 22, fontWeight: pw.FontWeight.bold)),
+            pw.Row(
+               // mainAxisAlignment:MainAxisAlignment.spaceBetween,
+                children: [
+              pw.Text('Shop Name : ${shopInfo.shopnameController.text}',
+        style:
+        pw.TextStyle(fontSize: 22, fontWeight: pw.FontWeight.bold)),
+                pw.Column(
+                  children: [
+                    pw.Text('Date : ${obj.DateController.text}'),
+                    pw.Text('Mobile No1 : ${shopInfo.mblno1Controller.text}'),
+                    pw.Text('Mobile No2 : ${shopInfo.mblno2Controller.text}'),
+                    pw.Text('Ptcl No : ${shopInfo.ptclController.text}'),
+                  ]
+                )
+            ]),
+
+            pw.Text('Shop Email : ${shopInfo.shopemailController.text}',),
             pw.SizedBox(height: 10),
-            pw.Text('Date: ${obj.DateController.text}'),
-            pw.Text('Client Name: ${obj.clientController.text}'),
-            pw.Text('Product Name: ${obj.productController.text}'),
-            pw.Text('Gold Price: ${widget.goldPrice}'),
-            pw.Text('Tola Quantity: ${widget.tolaQuantity}'),
-            pw.Text('Grams Quantity: ${widget.gramsQuantity}'),
-            pw.Text('Rati Quantity: ${widget.ratiQuantity}'),
-            pw.Text('Total Price: ${widget.totalPrice.toStringAsFixed(2)}'),
+
+            pw.Text('Client Name : ${obj.clientNameController.text}',
+                style:
+                pw.TextStyle(fontSize: 18, fontWeight: pw.FontWeight.bold)),
+            pw.SizedBox(height: 10),
+            pw.Text('Product Name : ${obj.productController.text}'),
+            pw.SizedBox(height: 10),
+    pw.Text('Billing Details',
+    style:
+    pw.TextStyle(fontSize: 18, fontWeight: pw.FontWeight.bold)),
+            pw.SizedBox(height: 10),
+            pw.Text('Gold Price : ${widget.goldPrice}'),
+            pw.SizedBox(height: 5),
+            pw.Text('Tola Quantity : ${widget.tolaQuantity}'),
+            pw.SizedBox(height: 5),
+            pw.Text('Grams Quantity : ${widget.gramsQuantity}'),
+            pw.SizedBox(height: 5),
+            pw.Text('Rati Quantity : ${widget.ratiQuantity}'),
+            pw.SizedBox(height: 5),
+            pw.Text('Total Price : ${widget.totalPrice.toStringAsFixed(2)}'),
           ],
         ),
       ),
@@ -215,7 +243,8 @@ class _BillingHomeViewState extends State<BillingHomeView> {
 
     try {
       final directory = await getApplicationDocumentsDirectory();
-      final filePath = '${directory.path}/billing_details.pdf';
+      final filePath = '${directory.path}/ ${obj.clientNameController.text}.pdf';
+         // '//billing_details.pdf';
       final file = File(filePath);
       await file.writeAsBytes(await pdf.save());
 
@@ -250,7 +279,7 @@ class _BillingHomeViewState extends State<BillingHomeView> {
           txtclr: AppColors.primryColor,
         ),
         centerTitle: true,
-       
+
       ),
       floatingActionButton: Padding(
         padding: const EdgeInsets.symmetric(vertical: 16.0, horizontal: 32.0),
@@ -281,11 +310,13 @@ class _BillingHomeViewState extends State<BillingHomeView> {
               ),
               const SizedBox(height: 30),
               BillingTextFormField(
-                controller: obj.clientController,
+                prefixicn: Icon(Icons.person,color: AppColors.secondryColor,),
+                controller: obj.clientNameController,
                 hnttxt: "Enter Client Name",
               ),
               const SizedBox(height: 5),
               BillingTextFormField(
+                prefixicn: Icon(Icons.shopping_cart,color: AppColors.secondryColor),
                 controller: obj.productController,
                 hnttxt: "Enter Product Name",
               ),

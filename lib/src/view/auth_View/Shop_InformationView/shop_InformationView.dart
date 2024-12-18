@@ -20,7 +20,7 @@ class _ShopInformationviewState extends State<ShopInformationview> {
   @override
   Widget build(BuildContext context) {
 
-    ShopInfoController  obj =Get.put(ShopInfoController());
+    ShopInfoController  shopInfo =Get.put(ShopInfoController());
 
     return Scaffold(
 
@@ -53,7 +53,7 @@ class _ShopInformationviewState extends State<ShopInformationview> {
                   Icons.shopping_cart,
                   color: Colors.amber,
                 ),
-                controller: obj.shopnameController,
+                controller: shopInfo.shopnameController,
                 hnttxt: "Shop Name"),
             SizedBox(height: 10,),
             SimpleTextFormField(
@@ -61,7 +61,7 @@ class _ShopInformationviewState extends State<ShopInformationview> {
                   Icons.email,
                   color: Colors.amber,
                 ),
-                controller: obj.shopemailController,
+                controller: shopInfo.shopemailController,
                 hnttxt: "Shop Email"),
             SizedBox(height: 10,),
             SimpleTextFormField(
@@ -69,7 +69,7 @@ class _ShopInformationviewState extends State<ShopInformationview> {
                   Icons.call,
                   color: Colors.amber,
                 ),
-                controller: obj.mblController,
+                controller: shopInfo.mblno1Controller,
                 hnttxt: "Mobile No 1"),
             SizedBox(height: 10,),
             SimpleTextFormField(
@@ -77,7 +77,7 @@ class _ShopInformationviewState extends State<ShopInformationview> {
                   Icons.call,
                   color: Colors.amber,
                 ),
-                controller: obj.mblnoController,
+                controller: shopInfo.mblno2Controller,
                 hnttxt: "Mobile No 2"),
             SizedBox(height: 10,),
             SimpleTextFormField(
@@ -85,7 +85,7 @@ class _ShopInformationviewState extends State<ShopInformationview> {
                   Icons.call_end,
                   color: Colors.amber,
                 ),
-                controller: obj.ptclController,
+                controller: shopInfo.ptclController,
                 hnttxt: "Landline No"),
             SizedBox(height: 10,),
             SimpleTextFormField(
@@ -93,7 +93,7 @@ class _ShopInformationviewState extends State<ShopInformationview> {
                   Icons.location_on_rounded,
                   color: Colors.amber,
                 ),
-                controller: obj.shopaddressController,
+                controller: shopInfo.shopaddressController,
                 hnttxt: "Shop Address"),
             SizedBox(height: 40,),
           InkWell(
@@ -106,7 +106,7 @@ class _ShopInformationviewState extends State<ShopInformationview> {
                   .validate()) // true --- false
                 //(_formKey.currentState!.validate())
                   {
-               obj.onSaveInfo(context);
+               shopInfo.onSaveInfo(context);
               }
             },
             child: Container(

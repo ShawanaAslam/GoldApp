@@ -14,7 +14,7 @@ import '../../../utills/toast_ Notifications/toast_Notification.dart';
 class LoginController extends GetxController {
   TextEditingController emailController = TextEditingController();
   TextEditingController passwordController = TextEditingController();
-  TextEditingController userNameController = TextEditingController();
+  TextEditingController shopNameController = TextEditingController();
   TextEditingController fatherNameController = TextEditingController();
   var isLoading = false.obs;
 
@@ -25,9 +25,9 @@ class LoginController extends GetxController {
       String? result = await loginAccount(
         emailController.text.trim(),
         passwordController.text.trim(),
-        userNameController.text.trim(),
+        shopNameController.text.trim(),
         fatherNameController.text.trim(),
-      );
+          );
       //  if (result != null)
       if (result == 'You are successfully logged in') {
         // Show success toast
@@ -65,8 +65,7 @@ class LoginController extends GetxController {
       );
 
       // If login is successful, clear the text controllers
-      userNameController.clear();
-      fatherNameController.clear();
+
       emailController.clear();
       passwordController.clear();
 

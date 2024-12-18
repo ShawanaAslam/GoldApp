@@ -121,7 +121,7 @@ import '../login_View/login_View.dart';
 
 // Backend Code
 class SignupController extends GetxController {
-  TextEditingController emailController = TextEditingController();
+  TextEditingController userEmailController = TextEditingController();
   TextEditingController passwordController =
       TextEditingController(); // Fixed spelling
   TextEditingController userNameController = TextEditingController();
@@ -143,7 +143,7 @@ class SignupController extends GetxController {
         isLoading.value = true;
         String? result = await createAccount(
             //userNameController.text.trim(),fatherNameController.text.trim()
-            emailController.text.trim(),
+            userEmailController.text.trim(),
             passwordController.text.trim());
         // error occured during signup
         // addData();
@@ -165,7 +165,7 @@ class SignupController extends GetxController {
         print('--------------------6');
         userNameController.clear();
         confirmController.clear();
-        emailController.clear();
+        userEmailController.clear();
         passwordController.clear();
       }
     }
@@ -219,7 +219,7 @@ class SignupController extends GetxController {
         'name': userNameController.text,
         // 'fathername':fatherNameController.text,
         'docId': docId,
-        'email': emailController.text,
+        'email': userEmailController.text,
       });
     } catch (e) {
       // exception for firebase authentications
