@@ -14,7 +14,7 @@ import 'package:goldapp/src/view/auth_View/signUp_View/signUp_View.dart';
 import 'package:goldapp/src/view/selection_View/selection_View.dart';
 import 'package:url_launcher/url_launcher.dart';
 
-import 'src/view/Home_View/home_View/Billing_View/billing_homeView.dart';
+import 'src/view/Home_View/Billing_View/billing_homeView.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -52,7 +52,7 @@ class MyApp extends StatelessWidget {
                   GoldShop()
               // SignupView()
               // SelectionView()
-              //  SplashView() //const MyHomePage(title: 'Flutter Demo Home Page'),
+              // SplashView() //const MyHomePage(title: 'Flutter Demo Home Page'),
               // BillingHomeView()
               // BillingHomeView(
               //     goldPrice: '0',

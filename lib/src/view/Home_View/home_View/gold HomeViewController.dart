@@ -248,9 +248,6 @@
 // //   }
 // // }
 
-
-
-
 ///-----------------------------
 ///
 
@@ -266,10 +263,7 @@ import 'package:goldapp/src/view/auth_View/login_View/login_View.dart';
 
 import '../../../common_widgets/MyButton.dart';
 import '../../../common_widgets/reusable_simpletext.dart';
-import 'Billing_View/billing_homeView.dart';
-
-
-
+import '../Billing_View/billing_homeView.dart';
 
 class GoldShopController extends GetxController {
   TextEditingController goldPriceController = TextEditingController();
@@ -279,30 +273,28 @@ class GoldShopController extends GetxController {
   TextEditingController pointsPricecontroller = TextEditingController();
 
   //ye fetchDataController Dosra controller hai HomaView ka
-  HomeFetchDataController controller=Get.put(HomeFetchDataController());
+  HomeFetchDataController controller = Get.put(HomeFetchDataController());
   var isLoading = false.obs;
   //double
   var total = 0.0.obs;
-  var userId=''.obs;
+  var userId = ''.obs;
 
   void onfuction() {
-
-
-    if(
-    // n2.text==null
-    //     && n3.text==null&&
-    //     n3.text==null &&n4.text==null  &&n5.text==null
-    tolaPricecontroller.text==''
-        && gramPricecontroller.text==''
-        && ratiPricecontroller.text==''  && pointsPricecontroller.text==''
-    )
-    {
+    if (
+        // n2.text==null
+        //     && n3.text==null&&
+        //     n3.text==null &&n4.text==null  &&n5.text==null
+        tolaPricecontroller.text == '' &&
+            gramPricecontroller.text == '' &&
+            ratiPricecontroller.text == '' &&
+            pointsPricecontroller.text == '') {
       Get.defaultDialog(
         backgroundColor: Colors.amber,
         title: 'Warning!',
         titleStyle: TextStyle(color: Colors.black),
         content: SimpleText(
-          txt: 'Please enter a value in at least one field \n(Tola, Gram, Rati, or Points).',
+          txt:
+              'Please enter a value in at least one field \n(Tola, Gram, Rati, or Points).',
           font: 18,
           fntwt: FontWeight.w800,
         ),
@@ -320,24 +312,19 @@ class GoldShopController extends GetxController {
           ),
         ],
       );
-    }
-    else
-    {
+    } else {
       nullCheck();
 
       goldCalculation();
 
-
       Get.defaultDialog(
-
           backgroundColor: Colors.amber,
           title: 'Total Rs :',
           titleStyle: TextStyle(color: Colors.black),
           content: SimpleText(txt: '$total', font: 20, fntwt: FontWeight.w800),
           actions: [
-
             MyButton(
-              ontap: (){
+              ontap: () {
                 refresh();
                 Get.back();
               },
@@ -346,37 +333,33 @@ class GoldShopController extends GetxController {
               h: 40,
               bacclr: Colors.amber,
               clr: Colors.black,
-              font: 15,),
-            MyButton( txt: 'Print',
+              font: 15,
+            ),
+            MyButton(
+                txt: 'Print',
                 w: 70,
                 h: 40,
                 bacclr: Colors.amber,
                 clr: Colors.black,
                 font: 15,
-                ontap: (){
-              Get.back();
+                ontap: () {
+                  Get.back();
 
-              Get.to(()=>BillingHomeView(
-                  goldPrice: goldPriceController.text,
-                  tolaQuantity: tolaPricecontroller.text,
-                  gramsQuantity: gramPricecontroller.text,
-                  ratiQuantity: ratiPricecontroller.text,
-                  pointsQuantity: pointsPricecontroller.text,
-                  totalPrice: total.value
-              ));
-            //  refresh();
+                  Get.to(() => BillingHomeView(
+                      goldPrice: goldPriceController.text,
+                      tolaQuantity: tolaPricecontroller.text,
+                      gramsQuantity: gramPricecontroller.text,
+                      ratiQuantity: ratiPricecontroller.text,
+                      pointsQuantity: pointsPricecontroller.text,
+                      totalPrice: total.value));
+                  //  refresh();
                 })
-
-
-          ]
-      );
+          ]);
     }
 
-
-
     //refresh();
-
   }
+
   void nullCheck() {
     // if (n1.text == '') {
     //   n1.text = '0';
@@ -393,10 +376,9 @@ class GoldShopController extends GetxController {
     if (pointsPricecontroller.text == '') {
       pointsPricecontroller.text = '0';
     }
-
   }
-  void goldCalculation(){
 
+  void goldCalculation() {
     //first we find Rs of 1 gram
     double Rspergram = double.parse(goldPriceController.text) / 12;
     double goldgram = Rspergram * double.parse(gramPricecontroller.text);
@@ -406,53 +388,45 @@ class GoldShopController extends GetxController {
     //total=total + goldRati;
     double points = double.parse(ratiPricecontroller.text) / 100;
     double goldpoints = points * double.parse(pointsPricecontroller.text);
-    double tolaPrice=double.parse(goldPriceController.text) * double.parse(tolaPricecontroller.text);
+    double tolaPrice = double.parse(goldPriceController.text) *
+        double.parse(tolaPricecontroller.text);
 
     total.value = tolaPrice + goldgram + goldRati + goldpoints;
     // function calling:-
-    if(controller.userId.value!='')// false
-        {
+    if (controller.userId.value != '') // false
+    {
       insertData();
     }
     // else
     //   {
     //     insertData();
     //   }
-
-
-
   }
-  Future<void> insertData()async{
-    try
-    {
 
+  Future<void> insertData() async {
+    try {
       isLoading.value = true;
-String docid=DateTime.now().millisecondsSinceEpoch.toString();
-      await FirebaseFirestore.instance.collection(controller.userId.value).doc(docid).set(
-          {
-            'goldgramQuantity' : gramPricecontroller.text,
-            'goldRatiQuantity' : ratiPricecontroller.text,
-            'goldpointQuantity' : pointsPricecontroller.text,
-            'tolaQuantity':tolaPricecontroller.text,
-            'totalPrice':total.value,
-            'tolaPrice':goldPriceController.text,
-            'userid':controller.userId.value,
-            'doc':docid
-          }
-
-
-      );
-    }
-    catch(error)
-    {
+      String docid = DateTime.now().millisecondsSinceEpoch.toString();
+      await FirebaseFirestore.instance
+          .collection(controller.userId.value)
+          .doc(docid)
+          .set({
+        'goldgramQuantity': gramPricecontroller.text,
+        'goldRatiQuantity': ratiPricecontroller.text,
+        'goldpointQuantity': pointsPricecontroller.text,
+        'tolaQuantity': tolaPricecontroller.text,
+        'totalPrice': total.value,
+        'tolaPrice': goldPriceController.text,
+        'userid': controller.userId.value,
+        'doc': docid
+      });
+    } catch (error) {
       isLoading.value = false;
       print('Error:$error');
     }
-
-
   }
-  void refresh(){
 
+  void refresh() {
     //Future.delayed(Duration(seconds: 3), () {
     // setState((){
     goldPriceController.clear();
@@ -464,15 +438,12 @@ String docid=DateTime.now().millisecondsSinceEpoch.toString();
 
     // });
   }
-  Future<void>logout(BuildContext context)async{
 
+  Future<void> logout(BuildContext context) async {
     await FirebaseAuth.instance.signOut();
     Get.delete<GoldShopController>();
     Navigator.pushReplacement(
-        context,
-        CupertinoPageRoute(
-            builder: (context) => LoginView()));
-
+        context, CupertinoPageRoute(builder: (context) => LoginView()));
   }
 }
 

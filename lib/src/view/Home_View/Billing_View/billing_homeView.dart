@@ -3,16 +3,16 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:goldapp/src/utills/linker.dart';
-import 'package:goldapp/src/view/Home_View/home_View/Billing_View/billing_Controller.dart';
+import 'package:goldapp/src/view/Home_View/Billing_View/billing_Controller.dart';
 import 'package:goldapp/src/view/Home_View/home_View/gold%20HomeViewController.dart';
 
-import '../../../../Constants/colors.dart';
-import '../../../../common_widgets/MyButton.dart';
-import '../../../../common_widgets/reusable_simpletext.dart';
-import '../../../../common_widgets/reusable_text.dart';
-import '../../../../common_widgets/reusable_text.dart';
-import '../../../../common_widgets/simpleTextForm_widget.dart';
-import '../../../auth_View/Shop_InformationView/shop_InformationController.dart';
+import '../../../Constants/colors.dart';
+import '../../../common_widgets/MyButton.dart';
+import '../../../common_widgets/reusable_simpletext.dart';
+import '../../../common_widgets/reusable_text.dart';
+import '../../../common_widgets/reusable_text.dart';
+import '../../../common_widgets/simpleTextForm_widget.dart';
+import '../../auth_View/Shop_InformationView/shop_InformationController.dart';
 import 'Billing_Widgets/DateTimePicker_TextFormField.dart';
 import 'Billing_Widgets/billing_TextFormField.dart';
 
