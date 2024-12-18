@@ -8,11 +8,13 @@ class DatePickerTextformfield extends StatefulWidget {
   String hnttxt;
   Color clr;
 
+
   DatePickerTextformfield({
     super.key,
     required this.controller,
     required this.hnttxt,
     this.clr = Colors.white,
+
   });
 
   @override
@@ -59,6 +61,7 @@ class _DatePickerTextformfieldState extends State<DatePickerTextformfield> {
         cursorColor: AppColors.secondryColor,
         style: TextStyle(color: Colors.white),
         decoration: InputDecoration(
+          //prefixIcon:Icon(Icons.cal,color:AppColors.secondryColor,) ,
             suffixIcon: IconButton(
               onPressed: () {
                 selectdate(context);

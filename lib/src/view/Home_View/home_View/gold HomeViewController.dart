@@ -277,6 +277,8 @@ class GoldShopController extends GetxController {
   TextEditingController gramPricecontroller = TextEditingController();
   TextEditingController ratiPricecontroller = TextEditingController();
   TextEditingController pointsPricecontroller = TextEditingController();
+
+  //ye fetchDataController Dosra controller hai HomaView ka
   HomeFetchDataController controller=Get.put(HomeFetchDataController());
   var isLoading = false.obs;
   //double
