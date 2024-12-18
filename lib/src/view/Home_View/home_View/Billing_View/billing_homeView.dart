@@ -346,6 +346,7 @@ class _BillingHomeViewState extends State<BillingHomeView> {
                       txt: 'Tola Price : ${widget.totalPrice}',
                       txtclr: AppColors.secondryColor,
                     ),
+
                   ],
                 ),
               )
