@@ -203,7 +203,8 @@ class _BillingHomeViewState extends State<BillingHomeView> {
           crossAxisAlignment: pw.CrossAxisAlignment.start,
           children: [
             pw.Row(
-               // mainAxisAlignment:MainAxisAlignment.spaceBetween,
+                mainAxisAlignment:pw.MainAxisAlignment.spaceBetween,
+                //crossAxisAlignment: pw.CrossAxisAlignment.spaceBetween,
                 children: [
               pw.Text('Shop Name : ${shopInfo.shopnameController.text}',
         style:
