@@ -10,7 +10,7 @@ class BillingController extends GetxController {
  // var isLoading= false.obs;
 
   // fetch shop data according to current uerr logedin;
-
+  HomeFetchDataController controller=Get.put(HomeFetchDataController());
 
   // Future<void> _createAndOpenPDF() async {
   //
