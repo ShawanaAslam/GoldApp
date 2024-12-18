@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
+import 'package:intl/intl.dart';
 
 import '../../../../../Constants/colors.dart';
 
@@ -8,13 +9,11 @@ class DatePickerTextformfield extends StatefulWidget {
   String hnttxt;
   Color clr;
 
-
   DatePickerTextformfield({
     super.key,
     required this.controller,
     required this.hnttxt,
     this.clr = Colors.white,
-
   });
 
   @override
@@ -24,6 +23,7 @@ class DatePickerTextformfield extends StatefulWidget {
 
 class _DatePickerTextformfieldState extends State<DatePickerTextformfield> {
   DateTime? selectedDate;
+  String formattedDate = '';
 
   Future<void> selectdate(BuildContext context) async {
     print("function starting");
@@ -47,7 +47,10 @@ class _DatePickerTextformfieldState extends State<DatePickerTextformfield> {
     if (picked != null && picked != selectedDate) {
       setState(() {
         selectedDate = picked;
-        widget.controller.text = selectedDate.toString();
+        formattedDate = DateFormat('yyyy-MM-dd').format(selectedDate!);
+
+        //DateFormat('yyyy-MM-dd').format(selectedDate);
+        widget.controller.text = formattedDate; //selectedDate.toString();
       });
     }
   }
@@ -61,7 +64,7 @@ class _DatePickerTextformfieldState extends State<DatePickerTextformfield> {
         cursorColor: AppColors.secondryColor,
         style: TextStyle(color: Colors.white),
         decoration: InputDecoration(
-          //prefixIcon:Icon(Icons.cal,color:AppColors.secondryColor,) ,
+            //prefixIcon:Icon(Icons.cal,color:AppColors.secondryColor,) ,
             suffixIcon: IconButton(
               onPressed: () {
                 selectdate(context);

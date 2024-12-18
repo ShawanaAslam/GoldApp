@@ -179,7 +179,7 @@ class BillingHomeView extends StatefulWidget {
 
 class _BillingHomeViewState extends State<BillingHomeView> {
   BillingController obj = Get.put(BillingController());
-  ShopInfoController  shopInfo =Get.put(ShopInfoController());
+  ShopInfoController shopInfo = Get.put(ShopInfoController());
 
   bool isLoading = false; // To manage loading spinner
 
@@ -202,46 +202,33 @@ class _BillingHomeViewState extends State<BillingHomeView> {
         build: (pw.Context context) => pw.Column(
           crossAxisAlignment: pw.CrossAxisAlignment.start,
           children: [
-<<<<<<< HEAD
-            pw.Row(children: []),
-            pw.Text(obj.shopeName.value),
-            pw.Text(obj.shoplandLine.value),
-            pw.Text(obj.shopPhone1.value),
-            pw.Text(obj.shopPhone2.value),
-            pw.Text('Billing Details',
-                style:
-                    pw.TextStyle(fontSize: 22, fontWeight: pw.FontWeight.bold)),
-=======
             pw.Row(
-                mainAxisAlignment:pw.MainAxisAlignment.spaceBetween,
+                mainAxisAlignment: pw.MainAxisAlignment.spaceBetween,
                 //crossAxisAlignment: pw.CrossAxisAlignment.spaceBetween,
                 children: [
-              pw.Text('Shop Name : ${shopInfo.shopnameController.text}',
-        style:
-        pw.TextStyle(fontSize: 22, fontWeight: pw.FontWeight.bold)),
-                pw.Column(
-                  children: [
+                  pw.Text('Shop Name : ${shopInfo.shopnameController.text}',
+                      style: pw.TextStyle(
+                          fontSize: 22, fontWeight: pw.FontWeight.bold)),
+                  pw.Column(children: [
                     pw.Text('Date : ${obj.DateController.text}'),
                     pw.Text('Mobile No1 : ${shopInfo.mblno1Controller.text}'),
                     pw.Text('Mobile No2 : ${shopInfo.mblno2Controller.text}'),
                     pw.Text('Ptcl No : ${shopInfo.ptclController.text}'),
-                  ]
-                )
-            ]),
-
-            pw.Text('Shop Email : ${shopInfo.shopemailController.text}',),
->>>>>>> 1d8ddfa486e1d8c2fcbfab9e502c40e1094aeaaa
+                  ])
+                ]),
+            pw.Text(
+              'Shop Email : ${shopInfo.shopemailController.text}',
+            ),
             pw.SizedBox(height: 10),
-
             pw.Text('Client Name : ${obj.clientNameController.text}',
                 style:
-                pw.TextStyle(fontSize: 18, fontWeight: pw.FontWeight.bold)),
+                    pw.TextStyle(fontSize: 18, fontWeight: pw.FontWeight.bold)),
             pw.SizedBox(height: 10),
             pw.Text('Product Name : ${obj.productController.text}'),
             pw.SizedBox(height: 10),
-    pw.Text('Billing Details',
-    style:
-    pw.TextStyle(fontSize: 18, fontWeight: pw.FontWeight.bold)),
+            pw.Text('Billing Details',
+                style:
+                    pw.TextStyle(fontSize: 18, fontWeight: pw.FontWeight.bold)),
             pw.SizedBox(height: 10),
             pw.Text('Gold Price : ${widget.goldPrice}'),
             pw.SizedBox(height: 5),
@@ -259,8 +246,9 @@ class _BillingHomeViewState extends State<BillingHomeView> {
 
     try {
       final directory = await getApplicationDocumentsDirectory();
-      final filePath = '${directory.path}/ ${obj.clientNameController.text}.pdf';
-         // '//billing_details.pdf';
+      final filePath =
+          '${directory.path}/ ${obj.clientNameController.text}.pdf';
+      // '//billing_details.pdf';
       final file = File(filePath);
       await file.writeAsBytes(await pdf.save());
 
@@ -295,10 +283,6 @@ class _BillingHomeViewState extends State<BillingHomeView> {
           txtclr: AppColors.primryColor,
         ),
         centerTitle: true,
-<<<<<<< HEAD
-=======
-
->>>>>>> 1d8ddfa486e1d8c2fcbfab9e502c40e1094aeaaa
       ),
       floatingActionButton: Padding(
         padding: const EdgeInsets.symmetric(vertical: 16.0, horizontal: 32.0),
@@ -329,13 +313,17 @@ class _BillingHomeViewState extends State<BillingHomeView> {
               ),
               const SizedBox(height: 30),
               BillingTextFormField(
-                prefixicn: Icon(Icons.person,color: AppColors.secondryColor,),
+                prefixicn: Icon(
+                  Icons.person,
+                  color: AppColors.secondryColor,
+                ),
                 controller: obj.clientNameController,
                 hnttxt: "Enter Client Name",
               ),
               const SizedBox(height: 5),
               BillingTextFormField(
-                prefixicn: Icon(Icons.shopping_cart,color: AppColors.secondryColor),
+                prefixicn:
+                    Icon(Icons.shopping_cart, color: AppColors.secondryColor),
                 controller: obj.productController,
                 hnttxt: "Enter Product Name",
               ),
@@ -365,34 +353,28 @@ class _BillingHomeViewState extends State<BillingHomeView> {
                       txt: 'Tola Price : ${widget.totalPrice}',
                       txtclr: AppColors.secondryColor,
                     ),
-<<<<<<< HEAD
-=======
-
-
->>>>>>> 1d8ddfa486e1d8c2fcbfab9e502c40e1094aeaaa
                   ],
                 ),
               ),
-             Padding(
-               padding: const EdgeInsets.only(top:150,left: 250),
-                child:
-                MyButton(
+              Padding(
+                padding: const EdgeInsets.only(top: 150, left: 250),
+                child: MyButton(
                   txt: '',
                   font: 16,
                   w: 80.w,
                   h: 60.h,
                   bacclr: AppColors.primryColor,
-                  clr:AppColors.secondryColor,
+                  clr: AppColors.secondryColor,
                   ontap: () async {
                     // isLoading
                     //       ? const AppLoading() // Show loading spinner while creating PDF
                     //       : FloatingActionButton(
-                       //       onPressed:
-                         //     _createAndOpenPDF;
+                    //       onPressed:
+                    //     _createAndOpenPDF;
                     //);
                   },
                 ),
-             ),
+              ),
             ],
           ),
         ),
