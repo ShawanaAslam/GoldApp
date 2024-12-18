@@ -1,9 +1,13 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
+import 'package:goldapp/src/utills/linker.dart';
 import 'package:goldapp/src/view/Home_View/home_View/Billing_View/billing_Controller.dart';
 import 'package:goldapp/src/view/Home_View/home_View/gold%20HomeViewController.dart';
 
 import '../../../../Constants/colors.dart';
+import '../../../../common_widgets/MyButton.dart';
 import '../../../../common_widgets/reusable_simpletext.dart';
 import '../../../../common_widgets/reusable_text.dart';
 import '../../../../common_widgets/reusable_text.dart';
@@ -284,7 +288,7 @@ class _BillingHomeViewState extends State<BillingHomeView> {
       floatingActionButton: Padding(
         padding: const EdgeInsets.symmetric(vertical: 16.0, horizontal: 32.0),
         child: isLoading
-            ? const CircularProgressIndicator() // Show loading spinner while creating PDF
+            ? const AppLoading() // Show loading spinner while creating PDF
             : FloatingActionButton(
                 onPressed: _createAndOpenPDF,
                 child: const Icon(Icons.picture_as_pdf),
@@ -347,9 +351,30 @@ class _BillingHomeViewState extends State<BillingHomeView> {
                       txtclr: AppColors.secondryColor,
                     ),
 
+
                   ],
                 ),
-              )
+              ),
+             Padding(
+               padding: const EdgeInsets.only(top:150,left: 250),
+                child:
+                MyButton(
+                  txt: '',
+                  font: 16,
+                  w: 80.w,
+                  h: 60.h,
+                  bacclr: AppColors.primryColor,
+                  clr:AppColors.secondryColor,
+                  ontap: () async {
+                    // isLoading
+                    //       ? const AppLoading() // Show loading spinner while creating PDF
+                    //       : FloatingActionButton(
+                       //       onPressed:
+                         //     _createAndOpenPDF;
+                    //);
+                  },
+                ),
+             ),
             ],
           ),
         ),
