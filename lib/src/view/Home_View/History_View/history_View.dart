@@ -29,6 +29,7 @@ class _HistoryViewState extends State<HistoryView> {
   }
 
   final homeController = Get.put(HomeFetchDataController());
+
   @override
   Widget build(BuildContext context) {
     // Controllers

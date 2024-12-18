@@ -213,7 +213,8 @@ class _BillingHomeViewState extends State<BillingHomeView> {
                     pw.TextStyle(fontSize: 22, fontWeight: pw.FontWeight.bold)),
 =======
             pw.Row(
-               // mainAxisAlignment:MainAxisAlignment.spaceBetween,
+                mainAxisAlignment:pw.MainAxisAlignment.spaceBetween,
+                //crossAxisAlignment: pw.CrossAxisAlignment.spaceBetween,
                 children: [
               pw.Text('Shop Name : ${shopInfo.shopnameController.text}',
         style:
