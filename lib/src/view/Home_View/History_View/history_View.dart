@@ -1,6 +1,4 @@
 
-
-import 'package:goldapp/src/common_widgets/reusable_text.dart';
 import 'package:goldapp/src/utills/linker.dart';
 
 class HistoryView extends StatefulWidget {

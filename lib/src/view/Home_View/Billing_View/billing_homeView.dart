@@ -1,20 +1,5 @@
-import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:get/get.dart';
-import 'package:goldapp/src/utills/linker.dart';
-import 'package:goldapp/src/view/Home_View/Billing_View/billing_Controller.dart';
-import 'package:goldapp/src/view/Home_View/home_View/gold%20HomeViewController.dart';
 
-import '../../../Constants/colors.dart';
-import '../../../common_widgets/MyButton.dart';
-import '../../../common_widgets/reusable_simpletext.dart';
-import '../../../common_widgets/reusable_text.dart';
-import '../../../common_widgets/reusable_text.dart';
-import '../../../common_widgets/simpleTextForm_widget.dart';
-import '../../auth_View/Shop_InformationView/shop_InformationController.dart';
-import 'Billing_Widgets/DateTimePicker_TextFormField.dart';
-import 'Billing_Widgets/billing_TextFormField.dart';
+
 
 // class BillingHomeView extends StatefulWidget {
 //   String goldPrice;
@@ -145,15 +130,15 @@ import 'Billing_Widgets/billing_TextFormField.dart';
 //   }
 // }
 
-///-----------------------------
-///
 import 'dart:io';
-import 'package:flutter/material.dart';
-import 'package:get/get.dart';
-import 'package:pdf/pdf.dart';
-import 'package:pdf/widgets.dart' as pw;
-import 'package:path_provider/path_provider.dart';
-import 'package:open_filex/open_filex.dart';
+
+import '../../../Constants/images.dart';
+import '../../../utills/linker.dart';
+ import 'package:pdf/widgets.dart' as pw;
+import '../../auth_View/Shop_InformationView/shop_InformationController.dart';
+import 'Billing_Widgets/DateTimePicker_TextFormField.dart';
+import 'Billing_Widgets/billing_TextFormField.dart';
+import 'billing_Controller.dart';
 
 class BillingHomeView extends StatefulWidget {
   String goldPrice;
@@ -189,7 +174,90 @@ class _BillingHomeViewState extends State<BillingHomeView> {
     obj.refresh();
   }
 
-  // Function to create and open PDF
+  //Function to create and open PDF
+
+  // Future<void> _createAndOpenPDF() async {
+  //   setState(() {
+  //     isLoading = true; // Show loading spinner
+  //   });
+  //
+  //   final pdf = pw.Document();
+  //
+  //   pdf.addPage(
+  //     pw.Page(
+  //       build: (pw.Context context) => pw.Column(
+  //         crossAxisAlignment: pw.CrossAxisAlignment.start,
+  //         children: [
+  //           pw.Row(
+  //               mainAxisAlignment: pw.MainAxisAlignment.spaceBetween,
+  //               //crossAxisAlignment: pw.CrossAxisAlignment.spaceBetween,
+  //               children: [
+  //                 pw.Text('Shop Name : ${shopInfo.shopnameController.text}',
+  //                     style: pw.TextStyle(
+  //                         fontSize: 22, fontWeight: pw.FontWeight.bold)),
+  //                 pw.Column(
+  //                     mainAxisAlignment: pw.MainAxisAlignment.start,
+  //                     crossAxisAlignment: pw.CrossAxisAlignment.start,
+  //                     children: [
+  //                       pw.SizedBox(height: 40),
+  //                   pw.Text('Date : ${obj.DateController.text}'),
+  //                   pw.Text('Mobile No1 : ${shopInfo.mblno1Controller.text}'),
+  //                   pw.Text('Mobile No2 : ${shopInfo.mblno2Controller.text}'),
+  //                   pw.Text('Ptcl No : ${shopInfo.ptclController.text}'),
+  //                 ])
+  //               ]),
+  //           pw.Text(
+  //             'Shop Email : ${shopInfo.shopemailController.text}',
+  //           ),
+  //           pw.SizedBox(height: 10),
+  //           pw.Text('Client Name : ${obj.clientNameController.text}',
+  //               style:
+  //                   pw.TextStyle(fontSize: 18, fontWeight: pw.FontWeight.bold)),
+  //           pw.SizedBox(height: 10),
+  //           pw.Text('Product Name : ${obj.productController.text}'),
+  //           pw.SizedBox(height: 10),
+  //           pw.Text('Billing Details',
+  //               style:
+  //                   pw.TextStyle(fontSize: 18, fontWeight: pw.FontWeight.bold)),
+  //           pw.SizedBox(height: 10),
+  //           pw.Text('Gold Price : ${widget.goldPrice}'),
+  //           pw.SizedBox(height: 5),
+  //           pw.Text('Tola Quantity : ${widget.tolaQuantity}'),
+  //           pw.SizedBox(height: 5),
+  //           pw.Text('Grams Quantity : ${widget.gramsQuantity}'),
+  //           pw.SizedBox(height: 5),
+  //           pw.Text('Rati Quantity : ${widget.ratiQuantity}'),
+  //           pw.SizedBox(height: 5),
+  //           pw.Text('Total Price : ${widget.totalPrice.toStringAsFixed(2)}'),
+  //         ],
+  //       ),
+  //   ),
+  //    );
+  //
+  //   try {
+  //     final directory = await getApplicationDocumentsDirectory();
+  //     final filePath =
+  //         '${directory.path}/ ${obj.clientNameController.text}.pdf';
+  //     // '//billing_details.pdf';
+  //     final file = File(filePath);
+  //     await file.writeAsBytes(await pdf.save());
+  //
+  //     setState(() {
+  //       isLoading = false; // Hide loading spinner
+  //     });
+  //
+  //     await OpenFilex.open(filePath);
+  //   } catch (e) {
+  //     setState(() {
+  //       isLoading = false; // Hide loading spinner
+  //     });
+  //     Get.snackbar('Error', 'Failed to create or open PDF: $e');
+  //   }
+  // }
+
+  ///
+  /// pdf colors
+
   Future<void> _createAndOpenPDF() async {
     setState(() {
       isLoading = true; // Show loading spinner
@@ -199,56 +267,108 @@ class _BillingHomeViewState extends State<BillingHomeView> {
 
     pdf.addPage(
       pw.Page(
-        build: (pw.Context context) => pw.Column(
-          crossAxisAlignment: pw.CrossAxisAlignment.start,
-          children: [
-            pw.Row(
+        margin: pw.EdgeInsets.zero,
+        build: (pw.Context context) => pw.Container(
+          color: PdfColors.black, // Set background color to black
+          child: pw.Column(
+            crossAxisAlignment: pw.CrossAxisAlignment.start,
+            children: [
+              pw.Row(
                 mainAxisAlignment: pw.MainAxisAlignment.spaceBetween,
-                //crossAxisAlignment: pw.CrossAxisAlignment.spaceBetween,
                 children: [
-                  pw.Text('Shop Name : ${shopInfo.shopnameController.text}',
-                      style: pw.TextStyle(
-                          fontSize: 22, fontWeight: pw.FontWeight.bold)),
-                  pw.Column(children: [
-                    pw.Text('Date : ${obj.DateController.text}'),
-                    pw.Text('Mobile No1 : ${shopInfo.mblno1Controller.text}'),
-                    pw.Text('Mobile No2 : ${shopInfo.mblno2Controller.text}'),
-                    pw.Text('Ptcl No : ${shopInfo.ptclController.text}'),
-                  ])
-                ]),
-            pw.Text(
-              'Shop Email : ${shopInfo.shopemailController.text}',
-            ),
-            pw.SizedBox(height: 10),
-            pw.Text('Client Name : ${obj.clientNameController.text}',
-                style:
-                    pw.TextStyle(fontSize: 18, fontWeight: pw.FontWeight.bold)),
-            pw.SizedBox(height: 10),
-            pw.Text('Product Name : ${obj.productController.text}'),
-            pw.SizedBox(height: 10),
-            pw.Text('Billing Details',
-                style:
-                    pw.TextStyle(fontSize: 18, fontWeight: pw.FontWeight.bold)),
-            pw.SizedBox(height: 10),
-            pw.Text('Gold Price : ${widget.goldPrice}'),
-            pw.SizedBox(height: 5),
-            pw.Text('Tola Quantity : ${widget.tolaQuantity}'),
-            pw.SizedBox(height: 5),
-            pw.Text('Grams Quantity : ${widget.gramsQuantity}'),
-            pw.SizedBox(height: 5),
-            pw.Text('Rati Quantity : ${widget.ratiQuantity}'),
-            pw.SizedBox(height: 5),
-            pw.Text('Total Price : ${widget.totalPrice.toStringAsFixed(2)}'),
-          ],
+                  pw.Text(
+                    'Shop Name : ${shopInfo.shopnameController.text}',
+                    style: pw.TextStyle(
+                      fontSize: 22,
+                      fontWeight: pw.FontWeight.bold,
+                      color: PdfColors.amber, // Set text color to amber
+                    ),
+                  ),
+                  pw.Column(
+                    crossAxisAlignment: pw.CrossAxisAlignment.start,
+                    children: [
+                      pw.SizedBox(height: 40),
+                      pw.Text(
+                        'Date : ${obj.DateController.text}',
+                        style: pw.TextStyle(color: PdfColors.amber),
+                      ),
+                      pw.Text(
+                        'Mobile No1 : ${shopInfo.mblno1Controller.text}',
+                        style: pw.TextStyle(color: PdfColors.amber),
+                      ),
+                      pw.Text(
+                        'Mobile No2 : ${shopInfo.mblno2Controller.text}',
+                        style: pw.TextStyle(color: PdfColors.amber),
+                      ),
+                      pw.Text(
+                        'Ptcl No : ${shopInfo.ptclController.text}',
+                        style: pw.TextStyle(color: PdfColors.amber),
+                      ),
+                    ],
+                  ),
+                ],
+              ),
+              pw.Text(
+                'Shop Email : ${shopInfo.shopemailController.text}',
+                style: pw.TextStyle(color: PdfColors.amber),
+              ),
+              pw.SizedBox(height: 10),
+              pw.Text(
+                'Client Name : ${obj.clientNameController.text}',
+                style: pw.TextStyle(
+                  fontSize: 18,
+                  fontWeight: pw.FontWeight.bold,
+                  color: PdfColors.amber,
+                ),
+              ),
+              pw.SizedBox(height: 10),
+              pw.Text(
+                'Product Name : ${obj.productController.text}',
+                style: pw.TextStyle(color: PdfColors.amber),
+              ),
+              pw.SizedBox(height: 10),
+              pw.Text(
+                'Billing Details',
+                style: pw.TextStyle(
+                  fontSize: 18,
+                  fontWeight: pw.FontWeight.bold,
+                  color: PdfColors.amber,
+                ),
+              ),
+              pw.SizedBox(height: 10),
+              pw.Text(
+                'Gold Price : ${widget.goldPrice}',
+                style: pw.TextStyle(color: PdfColors.amber),
+              ),
+              pw.SizedBox(height: 5),
+              pw.Text(
+                'Tola Quantity : ${widget.tolaQuantity}',
+                style: pw.TextStyle(color: PdfColors.amber),
+              ),
+              pw.SizedBox(height: 5),
+              pw.Text(
+                'Grams Quantity : ${widget.gramsQuantity}',
+                style: pw.TextStyle(color: PdfColors.amber),
+              ),
+              pw.SizedBox(height: 5),
+              pw.Text(
+                'Rati Quantity : ${widget.ratiQuantity}',
+                style: pw.TextStyle(color: PdfColors.amber),
+              ),
+              pw.SizedBox(height: 5),
+              pw.Text(
+                'Total Price : ${widget.totalPrice.toStringAsFixed(2)}',
+                style: pw.TextStyle(color: PdfColors.amber),
+              ),
+            ],
+          ),
         ),
       ),
     );
 
     try {
       final directory = await getApplicationDocumentsDirectory();
-      final filePath =
-          '${directory.path}/ ${obj.clientNameController.text}.pdf';
-      // '//billing_details.pdf';
+      final filePath = '${directory.path}/ ${obj.clientNameController.text}.pdf';
       final file = File(filePath);
       await file.writeAsBytes(await pdf.save());
 
@@ -264,6 +384,7 @@ class _BillingHomeViewState extends State<BillingHomeView> {
       Get.snackbar('Error', 'Failed to create or open PDF: $e');
     }
   }
+
 
   @override
   Widget build(BuildContext context) {
@@ -289,8 +410,13 @@ class _BillingHomeViewState extends State<BillingHomeView> {
         child: isLoading
             ? const AppLoading() // Show loading spinner while creating PDF
             : FloatingActionButton(
-                onPressed: _createAndOpenPDF,
-                child: const Icon(Icons.picture_as_pdf),
+          backgroundColor: AppColors.secondryColor,
+                onPressed: (){
+                  _createAndOpenPDF();
+                //   createAndOpenPDF(widget.goldPrice,widget.tolaQuantity,
+                // widget.gramsQuantity,widget.ratiQuantity,widget.pointsQuantity);
+                  },
+                child: const Icon(Icons.picture_as_pdf,),
               ),
       ),
       body: Padding(
@@ -323,7 +449,11 @@ class _BillingHomeViewState extends State<BillingHomeView> {
               const SizedBox(height: 5),
               BillingTextFormField(
                 prefixicn:
-                    Icon(Icons.shopping_cart, color: AppColors.secondryColor),
+                    Padding(
+                      padding: const EdgeInsets.only(left: 10,right: 10),
+                      child: Image.asset(Images.shopping, width: 10,
+                          color: AppColors.secondryColor),
+                    ),
                 controller: obj.productController,
                 hnttxt: "Enter Product Name",
               ),
@@ -356,25 +486,7 @@ class _BillingHomeViewState extends State<BillingHomeView> {
                   ],
                 ),
               ),
-              Padding(
-                padding: const EdgeInsets.only(top: 150, left: 250),
-                child: MyButton(
-                  txt: '',
-                  font: 16,
-                  w: 80.w,
-                  h: 60.h,
-                  bacclr: AppColors.primryColor,
-                  clr: AppColors.secondryColor,
-                  ontap: () async {
-                    // isLoading
-                    //       ? const AppLoading() // Show loading spinner while creating PDF
-                    //       : FloatingActionButton(
-                    //       onPressed:
-                    //     _createAndOpenPDF;
-                    //);
-                  },
-                ),
-              ),
+
             ],
           ),
         ),

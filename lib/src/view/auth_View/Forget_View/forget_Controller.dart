@@ -10,14 +10,14 @@
 // }
 //-------------------------------------------------------------------
 
-import 'package:firebase_auth/firebase_auth.dart';
+
+
 import 'package:flutter/cupertino.dart';
-import 'package:flutter/material.dart';
-import 'package:get/get.dart';
 
-
+import '../../../utills/linker.dart';
 import '../../../utills/toast_ Notifications/toast_Notification.dart';
 import 'forget_Home.dart';
+
 
 class ForgetController extends GetxController {
   TextEditingController paswordController = TextEditingController();

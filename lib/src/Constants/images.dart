@@ -18,5 +18,6 @@ class Images {
   static String img = 'assets/img.png';
 
   static String gmail = 'assets/search.png';
-  // static String github='github-sign.png';
+  static String shop='assets/shop.png';
+  static String shopping='assets/shopping.png';
 }

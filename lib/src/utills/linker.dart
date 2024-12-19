@@ -19,8 +19,27 @@ export 'package:goldapp/src/view/Home_View/History_View/History_Widgets/txt_Widg
 export 'package:cloud_firestore/cloud_firestore.dart';
 export 'package:goldapp/src/view/Home_View/History_View/history_Controller.dart';
 export 'package:goldapp/src/view/Home_View/home_View/home_ViewWidgets/fetchdata-controller.dart';
-
 export 'package:goldapp/src/common_widgets/MyButton.dart';
+export 'package:goldapp/src/view/auth_View/login_View/login_View.dart';
+export 'package:goldapp/src/view/auth_View/signUp_View/signUp_View.dart';
+export 'package:goldapp/src/view/Home_View/AboutDeveloper_View/aboutDeveloper_View.dart';
+export 'package:goldapp/src/view/Home_View/home_View/home_ViewWidgets/listTile_Widget.dart';
+export 'package:goldapp/src/utills/linker.dart';
+export 'package:path_provider/path_provider.dart';
+export 'package:pdf/pdf.dart';
+export 'package:open_filex/open_filex.dart';
+export 'package:goldapp/src/view/auth_View/Shop_InformationView/shop_InformationController.dart';
+export 'package:flutter_spinkit/flutter_spinkit.dart';
+export 'package:fluttertoast/fluttertoast.dart';
+
+
+
+
+
+
+
+
+
 
 
 

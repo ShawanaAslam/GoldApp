@@ -1,5 +1,6 @@
-import 'package:flutter/material.dart';
-import 'package:goldapp/src/Constants/colors.dart';
+
+
+import '../utills/linker.dart';
 
 class SimpleTextFormField extends StatelessWidget {
   TextEditingController controller;

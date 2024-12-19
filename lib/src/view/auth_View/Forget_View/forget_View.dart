@@ -1,12 +1,11 @@
-import 'package:flutter/material.dart';
-import 'package:get/get.dart';
-import 'package:goldapp/src/utills/Loading_Effect/app_Loading.dart';
 
+
+
+
+import '../../../utills/linker.dart';
 import 'Forget_Widgets/inkwell_Widget.dart';
 import 'Forget_Widgets/txtFormField_widget.dart';
 import 'forget_Controller.dart';
-
-
 
 class ForgetPasword extends StatelessWidget {
  final _key = GlobalKey<FormState>();

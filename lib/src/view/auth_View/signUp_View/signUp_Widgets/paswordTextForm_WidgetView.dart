@@ -1,9 +1,5 @@
-// PaswordTextFormFeild with Getx
 
-import 'package:flutter/material.dart';
-import 'package:get/get.dart';
-
-import '../../../../Constants/colors.dart';
+import '../../../../utills/linker.dart';
 import 'paswordTextForm_WidgetController.dart';
 
 class PaswordTextForm extends StatefulWidget {

@@ -1,24 +1,13 @@
-import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:firebase_auth/firebase_auth.dart';
+
 import 'package:flutter/cupertino.dart';
-import 'package:flutter/material.dart';
-import 'package:get/get.dart';
-import 'package:goldapp/src/view/Home_View/AboutDeveloper_View/aboutDeveloper_View.dart';
-import 'package:goldapp/src/view/Home_View/home_View/home_ViewWidgets/fetchdata-controller.dart';
-import 'package:goldapp/src/view/Home_View/home_View/home_ViewWidgets/listTile_Widget.dart';
-import 'package:goldapp/src/view/auth_View/signUp_View/signUp_View.dart';
 
 import '../../../Constants/images.dart';
-import '../../../common_widgets/MyButton.dart';
 import '../../../common_widgets/reusable_mytxtformcon.dart';
-import '../../../common_widgets/reusable_text.dart';
-import '../../auth_View/login_View/login_View.dart';
+import '../../../utills/linker.dart';
 import '../AboutApp_View/aboutApp_View.dart';
 import '../History_View/history_View.dart';
-import 'home_ViewWidgets/validatorTextForm.dart';
 import 'gold HomeViewController.dart';
-
-// import '../../../utills/linker.dart';
+import 'home_ViewWidgets/validatorTextForm.dart';
 
 class GoldShop extends StatefulWidget {
   const GoldShop({super.key});

@@ -1,12 +1,8 @@
+
 import 'package:flutter/cupertino.dart';
-import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
 
-import '../../../Constants/colors.dart';
-import '../login_View/login_View.dart';
+import '../../../utills/linker.dart';
 import 'Forget_Widgets/inkwell_Widget.dart';
-
-
 
 class ForgetHome extends StatelessWidget {
   ForgetHome({super.key});

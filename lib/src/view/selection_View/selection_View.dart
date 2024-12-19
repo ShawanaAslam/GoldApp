@@ -1,13 +1,6 @@
-import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:get/get.dart';
-import 'package:goldapp/src/view/Home_View/home_View/gold-HomeView.dart';
-import 'package:goldapp/src/view/auth_View/login_View/login_View.dart';
-import 'package:goldapp/src/view/auth_View/signUp_View/signUp_View.dart';
-import 'package:google_fonts/google_fonts.dart';
 
-import '../../common_widgets/MyButton.dart';
-import '../../common_widgets/reusable_text.dart';
+
+import '../../utills/linker.dart';
 
 class SelectionView extends StatefulWidget {
   const SelectionView({super.key});

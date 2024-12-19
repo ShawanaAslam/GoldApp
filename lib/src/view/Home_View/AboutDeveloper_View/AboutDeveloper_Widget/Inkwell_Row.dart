@@ -1,6 +1,6 @@
-import 'package:flutter/material.dart';
 
-import '../../../../common_widgets/reusable_text.dart';
+
+import '../../../../utills/linker.dart';
 
 class InkWellRow extends StatelessWidget {
   VoidCallback ontap;

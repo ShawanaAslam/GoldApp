@@ -1,11 +1,5 @@
 
-
-import 'package:flutter/cupertino.dart';
-import 'package:flutter/material.dart';
-
-import '../Constants/colors.dart';
-
-
+import '../utills/linker.dart';
 
 class MyButton extends StatelessWidget {
   IconData? icon;

@@ -1,15 +1,8 @@
-import 'package:flutter/material.dart';
-import 'package:get/get.dart';
 
-import 'package:goldapp/src/view/auth_View/signUp_View/signUp_Widgets/paswordTextForm_WidgetView.dart';
-import 'package:google_fonts/google_fonts.dart';
-
-import '../../../Constants/colors.dart';
 import '../../../common_widgets/simpleTextForm_widget.dart';
-import '../../../utills/Loading_Effect/app_Loading.dart';
+import '../../../utills/linker.dart';
 import 'signUp_ViewController.dart';
-
-import '../login_view/login_view.dart';
+import 'signUp_Widgets/paswordTextForm_WidgetView.dart';
 
 class SignupView extends StatefulWidget {
   const SignupView({super.key});

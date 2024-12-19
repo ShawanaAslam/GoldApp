@@ -1,15 +1,6 @@
-import 'package:flutter/material.dart';
-import 'package:get/get_state_manager/src/simple/get_controllers.dart';
-import 'package:goldapp/src/utills/linker.dart';
-import 'package:path_provider/path_provider.dart';
-import 'dart:io';
-import 'package:flutter/material.dart';
-import 'package:get/get.dart';
-import 'package:pdf/pdf.dart';
-import 'package:pdf/widgets.dart' as pw;
-import 'package:path_provider/path_provider.dart';
-import 'package:open_filex/open_filex.dart';
 
+
+import '../../../utills/linker.dart';
 import '../../auth_View/Shop_InformationView/shop_InformationController.dart';
 
 class BillingController extends GetxController {
@@ -21,11 +12,12 @@ class BillingController extends GetxController {
   // fetch shop data according to current uerr logedin;
   HomeFetchDataController controller = Get.put(HomeFetchDataController());
   ShopInfoController shopInfo = Get.put(ShopInfoController());
-  BillingController obj = Get.put(BillingController());
+  //BillingController obj = Get.put(BillingController());
 
-  // Future<void> createAndOpenPDF(String goldprice) async {
+  // Future<void> createAndOpenPDF(String goldprice,tolaQuantity,gramsQuantity,
+  //     ratiQuantity,totalPrice) async {
   //   final pdf = pw.Document();
-
+  //
   //   pdf.addPage(
   //     pw.Page(
   //       build: (pw.Context context) => pw.Column(
@@ -60,18 +52,19 @@ class BillingController extends GetxController {
   //           pw.SizedBox(height: 10),
   //           pw.Text('Gold Price : ${goldprice}'),
   //           pw.SizedBox(height: 5),
-  //           pw.Text('Tola Quantity : ${widget.tolaQuantity}'),
+  //           pw.Text('Tola Quantity : ${tolaQuantity}'),
   //           pw.SizedBox(height: 5),
-  //           pw.Text('Grams Quantity : ${widget.gramsQuantity}'),
+  //           pw.Text('Grams Quantity : ${gramsQuantity}'),
   //           pw.SizedBox(height: 5),
-  //           pw.Text('Rati Quantity : ${widget.ratiQuantity}'),
+  //           pw.Text('Rati Quantity : ${ratiQuantity}'),
   //           pw.SizedBox(height: 5),
-  //           pw.Text('Total Price : ${widget.totalPrice.toStringAsFixed(2)}'),
+  //           pw.Text('Total Price : ${totalPrice}'),
+  //           //.gAstoStrinFixed(2)
   //         ],
   //       ),
   //     ),
   //   );
-
+  //
   //   try {
   //     isLoading.value = true;
   //     final directory = await getApplicationDocumentsDirectory();
@@ -80,7 +73,7 @@ class BillingController extends GetxController {
   //     // '//billing_details.pdf';
   //     final file = File(filePath);
   //     await file.writeAsBytes(await pdf.save());
-
+  //
   //     await OpenFilex.open(filePath);
   //   } catch (e) {
   //     isLoading.value = false;

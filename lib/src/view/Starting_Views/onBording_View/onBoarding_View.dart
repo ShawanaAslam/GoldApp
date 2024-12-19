@@ -45,7 +45,7 @@ class _OnBoardingViewState extends State<OnBoardingView> {
                     //});
                   },
                   children: [
-                    OnBoardingPageWidget(text: 'Simplify Gold Pricing',text1: 'Quickly calculate the total cost of gold with ease.\nEnter the price, quantity, and get instant results!', image: Images.img),
+                    OnBoardingPageWidget(text: 'Simplify Gold Pricing',text1: 'Quickly calculate the total cost of gold with ease.\nEnter the price, quantity, and get instant results!', image: Images.img,),
                     OnBoardingPageWidget(text: 'Offline or Online?',text1: 'Your Choice Offline for quick access.Online to track your history.It’s all about what works best for you.', image: Images.scndPage),
                     OnBoardingPageWidget(text:'Start Your Journey Today',text1: 'Your trusted companion for gold pricing.Accurate, reliable, and easy to use.', image: Images.thirdPage)
                   ],

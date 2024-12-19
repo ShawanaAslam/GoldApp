@@ -1,4 +1,6 @@
-import 'package:flutter/material.dart';
+
+
+import '../../../../utills/linker.dart';
 
 class InkwellWidget extends StatelessWidget {
   VoidCallback ontap;

@@ -1,6 +1,5 @@
-import 'package:flutter/material.dart';
-import 'package:get/get.dart';
-import 'package:get/get_state_manager/get_state_manager.dart';
+
+import '../../../../utills/linker.dart';
 
 class TextPasswordController extends GetxController {
   TextEditingController controller=TextEditingController();

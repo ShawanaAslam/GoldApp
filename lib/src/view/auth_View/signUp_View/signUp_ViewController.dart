@@ -108,16 +108,9 @@
 //     // }
 //
 
-///----------------------------
-import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:firebase_auth/firebase_auth.dart';
-import 'package:flutter/material.dart';
-import 'package:get/get.dart';
-import 'package:goldapp/src/view/auth_View/Shop_InformationView/shop_InformationView.dart';
-
-import '../../../Constants/colors.dart';
+import '../../../utills/linker.dart';
 import '../../../utills/toast_ Notifications/toast_Notification.dart';
-import '../login_View/login_View.dart';
+import '../Shop_InformationView/shop_InformationView.dart';
 
 // Backend Code
 class SignupController extends GetxController {

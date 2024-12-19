@@ -1,12 +1,7 @@
-import 'package:flutter/material.dart';
-import 'package:get/get.dart';
-import 'package:get/get_core/src/get_main.dart';
-import 'package:goldapp/src/Constants/colors.dart';
-import 'package:goldapp/src/view/auth_View/Shop_InformationView/shop_InformationController.dart';
 
-import '../../../common_widgets/reusable_text.dart';
+import '../../../Constants/images.dart';
 import '../../../common_widgets/simpleTextForm_widget.dart';
-import '../signUp_View/signUp_View.dart';
+import '../../../utills/linker.dart';
 
 class ShopInformationview extends StatefulWidget {
   const ShopInformationview({super.key});
@@ -49,9 +44,14 @@ class _ShopInformationviewState extends State<ShopInformationview> {
 
             SizedBox(height: 40,),
             SimpleTextFormField(
-                prefixicn: Icon(
-                  Icons.shopping_cart,
-                  color: Colors.amber,
+                prefixicn: Padding(
+                  padding: const EdgeInsets.only(left: 10,right: 10),
+                  child: Image.asset(
+                    Images.shop,
+                    //height:0,
+                    width: 10,
+                    color: Colors.amber,
+                  ),
                 ),
                 controller: shopInfo.shopnameController,
                 hnttxt: "Shop Name"),
@@ -63,6 +63,14 @@ class _ShopInformationviewState extends State<ShopInformationview> {
                 ),
                 controller: shopInfo.shopemailController,
                 hnttxt: "Shop Email"),
+            SizedBox(height: 10,),
+            SimpleTextFormField(
+                prefixicn: Icon(
+                  Icons.location_on_rounded,
+                  color: Colors.amber,
+                ),
+                controller: shopInfo.shopaddressController,
+                hnttxt: "Shop Address"),
             SizedBox(height: 10,),
             SimpleTextFormField(
                 prefixicn: Icon(
@@ -87,14 +95,7 @@ class _ShopInformationviewState extends State<ShopInformationview> {
                 ),
                 controller: shopInfo.ptclController,
                 hnttxt: "Landline No"),
-            SizedBox(height: 10,),
-            SimpleTextFormField(
-                prefixicn: Icon(
-                  Icons.location_on_rounded,
-                  color: Colors.amber,
-                ),
-                controller: shopInfo.shopaddressController,
-                hnttxt: "Shop Address"),
+
             SizedBox(height: 40,),
           InkWell(
             onTap: () {

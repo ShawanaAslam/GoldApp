@@ -37,12 +37,15 @@ TextButton(onPressed: (){
           flex: 60,
           child:   Container(
             margin: EdgeInsets.all(90),
-            child: Image.asset(
-            image,
-            height: 40,
-            // width: 400,
-                    ),
-          ),),
+            child:
+              Image.asset(
+              image,
+              height: 40,
+
+              // width: 400,
+                      ),
+            ),
+          ),
         Expanded(
             flex: 40,
             child:   Container(
