@@ -103,7 +103,7 @@ class _GoldShopState extends State<GoldShop> {
                       currentAccountPicture: CircleAvatar(
                         //  radius: 20,
                         backgroundColor: Colors.black,
-                        child: Image.asset(Images.Logo),
+                        backgroundImage: AssetImage(Images.Logo),
                       ),
                       accountName: Text(
                         'Shop Name : ${shopInfoController.shopname}',
