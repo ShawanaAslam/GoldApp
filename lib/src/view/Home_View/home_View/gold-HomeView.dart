@@ -1,4 +1,3 @@
-
 import 'package:flutter/cupertino.dart';
 
 import '../../../Constants/images.dart';
@@ -64,7 +63,6 @@ class _GoldShopState extends State<GoldShop> {
   final key = GlobalKey<FormState>();
   @override
   Widget build(BuildContext context) {
-
     GoldShopController obj = Get.put(GoldShopController());
 
     return Scaffold(
@@ -107,7 +105,7 @@ class _GoldShopState extends State<GoldShop> {
                         child: Image.asset(Images.Logo),
                       ),
                       accountName: Text(
-                        'Shop Name : ${ref.shopName}',
+                        'Shop Name : ${ref.userName}',
                         style: TextStyle(color: Colors.black),
                       ),
                       accountEmail: Text('User Email : ${ref.userEmail}',

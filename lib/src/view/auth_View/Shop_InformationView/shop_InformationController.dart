@@ -1,4 +1,3 @@
-
 import '../../../utills/linker.dart';
 import '../../../utills/toast_ Notifications/toast_Notification.dart';
 
@@ -10,13 +9,21 @@ class ShopInfoController extends GetxController {
   TextEditingController mblno2Controller = TextEditingController();
   TextEditingController ptclController = TextEditingController();
   var isLoading = false.obs;
+  var shopname = ''.obs;
+  var shopemail = ''.obs;
+  var shopaddress = ''.obs;
+  var mblno1 = ''.obs;
+  var mblno2 = ''.obs;
+  var ptcl = ''.obs;
+
+  void fetchShopInfo() {}
 
   void onSaveInfo(BuildContext context) {
     try {
       isLoading.value = true;
       shopInfo();
       Get.to(() => GoldShop());
-      confirmToastMessage(context, 'You are registered successfully');
+      confirmToastMessage(context, 'Your information has been saved');
     } catch (error) {
       isLoading.value = false;
       // Handle error

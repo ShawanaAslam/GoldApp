@@ -1,5 +1,3 @@
-
-
 import '../utills/linker.dart';
 
 class SimpleTextFormField extends StatelessWidget {
@@ -8,14 +6,16 @@ class SimpleTextFormField extends StatelessWidget {
   Color clr;
   Widget? prefixicn;
   Widget? pstfixicn;
+  TextInputType keyboardtype;
 
   SimpleTextFormField(
       {super.key,
-        required this.controller,
-        required this.hnttxt,
-        this.clr = Colors.white,
-        this.prefixicn,
-        this.pstfixicn});
+      required this.controller,
+      required this.hnttxt,
+      this.clr = Colors.white,
+      this.prefixicn,
+      this.keyboardtype = TextInputType.text,
+      this.pstfixicn});
 
   @override
   Widget build(BuildContext context) {
@@ -23,7 +23,8 @@ class SimpleTextFormField extends StatelessWidget {
       padding: EdgeInsets.only(left: 30, right: 30),
       child: TextFormField(
         controller: controller,
-        style:  TextStyle(color: Colors.white),
+        keyboardType: keyboardtype,
+        style: TextStyle(color: Colors.white),
         cursorColor: Colors.amber,
         // true / false
         validator: (value) {
@@ -62,28 +63,31 @@ class SimpleTextFormField extends StatelessWidget {
             fillColor: Colors.black,
             filled: true,
             hintText: hnttxt,
-
             errorStyle: TextStyle(color: AppColors.secondryColor),
             hintStyle: TextStyle(color: Colors.amber, fontSize: 14),
             enabledBorder: OutlineInputBorder(
-              borderSide: BorderSide(color: Colors.amber, ),
+              borderSide: BorderSide(
+                color: Colors.amber,
+              ),
               borderRadius: BorderRadius.circular(10),
             ),
             focusedBorder: OutlineInputBorder(
-              borderSide: BorderSide(color: Colors.amber, ),
-              borderRadius: BorderRadius.circular(10),// Border when focused
+              borderSide: BorderSide(
+                color: Colors.amber,
+              ),
+              borderRadius: BorderRadius.circular(10), // Border when focused
             ),
             errorBorder: OutlineInputBorder(
-              borderSide: BorderSide(color: Colors.amber, ),
+              borderSide: BorderSide(
+                color: Colors.amber,
+              ),
               borderRadius: BorderRadius.circular(10),
             ),
-          focusedErrorBorder: OutlineInputBorder(
-            borderSide: BorderSide(color: Colors.white),
-            borderRadius: BorderRadius.circular(10),
-          )
-        ),
+            focusedErrorBorder: OutlineInputBorder(
+              borderSide: BorderSide(color: Colors.white),
+              borderRadius: BorderRadius.circular(10),
+            )),
       ),
     );
   }
 }
-
