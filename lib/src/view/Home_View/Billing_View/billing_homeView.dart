@@ -1,6 +1,3 @@
-
-
-
 // class BillingHomeView extends StatefulWidget {
 //   String goldPrice;
 //   String tolaQuantity;
@@ -134,7 +131,7 @@ import 'dart:io';
 
 import '../../../Constants/images.dart';
 import '../../../utills/linker.dart';
- import 'package:pdf/widgets.dart' as pw;
+import 'package:pdf/widgets.dart' as pw;
 import '../../auth_View/Shop_InformationView/shop_InformationController.dart';
 import 'Billing_Widgets/DateTimePicker_TextFormField.dart';
 import 'Billing_Widgets/billing_TextFormField.dart';
@@ -293,7 +290,7 @@ class _BillingHomeViewState extends State<BillingHomeView> {
                         style: pw.TextStyle(color: PdfColors.amber),
                       ),
                       pw.Text(
-                        'Mobile No1 : ${shopInfo.mblno1Controller.text}',
+                        'Mobile No1 : ${shopInfo.mblno1.value}',
                         style: pw.TextStyle(color: PdfColors.amber),
                       ),
                       pw.Text(
@@ -368,7 +365,8 @@ class _BillingHomeViewState extends State<BillingHomeView> {
 
     try {
       final directory = await getApplicationDocumentsDirectory();
-      final filePath = '${directory.path}/ ${obj.clientNameController.text}.pdf';
+      final filePath =
+          '${directory.path}/ ${obj.clientNameController.text}.pdf';
       final file = File(filePath);
       await file.writeAsBytes(await pdf.save());
 
@@ -384,7 +382,6 @@ class _BillingHomeViewState extends State<BillingHomeView> {
       Get.snackbar('Error', 'Failed to create or open PDF: $e');
     }
   }
-
 
   @override
   Widget build(BuildContext context) {
@@ -410,13 +407,15 @@ class _BillingHomeViewState extends State<BillingHomeView> {
         child: isLoading
             ? const AppLoading() // Show loading spinner while creating PDF
             : FloatingActionButton(
-          backgroundColor: AppColors.secondryColor,
-                onPressed: (){
+                backgroundColor: AppColors.secondryColor,
+                onPressed: () {
                   _createAndOpenPDF();
-                //   createAndOpenPDF(widget.goldPrice,widget.tolaQuantity,
-                // widget.gramsQuantity,widget.ratiQuantity,widget.pointsQuantity);
-                  },
-                child: const Icon(Icons.picture_as_pdf,),
+                  //   createAndOpenPDF(widget.goldPrice,widget.tolaQuantity,
+                  // widget.gramsQuantity,widget.ratiQuantity,widget.pointsQuantity);
+                },
+                child: const Icon(
+                  Icons.picture_as_pdf,
+                ),
               ),
       ),
       body: Padding(
@@ -448,12 +447,11 @@ class _BillingHomeViewState extends State<BillingHomeView> {
               ),
               const SizedBox(height: 5),
               BillingTextFormField(
-                prefixicn:
-                    Padding(
-                      padding: const EdgeInsets.only(left: 10,right: 10),
-                      child: Image.asset(Images.shopping, width: 10,
-                          color: AppColors.secondryColor),
-                    ),
+                prefixicn: Padding(
+                  padding: const EdgeInsets.only(left: 10, right: 10),
+                  child: Image.asset(Images.shopping,
+                      width: 10, color: AppColors.secondryColor),
+                ),
                 controller: obj.productController,
                 hnttxt: "Enter Product Name",
               ),
@@ -486,7 +484,6 @@ class _BillingHomeViewState extends State<BillingHomeView> {
                   ],
                 ),
               ),
-
             ],
           ),
         ),

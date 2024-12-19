@@ -20,12 +20,13 @@ class _GoldShopState extends State<GoldShop> {
   // late String userEmail;
   // // best approach: late
   // String userName = '';
-
+  ShopInfoController shopInfoController = Get.put(ShopInfoController());
   @override
   void initState() {
     // TODO: implement initState
     super.initState();
     ref.fetchUserData();
+    shopInfoController.fetchShopInfo();
     //FetchuserData();
   }
 
@@ -105,7 +106,8 @@ class _GoldShopState extends State<GoldShop> {
                         child: Image.asset(Images.Logo),
                       ),
                       accountName: Text(
-                        'Shop Name : ${ref.userName}',
+                        'Shop Name : ${shopInfoController.shopname}',
+                        //'Shop Name : ${ref.userName}',
                         style: TextStyle(color: Colors.black),
                       ),
                       accountEmail: Text('User Email : ${ref.userEmail}',

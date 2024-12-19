@@ -9,6 +9,7 @@ class ShopInfoController extends GetxController {
   TextEditingController mblno2Controller = TextEditingController();
   TextEditingController ptclController = TextEditingController();
   var isLoading = false.obs;
+
   var shopname = ''.obs;
   var shopemail = ''.obs;
   var shopaddress = ''.obs;
