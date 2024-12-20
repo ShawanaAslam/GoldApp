@@ -20,13 +20,14 @@ class _GoldShopState extends State<GoldShop> {
   // late String userEmail;
   // // best approach: late
   // String userName = '';
-  ShopInfoController shopInfoController = Get.put(ShopInfoController());
+  ShopInfoController shopInfo = Get.put(ShopInfoController());
+
   @override
   void initState() {
     // TODO: implement initState
     super.initState();
     ref.fetchUserData();
-    shopInfoController.fetchShopInfo();
+    shopInfo.fetchShopInfo();
     //FetchuserData();
   }
 
@@ -106,11 +107,11 @@ class _GoldShopState extends State<GoldShop> {
                         backgroundImage: AssetImage(Images.Logo),
                       ),
                       accountName: Text(
-                        'Shop Name : ${shopInfoController.shopname}',
+                        'Shop Name : ${shopInfo.shopname}',
                         //'Shop Name : ${ref.userName}',
                         style: TextStyle(color: Colors.black),
                       ),
-                      accountEmail: Text('User Email : ${ref.userEmail}',
+                      accountEmail: Text('Shop Email : ${shopInfo.shopemail}',
                           style: TextStyle(color: Colors.black))),
 
                   ListTileWidget(

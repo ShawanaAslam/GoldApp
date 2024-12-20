@@ -22,7 +22,7 @@ class ShopInfoController extends GetxController {
       User? user = await FirebaseAuth.instance.currentUser;
       if (user != null) // false
           {
-        shopname.value = await user!.email ?? '';
+       // shopname.value = await user!.email ?? '';
         shopemail.value = user.uid ?? '';
         if (shopemail != null) {
           final userdocs = await FirebaseFirestore.instance
