@@ -406,17 +406,23 @@ class _BillingHomeViewState extends State<BillingHomeView> {
         padding: const EdgeInsets.symmetric(vertical: 14.0,
         //    horizontal: 32.0
         ),
-        child: isLoading
-            ? AppLoading() // Show loading spinner while creating PDF
-            : FloatingActionButton(
+        child:
+       isLoading
+           ? AppLoading() // Show loading spinner while creating PDF
+           :
+
+        FloatingActionButton(
+
                 backgroundColor: AppColors.secondryColor,
-                onPressed: () {
+                onPressed:() {
     if (key.currentState!.validate()){
     _createAndOpenPDF();
     //   createAndOpenPDF(widget.goldPrice,widget.tolaQuantity,
     // widget.gramsQuantity,widget.ratiQuantity,widget.pointsQuantity);
     } },
-                child: const Icon(
+                child:
+               //isLoading?AppLoading():
+                const Icon(
                   Icons.picture_as_pdf,
                 ),
               ),
