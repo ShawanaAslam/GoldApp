@@ -1,4 +1,4 @@
-import '../../../../utills/linker.dart';
+import '../../../utills/linker.dart';
 
 class HomeFetchDataController extends GetxController {
   var userId = ''.obs;

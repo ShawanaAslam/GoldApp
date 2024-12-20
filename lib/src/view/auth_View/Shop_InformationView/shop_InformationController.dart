@@ -17,7 +17,37 @@ class ShopInfoController extends GetxController {
   var mblno2 = ''.obs;
   var ptcl = ''.obs;
 
-  void fetchShopInfo() {}
+  void fetchShopInfo() async {
+   // try {
+      User? user = await FirebaseAuth.instance.currentUser;
+      if (user != null) // false
+          {
+        shopname.value = await user!.email ?? '';
+        shopemail.value = user.uid ?? '';
+        if (shopemail != null) {
+          final userdocs = await FirebaseFirestore.instance
+              .collection('shopInfo')
+              .where('docId', isEqualTo: shopemail.value)
+              .get();
+          if (userdocs.docs.isNotEmpty) {
+            //setState(() {
+            shopname.value = userdocs.docs.first['name'];
+            shopemail.value = userdocs.docs.first['name'];
+            shopaddress.value = userdocs.docs.first['name'];
+            mblno1.value = userdocs.docs.first['name'];
+            mblno2.value = userdocs.docs.first['name'];
+            ptcl.value = userdocs.docs.first['name'];
+
+            //  });
+          }
+        }
+      }
+    // } catch (error) {
+    //   print('Error:$error');
+    //   Get.snackbar('Error', 'Error:$error');
+    // }
+  //}
+ }
 
   void onSaveInfo(BuildContext context) {
     try {

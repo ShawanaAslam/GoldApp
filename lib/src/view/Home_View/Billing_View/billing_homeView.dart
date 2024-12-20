@@ -271,10 +271,42 @@ class _BillingHomeViewState extends State<BillingHomeView> {
             crossAxisAlignment: pw.CrossAxisAlignment.start,
             children: [
               pw.Row(
+                mainAxisAlignment: pw.MainAxisAlignment.center,
+                children: [
+                  pw.Column(
+                    crossAxisAlignment: pw.CrossAxisAlignment.center,
+                    children: [
+                      pw.SizedBox(height: 40),
+                      pw.Text(
+                        'Shop Address : ${shopInfo.shopaddress.value}',
+                        style: pw.TextStyle(
+                          fontSize: 22,
+                          fontWeight: pw.FontWeight.bold,
+                          color: PdfColors.amber, // Set text color to amber
+                        ),
+                      ),
+                      pw.Text(
+                        'Mobile No1 : ${shopInfo.mblno1.value}',
+                        style: pw.TextStyle(color: PdfColors.amber),
+                      ),
+                      pw.Text(
+                        'Mobile No2 : ${shopInfo.mblno2.value}',
+                        style: pw.TextStyle(color: PdfColors.amber),
+                      ),
+                      pw.Text(
+                        'Ptcl No : ${shopInfo.ptcl.value}',
+                        style: pw.TextStyle(color: PdfColors.amber),
+                      ),
+                    ],
+                  ),
+                ],
+              ),
+              pw.SizedBox(height: 40),
+              pw.Row(
                 mainAxisAlignment: pw.MainAxisAlignment.spaceBetween,
                 children: [
                   pw.Text(
-                    'Shop Name : ${shopInfo.shopnameController.text}',
+                    'Shop Name : ${shopInfo.shopname.value}',
                     style: pw.TextStyle(
                       fontSize: 22,
                       fontWeight: pw.FontWeight.bold,
@@ -284,29 +316,29 @@ class _BillingHomeViewState extends State<BillingHomeView> {
                   pw.Column(
                     crossAxisAlignment: pw.CrossAxisAlignment.start,
                     children: [
-                      pw.SizedBox(height: 40),
+
                       pw.Text(
                         'Date : ${obj.DateController.text}',
                         style: pw.TextStyle(color: PdfColors.amber),
                       ),
-                      pw.Text(
-                        'Mobile No1 : ${shopInfo.mblno1.value}',
-                        style: pw.TextStyle(color: PdfColors.amber),
-                      ),
-                      pw.Text(
-                        'Mobile No2 : ${shopInfo.mblno2Controller.text}',
-                        style: pw.TextStyle(color: PdfColors.amber),
-                      ),
-                      pw.Text(
-                        'Ptcl No : ${shopInfo.ptclController.text}',
-                        style: pw.TextStyle(color: PdfColors.amber),
-                      ),
+                      // pw.Text(
+                      //   'Mobile No1 : ${shopInfo.mblno1.value}',
+                      //   style: pw.TextStyle(color: PdfColors.amber),
+                      // ),
+                      // pw.Text(
+                      //   'Mobile No2 : ${shopInfo.mblno2.value}',
+                      //   style: pw.TextStyle(color: PdfColors.amber),
+                      // ),
+                      // pw.Text(
+                      //   'Ptcl No : ${shopInfo.ptcl.value}',
+                      //   style: pw.TextStyle(color: PdfColors.amber),
+                      // ),
                     ],
                   ),
                 ],
               ),
               pw.Text(
-                'Shop Email : ${shopInfo.shopemailController.text}',
+                'Shop Email : ${shopInfo.shopemail.value}',
                 style: pw.TextStyle(color: PdfColors.amber),
               ),
               pw.SizedBox(height: 10),

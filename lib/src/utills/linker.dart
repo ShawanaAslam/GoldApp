@@ -18,7 +18,7 @@ export 'package:goldapp/src/Constants/colors.dart';
 export 'package:goldapp/src/view/Home_View/History_View/History_Widgets/txt_Widget.dart';
 export 'package:cloud_firestore/cloud_firestore.dart';
 export 'package:goldapp/src/view/Home_View/History_View/history_Controller.dart';
-export 'package:goldapp/src/view/Home_View/home_View/home_ViewWidgets/fetchdata-controller.dart';
+export 'package:goldapp/src/view/Home_View/home_View/fetchdata-controller.dart';
 export 'package:goldapp/src/common_widgets/MyButton.dart';
 export 'package:goldapp/src/view/auth_View/login_View/login_View.dart';
 export 'package:goldapp/src/view/auth_View/signUp_View/signUp_View.dart';
