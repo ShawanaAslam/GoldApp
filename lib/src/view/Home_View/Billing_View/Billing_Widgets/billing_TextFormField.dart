@@ -22,6 +22,7 @@ class BillingTextFormField extends StatelessWidget {
     return Padding(
       padding: EdgeInsets.only(left: 30, right: 30),
       child: TextFormField(
+        keyboardType: TextInputType.text,
         controller: controller,
         style:  TextStyle(color: Colors.white),
         cursorColor: Colors.amber,

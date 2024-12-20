@@ -26,7 +26,7 @@ class _LoginViewState extends State<LoginView> {
           backgroundColor: Colors.black,
           body: SingleChildScrollView(
             child: Form(
-              key: key,
+             // key: key,
               child: Center(
                 child: Column(
                   children: [
@@ -80,9 +80,10 @@ InkWell(onTap: (){
                             },
                             child: Padding(
                               padding: const EdgeInsets.only(right: 30),
-                              child: Text(
+                              child: MyText(txt:
                                 'Forget Pasword?',
-                                style: TextStyle(color: Colors.white),
+                               txtclr: AppColors.whiteColor,
+
                               ),
                             ))
                       ],
@@ -93,51 +94,43 @@ InkWell(onTap: (){
                     Obx(() {
                       return loginController.isLoading.value
                           ? AppLoading()
-                          : InkWell(
-                              onTap: () {
-                                // difference b/w validation and exception
-                                // validator--> handle in front end(design side)
-                                //exceptions--> handle in backend (in data base)
+                          :   MyButton(
+                          ontap: (){
+                            print('-----------------------1');
+                            // difference b/w validation and exception
+                            // validator--> handle in front end(design side)
+                            //exceptions--> handle in backend (in data base)
 
-                                if (key.currentState!
-                                    .validate()) // true --- false
-                                //(_formKey.currentState!.validate())
+
+                          // if (key.currentState!.validate()) // true --- false
+                              //(_formKey.currentState!.validate())
                                 {
-                                  loginController.onLogin(context);
-                                }
-                              },
-                              child: Container(
-                                  decoration: BoxDecoration(
-                                      borderRadius: BorderRadius.circular(10),
-                                      color: Colors.amber),
-                                  height: 40,
-                                  width: 250,
-                                  child: Center(
-                                      child: Text(
-                                    'Log in',
-                                    style: TextStyle(
-                                        fontSize: 16,
-                                        fontWeight: FontWeight.w600,
-                                        color: Colors.black),
-                                  ))),
-                            );
+                              loginController.onLogin(context);
+                            }
+                          },
+                          txt: 'Log in', w: 270.w, h: 50.h, bacclr: AppColors.primryColor,
+                          clr: AppColors.secondryColor);
                     }),
                     SizedBox(
                       height: 5,
                     ),
                     Row(mainAxisAlignment: MainAxisAlignment.center, children: [
-                      Text(
+                      MyText(txt:
                         "Don't have an account ?",
-                        style: GoogleFonts.roboto(color: Colors.amber),
+                        txtclr: AppColors.secondryColor,
+                        font: 15,
+
                       ),
                       SizedBox(width: 10),
                       InkWell(
                           onTap: () {
                             Get.to(() => SignupView());
                           },
-                          child: Text(
+                          child: MyText(txt:
                             'Sign Up',
-                            style: TextStyle(color: Colors.white),
+                            txtclr: AppColors.whiteColor,
+                            font: 15,
+
                           ))
                     ])
                   ],

@@ -75,23 +75,15 @@ flutter:
 
 
   assets:
-    - assets/goldring.jpeg
-    - assets/goldstack.png
-    - assets/goldbic.jpg
-    - assets/gold.png
+
     - assets/bars.png
     - assets/gabon.png
     - assets/ib.png
-    - assets/signup.png
-    - assets/developr.png
-    - assets/laptop.png
-    - assets/coding.png
     - assets/whatsapp.png
     - assets/linkedin.png
     - assets/instagram.png
     - assets/gmail.png
     - assets/github.png
-    - assets/scale.png
     - assets/money.png
     - assets/shop.png
     - assets/shopping.png
@@ -99,7 +91,6 @@ flutter:
     - assets/GA Logo.png
     - assets/img.png
     - assets/search.png
-    - assets/github-sign.png
   #   - images/a_dot_burr.jpeg
   #   - images/a_dot_ham.jpeg
 

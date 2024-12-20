@@ -271,6 +271,7 @@ class GoldShopController extends GetxController {
   //double
   var total = 0.0.obs;
   var userId = ''.obs;
+  HomeFetchDataController ref = Get.put(HomeFetchDataController());
 
   void onfuction() {
     if (
@@ -328,25 +329,40 @@ class GoldShopController extends GetxController {
               clr: Colors.black,
               font: 15,
             ),
-            MyButton(
-                txt: 'Print',
-                w: 70,
-                h: 40,
-                bacclr: Colors.amber,
-                clr: Colors.black,
-                font: 15,
-                ontap: () {
-                  Get.back();
+            Obx(() {
+              return ref.userId.value != ''
+?  MyButton(
+                  txt: 'Print',
+                  w: 70,
+                  h: 40,
+                  bacclr: Colors.amber,
+                  clr: Colors.black,
+                  font: 15,
+                  ontap: () {
+                    Get.back();
 
-                  Get.to(() => BillingHomeView(
-                      goldPrice: goldPriceController.text,
-                      tolaQuantity: tolaPricecontroller.text,
-                      gramsQuantity: gramPricecontroller.text,
-                      ratiQuantity: ratiPricecontroller.text,
-                      pointsQuantity: pointsPricecontroller.text,
-                      totalPrice: total.value));
-                  //  refresh();
-                })
+                    Get.to(() => BillingHomeView(
+                        goldPrice: goldPriceController.text,
+                        tolaQuantity: tolaPricecontroller.text,
+                        gramsQuantity: gramPricecontroller.text,
+                        ratiQuantity: ratiPricecontroller.text,
+                        pointsQuantity: pointsPricecontroller.text,
+                        totalPrice: total.value));
+                    //  refresh();
+                  })
+              //     ? IconButton(
+              //   onPressed: () {
+              //     // navigate to history screen
+              //     Get.to(() => HistoryView());
+              //   },
+              //   icon: Icon(
+              //     Icons.history_toggle_off,
+              //     size: 30,
+              //   ),
+              // )
+                  : Container();
+            })
+
           ]);
     }
 

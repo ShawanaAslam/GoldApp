@@ -21,6 +21,7 @@ class MyTextFormCon extends StatelessWidget {
       height: 40,
       width: 150,
       child: TextFormField(
+        keyboardType: TextInputType.number,
         controller: controller,
         cursorColor: Colors.amber,
         style: TextStyle(color: Colors.white),

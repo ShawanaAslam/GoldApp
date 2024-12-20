@@ -117,7 +117,7 @@ class _GoldShopState extends State<GoldShop> {
                       ontap: () {
                         Get.back();
                       },
-                      txt: 'Home',
+                      txt: 'Gold App',
                       icon: Icons.home),
 
                   Obx(() {
@@ -221,6 +221,7 @@ class _GoldShopState extends State<GoldShop> {
               child: Form(
                 key: key,
                 child: MyTextFormConVali(
+           //       Keyboardtype: TextInputType.number,
                   controller: obj.goldPriceController,
                   hinttxt: "Enter gold Price",
                   lbltxt: "Gold Price",

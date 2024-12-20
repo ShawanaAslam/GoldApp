@@ -110,33 +110,25 @@ class _ShopInformationviewState extends State<ShopInformationview> {
               SizedBox(
                 height: 40,
               ),
-              InkWell(
-                onTap: () {
-                  // difference b/w validation and exception
-                  // validator--> handle in front end(design side)
-                  //exceptions--> handle in backend (in data base)
+          shopInfo.isLoading.value?
+              AppLoading():
+          MyButton(
+              ontap: (){
+                print('-----------------------1');
+                // difference b/w validation and exception
+                // validator--> handle in front end(design side)
+                //exceptions--> handle in backend (in data base)
 
-                  if (key.currentState!.validate()) // true --- false
-                  //(_formKey.currentState!.validate())
-                  {
-                    shopInfo.onSaveInfo(context);
-                  }
-                },
-                child: Container(
-                    decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(10),
-                        color: Colors.amber),
-                    height: 40,
-                    width: 250,
-                    child: Center(
-                        child: Text(
-                      'Save Info',
-                      style: TextStyle(
-                          fontSize: 16,
-                          fontWeight: FontWeight.w600,
-                          color: Colors.black),
-                    ))),
-              )
+
+                if (key.currentState!.validate()) // true --- false
+                //(_formKey.currentState!.validate())
+                {
+                  shopInfo.onSaveInfo(context);
+                }
+              },
+              txt: 'Save Info', w: 270.w, h: 50.h, bacclr: AppColors.primryColor,
+              clr: AppColors.secondryColor)
+
             ],
           ),
         ),

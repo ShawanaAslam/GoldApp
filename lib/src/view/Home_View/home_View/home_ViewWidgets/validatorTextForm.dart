@@ -6,10 +6,12 @@ class MyTextFormConVali extends StatelessWidget {
   TextEditingController controller;
   String hinttxt;
   String lbltxt;
+  //TextInputType keyboardtype;
 
   MyTextFormConVali(
       {super.key,
       required this.hinttxt,
+    //    this.keyboardtype = TextInputType.text,
       required this.controller,
       required this.lbltxt});
 
@@ -18,6 +20,7 @@ class MyTextFormConVali extends StatelessWidget {
     return SizedBox(
       width: 150,
       child: TextFormField(
+        keyboardType: TextInputType.number,
         controller: controller,
         validator: (value) {
           if (value == null || value.isEmpty) {

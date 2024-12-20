@@ -48,99 +48,64 @@ class _SignupViewState extends State<SignupView> {
                     height: 20,
                   ),
                   PaswordTextformfield(
+
+                      keyboardtype: TextInputType.number,
                       controller: signupController.passwordController,
                       hnttxt: "Enter Pasword"),
                   SizedBox(
                     height: 20,
                   ),
                   PaswordTextformfield(
+                    keyboardtype: TextInputType.number,
                       controller: signupController.confirmController,
                       hnttxt: "Confirm Pasword"),
 
                   SizedBox(
                     height: 50,
                   ),
-                  // TextFormField(
-                  //   style: TextStyle(color: Colors.white),
-                  //   decoration: InputDecoration(
-                  //       labelText: "Enter Text",
-                  //       labelStyle: TextStyle(color: Colors.white),
-                  //       hintText: 'Enter Text',
-                  //       hintStyle: TextStyle(color: Colors.white)),
-                  // ),
-                  // SizedBox(
-                  //   height: 15,
-                  // ),
-                  // TextFormField(
-                  //   style: TextStyle(color: Colors.white),
-                  //   decoration: InputDecoration(
-                  //       labelText: "Enter Text",
-                  //       labelStyle: TextStyle(color: Colors.white),
-                  //       hintText: 'Enter Text',
-                  //       hintStyle: TextStyle(color: Colors.white)),
-                  // ),
-
-                  // SizedBox(
-                  //   height: 15,
-                  // ),
-                  // TextFormField(
-                  //   style: TextStyle(color: Colors.white),
-                  //   decoration: InputDecoration(
-                  //       labelText: "Enter Text",
-                  //       labelStyle: TextStyle(color: Colors.white),
-                  //       hintText: 'Enter Text',
-                  //       hintStyle: TextStyle(color: Colors.white)),
-                  // ),
 
                   Obx(() {
                     return signupController.isLoading.value
                         ? AppLoading()
-                        : InkWell(
-                            onTap: () {
-                              print('-----------------------1');
-                              // difference b/w validation and exception
-                              // validator--> handle in front end(design side)
-                              //exceptions--> handle in backend (in data base)
-                              signupController.onSignup(context);
+                        :
+                    MyButton(
+                        ontap: (){
+                          print('-----------------------1');
+                          // difference b/w validation and exception
+                          // validator--> handle in front end(design side)
+                          //exceptions--> handle in backend (in data base)
+                          signupController.onSignup(context);
 
-                              // if (key.currentState!
-                              //     .validate()) // true --- false
-                              // //(_formKey.currentState!.validate())
-                              // {
-                              //   print('--------------------------2');
-                              //   signupController.onSignup(context);
-                              // }
-                            },
-                            child: Container(
-                              decoration: BoxDecoration(
-                                  borderRadius: BorderRadius.circular(10),
-                                  color: Colors.amber),
-                              height: 40,
-                              width: 250,
-                              child: Center(
-                                  child: Text(
-                                'Sign Up',
-                                style: TextStyle(color: Colors.black),
-                              )),
-                            ),
-                          );
+                          // if (key.currentState!
+                          //     .validate()) // true --- false
+                          // //(_formKey.currentState!.validate())
+                          // {
+                          //   print('--------------------------2');
+                          //   signupController.onSignup(context);
+                          // }
+                        },
+                        txt: 'Sign Up', w: 270.w, h: 50.h, bacclr: AppColors.primryColor,
+                        clr: AppColors.secondryColor) ;
+
                   }),
                   SizedBox(
                     height: 5,
                   ),
                   Row(mainAxisAlignment: MainAxisAlignment.center, children: [
-                    Text(
+                    MyText(txt:
                       'Already have an account ?',
-                      style: GoogleFonts.roboto(color: Colors.amber),
+                     font: 15,
+                     txtclr: AppColors.secondryColor,
                     ),
                     SizedBox(width: 10),
                     InkWell(
                         onTap: () {
                           Get.to(() => LoginView());
                         },
-                        child: Text(
-                          'Login',
-                          style: TextStyle(color: Colors.white),
+                        child: MyText(txt:
+                          'Login',font: 15,
+                        txtclr: AppColors.whiteColor,
+
                         ))
                   ])
                 ],

@@ -16,8 +16,9 @@ class ForgetHome extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            Text('Email send successfuly, please check your email',
-            style: GoogleFonts.roboto(color: Colors.amber),),
+            MyText(txt: 'Email send successfuly, please check your email',
+            txtclr: AppColors.secondryColor,
+            ),
             SizedBox(
               height: 20,
             ),

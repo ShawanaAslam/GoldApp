@@ -59,8 +59,15 @@ class _DatePickerTextformfieldState extends State<DatePickerTextformfield> {
     return Padding(
       padding: EdgeInsets.only(left: 30, right: 30),
       child: TextFormField(
+        keyboardType: TextInputType.number,
         controller: widget.controller,
         cursorColor: AppColors.secondryColor,
+    validator: (value) {
+    if (value == null || value.isEmpty) {
+    return 'Please ${widget.hnttxt}';
+    }
+    return null;
+    },
         style: TextStyle(color: Colors.white),
         decoration: InputDecoration(
             //prefixIcon:Icon(Icons.cal,color:AppColors.secondryColor,) ,

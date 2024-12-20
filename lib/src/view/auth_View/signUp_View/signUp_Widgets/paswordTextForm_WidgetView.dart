@@ -1,6 +1,10 @@
 
+// PaswordTextFormFeild with Getx
+
 import '../../../../utills/linker.dart';
 import 'paswordTextForm_WidgetController.dart';
+
+// PaswordTextFormFeild with Getx
 
 class PaswordTextForm extends StatefulWidget {
   TextEditingController controller;
@@ -130,10 +134,12 @@ class PaswordTextformfield extends StatefulWidget {
   String hnttxt;
   Color clr;
   Widget? prefixicn;
+  TextInputType keyboardtype;
 
   PaswordTextformfield(
       {super.key,
         //required this.confirmController,
+        this.keyboardtype = TextInputType.text,
         required this.controller,
         required this.hnttxt,
         this.clr = Colors.white,
@@ -151,6 +157,7 @@ class _PaswordTextformfieldState extends State<PaswordTextformfield> {
     return Padding(
       padding: EdgeInsets.only(left: 30, right: 30),
       child: TextFormField(
+     //   keyboardType: keyboardtype,
         style: TextStyle(color: Colors.white),
         cursorColor: Colors.amber,
         validator: (value) {

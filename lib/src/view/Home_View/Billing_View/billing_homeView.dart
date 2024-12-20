@@ -382,7 +382,7 @@ class _BillingHomeViewState extends State<BillingHomeView> {
       Get.snackbar('Error', 'Failed to create or open PDF: $e');
     }
   }
-
+  final key = GlobalKey<FormState>();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -403,16 +403,19 @@ class _BillingHomeViewState extends State<BillingHomeView> {
         centerTitle: true,
       ),
       floatingActionButton: Padding(
-        padding: const EdgeInsets.symmetric(vertical: 16.0, horizontal: 32.0),
+        padding: const EdgeInsets.symmetric(vertical: 14.0,
+        //    horizontal: 32.0
+        ),
         child: isLoading
-            ? const AppLoading() // Show loading spinner while creating PDF
+            ? AppLoading() // Show loading spinner while creating PDF
             : FloatingActionButton(
                 backgroundColor: AppColors.secondryColor,
                 onPressed: () {
-                  _createAndOpenPDF();
-                  //   createAndOpenPDF(widget.goldPrice,widget.tolaQuantity,
-                  // widget.gramsQuantity,widget.ratiQuantity,widget.pointsQuantity);
-                },
+    if (key.currentState!.validate()){
+    _createAndOpenPDF();
+    //   createAndOpenPDF(widget.goldPrice,widget.tolaQuantity,
+    // widget.gramsQuantity,widget.ratiQuantity,widget.pointsQuantity);
+    } },
                 child: const Icon(
                   Icons.picture_as_pdf,
                 ),
@@ -421,70 +424,73 @@ class _BillingHomeViewState extends State<BillingHomeView> {
       body: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 8.0),
         child: SingleChildScrollView(
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              SizedBox(
-                height: 20,
-              ),
-              Padding(
-                padding: const EdgeInsets.only(left: 130),
-                child: DatePickerTextformfield(
-                  controller: obj.DateController,
-                  hnttxt: 'Enter Date',
-                  clr: AppColors.primryColor,
+          child: Form(
+            key: key,
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                SizedBox(
+                  height: 20,
                 ),
-              ),
-              const SizedBox(height: 30),
-              BillingTextFormField(
-                prefixicn: Icon(
-                  Icons.person,
-                  color: AppColors.secondryColor,
+                Padding(
+                  padding: const EdgeInsets.only(left: 130),
+                  child: DatePickerTextformfield(
+                    controller: obj.DateController,
+                    hnttxt: 'Enter Date',
+                    clr: AppColors.primryColor,
+                  ),
                 ),
-                controller: obj.clientNameController,
-                hnttxt: "Enter Client Name",
-              ),
-              const SizedBox(height: 5),
-              BillingTextFormField(
-                prefixicn: Padding(
-                  padding: const EdgeInsets.only(left: 10, right: 10),
-                  child: Image.asset(Images.shopping,
-                      width: 10, color: AppColors.secondryColor),
+                const SizedBox(height: 30),
+                BillingTextFormField(
+                  prefixicn: Icon(
+                    Icons.person,
+                    color: AppColors.secondryColor,
+                  ),
+                  controller: obj.clientNameController,
+                  hnttxt: "Enter Client Name",
                 ),
-                controller: obj.productController,
-                hnttxt: "Enter Product Name",
-              ),
-              const SizedBox(height: 20),
-              Padding(
-                padding: const EdgeInsets.only(left: 40),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    MyText(
-                      txt: 'Gold Price : ${widget.goldPrice}',
-                      txtclr: AppColors.secondryColor,
-                    ),
-                    MyText(
-                      txt: 'Tola Quantity : ${widget.tolaQuantity}',
-                      txtclr: AppColors.secondryColor,
-                    ),
-                    MyText(
-                      txt: 'Grams Quantity : ${widget.gramsQuantity}',
-                      txtclr: AppColors.secondryColor,
-                    ),
-                    MyText(
-                      txt: 'Rati Quantity : ${widget.ratiQuantity}',
-                      txtclr: AppColors.secondryColor,
-                    ),
-                    MyText(
-                      txt: 'Tola Price : ${widget.totalPrice}',
-                      txtclr: AppColors.secondryColor,
-                    ),
-                  ],
+                const SizedBox(height: 5),
+                BillingTextFormField(
+                  prefixicn: Padding(
+                    padding: const EdgeInsets.only(left: 10, right: 10),
+                    child: Image.asset(Images.shopping,
+                        width: 10, color: AppColors.secondryColor),
+                  ),
+                  controller: obj.productController,
+                  hnttxt: "Enter Product Name",
                 ),
-              ),
-            ],
+                const SizedBox(height: 20),
+                Padding(
+                  padding: const EdgeInsets.only(left: 40),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      MyText(
+                        txt: 'Gold Price : ${widget.goldPrice}',
+                        txtclr: AppColors.secondryColor,
+                      ),
+                      MyText(
+                        txt: 'Tola Quantity : ${widget.tolaQuantity}',
+                        txtclr: AppColors.secondryColor,
+                      ),
+                      MyText(
+                        txt: 'Grams Quantity : ${widget.gramsQuantity}',
+                        txtclr: AppColors.secondryColor,
+                      ),
+                      MyText(
+                        txt: 'Rati Quantity : ${widget.ratiQuantity}',
+                        txtclr: AppColors.secondryColor,
+                      ),
+                      MyText(
+                        txt: 'Tola Price : ${widget.totalPrice}',
+                        txtclr: AppColors.secondryColor,
+                      ),
+                    ],
+                  ),
+                ),
+              ],
+            ),
           ),
         ),
       ),
