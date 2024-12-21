@@ -1,5 +1,3 @@
-
-
 import '../../../utills/linker.dart';
 import '../../auth_View/Shop_InformationView/shop_InformationController.dart';
 
@@ -12,6 +10,38 @@ class BillingController extends GetxController {
   // fetch shop data according to current uerr logedin;
   HomeFetchDataController controller = Get.put(HomeFetchDataController());
   ShopInfoController shopInfo = Get.put(ShopInfoController());
+
+  void billingAdd(String goldprice, String tolaQuantity, String gramsQuantity,
+      String ratiQuantity, String totalPrice) async {
+    // craeet collection name BillingHistory,
+    try {
+      await FirebaseFirestore.instance
+          .collection('billingHistory')
+          .doc(controller.userId.value)
+          .set({'docId': controller.userId.value});
+      //--------------------------
+      String subDocId = DateTime.now().microsecondsSinceEpoch.toString();
+      await FirebaseFirestore.instance
+          .collection('billingHistory')
+          .doc(controller.userId.value)
+          .collection('history')
+          .doc(subDocId)
+          .set({
+        'clientName': clientNameController.text,
+        'product': productController.text,
+        'date': DateController.text,
+        'goldPrice': goldprice,
+        'tolaQuantity': tolaQuantity,
+        'gramsQuantity': gramsQuantity,
+        'ratiQuantity': ratiQuantity,
+        'totalPrice': totalPrice,
+        'subDocId': subDocId,
+        // 'userId': controller.userId.value,
+        //'docId': controller.userId.value,
+        //'timestamp': FieldValue.serverTimestamp(),
+      });
+    } catch (e) {}
+  }
   //BillingController obj = Get.put(BillingController());
 
   // Future<void> createAndOpenPDF(String goldprice,tolaQuantity,gramsQuantity,

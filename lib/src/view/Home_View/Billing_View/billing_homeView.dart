@@ -316,7 +316,6 @@ class _BillingHomeViewState extends State<BillingHomeView> {
                   pw.Column(
                     crossAxisAlignment: pw.CrossAxisAlignment.start,
                     children: [
-
                       pw.Text(
                         'Date : ${obj.DateController.text}',
                         style: pw.TextStyle(color: PdfColors.amber),
@@ -414,6 +413,7 @@ class _BillingHomeViewState extends State<BillingHomeView> {
       Get.snackbar('Error', 'Failed to create or open PDF: $e');
     }
   }
+
   final key = GlobalKey<FormState>();
   @override
   Widget build(BuildContext context) {
@@ -434,31 +434,30 @@ class _BillingHomeViewState extends State<BillingHomeView> {
         ),
         centerTitle: true,
       ),
-      floatingActionButton: Padding(
-        padding: const EdgeInsets.symmetric(vertical: 14.0,
-        //    horizontal: 32.0
-        ),
-        child:
-       isLoading
-           ? AppLoading() // Show loading spinner while creating PDF
-           :
-
-        FloatingActionButton(
-
-                backgroundColor: AppColors.secondryColor,
-                onPressed:() {
-    if (key.currentState!.validate()){
-    _createAndOpenPDF();
-    //   createAndOpenPDF(widget.goldPrice,widget.tolaQuantity,
-    // widget.gramsQuantity,widget.ratiQuantity,widget.pointsQuantity);
-    } },
-                child:
-               //isLoading?AppLoading():
-                const Icon(
-                  Icons.picture_as_pdf,
-                ),
+      floatingActionButton: isLoading
+          ? AppLoading() // Show loading spinner while creating PDF
+          : FloatingActionButton(
+              backgroundColor: AppColors.secondryColor,
+              onPressed: () async {
+                if (key.currentState!.validate()) {
+                  obj.billingAdd(
+                    widget.goldPrice.toString(),
+                    widget.tolaQuantity.toString(),
+                    widget.gramsQuantity.toString(),
+                    widget.ratiQuantity.toString(),
+                    widget.pointsQuantity.toString(),
+                  );
+                  _createAndOpenPDF();
+                  //   createAndOpenPDF(widget.goldPrice,widget.tolaQuantity,
+                  // widget.gramsQuantity,widget.ratiQuantity,widget.pointsQuantity);
+                }
+              },
+              child:
+                  //isLoading?AppLoading():
+                  const Icon(
+                Icons.picture_as_pdf,
               ),
-      ),
+            ),
       body: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 8.0),
         child: SingleChildScrollView(
