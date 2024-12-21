@@ -1,6 +1,9 @@
 
 import 'package:goldapp/src/utills/linker.dart';
 
+
+import '../BillingHistory_View/Billing_HistoryView.dart';
+
 class HistoryView extends StatefulWidget {
   const HistoryView({Key? key}) : super(key: key);
 
@@ -48,7 +51,11 @@ class _HistoryViewState extends State<HistoryView> {
           ),
           centerTitle: true,
           actions: [
-            IconButton(onPressed: (){}, icon: Icon(Icons.history)),
+
+            IconButton(onPressed: (){
+              Get.to(()=>BillingHistoryView());
+            }, icon: Icon(Icons.history)),
+
             IconButton(
               icon: Icon(Icons.delete),
               onPressed: () {
