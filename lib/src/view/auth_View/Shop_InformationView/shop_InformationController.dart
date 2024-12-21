@@ -18,41 +18,45 @@ class ShopInfoController extends GetxController {
   var ptcl = ''.obs;
 
   void fetchShopInfo() async {
-   // try {
-      User? user = await FirebaseAuth.instance.currentUser;
-      if (user != null) // false
-          {
-       // shopname.value = await user!.email ?? '';
-        shopemail.value = user.uid ?? '';
-        if (shopemail != null) {
-          final userdocs = await FirebaseFirestore.instance
-              .collection('shopInfo')
-              .where('docId', isEqualTo: shopemail.value)
-              .get();
-          if (userdocs.docs.isNotEmpty) {
-            //setState(() {
-            shopname.value = userdocs.docs.first['name'];
-            shopemail.value = userdocs.docs.first['name'];
-            shopaddress.value = userdocs.docs.first['name'];
-            mblno1.value = userdocs.docs.first['name'];
-            mblno2.value = userdocs.docs.first['name'];
-            ptcl.value = userdocs.docs.first['name'];
+    // try {
+    User? user = await FirebaseAuth.instance.currentUser;
+    if (user != null) // false
+    {
+      print('===================1');
+      // shopname.value = await user!.email ?? '';
+      String userid = user.uid ?? '';
+      //shopemail.value = user.email ?? '';//logedin user email
+      if (shopemail != null) {
+        print('===================2');
+        final userdocs = await FirebaseFirestore.instance
+            .collection('ShopInfo')
+            .where('docId', isEqualTo: userid)
+            .get();
+        if (userdocs.docs.isNotEmpty) {
+          print('===================3');
+          //setState(() {
+          shopname.value = userdocs.docs.first['shopName'];
+          shopemail.value = userdocs.docs.first['shopEmail'];
+          shopaddress.value = userdocs.docs.first['shopAddress'];
+          mblno1.value = userdocs.docs.first['mblNo1'];
+          mblno2.value = userdocs.docs.first['mblNo2'];
+          ptcl.value = userdocs.docs.first['ptclNo'];
 
-            //  });
-          }
+          //  });
         }
       }
+    }
     // } catch (error) {
     //   print('Error:$error');
     //   Get.snackbar('Error', 'Error:$error');
     // }
-  //}
- }
+    //}
+  }
 
-  void onSaveInfo(BuildContext context) {
+  Future<void> onSaveInfo(BuildContext context) async {
     try {
       isLoading.value = true;
-      shopInfo();
+      await shopInfo();
       Get.to(() => GoldShop());
       confirmToastMessage(context, 'Your information has been saved');
     } catch (error) {
@@ -76,6 +80,7 @@ class ShopInfoController extends GetxController {
       // String docId = DateTime.now().microsecondsSinceEpoch.toString();
       String docId = await FirebaseAuth.instance.currentUser!
           .uid; //DateTime.now().microsecondsSinceEpoch.toString();
+      print('=========================================');
 
       await FirebaseFirestore.instance.collection('ShopInfo').doc(docId).set({
         'docId': docId,
