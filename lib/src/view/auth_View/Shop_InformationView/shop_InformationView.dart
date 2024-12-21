@@ -44,7 +44,7 @@ class _ShopInformationviewState extends State<ShopInformationview> {
               ),
               SimpleTextFormField(
                   prefixicn: Padding(
-                    padding: const EdgeInsets.only(left: 10, right: 10),
+                    padding: const EdgeInsets.only(left: 11, right: 11),
                     child: Image.asset(
                       Images.shop,
                       //height:0,

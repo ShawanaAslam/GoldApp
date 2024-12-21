@@ -48,13 +48,13 @@ class MyApp extends StatelessWidget {
                 useMaterial3: true,
               ),
               home:
-                  //ShopInformationview()
+                  ShopInformationview()
                   // HistoryView(history: [],)
                   // OnBoardingView()
                   //  GoldShop()
                   // SignupView()
                   // SelectionView()
-                  SplashView() //const MyHomePage(title: 'Flutter Demo Home Page'),
+                 // SplashView() //const MyHomePage(title: 'Flutter Demo Home Page'),
               // BillingHomeView()
               // BillingHomeView(
               //     goldPrice: '0',

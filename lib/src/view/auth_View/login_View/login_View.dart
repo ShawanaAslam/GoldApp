@@ -82,6 +82,7 @@ InkWell(onTap: (){
                               padding: const EdgeInsets.only(right: 30),
                               child: MyText(txt:
                                 'Forget Pasword?',
+                               font: 15,
                                txtclr: AppColors.whiteColor,
 
                               ),
