@@ -491,7 +491,7 @@ class _BillingHomeViewState extends State<BillingHomeView> {
                 const SizedBox(height: 5),
                 BillingTextFormField(
                   prefixicn: Padding(
-                    padding: const EdgeInsets.only(left: 10, right: 10),
+                    padding: const EdgeInsets.only(left: 13, right: 13),
                     child: Image.asset(Images.shopping,
                         width: 10, color: AppColors.secondryColor),
                   ),

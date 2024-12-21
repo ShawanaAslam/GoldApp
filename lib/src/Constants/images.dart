@@ -1,7 +1,7 @@
 class Images {
   static String splash = 'assets/gabon.png';
-
-  static String aboutDeveloper = 'assets/developr.png';
+  static String history = 'assets/history.png';
+  static String aboutDeveloper = 'assets/developer.png';
   static String aboutApp = 'assets/ib.png';
   static String frstPage = 'assets/scale.png';
   static String scndPage = 'assets/internet.png';
@@ -18,6 +18,6 @@ class Images {
   static String img = 'assets/img.png';
 
   static String gmail = 'assets/search.png';
-  static String shop='assets/shop.png';
+  static String shop='assets/building.png';
   static String shopping='assets/shopping.png';
 }

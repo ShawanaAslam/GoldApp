@@ -9,22 +9,22 @@ class HistoryView extends StatefulWidget {
 }
 
 class _HistoryViewState extends State<HistoryView> {
-  Future<void> deleteCollection() async {
-    try {
-      String collectionName = homeController.userId.value;
-      final collectionRef =
-          await FirebaseFirestore.instance.collection(collectionName);
-      final snapshot = await collectionRef.get();
-      // 4th for each
-      //for(int i=1;i<=10;i++){}
-
-      for (var doc in snapshot.docs) {
-        await doc.reference.delete();
-      }
-    } catch (e) {
-      print('error clearing history');
-    }
-  }
+  // Future<void> deleteCollection() async {
+  //   try {
+  //     String collectionName = homeController.userId.value;
+  //     final collectionRef =
+  //         await FirebaseFirestore.instance.collection(collectionName);
+  //     final snapshot = await collectionRef.get();
+  //     // 4th for each
+  //     //for(int i=1;i<=10;i++){}
+  //
+  //     for (var doc in snapshot.docs) {
+  //       await doc.reference.delete();
+  //     }
+  //   } catch (e) {
+  //     print('error clearing history');
+  //   }
+  // }
 
   final homeController = Get.put(HomeFetchDataController());
 
@@ -48,13 +48,46 @@ class _HistoryViewState extends State<HistoryView> {
           ),
           centerTitle: true,
           actions: [
+            IconButton(onPressed: (){}, icon: Icon(Icons.history)),
             IconButton(
-              icon: Icon(Icons.clear),
+              icon: Icon(Icons.delete),
               onPressed: () {
-//confirmation dialog
-
-                deleteCollection();
-              },
+            //  confirmation dialog
+            //  historyController.DialogBox(docId);
+                Get.defaultDialog(
+                  backgroundColor: Colors.amber,
+                  title: 'Message',
+                  content: const Text(
+                      'Clear All History Data?'),
+                  actions: [
+                    MyButton(
+                      txt: 'Yes',
+                      font: 16,
+                      w: 70.w,
+                      h: 40.h,
+                      bacclr: Colors.amber,
+                      clr: Colors.black,
+                      ontap: () {
+    historyController.deleteCollection();
+                        Get.back();
+                      },
+                    ),
+                    MyButton(
+                      txt: 'No',
+                      font: 16,
+                      w: 70.w,
+                      h: 40.h,
+                      bacclr: Colors.amber,
+                      clr: Colors.black,
+                      ontap: () {
+                        Get.back();
+                      },
+                    ),
+                  ],
+                );
+              }
+              //historyController.deleteCollection();
+             // },
             )
           ],
         ),
@@ -135,41 +168,42 @@ class _HistoryViewState extends State<HistoryView> {
                         ),
                         trailing: IconButton(
                           onPressed: () {
-                            Get.defaultDialog(
-                              backgroundColor: Colors.amber,
-                              title: 'Message',
-                              content: const Text(
-                                  'Do you want to delete this data?'),
-                              actions: [
-                                MyButton(
-                                  txt: 'Yes',
-                                  font: 16,
-                                  w: 50.w,
-                                  h: 40.h,
-                                  bacclr: Colors.amber,
-                                  clr: Colors.black,
-                                  ontap: () async {
-                                    await FirebaseFirestore.instance
-                                        .collection(homeController.userId.value)
-                                        // .doc(data.docs[index].id)
-                                        .doc(docId)
-                                        .delete();
-                                    Get.back();
-                                  },
-                                ),
-                                MyButton(
-                                  txt: 'No',
-                                  font: 16,
-                                  w: 50.w,
-                                  h: 40.h,
-                                  bacclr: Colors.amber,
-                                  clr: Colors.black,
-                                  ontap: () {
-                                    Get.back();
-                                  },
-                                ),
-                              ],
-                            );
+                            historyController.DialogBox(docId);
+                            // Get.defaultDialog(
+                            //   backgroundColor: Colors.amber,
+                            //   title: 'Message',
+                            //   content: const Text(
+                            //       'Do you want to delete this data?'),
+                            //   actions: [
+                            //     MyButton(
+                            //       txt: 'Yes',
+                            //       font: 16,
+                            //       w: 50.w,
+                            //       h: 40.h,
+                            //       bacclr: Colors.amber,
+                            //       clr: Colors.black,
+                            //       ontap: () async {
+                            //         await FirebaseFirestore.instance
+                            //             .collection(homeController.userId.value)
+                            //             // .doc(data.docs[index].id)
+                            //             .doc(docId)
+                            //             .delete();
+                            //         Get.back();
+                            //       },
+                            //     ),
+                            //     MyButton(
+                            //       txt: 'No',
+                            //       font: 16,
+                            //       w: 50.w,
+                            //       h: 40.h,
+                            //       bacclr: Colors.amber,
+                            //       clr: Colors.black,
+                            //       ontap: () {
+                            //         Get.back();
+                            //       },
+                            //     ),
+                            //   ],
+                            // );
                           },
                           icon: const Icon(Icons.delete, color: Colors.amber),
                         ),

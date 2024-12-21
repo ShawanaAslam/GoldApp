@@ -78,8 +78,9 @@ class _GoldShopState extends State<GoldShop> {
                       // navigate to history screen
                       Get.to(() => HistoryView());
                     },
-                    icon: Icon(
-                      Icons.history_toggle_off,
+                    icon: ImageIcon(
+                      AssetImage(Images.history),
+                    //  Icons.history_toggle_off,
                       size: 30,
                     ),
                   )
@@ -123,16 +124,21 @@ class _GoldShopState extends State<GoldShop> {
 
                   Obx(() {
                     return ref.userId.value != ''
-                        ? ListTileWidget(
-                            ontap: () {
-                              Get.back();
-                              Navigator.push(
-                                  context,
-                                  CupertinoPageRoute(
-                                      builder: (context) => HistoryView()));
-                            },
-                            txt: 'History',
-                            icon: Icons.history_toggle_off)
+                        ? ListTile(
+                      onTap: () {
+                        Get.back();
+                        Navigator.push(
+                            context,
+                            CupertinoPageRoute(
+                                builder: (context) => HistoryView()));
+                      },
+                      leading: ImageIcon(
+                        AssetImage(Images.history),
+                        color: Colors.amber,
+                      ),
+                      title: Text('History',
+                          style: TextStyle(color: Colors.amber)),
+                    )
                         : Container();
                   }),
                   ListTile(

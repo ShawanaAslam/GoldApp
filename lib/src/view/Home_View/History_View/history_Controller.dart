@@ -47,4 +47,23 @@ void DialogBox(String docId){
   );
 }
 
+// DeleteCollection Fuction is for Clear All History Data
+
+  Future<void> deleteCollection() async {
+    try {
+      String collectionName = homeController.userId.value;
+      final collectionRef =
+      await FirebaseFirestore.instance.collection(collectionName);
+      final snapshot = await collectionRef.get();
+      // 4th for each
+      //for(int i=1;i<=10;i++){}
+
+      for (var doc in snapshot.docs) {
+        await doc.reference.delete();
+      }
+    } catch (e) {
+      print('error clearing history');
+    }
+  }
+
 }

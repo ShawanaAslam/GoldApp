@@ -75,7 +75,10 @@ flutter:
 
 
   assets:
-
+    - assets/history.png
+    - assets/shopping.png
+    - assets/developer.png
+    - assets/building.png
     - assets/bars.png
     - assets/gabon.png
     - assets/ib.png
