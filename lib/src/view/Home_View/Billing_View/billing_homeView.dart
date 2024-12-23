@@ -169,6 +169,7 @@ class _BillingHomeViewState extends State<BillingHomeView> {
   void initState() {
     super.initState();
     obj.refresh();
+    obj.goldpricee.value = widget.goldPrice;
   }
 
   //Function to create and open PDF
@@ -503,9 +504,11 @@ class _BillingHomeViewState extends State<BillingHomeView> {
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      MyText(
-                        txt: 'Gold Price : ${widget.goldPrice}',
-                        txtclr: AppColors.secondryColor,
+                      Obx(
+                        () => MyText(
+                          txt: 'Gold Price : ${obj.goldpricee}',
+                          txtclr: AppColors.secondryColor,
+                        ),
                       ),
                       MyText(
                         txt: 'Tola Quantity : ${widget.tolaQuantity}',
