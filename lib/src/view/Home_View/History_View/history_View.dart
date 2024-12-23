@@ -52,9 +52,6 @@ class _HistoryViewState extends State<HistoryView> {
           centerTitle: true,
           actions: [
 
-            IconButton(onPressed: (){
-              Get.to(()=>BillingHistoryView());
-            }, icon: Icon(Icons.history)),
 
             IconButton(
               icon: Icon(Icons.delete),

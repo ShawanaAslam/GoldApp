@@ -329,39 +329,48 @@ class GoldShopController extends GetxController {
               clr: Colors.black,
               font: 15,
             ),
-            Obx(() {
-              return ref.userId.value != ''
-?  MyButton(
-                  txt: 'Print',
-                  w: 70,
-                  h: 40,
-                  bacclr: Colors.amber,
-                  clr: Colors.black,
-                  font: 15,
-                  ontap: () {
-                    Get.back();
-
-                    Get.to(() => BillingHomeView(
-                        goldPrice: goldPriceController.text,
-                        tolaQuantity: tolaPricecontroller.text,
-                        gramsQuantity: gramPricecontroller.text,
-                        ratiQuantity: ratiPricecontroller.text,
-                        pointsQuantity: pointsPricecontroller.text,
-                        totalPrice: total.value));
-                    //  refresh();
-                  })
-              //     ? IconButton(
-              //   onPressed: () {
-              //     // navigate to history screen
-              //     Get.to(() => HistoryView());
-              //   },
-              //   icon: Icon(
-              //     Icons.history_toggle_off,
-              //     size: 30,
-              //   ),
-              // )
-                  : Container();
-            })
+            MyButton(
+            txt: 'Print',
+    w: 70,
+    h: 40,
+    bacclr: Colors.amber,
+    clr: Colors.black,
+    font: 15,
+    ontap: () {
+    // Check if the user is logged in
+    if (ref.userId.value != '') {
+    // If the user is logged in, navigate to the BillingHomeView screen
+    Get.to(() => BillingHomeView(
+    goldPrice: goldPriceController.text,
+    tolaQuantity: tolaPricecontroller.text,
+    gramsQuantity: gramPricecontroller.text,
+    ratiQuantity: ratiPricecontroller.text,
+    pointsQuantity: pointsPricecontroller.text,
+    totalPrice: total.value,
+    ));
+    } else {
+    // If the user is not logged in, show a dialog box
+    Get.defaultDialog(
+    backgroundColor: AppColors.whiteColor,
+    title: 'Message',
+    content: const Text('Please login first'),
+    actions: [
+    MyButton(
+    txt: 'Ok',
+    font: 16,
+    w: 70,
+    h: 40,
+    bacclr: AppColors.whiteColor,
+    clr: Colors.black,
+    ontap: () {
+    Get.to(()=>GoldShop()); //dialog box
+    },
+    ),
+    ],
+    );
+    }
+    },
+    )
 
           ]);
     }

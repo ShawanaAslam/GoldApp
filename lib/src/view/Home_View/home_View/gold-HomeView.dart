@@ -4,6 +4,7 @@ import '../../../Constants/images.dart';
 import '../../../common_widgets/reusable_mytxtformcon.dart';
 import '../../../utills/linker.dart';
 import '../AboutApp_View/aboutApp_View.dart';
+import '../BillingHistory_View/Billing_HistoryView.dart';
 import '../History_View/history_View.dart';
 import 'gold HomeViewController.dart';
 import 'home_ViewWidgets/validatorTextForm.dart';
@@ -71,6 +72,20 @@ class _GoldShopState extends State<GoldShop> {
       backgroundColor: Colors.black,
       appBar: AppBar(
         actions: [
+
+
+          Obx(() {
+            return ref.userId.value != ''
+                ? IconButton(
+              onPressed: () {
+                // navigate to history screen
+                Get.to(() => BillingHistoryView());
+              },
+              icon:Icon(Icons.history),
+
+            )
+                : Container();
+          }),
           Obx(() {
             return ref.userId.value != ''
                 ? IconButton(
@@ -137,6 +152,22 @@ class _GoldShopState extends State<GoldShop> {
                         color: Colors.amber,
                       ),
                       title: Text('History',
+                          style: TextStyle(color: Colors.amber)),
+                    )
+                        : Container();
+                  }),
+                  Obx(() {
+                    return ref.userId.value != ''
+                        ? ListTile(
+                      onTap: () {
+                        Get.back();
+                        Navigator.push(
+                            context,
+                            CupertinoPageRoute(
+                                builder: (context) => BillingHistoryView()));
+                      },
+                      leading: Icon(Icons.history,color: AppColors.secondryColor,),
+                      title: Text(' Billing History',
                           style: TextStyle(color: Colors.amber)),
                     )
                         : Container();
