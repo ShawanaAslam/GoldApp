@@ -136,6 +136,22 @@ class _GoldShopState extends State<GoldShop> {
                       },
                       txt: 'Gold App',
                       icon: Icons.home),
+                  Obx(() {
+                    return ref.userId.value != ''
+                        ? ListTile(
+                      onTap: () {
+                        Get.back();
+                        // Navigator.push(
+                        //     context,
+                        //     CupertinoPageRoute(
+                        //         builder: (context) => HistoryView()));
+                      },
+                      leading: Icon(Icons.person,color: Colors.amber),
+                      title: Text('User Data',
+                          style: TextStyle(color: Colors.amber)),
+                    )
+                        : Container();
+                  }),
 
                   Obx(() {
                     return ref.userId.value != ''

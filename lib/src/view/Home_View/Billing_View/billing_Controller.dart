@@ -41,6 +41,12 @@ class BillingController extends GetxController {
         //'timestamp': FieldValue.serverTimestamp(),
       });
     } catch (e) {}
+    finally{
+      DateController.clear();
+      clientNameController.clear();
+      productController.clear();
+
+    }
   }
   //BillingController obj = Get.put(BillingController());
 
