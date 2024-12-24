@@ -124,11 +124,12 @@ class _GoldShopState extends State<GoldShop> {
                         backgroundImage: AssetImage(Images.Logo),
                       ),
                       accountName: Text(
-                        'Shop Name : ${shopInfo.shopname}',
-                        //'Shop Name : ${ref.userName}',
+                       // 'Shop Name : ${shopInfo.shopname}',
+                        'User Name : ${ref.userName}',
                         style: TextStyle(color: Colors.black),
                       ),
-                      accountEmail: Text('Shop Email : ${shopInfo.shopemail}',
+                      accountEmail: Text('User Email : ${ref.userEmail}',
+                          //'Shop Email : ${shopInfo.shopemail}',
                           style: TextStyle(color: Colors.black))),
 
                   ListTileWidget(

@@ -10,7 +10,7 @@ class BillingController extends GetxController {
   // fetch shop data according to current uerr logedin;
   HomeFetchDataController controller = Get.put(HomeFetchDataController());
   ShopInfoController shopInfo = Get.put(ShopInfoController());
-  var goldpricee = '0.0'.obs;
+ // var goldpricee = '0.0'.obs;
 
   void billingAdd(String goldprice, String tolaQuantity, String gramsQuantity,
       String ratiQuantity, String totalPrice) async {
@@ -43,10 +43,10 @@ class BillingController extends GetxController {
       });
     } catch (e) {
     } finally {
-      DateController.clear();
-      clientNameController.clear();
-      productController.clear();
-      goldpricee.value = '0.0';
+      // DateController.clear();
+      // clientNameController.clear();
+      // productController.clear();
+      // goldpricee.value = '0.0';
     }
   }
   //BillingController obj = Get.put(BillingController());
