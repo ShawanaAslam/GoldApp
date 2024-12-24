@@ -27,8 +27,8 @@ class _ShopDetailsHomeviewState extends State<ShopDetailsHomeview> {
           icon: const Icon(Icons.arrow_back_ios),
         ),
         title: MyText(
-          txt: 'Shop Information',
-          font: 22,
+          txt: 'Update Shop Information',
+          font: 20,
         ),
         centerTitle: true,
         actions: [

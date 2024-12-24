@@ -15,7 +15,7 @@ class _ShopInformationviewState extends State<ShopInformationview> {
   final key = GlobalKey<FormState>();
   @override
   Widget build(BuildContext context) {
-    updateInfoController updateInfo = Get.put(updateInfoController());
+    ShopInfoController shopInfo = Get.put(ShopInfoController());
 
     return Scaffold(
       appBar: AppBar(
