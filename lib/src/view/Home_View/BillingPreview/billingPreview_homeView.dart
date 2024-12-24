@@ -129,6 +129,8 @@
 
 import 'dart:io';
 
+import 'package:goldapp/src/view/Home_View/home_View/gold%20HomeViewController.dart';
+
 import '../../../Constants/images.dart';
 import '../../../utills/linker.dart';
 import 'package:pdf/widgets.dart' as pw;
@@ -162,99 +164,16 @@ class BillingPreview extends StatefulWidget {
 class _BillingPreviewState extends State<BillingPreview> {
   BillingController obj = Get.put(BillingController());
   ShopInfoController shopInfo = Get.put(ShopInfoController());
-
+  GoldShopController goldShop = Get.put(GoldShopController());
   bool isLoading = false; // To manage loading spinner
 
   @override
   void initState() {
     super.initState();
+    goldShop.refresh();
     obj.refresh();
-    obj.goldpricee.value = widget.goldPrice;
+//    obj.goldpricee.value = widget.goldPrice;
   }
-
-  //Function to create and open PDF
-
-  // Future<void> _createAndOpenPDF() async {
-  //   setState(() {
-  //     isLoading = true; // Show loading spinner
-  //   });
-  //
-  //   final pdf = pw.Document();
-  //
-  //   pdf.addPage(
-  //     pw.Page(
-  //       build: (pw.Context context) => pw.Column(
-  //         crossAxisAlignment: pw.CrossAxisAlignment.start,
-  //         children: [
-  //           pw.Row(
-  //               mainAxisAlignment: pw.MainAxisAlignment.spaceBetween,
-  //               //crossAxisAlignment: pw.CrossAxisAlignment.spaceBetween,
-  //               children: [
-  //                 pw.Text('Shop Name : ${shopInfo.shopnameController.text}',
-  //                     style: pw.TextStyle(
-  //                         fontSize: 22, fontWeight: pw.FontWeight.bold)),
-  //                 pw.Column(
-  //                     mainAxisAlignment: pw.MainAxisAlignment.start,
-  //                     crossAxisAlignment: pw.CrossAxisAlignment.start,
-  //                     children: [
-  //                       pw.SizedBox(height: 40),
-  //                   pw.Text('Date : ${obj.DateController.text}'),
-  //                   pw.Text('Mobile No1 : ${shopInfo.mblno1Controller.text}'),
-  //                   pw.Text('Mobile No2 : ${shopInfo.mblno2Controller.text}'),
-  //                   pw.Text('Ptcl No : ${shopInfo.ptclController.text}'),
-  //                 ])
-  //               ]),
-  //           pw.Text(
-  //             'Shop Email : ${shopInfo.shopemailController.text}',
-  //           ),
-  //           pw.SizedBox(height: 10),
-  //           pw.Text('Client Name : ${obj.clientNameController.text}',
-  //               style:
-  //                   pw.TextStyle(fontSize: 18, fontWeight: pw.FontWeight.bold)),
-  //           pw.SizedBox(height: 10),
-  //           pw.Text('Product Name : ${obj.productController.text}'),
-  //           pw.SizedBox(height: 10),
-  //           pw.Text('Billing Details',
-  //               style:
-  //                   pw.TextStyle(fontSize: 18, fontWeight: pw.FontWeight.bold)),
-  //           pw.SizedBox(height: 10),
-  //           pw.Text('Gold Price : ${widget.goldPrice}'),
-  //           pw.SizedBox(height: 5),
-  //           pw.Text('Tola Quantity : ${widget.tolaQuantity}'),
-  //           pw.SizedBox(height: 5),
-  //           pw.Text('Grams Quantity : ${widget.gramsQuantity}'),
-  //           pw.SizedBox(height: 5),
-  //           pw.Text('Rati Quantity : ${widget.ratiQuantity}'),
-  //           pw.SizedBox(height: 5),
-  //           pw.Text('Total Price : ${widget.totalPrice.toStringAsFixed(2)}'),
-  //         ],
-  //       ),
-  //   ),
-  //    );
-  //
-  //   try {
-  //     final directory = await getApplicationDocumentsDirectory();
-  //     final filePath =
-  //         '${directory.path}/ ${obj.clientNameController.text}.pdf';
-  //     // '//billing_details.pdf';
-  //     final file = File(filePath);
-  //     await file.writeAsBytes(await pdf.save());
-  //
-  //     setState(() {
-  //       isLoading = false; // Hide loading spinner
-  //     });
-  //
-  //     await OpenFilex.open(filePath);
-  //   } catch (e) {
-  //     setState(() {
-  //       isLoading = false; // Hide loading spinner
-  //     });
-  //     Get.snackbar('Error', 'Failed to create or open PDF: $e');
-  //   }
-  // }
-
-  ///
-  /// pdf colors
 
   Future<void> _createAndOpenPDF() async {
     setState(() {
@@ -321,18 +240,6 @@ class _BillingPreviewState extends State<BillingPreview> {
                         'Date : ${obj.DateController.text}',
                         style: pw.TextStyle(color: PdfColors.amber),
                       ),
-                      // pw.Text(
-                      //   'Mobile No1 : ${shopInfo.mblno1.value}',
-                      //   style: pw.TextStyle(color: PdfColors.amber),
-                      // ),
-                      // pw.Text(
-                      //   'Mobile No2 : ${shopInfo.mblno2.value}',
-                      //   style: pw.TextStyle(color: PdfColors.amber),
-                      // ),
-                      // pw.Text(
-                      //   'Ptcl No : ${shopInfo.ptcl.value}',
-                      //   style: pw.TextStyle(color: PdfColors.amber),
-                      // ),
                     ],
                   ),
                 ],
@@ -504,11 +411,9 @@ class _BillingPreviewState extends State<BillingPreview> {
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      Obx(
-                        () => MyText(
-                          txt: 'Gold Price : ${obj.goldpricee}',
-                          txtclr: AppColors.secondryColor,
-                        ),
+                      MyText(
+                        txt: 'Gold Price : ${widget.goldPrice}',
+                        txtclr: AppColors.secondryColor,
                       ),
                       MyText(
                         txt: 'Tola Quantity : ${widget.tolaQuantity}',

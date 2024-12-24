@@ -1,4 +1,3 @@
-
 import 'package:goldapp/src/utills/linker.dart';
 
 class BillingHistoryView extends StatefulWidget {
@@ -48,7 +47,6 @@ class _BillingHistoryViewState extends State<BillingHistoryView> {
           ),
           centerTitle: true,
           actions: [
-
             IconButton(
                 icon: Icon(Icons.delete),
                 onPressed: () {
@@ -57,8 +55,7 @@ class _BillingHistoryViewState extends State<BillingHistoryView> {
                   Get.defaultDialog(
                     backgroundColor: Colors.amber,
                     title: 'Message',
-                    content: const Text(
-                        'Clear All History Data?'),
+                    content: const Text('Clear All History Data?'),
                     actions: [
                       MyButton(
                         txt: 'Yes',
@@ -86,17 +83,30 @@ class _BillingHistoryViewState extends State<BillingHistoryView> {
                     ],
                   );
                 }
-              //historyController.deleteCollection();
-              // },
-            )
+                //historyController.deleteCollection();
+                // },
+                )
           ],
         ),
         backgroundColor: Colors.black,
-        body: Column(
-          children: [
-
-
-          ],
-        ));
+        body: StreamBuilder(
+            stream: FirebaseFirestore.instance
+                .collection('billingHistory')
+                .doc(FirebaseAuth.instance.currentUser!.uid)
+                .collection('history')
+                .snapshots(),
+            builder: (context, snapshots) {
+              final data = snapshots.data!;
+              return ListView.builder(
+                itemCount: data.size,
+                itemBuilder: (context, index) {
+                  return ListTile(
+                      title: Text(
+                    data.docs[index]['clientName'],
+                    style: TextStyle(color: Colors.yellow),
+                  ));
+                },
+              );
+            }));
   }
 }
