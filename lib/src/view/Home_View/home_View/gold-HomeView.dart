@@ -1,4 +1,5 @@
 import 'package:flutter/cupertino.dart';
+import 'package:goldapp/src/view/Home_View/ShopDetails/shopDetails_HomeView.dart';
 
 import '../../../Constants/images.dart';
 import '../../../common_widgets/reusable_mytxtformcon.dart';
@@ -141,13 +142,13 @@ class _GoldShopState extends State<GoldShop> {
                         ? ListTile(
                       onTap: () {
                         Get.back();
-                        // Navigator.push(
-                        //     context,
-                        //     CupertinoPageRoute(
-                        //         builder: (context) => HistoryView()));
+                        Navigator.push(
+                            context,
+                            CupertinoPageRoute(
+                                builder: (context) => ShopDetailsHomeview()));
                       },
-                      leading: Icon(Icons.person,color: Colors.amber),
-                      title: Text('User Data',
+                      leading: ImageIcon(AssetImage(Images.shop),color: Colors.amber),
+                      title: Text('Shop Details',
                           style: TextStyle(color: Colors.amber)),
                     )
                         : Container();

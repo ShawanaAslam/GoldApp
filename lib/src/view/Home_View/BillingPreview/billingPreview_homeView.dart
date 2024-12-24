@@ -133,11 +133,11 @@ import '../../../Constants/images.dart';
 import '../../../utills/linker.dart';
 import 'package:pdf/widgets.dart' as pw;
 import '../../auth_View/Shop_InformationView/shop_InformationController.dart';
-import 'Billing_Widgets/DateTimePicker_TextFormField.dart';
-import 'Billing_Widgets/billing_TextFormField.dart';
-import 'billing_Controller.dart';
+import 'BillingPreview_Widgets/DateTimePicker_TextFormField.dart';
+import 'BillingPreview_Widgets/billing_TextFormField.dart';
+import 'billingPreview_Controller.dart';
 
-class BillingHomeView extends StatefulWidget {
+class BillingPreview extends StatefulWidget {
   String goldPrice;
   String tolaQuantity;
   String gramsQuantity;
@@ -145,7 +145,7 @@ class BillingHomeView extends StatefulWidget {
   String pointsQuantity;
   double totalPrice;
 
-  BillingHomeView({
+  BillingPreview({
     super.key,
     required this.goldPrice,
     required this.tolaQuantity,
@@ -156,10 +156,10 @@ class BillingHomeView extends StatefulWidget {
   });
 
   @override
-  State<BillingHomeView> createState() => _BillingHomeViewState();
+  State<BillingPreview> createState() => _BillingPreviewState();
 }
 
-class _BillingHomeViewState extends State<BillingHomeView> {
+class _BillingPreviewState extends State<BillingPreview> {
   BillingController obj = Get.put(BillingController());
   ShopInfoController shopInfo = Get.put(ShopInfoController());
 

@@ -4,14 +4,14 @@ import '../../../Constants/images.dart';
 import '../../../common_widgets/simpleTextForm_widget.dart';
 import '../../../utills/linker.dart';
 
-class ShopInformationview extends StatefulWidget {
-  const ShopInformationview({super.key});
+class ShopDetailsHomeview extends StatefulWidget {
+  const ShopDetailsHomeview({super.key});
 
   @override
-  State<ShopInformationview> createState() => _ShopInformationviewState();
+  State<ShopDetailsHomeview> createState() => _ShopDetailsHomeviewState();
 }
 
-class _ShopInformationviewState extends State<ShopInformationview> {
+class _ShopDetailsHomeviewState extends State<ShopDetailsHomeview> {
   final key = GlobalKey<FormState>();
   @override
   Widget build(BuildContext context) {
@@ -54,7 +54,7 @@ class _ShopInformationviewState extends State<ShopInformationview> {
                       color: Colors.amber,
                     ),
                   ),
-                  controller: shopInfo.shopnameController,
+                  controller: updateInfo.shopnameController,
                   hnttxt: "Shop Name"),
               SizedBox(
                 height: 10,
@@ -64,7 +64,7 @@ class _ShopInformationviewState extends State<ShopInformationview> {
                     Icons.email,
                     color: Colors.amber,
                   ),
-                  controller: shopInfo.shopemailController,
+                  controller: updateInfo.shopemailController,
                   hnttxt: "Shop Email"),
               SizedBox(
                 height: 10,
@@ -74,7 +74,7 @@ class _ShopInformationviewState extends State<ShopInformationview> {
                     Icons.location_on_rounded,
                     color: Colors.amber,
                   ),
-                  controller: shopInfo.shopaddressController,
+                  controller: updateInfo.shopaddressController,
                   hnttxt: "Shop Address"),
               SizedBox(
                 height: 10,
@@ -85,7 +85,7 @@ class _ShopInformationviewState extends State<ShopInformationview> {
                     Icons.call,
                     color: Colors.amber,
                   ),
-                  controller: shopInfo.mblno1Controller,
+                  controller: updateInfo.mblno1Controller,
                   hnttxt: "Mobile No 1"),
               SizedBox(
                 height: 10,
@@ -96,7 +96,7 @@ class _ShopInformationviewState extends State<ShopInformationview> {
                     Icons.call,
                     color: Colors.amber,
                   ),
-                  controller: shopInfo.mblno2Controller,
+                  controller: updateInfo.mblno2Controller,
                   hnttxt: "Mobile No 2"),
               SizedBox(
                 height: 10,
@@ -107,29 +107,29 @@ class _ShopInformationviewState extends State<ShopInformationview> {
                     Icons.call_end,
                     color: Colors.amber,
                   ),
-                  controller: shopInfo.ptclController,
+                  controller: updateInfo.ptclController,
                   hnttxt: "Landline No"),
               SizedBox(
                 height: 40,
               ),
-          shopInfo.isLoading.value?
+              updateInfo.isLoading.value?
               AppLoading():
-          MyButton(
-              ontap: (){
-                print('-----------------------1');
-                // difference b/w validation and exception
-                // validator--> handle in front end(design side)
-                //exceptions--> handle in backend (in data base)
+              MyButton(
+                  ontap: (){
+                    print('-----------------------1');
+                    // difference b/w validation and exception
+                    // validator--> handle in front end(design side)
+                    //exceptions--> handle in backend (in data base)
 
 
-                if (key.currentState!.validate()) // true --- false
-                //(_formKey.currentState!.validate())
-                {
-                  shopInfo.onSaveInfo(context);
-                }
-              },
-              txt: 'Save Info', w: 270.w, h: 50.h, bacclr: AppColors.primryColor,
-              clr: AppColors.secondryColor)
+                    if (key.currentState!.validate()) // true --- false
+                      //(_formKey.currentState!.validate())
+                        {
+                      updateInfo.onUpdateInfo(context);
+                    }
+                  },
+                  txt: 'Update Info', w: 270.w, h: 50.h, bacclr: AppColors.primryColor,
+                  clr: AppColors.secondryColor)
 
             ],
           ),

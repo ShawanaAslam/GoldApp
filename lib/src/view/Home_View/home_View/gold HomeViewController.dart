@@ -252,7 +252,8 @@ import 'package:flutter/cupertino.dart';
 
 import '../../../common_widgets/reusable_simpletext.dart';
 import '../../../utills/linker.dart';
-import '../Billing_View/billing_homeView.dart';
+import '../BillingPreview/billingPreview_homeView.dart';
+//import '../Billing_View/billingPreview_homeView.dart';
 
 ///-----------------------------
 ///
@@ -340,7 +341,7 @@ class GoldShopController extends GetxController {
     // Check if the user is logged in
     if (ref.userId.value != '') {
     // If the user is logged in, navigate to the BillingHomeView screen
-    Get.to(() => BillingHomeView(
+    Get.to(() => BillingPreview(
     goldPrice: goldPriceController.text,
     tolaQuantity: tolaPricecontroller.text,
     gramsQuantity: gramPricecontroller.text,

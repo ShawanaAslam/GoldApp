@@ -15,7 +15,7 @@ import 'package:goldapp/src/view/auth_View/signUp_View/signUp_View.dart';
 import 'package:goldapp/src/view/selection_View/selection_View.dart';
 import 'package:url_launcher/url_launcher.dart';
 
-import 'src/view/Home_View/Billing_View/billing_homeView.dart';
+//import 'src/view/Home_View/Billing_View/billingPreview_homeView.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
