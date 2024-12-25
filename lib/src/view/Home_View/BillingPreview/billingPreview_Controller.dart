@@ -13,7 +13,7 @@ class BillingController extends GetxController {
  // var goldpricee = '0.0'.obs;
 
   void billingAdd(String goldprice, String tolaQuantity, String gramsQuantity,
-      String ratiQuantity, String totalPrice) async {
+      String ratiQuantity, String pointsQuantity, String totalPrice) async {
     // craeet collection name BillingHistory,
     try {
       await FirebaseFirestore.instance
@@ -35,6 +35,7 @@ class BillingController extends GetxController {
         'tolaQuantity': tolaQuantity,
         'gramsQuantity': gramsQuantity,
         'ratiQuantity': ratiQuantity,
+        'pointsQuantity': pointsQuantity,
         'totalPrice': totalPrice,
         'subDocId': subDocId,
         // 'userId': controller.userId.value,

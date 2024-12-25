@@ -19,7 +19,7 @@ void DialogBox(String docId){
       MyButton(
         txt: 'Yes',
         font: 16,
-        w: 50.w,
+        w: 70.w,
         h: 40.h,
         bacclr: Colors.amber,
         clr: Colors.black,
@@ -35,7 +35,7 @@ void DialogBox(String docId){
       MyButton(
         txt: 'No',
         font: 16,
-        w: 50.w,
+        w: 70.w,
         h: 40.h,
         bacclr: Colors.amber,
         clr: Colors.black,

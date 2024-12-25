@@ -96,15 +96,78 @@ class _BillingHistoryViewState extends State<BillingHistoryView> {
                 .collection('history')
                 .snapshots(),
             builder: (context, snapshots) {
+              if (snapshots.connectionState == ConnectionState.waiting) {
+                return const Center(child: AppLoading());
+              }
+              if (snapshots.hasError) {
+                return Center(child: Text('Error: ${snapshots.error}'));
+              }
+              if (!snapshots.hasData || snapshots.data!.docs.isEmpty) {
+                return const Center(
+                  child: Text(
+                    'No data available',
+                    style: TextStyle(color: Colors.amber),
+                  ),
+
+                );
+              }
+
               final data = snapshots.data!;
               return ListView.builder(
                 itemCount: data.size,
                 itemBuilder: (context, index) {
                   return ListTile(
-                      title: Text(
-                    data.docs[index]['clientName'],
-                    style: TextStyle(color: Colors.yellow),
-                  ));
+                      title: MyText(
+                       txt:  'Client Name : ${data.docs[index]['clientName']}',
+                  font: 16,
+                        txtclr: AppColors.secondryColor,
+                  ),
+                  subtitle: Column(
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      MyText(
+                          txt:'Product Name : ${data.docs[index]['product']}',
+                      font: 16,
+                      txtclr: AppColors.secondryColor,),
+                      MyText(
+                        txt:'Gold Price : ${data.docs[index]['goldPrice']}',
+                        font: 16,
+                        txtclr: AppColors.secondryColor,),
+                      MyText(
+                        txt:'Tola Quantity : ${data.docs[index]['tolaQuantity']}',
+                        font: 16,
+                        txtclr: AppColors.secondryColor,),
+                      MyText(
+                        txt:'Grams Quantity : ${data.docs[index]['gramsQuantity']}',
+                        font: 16,
+                        txtclr: AppColors.secondryColor,),
+                      MyText(
+                        txt:'Rati Quantity : ${data.docs[index]['ratiQuantity']}',
+                        font: 16,
+                        txtclr: AppColors.secondryColor,),
+                      MyText(
+                        txt:'Points Quantity : ${data.docs[index]['ratiQuantity']}',
+                        font: 16,
+                        txtclr: AppColors.secondryColor,),
+                      MyText(
+                        txt:'Total Price : ${data.docs[index]['totalPrice']}',
+                        font: 16,
+                        txtclr: AppColors.secondryColor,),
+
+                    ],
+                  ),
+                    trailing: Padding(
+                      padding: const EdgeInsets.only(bottom: 200),
+                      child: IconButton(
+                        onPressed: () {
+                         // historyController.DialogBox(docId);
+
+                        },
+                        icon: const Icon(Icons.delete, color: Colors.amber),
+                      ),
+                    ),
+                  );
                 },
               );
             }));

@@ -293,6 +293,11 @@ class _BillingPreviewState extends State<BillingPreview> {
               ),
               pw.SizedBox(height: 5),
               pw.Text(
+                'Points Quantity : ${widget.pointsQuantity}',
+                style: pw.TextStyle(color: PdfColors.amber),
+              ),
+              pw.SizedBox(height: 5),
+              pw.Text(
                 'Total Price : ${widget.totalPrice.toStringAsFixed(2)}',
                 style: pw.TextStyle(color: PdfColors.amber),
               ),
@@ -354,6 +359,7 @@ class _BillingPreviewState extends State<BillingPreview> {
                     widget.gramsQuantity.toString(),
                     widget.ratiQuantity.toString(),
                     widget.pointsQuantity.toString(),
+                      widget.totalPrice.toString(),
                   );
                   _createAndOpenPDF();
                   //   createAndOpenPDF(widget.goldPrice,widget.tolaQuantity,
@@ -442,3 +448,5 @@ class _BillingPreviewState extends State<BillingPreview> {
     );
   }
 }
+
+
