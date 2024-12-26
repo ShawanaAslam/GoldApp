@@ -359,7 +359,7 @@ class _BillingPreviewState extends State<BillingPreview> {
                     widget.gramsQuantity.toString(),
                     widget.ratiQuantity.toString(),
                     widget.pointsQuantity.toString(),
-                      widget.totalPrice.toString(),
+                    widget.totalPrice.toString(),
                   );
                   _createAndOpenPDF();
                   //   createAndOpenPDF(widget.goldPrice,widget.tolaQuantity,
@@ -433,6 +433,10 @@ class _BillingPreviewState extends State<BillingPreview> {
                         txt: 'Rati Quantity : ${widget.ratiQuantity}',
                         txtclr: AppColors.secondryColor,
                       ),
+                      Text(
+                        'Points Quantity : ${widget.pointsQuantity}',
+                        style: TextStyle(color: AppColors.secondryColor),
+                      ),
                       MyText(
                         txt: 'Tola Price : ${widget.totalPrice}',
                         txtclr: AppColors.secondryColor,
@@ -448,5 +452,3 @@ class _BillingPreviewState extends State<BillingPreview> {
     );
   }
 }
-
-

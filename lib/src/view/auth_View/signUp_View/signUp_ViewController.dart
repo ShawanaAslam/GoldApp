@@ -142,7 +142,7 @@ class SignupController extends GetxController {
         // addData();
         // if (result != null)
         if (result == 'You are registered successfully') {
-          addData();
+          // addData();
           // Handle success (like navigating to another screen or showing a message)
           confirmToastMessage(context, result!);
           Get.to(() => ShopInformationview());
@@ -175,7 +175,7 @@ class SignupController extends GetxController {
       print('-------------------------4');
       await FirebaseAuth.instance
           .createUserWithEmailAndPassword(email: email, password: password);
-      // addData();
+      addData();
 
       //
 

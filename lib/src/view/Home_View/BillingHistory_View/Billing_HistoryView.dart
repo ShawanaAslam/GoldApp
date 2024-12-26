@@ -108,7 +108,6 @@ class _BillingHistoryViewState extends State<BillingHistoryView> {
                     'No data available',
                     style: TextStyle(color: Colors.amber),
                   ),
-
                 );
               }
 
@@ -117,56 +116,87 @@ class _BillingHistoryViewState extends State<BillingHistoryView> {
                 itemCount: data.size,
                 itemBuilder: (context, index) {
                   return ListTile(
-                      title: MyText(
-                       txt:  'Client Name : ${data.docs[index]['clientName']}',
-                  font: 16,
-                        txtclr: AppColors.secondryColor,
-                  ),
-                  subtitle: Column(
-                    mainAxisAlignment: MainAxisAlignment.start,
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      MyText(
-                          txt:'Product Name : ${data.docs[index]['product']}',
-                      font: 16,
-                      txtclr: AppColors.secondryColor,),
-                      MyText(
-                        txt:'Gold Price : ${data.docs[index]['goldPrice']}',
-                        font: 16,
-                        txtclr: AppColors.secondryColor,),
-                      MyText(
-                        txt:'Tola Quantity : ${data.docs[index]['tolaQuantity']}',
-                        font: 16,
-                        txtclr: AppColors.secondryColor,),
-                      MyText(
-                        txt:'Grams Quantity : ${data.docs[index]['gramsQuantity']}',
-                        font: 16,
-                        txtclr: AppColors.secondryColor,),
-                      MyText(
-                        txt:'Rati Quantity : ${data.docs[index]['ratiQuantity']}',
-                        font: 16,
-                        txtclr: AppColors.secondryColor,),
-                      MyText(
-                        txt:'Points Quantity : ${data.docs[index]['ratiQuantity']}',
-                        font: 16,
-                        txtclr: AppColors.secondryColor,),
-                      MyText(
-                        txt:'Total Price : ${data.docs[index]['totalPrice']}',
-                        font: 16,
-                        txtclr: AppColors.secondryColor,),
-
-                    ],
-                  ),
-                    trailing: Padding(
-                      padding: const EdgeInsets.only(bottom: 200),
-                      child: IconButton(
-                        onPressed: () {
-                         // historyController.DialogBox(docId);
-
-                        },
-                        icon: const Icon(Icons.delete, color: Colors.amber),
-                      ),
+                    title: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        MyText(
+                          txt:
+                              'Client Name : ${data.docs[index]['clientName']}',
+                          font: 16,
+                          txtclr: AppColors.secondryColor,
+                        ),
+                        IconButton(
+                          onPressed: () {
+                            historyController
+                                .dialogBox(data.docs[index]['subDocId']);
+                          },
+                          icon: const Icon(Icons.delete, color: Colors.amber),
+                        ),
+                      ],
                     ),
+                    subtitle: Column(
+                      mainAxisAlignment: MainAxisAlignment.start,
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        MyText(
+                          txt: 'Product Name : ${data.docs[index]['product']}',
+                          font: 16,
+                          txtclr: AppColors.secondryColor,
+                        ),
+                        MyText(
+                          txt: 'Gold Price : ${data.docs[index]['goldPrice']}',
+                          font: 16,
+                          txtclr: AppColors.secondryColor,
+                        ),
+                        MyText(
+                          txt:
+                              'Tola Quantity : ${data.docs[index]['tolaQuantity']}',
+                          font: 16,
+                          txtclr: AppColors.secondryColor,
+                        ),
+                        MyText(
+                          txt:
+                              'Grams Quantity : ${data.docs[index]['gramsQuantity']}',
+                          font: 16,
+                          txtclr: AppColors.secondryColor,
+                        ),
+                        MyText(
+                          txt:
+                              'Rati Quantity : ${data.docs[index]['ratiQuantity']}',
+                          font: 16,
+                          txtclr: AppColors.secondryColor,
+                        ),
+                        MyText(
+                          txt:
+                              'Points Quantity : ${data.docs[index]['pointsQuantity'] ?? ""}',
+                          font: 16,
+                          txtclr: AppColors.secondryColor,
+                        ),
+                        MyText(
+                          txt:
+                              'Total Price : ${data.docs[index]['totalPrice']}',
+                          font: 16,
+                          txtclr: AppColors.secondryColor,
+                        ),
+                        MyText(
+                          txt: 'Total Price : ${data.docs[index]['subDocId']}',
+                          font: 16,
+                          txtclr: AppColors.secondryColor,
+                        ),
+                        Divider(
+                          color: AppColors.secondryColor,
+                        )
+                      ],
+                    ),
+                    // trailing: Padding(
+                    //   padding: const EdgeInsets.only(bottom: 200),
+                    //   child: IconButton(
+                    //     onPressed: () {
+                    //       // historyController.DialogBox(docId);
+                    //     },
+                    //     icon: const Icon(Icons.delete, color: Colors.amber),
+                    //   ),
+                    // ),
                   );
                 },
               );

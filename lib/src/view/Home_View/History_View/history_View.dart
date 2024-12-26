@@ -1,6 +1,4 @@
-
 import 'package:goldapp/src/utills/linker.dart';
-
 
 import '../BillingHistory_View/Billing_HistoryView.dart';
 
@@ -51,48 +49,45 @@ class _HistoryViewState extends State<HistoryView> {
           ),
           centerTitle: true,
           actions: [
-
-
             IconButton(
-              icon: Icon(Icons.delete),
-              onPressed: () {
-            //  confirmation dialog
-            //  historyController.DialogBox(docId);
-                Get.defaultDialog(
-                  backgroundColor: Colors.amber,
-                  title: 'Message',
-                  content: const Text(
-                      'Clear All History Data?'),
-                  actions: [
-                    MyButton(
-                      txt: 'Yes',
-                      font: 16,
-                      w: 70.w,
-                      h: 40.h,
-                      bacclr: Colors.amber,
-                      clr: Colors.black,
-                      ontap: () {
-    historyController.deleteCollection();
-                        Get.back();
-                      },
-                    ),
-                    MyButton(
-                      txt: 'No',
-                      font: 16,
-                      w: 70.w,
-                      h: 40.h,
-                      bacclr: Colors.amber,
-                      clr: Colors.black,
-                      ontap: () {
-                        Get.back();
-                      },
-                    ),
-                  ],
-                );
-              }
-              //historyController.deleteCollection();
-             // },
-            )
+                icon: Icon(Icons.delete),
+                onPressed: () {
+                  //  confirmation dialog
+                  //  historyController.DialogBox(docId);
+                  Get.defaultDialog(
+                    backgroundColor: Colors.amber,
+                    title: 'Message',
+                    content: const Text('Clear All History Data?'),
+                    actions: [
+                      MyButton(
+                        txt: 'Yes',
+                        font: 16,
+                        w: 70.w,
+                        h: 40.h,
+                        bacclr: Colors.amber,
+                        clr: Colors.black,
+                        ontap: () {
+                          historyController.deleteCollection();
+                          Get.back();
+                        },
+                      ),
+                      MyButton(
+                        txt: 'No',
+                        font: 16,
+                        w: 70.w,
+                        h: 40.h,
+                        bacclr: Colors.amber,
+                        clr: Colors.black,
+                        ontap: () {
+                          Get.back();
+                        },
+                      ),
+                    ],
+                  );
+                }
+                //historyController.deleteCollection();
+                // },
+                )
           ],
         ),
         backgroundColor: Colors.black,
@@ -106,8 +101,9 @@ class _HistoryViewState extends State<HistoryView> {
                           Get.defaultDialog(
                             backgroundColor: Colors.amber,
                             title: 'Formula',
-                            content:  MyText(
-                               txt:  '( goldPrice x tola ) + grams + ratti + points = totalPrice'),
+                            content: MyText(
+                                txt:
+                                    '( goldPrice x tola ) + grams + ratti + points = totalPrice'),
                           );
                         },
                         child: MyText(
@@ -131,10 +127,9 @@ class _HistoryViewState extends State<HistoryView> {
                   if (!snapshots.hasData || snapshots.data!.docs.isEmpty) {
                     return const Center(
                       child: Text(
-                         'No data available',
+                        'No data available',
                         style: TextStyle(color: Colors.amber),
                       ),
-
                     );
                   }
 
@@ -155,24 +150,23 @@ class _HistoryViewState extends State<HistoryView> {
                       final totalPrice = doc['totalPrice'].toString();
                       String docId = data.docs[index]['doc'].toString() ?? "";
                       return ListTile(
-                        title: MyText(txt:
-                          '($goldprice x $tolaQuantity)+($goldprice/12 x $goldgramQuantity) + ($goldprice/96 X $goldRatiQuantity) +($goldprice/100 x $goldpointQuantity)',
+                        title: MyText(
+                          txt:
+                              '($goldprice x $tolaQuantity)+($goldprice/12 x $goldgramQuantity) + ($goldprice/96 X $goldRatiQuantity) +($goldprice/100 x $goldpointQuantity)',
                           txtclr: AppColors.secondryColor,
-
                         ),
                         subtitle: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-
-                            MyText(txt: '=$totalPrice',
-                                txtclr: AppColors.secondryColor,
-
+                            MyText(
+                              txt: '=$totalPrice',
+                              txtclr: AppColors.secondryColor,
                             ),
                           ],
                         ),
                         trailing: IconButton(
                           onPressed: () {
-                            historyController.DialogBox(docId);
+                            historyController.dialogBox(docId);
                             // Get.defaultDialog(
                             //   backgroundColor: Colors.amber,
                             //   title: 'Message',
