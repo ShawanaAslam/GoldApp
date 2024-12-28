@@ -1,8 +1,3 @@
-
-
-
-
-
 import '../../../utills/linker.dart';
 import '../../../utills/toast_ Notifications/toast_Notification.dart';
 
@@ -17,10 +12,14 @@ class updateInfoController extends GetxController {
 
   Future<void> onUpdateInfo(BuildContext context) async {
     try {
+      String docId = await FirebaseAuth.instance.currentUser!.uid;
       isLoading.value = true;
-      await shopInfo();
-     // UpdateData(context, id);
-      Get.to(() => GoldShop());
+      // await shopInfo();
+      UpdateData(context, docId);
+      // Navigator.pop(context);
+      Get.back();
+
+      // Get.to(() => GoldShop());
       confirmToastMessage(context, 'Your information has been saved');
     } catch (error) {
       isLoading.value = false;
@@ -58,14 +57,10 @@ class updateInfoController extends GetxController {
       print('Error:$e');
     }
   }
+
   Future<void> UpdateData(BuildContext context, String id) async {
-
     try {
-
-      await FirebaseFirestore.instance
-          .collection('ShopInfo')
-          .doc(id)
-          .update({
+      await FirebaseFirestore.instance.collection('ShopInfo').doc(id).update({
         //'docId': docId,
         'shopName': shopnameController.text,
         'shopEmail': shopemailController.text,
@@ -76,11 +71,8 @@ class updateInfoController extends GetxController {
       });
       confirmToastMessage(context, 'Data Updated Successfully');
     } catch (error) {
-
       // Handle error
       errorToastMessage(context, error.toString());
-    } finally {
-
-    }
+    } finally {}
   }
 }

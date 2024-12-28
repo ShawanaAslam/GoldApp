@@ -120,6 +120,8 @@ class SignupController extends GetxController {
   TextEditingController userNameController = TextEditingController();
   TextEditingController confirmController = TextEditingController();
   var isLoading = false.obs; // Fixed capitalization
+  var username = ''.obs;
+  var useremail = ''.obs;
 
   // Function for signup
   void onSignup(BuildContext context) async {
@@ -134,6 +136,8 @@ class SignupController extends GetxController {
         print('------------------------------3');
         // jis variable ki data type TextEditingController na to us ky st (.value) use krty hn
         isLoading.value = true;
+        username.value = userNameController.text;
+        useremail.value = userEmailController.text;
         String? result = await createAccount(
             //userNameController.text.trim(),fatherNameController.text.trim()
             userEmailController.text.trim(),
@@ -142,7 +146,7 @@ class SignupController extends GetxController {
         // addData();
         // if (result != null)
         if (result == 'You are registered successfully') {
-          // addData();
+          addData();
           // Handle success (like navigating to another screen or showing a message)
           confirmToastMessage(context, result!);
           Get.to(() => ShopInformationview());
@@ -175,7 +179,7 @@ class SignupController extends GetxController {
       print('-------------------------4');
       await FirebaseAuth.instance
           .createUserWithEmailAndPassword(email: email, password: password);
-      addData();
+      //  addData();
 
       //
 
@@ -202,6 +206,7 @@ class SignupController extends GetxController {
 
   Future<void> addData() async {
     try {
+      print("add-----------------------1");
       //TODO app
       //-->
 
@@ -209,10 +214,10 @@ class SignupController extends GetxController {
           .uid; //DateTime.now().microsecondsSinceEpoch.toString();
 
       await FirebaseFirestore.instance.collection('UserData').doc(docId).set({
-        'name': userNameController.text,
+        'name': username.value,
         // 'fathername':fatherNameController.text,
         'docId': docId,
-        'email': userEmailController.text,
+        'email': useremail.value,
       });
     } catch (e) {
       // exception for firebase authentications
