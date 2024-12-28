@@ -94,28 +94,34 @@ class _HistoryViewState extends State<HistoryView> {
         body: Column(
           children: [
             Expanded(
-                flex: 2,
-                child: Container(
-                    child: TextButton(
-                        onPressed: () {
-                          Get.defaultDialog(
-                            backgroundColor: Colors.amber,
-                            title: 'Formula',
-                            content: MyText(
-                                txt:
-                                    '( goldPrice x tola ) + grams + ratti + points = totalPrice'),
-                          );
-                        },
-                        child: MyText(
-                          txt: 'See Formula',
-                          txtclr: AppColors.secondryColor,
-                          font: 20,
-                        )))),
+              flex: 2,
+              child: Container(
+                child: TextButton(
+                  onPressed: () {
+                    Get.defaultDialog(
+                      backgroundColor: Colors.amber,
+                      title: 'Formula',
+                      content: MyText(
+                        txt:
+                            '( goldPrice x tola ) + grams + ratti + points = totalPrice',
+                      ),
+                    );
+                  },
+                  child: MyText(
+                    txt: 'See Formula',
+                    txtclr: AppColors.secondryColor,
+                    font: 20,
+                  ),
+                ),
+              ),
+            ),
             Expanded(
               flex: 8,
               child: StreamBuilder<QuerySnapshot>(
                 stream: FirebaseFirestore.instance
                     .collection(homeController.userId.value)
+                    .orderBy('timestamp',
+                        descending: true) // Order by timestamp
                     .snapshots(),
                 builder: (context, snapshots) {
                   if (snapshots.connectionState == ConnectionState.waiting) {
@@ -148,7 +154,8 @@ class _HistoryViewState extends State<HistoryView> {
                       final goldpointQuantity =
                           doc['goldpointQuantity'].toString();
                       final totalPrice = doc['totalPrice'].toString();
-                      String docId = data.docs[index]['doc'].toString() ?? "";
+                      String docId = doc['doc'].toString();
+
                       return ListTile(
                         title: MyText(
                           txt:
@@ -167,41 +174,6 @@ class _HistoryViewState extends State<HistoryView> {
                         trailing: IconButton(
                           onPressed: () {
                             historyController.dialogBox(docId);
-                            // Get.defaultDialog(
-                            //   backgroundColor: Colors.amber,
-                            //   title: 'Message',
-                            //   content: const Text(
-                            //       'Do you want to delete this data?'),
-                            //   actions: [
-                            //     MyButton(
-                            //       txt: 'Yes',
-                            //       font: 16,
-                            //       w: 50.w,
-                            //       h: 40.h,
-                            //       bacclr: Colors.amber,
-                            //       clr: Colors.black,
-                            //       ontap: () async {
-                            //         await FirebaseFirestore.instance
-                            //             .collection(homeController.userId.value)
-                            //             // .doc(data.docs[index].id)
-                            //             .doc(docId)
-                            //             .delete();
-                            //         Get.back();
-                            //       },
-                            //     ),
-                            //     MyButton(
-                            //       txt: 'No',
-                            //       font: 16,
-                            //       w: 50.w,
-                            //       h: 40.h,
-                            //       bacclr: Colors.amber,
-                            //       clr: Colors.black,
-                            //       ontap: () {
-                            //         Get.back();
-                            //       },
-                            //     ),
-                            //   ],
-                            // );
                           },
                           icon: const Icon(Icons.delete, color: Colors.amber),
                         ),
@@ -213,5 +185,128 @@ class _HistoryViewState extends State<HistoryView> {
             )
           ],
         ));
+
+    // body: Column(
+    //   children: [
+    //     Expanded(
+    //         flex: 2,
+    //         child: Container(
+    //             child: TextButton(
+    //                 onPressed: () {
+    //                   Get.defaultDialog(
+    //                     backgroundColor: Colors.amber,
+    //                     title: 'Formula',
+    //                     content: MyText(
+    //                         txt:
+    //                             '( goldPrice x tola ) + grams + ratti + points = totalPrice'),
+    //                   );
+    //                 },
+    //                 child: MyText(
+    //                   txt: 'See Formula',
+    //                   txtclr: AppColors.secondryColor,
+    //                   font: 20,
+    //                 )))),
+    //     Expanded(
+    //       flex: 8,
+    //       child: StreamBuilder<QuerySnapshot>(
+    //         stream: FirebaseFirestore.instance
+    //             .collection(homeController.userId.value)
+    //             .snapshots(),
+    //         builder: (context, snapshots) {
+    //           if (snapshots.connectionState == ConnectionState.waiting) {
+    //             return const Center(child: AppLoading());
+    //           }
+    //           if (snapshots.hasError) {
+    //             return Center(child: Text('Error: ${snapshots.error}'));
+    //           }
+    //           if (!snapshots.hasData || snapshots.data!.docs.isEmpty) {
+    //             return const Center(
+    //               child: Text(
+    //                 'No data available',
+    //                 style: TextStyle(color: Colors.amber),
+    //               ),
+    //             );
+    //           }
+
+    //           final data = snapshots.data!;
+
+    //           return ListView.builder(
+    //             itemCount: data.size,
+    //             itemBuilder: (context, index) {
+    //               final doc = data.docs[index];
+    //               final goldprice = doc['tolaPrice'].toString();
+    //               final tolaQuantity = doc['tolaQuantity'].toString();
+    //               final goldgramQuantity =
+    //                   doc['goldgramQuantity'].toString();
+    //               final goldRatiQuantity =
+    //                   doc['goldRatiQuantity'].toString();
+    //               final goldpointQuantity =
+    //                   doc['goldpointQuantity'].toString();
+    //               final totalPrice = doc['totalPrice'].toString();
+    //               String docId = data.docs[index]['doc'].toString() ?? "";
+    //               return ListTile(
+    //                 title: MyText(
+    //                   txt:
+    //                       '($goldprice x $tolaQuantity)+($goldprice/12 x $goldgramQuantity) + ($goldprice/96 X $goldRatiQuantity) +($goldprice/100 x $goldpointQuantity)',
+    //                   txtclr: AppColors.secondryColor,
+    //                 ),
+    //                 subtitle: Column(
+    //                   crossAxisAlignment: CrossAxisAlignment.start,
+    //                   children: [
+    //                     MyText(
+    //                       txt: '=$totalPrice',
+    //                       txtclr: AppColors.secondryColor,
+    //                     ),
+    //                   ],
+    //                 ),
+    //                 trailing: IconButton(
+    //                   onPressed: () {
+    //                     historyController.dialogBox(docId);
+    //                     // Get.defaultDialog(
+    //                     //   backgroundColor: Colors.amber,
+    //                     //   title: 'Message',
+    //                     //   content: const Text(
+    //                     //       'Do you want to delete this data?'),
+    //                     //   actions: [
+    //                     //     MyButton(
+    //                     //       txt: 'Yes',
+    //                     //       font: 16,
+    //                     //       w: 50.w,
+    //                     //       h: 40.h,
+    //                     //       bacclr: Colors.amber,
+    //                     //       clr: Colors.black,
+    //                     //       ontap: () async {
+    //                     //         await FirebaseFirestore.instance
+    //                     //             .collection(homeController.userId.value)
+    //                     //             // .doc(data.docs[index].id)
+    //                     //             .doc(docId)
+    //                     //             .delete();
+    //                     //         Get.back();
+    //                     //       },
+    //                     //     ),
+    //                     //     MyButton(
+    //                     //       txt: 'No',
+    //                     //       font: 16,
+    //                     //       w: 50.w,
+    //                     //       h: 40.h,
+    //                     //       bacclr: Colors.amber,
+    //                     //       clr: Colors.black,
+    //                     //       ontap: () {
+    //                     //         Get.back();
+    //                     //       },
+    //                     //     ),
+    //                     //   ],
+    //                     // );
+    //                   },
+    //                   icon: const Icon(Icons.delete, color: Colors.amber),
+    //                 ),
+    //               );
+    //             },
+    //           );
+    //         },
+    //       ),
+    //     )
+    //   ],
+    // ));
   }
 }

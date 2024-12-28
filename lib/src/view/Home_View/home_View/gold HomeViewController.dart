@@ -436,13 +436,37 @@ class GoldShopController extends GetxController {
         'totalPrice': total.value,
         'tolaPrice': goldPriceController.text,
         'userid': controller.userId.value,
-        'doc': docid
+        'doc': docid,
+        'timestamp': FieldValue.serverTimestamp(), // Add server-side timestamp
       });
     } catch (error) {
       isLoading.value = false;
-      print('Error:$error');
+      print('Error: $error');
     }
   }
+
+  // Future<void> insertData() async {
+  //   try {
+  //     isLoading.value = true;
+  //     String docid = DateTime.now().millisecondsSinceEpoch.toString();
+  //     await FirebaseFirestore.instance
+  //         .collection(controller.userId.value)
+  //         .doc(docid)
+  //         .set({
+  //       'goldgramQuantity': gramPricecontroller.text,
+  //       'goldRatiQuantity': ratiPricecontroller.text,
+  //       'goldpointQuantity': pointsPricecontroller.text,
+  //       'tolaQuantity': tolaPricecontroller.text,
+  //       'totalPrice': total.value,
+  //       'tolaPrice': goldPriceController.text,
+  //       'userid': controller.userId.value,
+  //       'doc': docid,
+  //     });
+  //   } catch (error) {
+  //     isLoading.value = false;
+  //     print('Error:$error');
+  //   }
+  // }
 
   void refresh() {
     //Future.delayed(Duration(seconds: 3), () {
