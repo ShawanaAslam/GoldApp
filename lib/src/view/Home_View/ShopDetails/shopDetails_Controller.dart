@@ -19,6 +19,7 @@ class updateInfoController extends GetxController {
     try {
       isLoading.value = true;
       await shopInfo();
+     // UpdateData(context, id);
       Get.to(() => GoldShop());
       confirmToastMessage(context, 'Your information has been saved');
     } catch (error) {
@@ -55,6 +56,31 @@ class updateInfoController extends GetxController {
       });
     } catch (e) {
       print('Error:$e');
+    }
+  }
+  Future<void> UpdateData(BuildContext context, String id) async {
+
+    try {
+
+      await FirebaseFirestore.instance
+          .collection('ShopInfo')
+          .doc(id)
+          .update({
+        //'docId': docId,
+        'shopName': shopnameController.text,
+        'shopEmail': shopemailController.text,
+        'shopAddress': shopaddressController.text,
+        'mblNo1': mblno1Controller.text,
+        'mblNo2': mblno2Controller.text,
+        'ptclNo': ptclController.text
+      });
+      confirmToastMessage(context, 'Data Updated Successfully');
+    } catch (error) {
+
+      // Handle error
+      errorToastMessage(context, error.toString());
+    } finally {
+
     }
   }
 }

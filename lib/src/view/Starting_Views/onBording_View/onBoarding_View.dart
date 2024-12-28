@@ -5,6 +5,7 @@ import 'package:goldapp/src/common_widgets/MyButton.dart';
 import '../../../Constants/colors.dart';
 import '../../../Constants/images.dart';
 import '../../../utills/linker.dart';
+import 'onBoarding_widgets/onBoarding_Button.dart';
 
 class OnBoardingView extends StatefulWidget {
   const OnBoardingView({super.key});
@@ -61,7 +62,7 @@ class _OnBoardingViewState extends State<OnBoardingView> {
                     children: [
                       Obx(
                         () => obj.currentpage <= 1
-                            ? MyButton(txt: 'Next',
+                            ? OnBoardingButton(txt: 'Next',
                             w: double.infinity, h: 50.h,
                             icon: Icons.arrow_forward,
                             bacclr: AppColors.secondryColor, clr: AppColors.primryColor,

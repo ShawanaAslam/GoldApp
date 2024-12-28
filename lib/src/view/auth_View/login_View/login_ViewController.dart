@@ -1,4 +1,6 @@
 
+import 'package:flutter/cupertino.dart';
+
 import '../../../utills/linker.dart';
 import '../../../utills/toast_ Notifications/toast_Notification.dart';
 
@@ -26,7 +28,9 @@ class LoginController extends GetxController {
 
 
         // Navigate to BottomBar screen after login
-        Get.to(() => GoldShop());
+       Navigator.pushReplacement(
+           context, CupertinoPageRoute(builder: (context) => GoldShop()));
+
       }
       // else {
       //   // Show error toast if result is not success

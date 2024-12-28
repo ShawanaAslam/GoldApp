@@ -1,4 +1,5 @@
 import 'package:goldapp/src/utills/linker.dart';
+import 'package:goldapp/src/view/Home_View/BillingHistory_View/Billing_HistoryViewController.dart';
 
 class BillingHistoryView extends StatefulWidget {
   const BillingHistoryView({Key? key}) : super(key: key);
@@ -30,7 +31,7 @@ class _BillingHistoryViewState extends State<BillingHistoryView> {
   @override
   Widget build(BuildContext context) {
     // Controllers
-    final historyController = Get.put(HistoryController());
+ BillingHistoryController  billingHistoryController = Get.put(BillingHistoryController());
 
     return Scaffold(
         appBar: AppBar(
@@ -55,7 +56,7 @@ class _BillingHistoryViewState extends State<BillingHistoryView> {
                   Get.defaultDialog(
                     backgroundColor: Colors.amber,
                     title: 'Message',
-                    content: const Text('Clear All History Data?'),
+                    content: const Text('Clear All Billing History Data?'),
                     actions: [
                       MyButton(
                         txt: 'Yes',
@@ -65,7 +66,7 @@ class _BillingHistoryViewState extends State<BillingHistoryView> {
                         bacclr: Colors.amber,
                         clr: Colors.black,
                         ontap: () {
-                          historyController.deleteCollection();
+                          billingHistoryController.deleteBillingHistory();
                           Get.back();
                         },
                       ),
@@ -127,7 +128,7 @@ class _BillingHistoryViewState extends State<BillingHistoryView> {
                         ),
                         IconButton(
                           onPressed: () {
-                            historyController
+                            billingHistoryController
                                 .dialogBox(data.docs[index]['subDocId']);
                           },
                           icon: const Icon(Icons.delete, color: Colors.amber),
@@ -178,11 +179,11 @@ class _BillingHistoryViewState extends State<BillingHistoryView> {
                           font: 16,
                           txtclr: AppColors.secondryColor,
                         ),
-                        MyText(
-                          txt: 'Total Price : ${data.docs[index]['subDocId']}',
-                          font: 16,
-                          txtclr: AppColors.secondryColor,
-                        ),
+                        // MyText(
+                        //   txt: 'Total Price : ${data.docs[index]['subDocId']}',
+                        //   font: 16,
+                        //   txtclr: AppColors.secondryColor,
+                        // ),
                         Divider(
                           color: AppColors.secondryColor,
                         )

@@ -1,7 +1,10 @@
 
-import '../utills/linker.dart';
+import 'package:flutter/cupertino.dart';
 
-class MyButton extends StatelessWidget {
+import '../../../../utills/linker.dart';
+
+
+class OnBoardingButton extends StatelessWidget {
   IconData? icon;
   double h;
   double w;
@@ -12,9 +15,9 @@ class MyButton extends StatelessWidget {
   Color bacclr;
   VoidCallback ontap;
 
-   MyButton({super.key,this.fntwt=FontWeight.w800,this.font=20,required this.txt,
-   required this.w,
-     this.icon,required this.h,required this.bacclr,required this.clr,required this.ontap});
+  OnBoardingButton({super.key,this.fntwt=FontWeight.w800,this.font=20,required this.txt,
+    required this.w,
+    this.icon,required this.h,required this.bacclr,required this.clr,required this.ontap});
 
   @override
   Widget build(BuildContext context) {
@@ -34,7 +37,8 @@ class MyButton extends StatelessWidget {
           children: [
             Text(txt,style: TextStyle(
                 color: bacclr,fontSize: font,fontWeight: fntwt),),
-            //Icon(icon,color: AppColors.secondryColor,),
+            SizedBox(width: 10,),
+            Icon(icon,color: AppColors.secondryColor,),
           ],
         )),
       ),

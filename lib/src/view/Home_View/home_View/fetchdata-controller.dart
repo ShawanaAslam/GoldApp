@@ -33,7 +33,7 @@ class HomeFetchDataController extends GetxController {
         }
       } else {
         userEmail.value = 'please login';
-        userName.value = 'gold shop name';
+        userName.value = 'please login';
         userId.value = '';
       }
     } catch (error) {

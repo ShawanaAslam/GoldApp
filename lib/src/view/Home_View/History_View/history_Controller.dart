@@ -4,7 +4,7 @@ import '../../../utills/linker.dart';
 
 class HistoryController extends GetxController {
 
-  TextEditingController searchController = TextEditingController();
+ // TextEditingController searchController = TextEditingController();
   var searchText = ''.obs;
 
   final homeController = Get.put(HomeFetchDataController());

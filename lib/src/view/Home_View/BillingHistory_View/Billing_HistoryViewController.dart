@@ -1,7 +1,7 @@
 import '../../../utills/linker.dart';
 
-class HistoryController extends GetxController {
-  TextEditingController searchController = TextEditingController();
+class BillingHistoryController extends GetxController {
+
   var searchText = ''.obs;
 
   final homeController = Get.put(HomeFetchDataController());
@@ -10,7 +10,7 @@ class HistoryController extends GetxController {
     print('Document id:$docId');
     Get.defaultDialog(
       backgroundColor: Colors.amber,
-      title: 'Message$docId',
+      title: 'Message',
       content: const Text('Do you want to delete this data?'),
       actions: [
         MyButton(
@@ -25,8 +25,7 @@ class HistoryController extends GetxController {
             try {
               await FirebaseFirestore.instance
                   .collection('billingHistory')
-              //(homeController.userId.value)
-              // .doc(data.docs[index].id)
+
                   .doc(homeController.userId.value)
                   .collection('history')
                   .doc(docId)
@@ -69,20 +68,5 @@ class HistoryController extends GetxController {
     }
   }
 
-  Future<void> deleteCollection() async {
-    try {
-      String collectionName = homeController.userId.value;
-      final collectionRef =
-      await FirebaseFirestore.instance.collection(collectionName);
-      final snapshot = await collectionRef.get();
-      // 4th for each
-      //for(int i=1;i<=10;i++){}
 
-      for (var doc in snapshot.docs) {
-        await doc.reference.delete();
-      }
-    } catch (e) {
-      print('error clearing history');
-    }
-  }
 }

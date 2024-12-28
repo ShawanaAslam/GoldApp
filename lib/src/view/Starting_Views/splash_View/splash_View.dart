@@ -2,6 +2,7 @@
 
 
 import 'package:flutter/cupertino.dart';
+import 'package:goldapp/src/view/Starting_Views/splash_View/splash_Controller.dart';
 
 import '../../../Constants/images.dart';
 import '../../../utills/linker.dart';
@@ -14,30 +15,32 @@ class SplashView extends StatefulWidget {
 }
 
 class _SplashViewState extends State<SplashView> {
+ // SplashController  splash = Get.put(SplashController());
   @override
+
   void initState() {
     // TODO: implement initState
     super.initState();
     Future.delayed(
         Duration(
-          seconds: 5,
+          seconds: 4,
         ), () {
       //page routing----
      // Get.to(() => OnBoardingView());
-      isUserLogin();
+    isUserLogin();
     });
   }
 
-  // one time login credentials
+ // one time login credentials
   isUserLogin() {
     User? user = FirebaseAuth.instance.currentUser;
     if (user == null) {
       //user did not login--> selection screen
-      Navigator.push(
+      Navigator.pushReplacement(
           context, CupertinoPageRoute(builder: (context) => OnBoardingView()));
     } else {
       // already login==> goldshop
-      Navigator.push(
+      Navigator.pushReplacement(
           context, CupertinoPageRoute(builder: (context) => GoldShop()));
     }
   }
@@ -45,6 +48,7 @@ class _SplashViewState extends State<SplashView> {
 
   @override
   Widget build(BuildContext context) {
+
     return Scaffold(
       backgroundColor: Colors.black,
       body: Center(

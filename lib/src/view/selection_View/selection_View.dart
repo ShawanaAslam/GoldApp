@@ -1,5 +1,7 @@
 
 
+import 'package:flutter/cupertino.dart';
+
 import '../../utills/linker.dart';
 
 class SelectionView extends StatefulWidget {
@@ -50,7 +52,9 @@ children: [
 
                   MyButton(
                       ontap: () {
-                        Get.to(() => LoginView());
+                        Navigator.pushReplacement(
+                            context, CupertinoPageRoute(builder: (context) => LoginView()));
+
                       },
                       txt: 'with Login',
                       h: 150.h,
@@ -66,7 +70,9 @@ children: [
             MyButton(
 
               ontap: () {
-                Get.to(() => GoldShop());
+                Navigator.pushReplacement(
+                    context, CupertinoPageRoute(builder: (context) => GoldShop()));
+                //Get.to(() => GoldShop());
               },
               txt: 'without Login',
               h: 150.h,
