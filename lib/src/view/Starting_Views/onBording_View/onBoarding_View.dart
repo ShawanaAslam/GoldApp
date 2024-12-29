@@ -1,5 +1,6 @@
 
 
+import 'package:flutter/cupertino.dart';
 import 'package:goldapp/src/common_widgets/MyButton.dart';
 
 import '../../../Constants/colors.dart';
@@ -75,7 +76,9 @@ class _OnBoardingViewState extends State<OnBoardingView> {
                             w: double.infinity, h: 50.h,
                             bacclr: AppColors.secondryColor, clr: AppColors.primryColor,
                             ontap:(){
-                              Get.to(() => SelectionView());
+                              Navigator.pushReplacement(
+                                  context, CupertinoPageRoute(builder: (context) => SelectionView()));
+                             // Get.to(() => SelectionView());
                             })
 
                       )

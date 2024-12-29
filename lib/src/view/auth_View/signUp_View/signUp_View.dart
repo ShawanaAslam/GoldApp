@@ -111,10 +111,7 @@ class _SignupViewState extends State<SignupView> {
                 ],
               ),
             ),
-            // Form(
-            //   key: key, // reperesent validator implement textform field ,
-            //   child:
-            // ),
+
           )),
     );
   }

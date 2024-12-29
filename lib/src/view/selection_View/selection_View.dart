@@ -72,7 +72,7 @@ children: [
               ontap: () {
                 Navigator.pushReplacement(
                     context, CupertinoPageRoute(builder: (context) => GoldShop()));
-                //Get.to(() => GoldShop());
+
               },
               txt: 'without Login',
               h: 150.h,

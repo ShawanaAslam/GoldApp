@@ -26,9 +26,8 @@ class HomeFetchDataController extends GetxController {
               .where('email', isEqualTo: userEmail.value)
               .get();
           if (userdocs.docs.isNotEmpty) {
-            //setState(() {
+
             userName.value = userdocs.docs.first['name'];
-            //  });
           }
         }
       } else {

@@ -14,7 +14,7 @@ class BillingController extends GetxController {
 
   void billingAdd(String goldprice, String tolaQuantity, String gramsQuantity,
       String ratiQuantity, String pointsQuantity, String totalPrice) async {
-    // craeet collection name BillingHistory,
+    // create collection name BillingHistory,
     try {
       await FirebaseFirestore.instance
           .collection('billingHistory')
@@ -44,10 +44,7 @@ class BillingController extends GetxController {
       });
     } catch (e) {
     } finally {
-      // DateController.clear();
-      // clientNameController.clear();
-      // productController.clear();
-      // goldpricee.value = '0.0';
+
     }
   }
   //BillingController obj = Get.put(BillingController());

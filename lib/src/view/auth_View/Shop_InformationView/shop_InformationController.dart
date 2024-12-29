@@ -17,7 +17,7 @@ class ShopInfoController extends GetxController {
   var mblno2 = ''.obs;
   var ptcl = ''.obs;
 
-  //is function cy shop ka email or shop name fetch ho rha hai
+  // is function cy shop ka email or shop name fetch ho rha hai
   /* or is function cy print walay page py data fetch ho ky aa rha hai
   shop information wala */
   void fetchShopInfo() async {

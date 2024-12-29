@@ -55,7 +55,10 @@ class BillingHistoryController extends GetxController {
 
   Future<void> deleteBillingHistory() async {
     try {
+      // ye bi delete ky liye use hota hai
       // await FirebaseFirestore.instance.collection('billingHistory').doc(homeController.userId.value).delete();
+
+      // or ye bi delete ky liye use hota hai
       await FirebaseFirestore.instance
           .collection('billingHistory')
           .doc(homeController.userId.value)

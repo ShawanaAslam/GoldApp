@@ -1,4 +1,3 @@
-import 'package:goldapp/src/view/Home_View/ShopDetails/shopDetails_Controller.dart';
 
 import '../../../Constants/images.dart';
 import '../../../common_widgets/simpleTextForm_widget.dart';
@@ -31,9 +30,7 @@ class _ShopInformationviewState extends State<ShopInformationview> {
           font: 22,
         ),
         centerTitle: true,
-        actions: [
-          // Icon(Icons.clear)
-        ],
+
       ),
       backgroundColor: AppColors.primryColor,
       body: Form(

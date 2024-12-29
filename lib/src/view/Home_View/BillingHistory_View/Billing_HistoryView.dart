@@ -9,22 +9,7 @@ class BillingHistoryView extends StatefulWidget {
 }
 
 class _BillingHistoryViewState extends State<BillingHistoryView> {
-  // Future<void> deleteCollection() async {
-  //   try {
-  //     String collectionName = homeController.userId.value;
-  //     final collectionRef =
-  //         await FirebaseFirestore.instance.collection(collectionName);
-  //     final snapshot = await collectionRef.get();
-  //     // 4th for each
-  //     //for(int i=1;i<=10;i++){}
-  //
-  //     for (var doc in snapshot.docs) {
-  //       await doc.reference.delete();
-  //     }
-  //   } catch (e) {
-  //     print('error clearing history');
-  //   }
-  // }
+
 
   final homeController = Get.put(HomeFetchDataController());
 
@@ -51,8 +36,7 @@ class _BillingHistoryViewState extends State<BillingHistoryView> {
             IconButton(
                 icon: Icon(Icons.delete),
                 onPressed: () {
-                  //  confirmation dialog
-                  //  historyController.DialogBox(docId);
+
                   Get.defaultDialog(
                     backgroundColor: Colors.amber,
                     title: 'Message',
@@ -84,8 +68,7 @@ class _BillingHistoryViewState extends State<BillingHistoryView> {
                     ],
                   );
                 }
-                //historyController.deleteCollection();
-                // },
+
                 )
           ],
         ),
@@ -179,25 +162,13 @@ class _BillingHistoryViewState extends State<BillingHistoryView> {
                           font: 16,
                           txtclr: AppColors.secondryColor,
                         ),
-                        // MyText(
-                        //   txt: 'Total Price : ${data.docs[index]['subDocId']}',
-                        //   font: 16,
-                        //   txtclr: AppColors.secondryColor,
-                        // ),
+
                         Divider(
                           color: AppColors.secondryColor,
                         )
                       ],
                     ),
-                    // trailing: Padding(
-                    //   padding: const EdgeInsets.only(bottom: 200),
-                    //   child: IconButton(
-                    //     onPressed: () {
-                    //       // historyController.DialogBox(docId);
-                    //     },
-                    //     icon: const Icon(Icons.delete, color: Colors.amber),
-                    //   ),
-                    // ),
+
                   );
                 },
               );

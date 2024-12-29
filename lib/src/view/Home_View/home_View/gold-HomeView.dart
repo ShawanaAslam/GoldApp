@@ -30,38 +30,10 @@ class _GoldShopState extends State<GoldShop> {
     super.initState();
     ref.fetchUserData();
     shopInfo.fetchShopInfo();
-    //FetchuserData();
+
   }
 
-  // FetchuserData() async {
-  //   User? user = await FirebaseAuth.instance.currentUser;
-  //   if(user!=null)// false
-  //     {
-  //       userEmail = user!.email ?? '';
-  //       userId = user.uid ?? '';
-  //       if (userEmail != null) {
-  //         final userdocs = await FirebaseFirestore.instance
-  //             .collection('user Data')
-  //             .where('userEmail', isEqualTo: userEmail)
-  //             .get();
-  //         if (userdocs.docs.isNotEmpty) {
-  //           setState(() {
-  //             userName = userdocs.docs.first['userName'];
-  //           });
-  //         }
-  //       }
-  //     }
-  //   else
-  //     {
-  //       userEmail='gold shop name';
-  //       userName='please login';
-  //       userId='';
-  //       setState(() {
-  //
-  //       });
-  //     }
-  //
-  // }
+
   HomeFetchDataController ref = Get.put(HomeFetchDataController());
 
   final key = GlobalKey<FormState>();
@@ -79,7 +51,7 @@ class _GoldShopState extends State<GoldShop> {
             return ref.userId.value != ''
                 ? IconButton(
               onPressed: () {
-                // navigate to history screen
+
                 Get.to(() => BillingHistoryView());
               },
               icon:Icon(Icons.history),
@@ -91,12 +63,10 @@ class _GoldShopState extends State<GoldShop> {
             return ref.userId.value != ''
                 ? IconButton(
                     onPressed: () {
-                      // navigate to history screen
                       Get.to(() => HistoryView());
                     },
                     icon: ImageIcon(
                       AssetImage(Images.history),
-                    //  Icons.history_toggle_off,
                       size: 30,
                     ),
                   )
@@ -119,7 +89,6 @@ class _GoldShopState extends State<GoldShop> {
                   UserAccountsDrawerHeader(
                       decoration: BoxDecoration(color: Colors.amber),
                       currentAccountPicture: CircleAvatar(
-                        //  radius: 20,
                         backgroundColor: Colors.black,
                         backgroundImage: AssetImage(Images.Logo),
                       ),
@@ -238,7 +207,7 @@ class _GoldShopState extends State<GoldShop> {
                       : ListTileWidget(
                           ontap: () {
                             Get.back();
-                            Navigator.push(
+                            Navigator.pushReplacement(
                                 context,
                                 CupertinoPageRoute(
                                     builder: (context) => LoginView()));
@@ -267,7 +236,6 @@ class _GoldShopState extends State<GoldShop> {
       ),
       body: SingleChildScrollView(
         child: Column(
-          //  mainAxisAlignment: MainAxisAlignment.start,
           children: [
             SizedBox(
               height: 60,

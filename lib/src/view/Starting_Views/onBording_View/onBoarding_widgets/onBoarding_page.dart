@@ -1,5 +1,7 @@
 
 
+import 'package:flutter/cupertino.dart';
+
 import '../../../../Constants/colors.dart';
 import '../../../../utills/linker.dart';
 
@@ -28,7 +30,9 @@ class OnBoardingPageWidget extends StatelessWidget {
           children: [
 
 TextButton(onPressed: (){
-  Get.to(()=>SelectionView());
+  Navigator.pushReplacement(
+      context, CupertinoPageRoute(builder: (context) => SelectionView()));
+
 }, child: MyText(txt: 'Skip',
   txtclr: AppColors.secondryColor,font: 20,))
 

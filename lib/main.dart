@@ -1,21 +1,11 @@
-import 'package:firebase_auth/firebase_auth.dart';
+
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-
 import 'package:get/get.dart';
-import 'package:goldapp/firebase_options.dart';
 import 'package:goldapp/src/utills/linker.dart';
-import 'package:goldapp/src/view/Home_View/History_View/history_View.dart';
-import 'package:goldapp/src/view/Home_View/home_View/gold-HomeView.dart';
-
 import 'package:goldapp/src/view/Starting_Views/splash_View/splash_View.dart';
-import 'package:goldapp/src/view/auth_View/Shop_InformationView/shop_InformationView.dart';
-import 'package:goldapp/src/view/auth_View/signUp_View/signUp_View.dart';
-import 'package:goldapp/src/view/selection_View/selection_View.dart';
-import 'package:url_launcher/url_launcher.dart';
 
-//import 'src/view/Home_View/Billing_View/billingPreview_homeView.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();

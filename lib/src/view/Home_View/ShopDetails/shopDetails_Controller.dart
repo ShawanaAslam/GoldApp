@@ -14,12 +14,9 @@ class updateInfoController extends GetxController {
     try {
       String docId = await FirebaseAuth.instance.currentUser!.uid;
       isLoading.value = true;
-      // await shopInfo();
-      UpdateData(context, docId);
-      // Navigator.pop(context);
-      Get.back();
 
-      // Get.to(() => GoldShop());
+      UpdateData(context, docId);
+      Get.back();
       confirmToastMessage(context, 'Your information has been saved');
     } catch (error) {
       isLoading.value = false;
@@ -36,27 +33,6 @@ class updateInfoController extends GetxController {
     }
   }
 
-  Future<void> shopInfo() async {
-    try {
-      //--> docid--> current user logedin
-      // String docId = DateTime.now().microsecondsSinceEpoch.toString();
-      String docId = await FirebaseAuth.instance.currentUser!
-          .uid; //DateTime.now().microsecondsSinceEpoch.toString();
-      print('=========================================');
-
-      await FirebaseFirestore.instance.collection('ShopInfo').doc(docId).set({
-        'docId': docId,
-        'shopName': shopnameController.text,
-        'shopEmail': shopemailController.text,
-        'shopAddress': shopaddressController.text,
-        'mblNo1': mblno1Controller.text,
-        'mblNo2': mblno2Controller.text,
-        'ptclNo': ptclController.text
-      });
-    } catch (e) {
-      print('Error:$e');
-    }
-  }
 
   Future<void> UpdateData(BuildContext context, String id) async {
     try {

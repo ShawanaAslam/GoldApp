@@ -2,8 +2,6 @@
 
 
 import 'package:flutter/cupertino.dart';
-import 'package:goldapp/src/view/Starting_Views/splash_View/splash_Controller.dart';
-
 import '../../../Constants/images.dart';
 import '../../../utills/linker.dart';
 

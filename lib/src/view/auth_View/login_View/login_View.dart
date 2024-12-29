@@ -34,7 +34,9 @@ class _LoginViewState extends State<LoginView> {
                       height: 20,
                     ),
 InkWell(onTap: (){
-  Get.to(()=>GoldShop());
+  Navigator.pushReplacement(
+      context, CupertinoPageRoute(builder: (context) => GoldShop()));
+
 },
     child: Padding(
       padding: EdgeInsets.only(left: 120),
