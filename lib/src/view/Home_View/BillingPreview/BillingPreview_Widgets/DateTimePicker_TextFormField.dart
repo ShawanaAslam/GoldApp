@@ -30,19 +30,36 @@ class _DatePickerTextformfieldState extends State<DatePickerTextformfield> {
         context: context,
         firstDate: DateTime(2000),
         lastDate: DateTime(3000),
-        initialDate: DateTime.now());
-    Theme(
-      data: ThemeData.dark().copyWith(
-        // Calendar background color
-        colorScheme: ColorScheme.dark(
-          primary: Colors.amber, // Header and selection color
-          onPrimary: Colors.black, // Text color on the header
-          onSurface: Colors.white, // Text color on the calendar days
+        initialDate: DateTime.now(),//);
+    // Theme(
+    //   data: ThemeData.dark().copyWith(
+    //     // Calendar background color
+    //     colorScheme: ColorScheme.dark(
+    //       primary: Colors.amber, // Header and selection color
+    //       onPrimary: Colors.black, // Text color on the header
+    //       onSurface: Colors.white, // Text color on the calendar days
+    //     ),
+    //     dialogBackgroundColor: Colors.black, // Background color of the dialog
+    //   ),
+    //   child: Text(''),
+    // );
+    builder: (BuildContext context, Widget? child) {
+      return Theme(
+        data: ThemeData.dark().copyWith(
+          primaryColor: Colors.amber, // Header background color
+          colorScheme: ColorScheme.dark(
+            primary: Colors.white, // Selected date color
+            surface: Colors.amber, // Dialog background color
+            onSurface: Colors.black, // Text color
+          ),
+          dialogBackgroundColor: Colors.black, // Dialog background color
         ),
-        dialogBackgroundColor: Colors.black, // Background color of the dialog
-      ),
-      child: Text(''),
+        child: child!,
+      );
+    }
     );
+
+
     if (picked != null && picked != selectedDate) {
       setState(() {
         selectedDate = picked;
