@@ -99,8 +99,7 @@ class _HistoryViewState extends State<HistoryView> {
               child: StreamBuilder<QuerySnapshot>(
                 stream: FirebaseFirestore.instance
                     .collection(homeController.userId.value)
-                    .orderBy('timestamp',
-                    descending: true) // Order by timestamp
+                    .orderBy('timestamp', descending: true) // Order by timestamp
                     .snapshots(),
                 builder: (context, snapshots) {
                   if (snapshots.connectionState == ConnectionState.waiting) {

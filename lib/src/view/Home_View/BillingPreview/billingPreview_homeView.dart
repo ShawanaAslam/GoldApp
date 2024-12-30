@@ -264,6 +264,7 @@ class _BillingPreviewState extends State<BillingPreview> {
                     hnttxt: 'Enter Date',
                     clr: AppColors.primryColor,
                   ),
+
                 ),
                 const SizedBox(height: 30),
                 BillingTextFormField(

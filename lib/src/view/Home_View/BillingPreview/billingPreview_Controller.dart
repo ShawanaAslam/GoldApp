@@ -38,9 +38,10 @@ class BillingController extends GetxController {
         'pointsQuantity': pointsQuantity,
         'totalPrice': totalPrice,
         'subDocId': subDocId,
+        'timestamp': FieldValue.serverTimestamp(),
         // 'userId': controller.userId.value,
         //'docId': controller.userId.value,
-        //'timestamp': FieldValue.serverTimestamp(),
+
       });
     } catch (e) {
     } finally {

@@ -78,6 +78,7 @@ class _BillingHistoryViewState extends State<BillingHistoryView> {
                 .collection('billingHistory')
                 .doc(FirebaseAuth.instance.currentUser!.uid)
                 .collection('history')
+                .orderBy('timestamp', descending: true)
                 .snapshots(),
             builder: (context, snapshots) {
               if (snapshots.connectionState == ConnectionState.waiting) {
