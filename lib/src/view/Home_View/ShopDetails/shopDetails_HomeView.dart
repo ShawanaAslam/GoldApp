@@ -5,7 +5,18 @@ import '../../../common_widgets/simpleTextForm_widget.dart';
 import '../../../utills/linker.dart';
 
 class ShopDetailsHomeview extends StatefulWidget {
-  const ShopDetailsHomeview({super.key});
+  String shpName;
+  String shpEmail;
+  String shopAddress;
+  String Mblno1;
+  String Mblno2;
+  String lndline;
+  ShopDetailsHomeview({super.key,
+  required this.shpName, required this.shpEmail, required this.shopAddress, required this.Mblno1,
+    required this.Mblno2,
+  required this.lndline
+
+  });
 
   @override
   State<ShopDetailsHomeview> createState() => _ShopDetailsHomeviewState();
