@@ -112,10 +112,12 @@ class _GoldShopState extends State<GoldShop> {
                         ? ListTile(
                       onTap: () {
                         Get.back();
-                        Navigator.push(
-                            context,
-                            CupertinoPageRoute(
-                                builder: (context) => ShopDetailsHomeview()));
+                        // Navigator.push(
+                        //     context,
+                        //     CupertinoPageRoute(
+                        //         builder: (context) => ShopDetailsHomeview(
+                        //
+                        //         )));
                       },
                       leading: ImageIcon(AssetImage(Images.shop),color: Colors.amber),
                       title: Text('Shop Details',

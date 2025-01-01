@@ -102,13 +102,15 @@ class _AboutDeveloperState extends State<AboutDeveloper> {
                     ontap: () async {
                       // Link create for Linkedin
                       final liknedinUrl = Uri.parse(
-                          "www.linkedin.com/in/shawana-aslam-0628842a9");
+                          "https://www.linkedin.com/in/shawana-aslam-0628842a9/?originalSubdomain=pk");
                       await launchUrl(liknedinUrl);
                     },
                     path: Images.linkedin,
                     txt: 'Linkedin Account',
                   ),
                 ),
+                
+
                 SizedBox(
                   height: 10,
                 ),
@@ -127,6 +129,7 @@ class _AboutDeveloperState extends State<AboutDeveloper> {
                     txt: 'Gmail Account',
                   ),
                 ),
+
               ],
             ),
           ),
