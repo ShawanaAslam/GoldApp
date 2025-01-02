@@ -1,5 +1,5 @@
 import 'package:flutter/cupertino.dart';
-//import 'package:goldapp/src/view/Home_View/ShopDetails/shopDetails_HomeView.dart';
+import 'package:goldapp/src/view/Home_View/ShopDetails/shopDetails_HomeView.dart';
 
 import '../../../Constants/images.dart';
 import '../../../common_widgets/reusable_mytxtformcon.dart';

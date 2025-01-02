@@ -30,7 +30,8 @@ class HomeFetchDataController extends GetxController {
             userName.value = userdocs.docs.first['name'];
           }
         }
-      } else {
+      }
+      else {
         userEmail.value = 'please login';
         userName.value = 'please login';
         userId.value = '';

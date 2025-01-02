@@ -9,15 +9,39 @@ class updateInfoController extends GetxController {
   TextEditingController mblno2Controller = TextEditingController();
   TextEditingController ptclController = TextEditingController();
   var isLoading = false.obs;
-  String userId = '';
-  String userEmail = '';
+ // String userId = '';
+  //String userEmail = '';
 
   HomeFetchDataController homeController = Get.put(HomeFetchDataController());
 
 
-   Future<void>fetShopInfo()
- async  {
-    // shopnameController.text=
+   Future<void>fetShopInfo() async  {
+   try {
+     User? user = await FirebaseAuth.instance.currentUser;
+     if (user != null) // false
+         {
+      // userEmail.value = await user!.email ?? '';
+       homeController.userId.value = user.uid ?? '';
+       if (homeController.userId != null) {
+         final userdocs = await FirebaseFirestore.instance
+             .collection('ShopInfo')
+             .where('docId', isEqualTo: homeController.userId.value)
+             .get();
+         if (userdocs.docs.isNotEmpty) {
+
+           shopnameController.text = userdocs.docs.first['shopName'];
+           shopemailController.text = userdocs.docs.first['shopEmail'];
+           shopaddressController.text = userdocs.docs.first['shopAddress'];
+           mblno1Controller.text = userdocs.docs.first['mblNo1'];
+           mblno2Controller.text = userdocs.docs.first['mblNo2'];
+           ptclController.text = userdocs.docs.first['ptclNo'];
+
+         }
+       }
+     }
+
+   }
+   catch(e){}
    }
 
 
