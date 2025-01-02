@@ -5,16 +5,16 @@ import '../../../common_widgets/simpleTextForm_widget.dart';
 import '../../../utills/linker.dart';
 
 class ShopDetailsHomeview extends StatefulWidget {
-  String shpName;
-  String shpEmail;
-  String shopAddress;
-  String Mblno1;
-  String Mblno2;
-  String lndline;
+  // String shpName;
+  // String shpEmail;
+  // String shopAddress;
+  // String Mblno1;
+  // String Mblno2;
+  // String lndline;
   ShopDetailsHomeview({super.key,
-  required this.shpName, required this.shpEmail, required this.shopAddress, required this.Mblno1,
-    required this.Mblno2,
-  required this.lndline
+  // required this.shpName, required this.shpEmail, required this.shopAddress, required this.Mblno1,
+  //   required this.Mblno2,
+  // required this.lndline
 
   });
 
@@ -25,8 +25,15 @@ class ShopDetailsHomeview extends StatefulWidget {
 class _ShopDetailsHomeviewState extends State<ShopDetailsHomeview> {
   final key = GlobalKey<FormState>();
   @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    updateInfo.fetShopInfo();
+  }
+  updateInfoController updateInfo = Get.put(updateInfoController());
+
+  @override
   Widget build(BuildContext context) {
-    updateInfoController updateInfo = Get.put(updateInfoController());
 
     return Scaffold(
       appBar: AppBar(

@@ -12,43 +12,14 @@ class updateInfoController extends GetxController {
   String userId = '';
   String userEmail = '';
 
-  HomeFetchDataController ref = Get.put(HomeFetchDataController());
+  HomeFetchDataController homeController = Get.put(HomeFetchDataController());
 
 
-//   @override
-//   void onInit() {
-//     super.onInit();
-//     fetchShopDetails(); // Fetch data on controller initialization
-//   }
-//
-//   Future<void> fetchShopDetails() async {
-//     try {
-//
-//       String docId = FirebaseAuth.instance.currentUser!.uid;
-//
-//       DocumentSnapshot snapshot = await FirebaseFirestore.instance
-//           .collection('ShopInfo')
-//           .doc(docId)
-//           .get();
-// {
-//      if (snapshot.exists) {
-//         Map<String, dynamic> data = snapshot.data() as Map<String, dynamic>;
-//         shopnameController.text = data['shopName'] ?? '';
-//         shopemailController.text = data['shopEmail'] ?? '';
-//         shopaddressController.text = data['shopAddress'] ?? '';
-//         mblno1Controller.text = data['mblNo1'] ?? '';
-//         mblno2Controller.text = data['mblNo2'] ?? '';
-//         ptclController.text = data['ptclNo'] ?? '';
-//       }
-//     //   else {
-//     //     errorToastMessage(Get.context!, 'No data found for this user.');
-//     //   }
-//     }
-//     } catch (error) {
-//       errorToastMessage(Get.context!, error.toString());
-//     }
-//
-//   }
+   Future<void>fetShopInfo()
+ async  {
+    // shopnameController.text=
+   }
+
 
   Future<void> onUpdateInfo(BuildContext context) async {
     try {
@@ -75,9 +46,7 @@ class updateInfoController extends GetxController {
 
 
   Future<void> UpdateData(BuildContext context, String id) async {
-    User? user = FirebaseAuth.instance.currentUser;
-    userId = user!.uid ?? '';
-    userEmail = user!.email ?? '';
+
 
     try {
       await FirebaseFirestore.instance.collection('ShopInfo').doc(id).update({
