@@ -1,5 +1,5 @@
 import 'package:flutter/cupertino.dart';
-import 'package:goldapp/src/view/Home_View/ShopDetails/shopDetails_HomeView.dart';
+//import 'package:goldapp/src/view/Home_View/ShopDetails/shopDetails_HomeView.dart';
 
 import '../../../Constants/images.dart';
 import '../../../common_widgets/reusable_mytxtformcon.dart';
@@ -18,10 +18,6 @@ class GoldShop extends StatefulWidget {
 }
 
 class _GoldShopState extends State<GoldShop> {
-  // late String userId;
-  // late String userEmail;
-  // // best approach: late
-  // String userName = '';
   ShopInfoController shopInfo = Get.put(ShopInfoController());
 
   @override
@@ -30,9 +26,7 @@ class _GoldShopState extends State<GoldShop> {
     super.initState();
     ref.fetchUserData();
     shopInfo.fetchShopInfo();
-
   }
-
 
   HomeFetchDataController ref = Get.put(HomeFetchDataController());
 
@@ -45,18 +39,14 @@ class _GoldShopState extends State<GoldShop> {
       backgroundColor: Colors.black,
       appBar: AppBar(
         actions: [
-
-
           Obx(() {
             return ref.userId.value != ''
                 ? IconButton(
-              onPressed: () {
-
-                Get.to(() => BillingHistoryView());
-              },
-              icon:Icon(Icons.history),
-
-            )
+                    onPressed: () {
+                      Get.to(() => BillingHistoryView());
+                    },
+                    icon: Icon(Icons.history),
+                  )
                 : Container();
           }),
           Obx(() {
@@ -93,7 +83,7 @@ class _GoldShopState extends State<GoldShop> {
                         backgroundImage: AssetImage(Images.Logo),
                       ),
                       accountName: Text(
-                       // 'Shop Name : ${shopInfo.shopname}',
+                        // 'Shop Name : ${shopInfo.shopname}',
                         'User Name : ${ref.userName}',
                         style: TextStyle(color: Colors.black),
                       ),
@@ -110,55 +100,59 @@ class _GoldShopState extends State<GoldShop> {
                   Obx(() {
                     return ref.userId.value != ''
                         ? ListTile(
-                      onTap: () {
-                        Get.back();
-                        Navigator.push(
-                            context,
-                            CupertinoPageRoute(
-                                builder: (context) => ShopDetailsHomeview(
-
-                                )));
-                      },
-                      leading: ImageIcon(AssetImage(Images.shop),color: Colors.amber),
-                      title: Text('Shop Details',
-                          style: TextStyle(color: Colors.amber)),
-                    )
+                            onTap: () {
+                              Get.back();
+                              Navigator.push(
+                                  context,
+                                  CupertinoPageRoute(
+                                      builder: (context) =>
+                                          ShopDetailsHomeview()));
+                            },
+                            leading: ImageIcon(AssetImage(Images.shop),
+                                color: Colors.amber),
+                            title: Text('Shop Details',
+                                style: TextStyle(color: Colors.amber)),
+                          )
                         : Container();
                   }),
 
                   Obx(() {
                     return ref.userId.value != ''
                         ? ListTile(
-                      onTap: () {
-                        Get.back();
-                        Navigator.push(
-                            context,
-                            CupertinoPageRoute(
-                                builder: (context) => HistoryView()));
-                      },
-                      leading: ImageIcon(
-                        AssetImage(Images.history),
-                        color: Colors.amber,
-                      ),
-                      title: Text('History',
-                          style: TextStyle(color: Colors.amber)),
-                    )
+                            onTap: () {
+                              Get.back();
+                              Navigator.push(
+                                  context,
+                                  CupertinoPageRoute(
+                                      builder: (context) => HistoryView()));
+                            },
+                            leading: ImageIcon(
+                              AssetImage(Images.history),
+                              color: Colors.amber,
+                            ),
+                            title: Text('History',
+                                style: TextStyle(color: Colors.amber)),
+                          )
                         : Container();
                   }),
                   Obx(() {
                     return ref.userId.value != ''
                         ? ListTile(
-                      onTap: () {
-                        Get.back();
-                        Navigator.push(
-                            context,
-                            CupertinoPageRoute(
-                                builder: (context) => BillingHistoryView()));
-                      },
-                      leading: Icon(Icons.history,color: AppColors.secondryColor,),
-                      title: Text(' Billing History',
-                          style: TextStyle(color: Colors.amber)),
-                    )
+                            onTap: () {
+                              Get.back();
+                              Navigator.push(
+                                  context,
+                                  CupertinoPageRoute(
+                                      builder: (context) =>
+                                          BillingHistoryView()));
+                            },
+                            leading: Icon(
+                              Icons.history,
+                              color: AppColors.secondryColor,
+                            ),
+                            title: Text(' Billing History',
+                                style: TextStyle(color: Colors.amber)),
+                          )
                         : Container();
                   }),
                   ListTile(
@@ -247,7 +241,7 @@ class _GoldShopState extends State<GoldShop> {
               child: Form(
                 key: key,
                 child: MyTextFormConVali(
-           //       Keyboardtype: TextInputType.number,
+                  //       Keyboardtype: TextInputType.number,
                   controller: obj.goldPriceController,
                   hinttxt: "Enter gold Price",
                   lbltxt: "Gold Price",
