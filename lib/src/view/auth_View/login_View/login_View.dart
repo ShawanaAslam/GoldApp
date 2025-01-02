@@ -26,7 +26,7 @@ class _LoginViewState extends State<LoginView> {
           backgroundColor: Colors.black,
           body: SingleChildScrollView(
             child: Form(
-             // key: key,
+              key: key,
               child: Center(
                 child: Column(
                   children: [
@@ -105,7 +105,7 @@ InkWell(onTap: (){
                             //exceptions--> handle in backend (in data base)
 
 
-                          // if (key.currentState!.validate()) // true --- false
+                           if (key.currentState!.validate()) // true --- false
                               //(_formKey.currentState!.validate())
                                 {
                               loginController.onLogin(context);
