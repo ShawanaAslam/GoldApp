@@ -1,5 +1,5 @@
 import 'package:flutter/cupertino.dart';
-import 'package:goldapp/src/view/Home_View/ShopDetails/shopDetails_HomeView.dart';
+//import 'package:goldapp/src/view/Home_View/ShopDetails/shopDetails_HomeView.dart';
 
 import '../../../Constants/images.dart';
 import '../../../common_widgets/reusable_mytxtformcon.dart';
@@ -18,10 +18,7 @@ class GoldShop extends StatefulWidget {
 }
 
 class _GoldShopState extends State<GoldShop> {
-  // late String userId;
-  // late String userEmail;
-  // // best approach: late
-  // String userName = '';
+
   ShopInfoController shopInfo = Get.put(ShopInfoController());
 
   @override
@@ -112,12 +109,7 @@ class _GoldShopState extends State<GoldShop> {
                         ? ListTile(
                       onTap: () {
                         Get.back();
-                        // Navigator.push(
-                        //     context,
-                        //     CupertinoPageRoute(
-                        //         builder: (context) => ShopDetailsHomeview(
-                        //
-                        //         )));
+
                       },
                       leading: ImageIcon(AssetImage(Images.shop),color: Colors.amber),
                       title: Text('Shop Details',
