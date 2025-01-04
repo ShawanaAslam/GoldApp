@@ -122,7 +122,7 @@ class SimpleTextFormField extends StatelessWidget {
         validator: (value) {
           // Check if the field is empty
           if (value == null || value.isEmpty) {
-            return 'Please enter $hnttxt';
+            return 'Please $hnttxt';
           }
 
           // Username validation
