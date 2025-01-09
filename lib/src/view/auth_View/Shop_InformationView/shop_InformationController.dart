@@ -61,8 +61,9 @@ class ShopInfoController extends GetxController {
       isLoading.value = true;
       await shopInfo();
       Get.to(() => GoldShop());
-      confirmToastMessage(context, 'Data Updated Successfully');
-          //'Your information has been saved');
+      confirmToastMessage(context,
+          //'Data Enter Successfully');
+          'Your information has been saved');
     } catch (error) {
       isLoading.value = false;
       // Handle error

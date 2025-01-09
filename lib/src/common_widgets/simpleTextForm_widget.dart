@@ -132,10 +132,11 @@ class SimpleTextFormField extends StatelessWidget {
           }
 
           // Email validation
-          if (hnttxt.toLowerCase().contains('email') &&
-              !RegExp(r'^[\w\.\-]+@[a-zA-Z_]+\.[a-zA-Z]{2,}$').hasMatch(value)) {
-            return 'Please enter a valid email address';
-          }
+
+           if (hnttxt.toLowerCase().contains('email') &&
+               !RegExp(r'^[\w\.\-]+@[a-zA-Z_]+\.[a-zA-Z]{2,}$').hasMatch(value)) {
+             return 'Please enter a valid email address';
+           }
 
           return null;
         },
