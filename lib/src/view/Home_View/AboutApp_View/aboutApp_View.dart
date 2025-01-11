@@ -1,6 +1,7 @@
 
 
-import '../../../../../../GroceryApp/lib/src/Utills/linker.dart';
+
+import '../../../utills/linker.dart';
 
 class AboutAppView extends StatefulWidget {
   const AboutAppView({super.key});

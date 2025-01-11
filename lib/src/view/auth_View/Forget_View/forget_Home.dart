@@ -1,7 +1,7 @@
 
 import 'package:flutter/cupertino.dart';
 
-import '../../../../../../GroceryApp/lib/src/Utills/linker.dart';
+import '../../../utills/linker.dart';
 import 'Forget_Widgets/inkwell_Widget.dart';
 
 class ForgetHome extends StatelessWidget {

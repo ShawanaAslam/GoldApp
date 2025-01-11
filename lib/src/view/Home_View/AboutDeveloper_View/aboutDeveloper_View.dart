@@ -3,7 +3,8 @@
 import 'package:url_launcher/url_launcher.dart';
 
 import '../../../Constants/images.dart';
-import '../../../../../../GroceryApp/lib/src/Utills/linker.dart';
+
+import '../../../utills/linker.dart';
 import 'AboutDeveloper_Widget/Inkwell_Row.dart';
 
 class AboutDeveloper extends StatefulWidget {

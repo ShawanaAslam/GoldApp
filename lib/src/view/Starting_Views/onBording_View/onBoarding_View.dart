@@ -5,7 +5,8 @@ import 'package:goldapp/src/common_widgets/MyButton.dart';
 
 import '../../../Constants/colors.dart';
 import '../../../Constants/images.dart';
-import '../../../../../../GroceryApp/lib/src/Utills/linker.dart';
+
+import '../../../utills/linker.dart';
 import 'onBoarding_widgets/onBoarding_Button.dart';
 
 class OnBoardingView extends StatefulWidget {

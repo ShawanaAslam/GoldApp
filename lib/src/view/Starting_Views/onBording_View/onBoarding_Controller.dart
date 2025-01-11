@@ -1,6 +1,7 @@
 
 
-import '../../../../../../GroceryApp/lib/src/Utills/linker.dart';
+
+import '../../../utills/linker.dart';
 
 class OnBoardingController extends GetxController {
 

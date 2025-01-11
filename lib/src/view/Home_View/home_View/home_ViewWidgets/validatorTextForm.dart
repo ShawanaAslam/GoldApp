@@ -1,6 +1,5 @@
 
-
-import '../../../../../../../GroceryApp/lib/src/Utills/linker.dart';
+import '../../../../utills/linker.dart';
 
 class MyTextFormConVali extends StatelessWidget {
   TextEditingController controller;

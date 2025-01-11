@@ -3,7 +3,8 @@ import 'package:goldapp/src/view/Home_View/ShopDetails/shopDetails_HomeView.dart
 
 import '../../../Constants/images.dart';
 import '../../../common_widgets/reusable_mytxtformcon.dart';
-import '../../../../../../GroceryApp/lib/src/Utills/linker.dart';
+
+import '../../../utills/linker.dart';
 import '../AboutApp_View/aboutApp_View.dart';
 import '../BillingHistory_View/Billing_HistoryView.dart';
 import '../History_View/history_View.dart';

@@ -2,7 +2,8 @@ import 'package:goldapp/src/view/Home_View/ShopDetails/shopDetails_Controller.da
 
 import '../../../Constants/images.dart';
 import '../../../common_widgets/simpleTextForm_widget.dart';
-import '../../../../../../GroceryApp/lib/src/Utills/linker.dart';
+
+import '../../../utills/linker.dart';
 
 class ShopDetailsHomeview extends StatefulWidget {
   ShopDetailsHomeview({super.key,
