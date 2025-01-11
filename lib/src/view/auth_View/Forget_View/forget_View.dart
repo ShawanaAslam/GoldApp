@@ -2,7 +2,7 @@
 
 
 
-import '../../../utills/linker.dart';
+import '../../../../../../GroceryApp/lib/src/Utills/linker.dart';
 import 'Forget_Widgets/inkwell_Widget.dart';
 import 'Forget_Widgets/txtFormField_widget.dart';
 import 'forget_Controller.dart';

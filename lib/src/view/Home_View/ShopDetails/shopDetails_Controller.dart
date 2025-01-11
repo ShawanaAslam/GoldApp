@@ -1,5 +1,5 @@
-import '../../../utills/linker.dart';
-import '../../../utills/toast_ Notifications/toast_Notification.dart';
+import '../../../../../../GroceryApp/lib/src/Utills/linker.dart';
+import '../../../../../../GroceryApp/lib/src/Utills/Toast_Notifications/toast_Notification.dart';
 
 class updateInfoController extends GetxController {
   TextEditingController shopnameController = TextEditingController();

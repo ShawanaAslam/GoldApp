@@ -5,7 +5,9 @@
 
 
 
-import '../utills/linker.dart';
+import 'package:goldapp/src/utills/linker.dart';
+
+
 
 class AppColors{
 

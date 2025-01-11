@@ -1,6 +1,6 @@
 
 
-import '../../../utills/linker.dart';
+import '../../../../../../GroceryApp/lib/src/Utills/linker.dart';
 
 class HistoryController extends GetxController {
 

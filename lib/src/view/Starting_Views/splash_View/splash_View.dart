@@ -3,7 +3,7 @@
 
 import 'package:flutter/cupertino.dart';
 import '../../../Constants/images.dart';
-import '../../../utills/linker.dart';
+import '../../../../../../GroceryApp/lib/src/Utills/linker.dart';
 
 class SplashView extends StatefulWidget {
   const SplashView({super.key});

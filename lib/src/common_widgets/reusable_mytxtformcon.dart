@@ -1,7 +1,4 @@
 
-
-
-
 import '../utills/linker.dart';
 
 class MyTextFormCon extends StatelessWidget {

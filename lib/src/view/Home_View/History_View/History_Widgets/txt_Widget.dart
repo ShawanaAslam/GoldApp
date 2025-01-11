@@ -1,7 +1,7 @@
 
 
 
-import '../../../../utills/linker.dart';
+import '../../../../../../../GroceryApp/lib/src/Utills/linker.dart';
 
 class TextWidget extends StatelessWidget {
   String txt;

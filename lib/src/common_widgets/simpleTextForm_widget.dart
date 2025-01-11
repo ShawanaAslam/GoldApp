@@ -1,4 +1,6 @@
-import '../utills/linker.dart';
+import 'package:goldapp/src/utills/linker.dart';
+
+
 
 // class SimpleTextFormField extends StatelessWidget {
 //   TextEditingController controller;

@@ -3,7 +3,7 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
-import 'package:goldapp/src/utills/linker.dart';
+
 import 'package:goldapp/src/view/Starting_Views/splash_View/splash_View.dart';
 
 

@@ -1,4 +1,4 @@
-import '../../../utills/linker.dart';
+import '../../../../../../GroceryApp/lib/src/Utills/linker.dart';
 
 class HomeFetchDataController extends GetxController {
   var userId = ''.obs;

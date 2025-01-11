@@ -2,7 +2,7 @@
 export 'package:flutter/material.dart';
 export 'package:firebase_auth/firebase_auth.dart';
 export 'package:goldapp/src/view/Home_View/home_View/gold-HomeView.dart';
-export 'package:goldapp/src/utills/Loading_Effect/app_Loading.dart';
+export 'Loading_Effect/app_Loading.dart';
 export 'package:goldapp/src/view/Starting_Views/onBording_View/onBoarding_View.dart';
 export 'package:get/get.dart';
 export 'package:get/get_core/src/get_main.dart';
@@ -24,7 +24,7 @@ export 'package:goldapp/src/view/auth_View/login_View/login_View.dart';
 export 'package:goldapp/src/view/auth_View/signUp_View/signUp_View.dart';
 export 'package:goldapp/src/view/Home_View/AboutDeveloper_View/aboutDeveloper_View.dart';
 export 'package:goldapp/src/view/Home_View/home_View/home_ViewWidgets/listTile_Widget.dart';
-export 'package:goldapp/src/utills/linker.dart';
+export 'linker.dart';
 export 'package:path_provider/path_provider.dart';
 export 'package:pdf/pdf.dart';
 export 'package:open_filex/open_filex.dart';

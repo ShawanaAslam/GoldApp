@@ -1,9 +1,9 @@
 
-
 import 'package:flutter/cupertino.dart';
+import 'package:goldapp/src/utills/linker.dart';
 
 import '../../../common_widgets/simpleTextForm_widget.dart';
-import '../../../utills/linker.dart';
+
 import '../Forget_View/forget_View.dart';
 import '../signUp_View/signUp_Widgets/paswordTextForm_WidgetView.dart';
 import 'login_ViewController.dart';

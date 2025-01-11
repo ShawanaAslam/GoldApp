@@ -3,7 +3,7 @@
 import 'package:flutter/cupertino.dart';
 
 import '../../../../Constants/colors.dart';
-import '../../../../utills/linker.dart';
+import '../../../../../../../GroceryApp/lib/src/Utills/linker.dart';
 
 class OnBoardingPageWidget extends StatelessWidget {
   String text;

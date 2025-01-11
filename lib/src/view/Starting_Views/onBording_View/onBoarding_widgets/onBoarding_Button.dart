@@ -1,7 +1,7 @@
 
 import 'package:flutter/cupertino.dart';
 
-import '../../../../utills/linker.dart';
+import '../../../../../../../GroceryApp/lib/src/Utills/linker.dart';
 
 
 class OnBoardingButton extends StatelessWidget {

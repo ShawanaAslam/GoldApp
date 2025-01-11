@@ -1,6 +1,7 @@
 
 import '../../../Constants/images.dart';
 import '../../../common_widgets/simpleTextForm_widget.dart';
+
 import '../../../utills/linker.dart';
 
 class ShopInformationview extends StatefulWidget {

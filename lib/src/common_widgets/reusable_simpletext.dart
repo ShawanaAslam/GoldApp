@@ -1,5 +1,6 @@
 
 
+
 import '../utills/linker.dart';
 
 class SimpleText extends StatelessWidget {
