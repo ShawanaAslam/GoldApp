@@ -168,7 +168,9 @@ class _BillingPreviewState extends State<BillingPreview> {
               pw.SizedBox(height: 5),
               pw.Text(
                 'Points Quantity : ${widget.pointsQuantity}',
-                style: pw.TextStyle(color: PdfColors.amber),
+                style: pw.TextStyle(color: PdfColors.amber,
+                   //fontWeight: pw.FontWeight.
+                ),
               ),
               pw.SizedBox(height: 5),
               pw.Text(

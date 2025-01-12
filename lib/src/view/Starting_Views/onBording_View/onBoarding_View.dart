@@ -57,7 +57,7 @@ class _OnBoardingViewState extends State<OnBoardingView> {
              ///TODO:- button--- for next and get started
               Center(
                 child: Padding(
-                  padding: const EdgeInsets.only(bottom: 10,right: 20,left: 20),
+                  padding: const EdgeInsets.only(bottom: 5,right: 20,left: 20),
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.end,
                     crossAxisAlignment: CrossAxisAlignment.center,

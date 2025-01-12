@@ -40,8 +40,8 @@ class _DatePickerTextformfieldState extends State<DatePickerTextformfield> {
           primaryColor: Colors.amber, // Header background color
           colorScheme: ColorScheme.dark(
             primary: Colors.white, // Selected date color
-            surface: Colors.amber, // Dialog background color
-            onSurface: Colors.black, // Text color
+            surface: Colors.black, // Dialog background color
+            onSurface: Colors.amber, // Text color
           ),
           dialogBackgroundColor: Colors.black, // Dialog background color
         ),
