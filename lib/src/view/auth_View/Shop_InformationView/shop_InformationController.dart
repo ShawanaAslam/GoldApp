@@ -40,6 +40,7 @@ class ShopInfoController extends GetxController {
           print('===================3');
           //setState(() {
           shopname.value = userdocs.docs.first['shopName'];
+          print('${shopname.value = userdocs.docs.first['shopName']}');
           shopemail.value = userdocs.docs.first['shopEmail'];
           shopaddress.value = userdocs.docs.first['shopAddress'];
           mblno1.value = userdocs.docs.first['mblNo1'];

@@ -50,6 +50,8 @@ class _BillingPreviewState extends State<BillingPreview> {
   }
 
   Future<void> _createAndOpenPDF() async {
+    print('--------------9999');
+    shopInfo.fetchShopInfo();
     setState(() {
       isLoading = true; // Show loading spinner
     });
